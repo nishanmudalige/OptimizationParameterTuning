@@ -6,7 +6,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ## Things to do (Week 1):
 
 - Felix:
-  - Run Julia script on notebook (`MLParameterSelection.ipynb`) to do the following:
+  - Update Julia script on notebook (`MLParameterSelection.ipynb`) to do the following:
     - Get the sample set of optimization problems from [https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl)
     - Vary the `mem` variable in the `lbfgs` solver over the set of problems and record the following (i.e. write to file as `.csv` or `.txt`)
       - Optimization problem name/class
