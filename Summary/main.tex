@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{authblk}
+
+
+% For Julia code
+\usepackage[T1]{fontenc}
+% \usepackage{beramono}
+\usepackage[scaled=0.95]{inconsolata}
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily}
+
+
+
+% ---------- refined pastel colour palette ----------
+\definecolor{pastelbg}{RGB}{255,253,245}    % soft off-white
+\definecolor{pastelkw}{RGB}{0,102,204}      % richer blue for stronger contrast
+\definecolor{pastelco}{RGB}{102,204,153}    % minty pastel green
+\definecolor{pastelst}{RGB}{255,179,179}    % blush pastel pink
+\definecolor{pastelnm}{RGB}{150,150,150}    % medium gray for line numbers
+
+% ---------- define Julia for listings ----------
+\lstdefinelanguage{Julia}{
+  keywords={
+    abstract,break,case,catch,const,continue,do,else,elseif,end,export,
+    false,for,function,global,if,import,let,local,macro,module,quote,
+    return,struct,true,try,typealias,using,while
+  },
+  sensitive=true,
+  morecomment=[l]{\#},
+  morecomment=[n]{\#=}{=\#},
+  morestring=[b]"
+}
+
+% ---------- pastel style for Julia ----------
+\lstdefinestyle{pasteljulia}{
+  language=Julia,
+  backgroundcolor=\color{pastelbg},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{pastelkw}\bfseries,
+  commentstyle=\color{pastelco}\itshape,
+  stringstyle=\color{pastelst},
+  numberstyle=\tiny\color{pastelnm},
+  numbers=left,
+  numbersep=8pt,
+  frame=single,
+  breaklines=true,
+  tabsize=2,
+  showstringspaces=false
+}
+\lstset{style=pasteljulia}
+
+
+
+
+
+\title{Research project: A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers}
+
+\author[1]{Tangi Migot}
+\author[2]{Nishan Mudalige}
+\author[2]{[STA378 Student]}
+
+\affil[1]{GIRO Software, Montréal} %\href{mailto:tangimigot@giro.ca}{tangimigot@giro.ca}}
+\affil[2]{Department of Mathematical and Computational Sciences, University of Toronto Mississauga} 
+% \href{mailto:nishan.mudalige@utoronto.ca}{nishan.mudalige@utoronto.ca}}
+
+% \renewcommand\Authands{ and }   % change "and" formatting if you like
+\date{July 2025}
+
+\begin{document}
+
+\maketitle
+
+This project explores whether machine learning models can predict optimal hyperparameters for unconstrained optimization solvers based on features of the objective function.
+We cast parameter tuning as a supervised regression task: given a set of problem features, the goal is to predict a configuration that minimizes performance criteria, such as run-time or evaluation count.
+
+\section{Unconstrained optimization algorithms}
+
+In the field of continuous numerical optimization, the aim is to develop solvers to locate a \href{https://en.wikipedia.org/wiki/Maximum_and_minimum}{local minimum} of unconstrained optimization problems:
+\begin{equation*}
+    \min_{x \in \mathbb{R}^n} f(x)
+\end{equation*}
+where $f:\mathbb{R}^n \rightarrow \mathbb{R}$ and using the first-order (gradient vector of size $n$) and eventually second-order derivatives of $f$ (Hessian matrix - symmetric matrix of size $n$). There exists a variety of algorithms for such problem, see \cite{nocedal1999numerical}, and a list is implemented in the Julia package \href{https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl}{JSOSolvers.jl}. These methods are iterative algorithms that start from an initial guess $x_0 \in \mathbb{R}^n$ and compute a follow-up iterate until a stationary point is reached, i.e. $\nabla f(x) \approx 0$ or given $\epsilon_{abs}$ and $\epsilon_{ref}$
+$$
+\| \nabla f(x) \| \leq  \epsilon_{abs} + \epsilon_{rel} \| \nabla f(x_0) \|
+$$
+It is to be noted that the problem may be unbounded, in which case the algorithm should compute a sequence of iterate such that $f(x) \rightarrow -\infty$.
+
+The following example uses the algorithm L-BFGS to find a local minimum of the \href{https://en.wikipedia.org/wiki/Rosenbrock_function}{Rosenbrock function}.
+
+\begin{lstlisting}
+
+# Julia optimization solvers curated by the JuliaSmoothOptimizers 
+# organization for unconstrained optimization
+using JSOSolvers
+
+# package that contains a list of test problem
+using OptimizationProblems 
+
+# package for automatic differentation - compute derivatives
+using ADNLPModels 
+
+problem = OptimizationProblems.ADNLPProblem.rosenbrock()
+stats = lbfgs(nlp; mem = 5, verbose = 1)
+
+# success
+stats.status in [:first_order, :unbounded] 
+\end{lstlisting}
+
+The Github organization JuliaSmoothOptimizers \cite{The_JuliaSmoothOptimizers_Ecosystem} offers a number of packages to solve and manipulate such problems.
+
+\section{Challenge}
+
+The performance of the algorithm can be measured in term of elapsed time, number of evaluations of $f$, its gradient, its Hessian, or the memory used.
+
+The existing algorithms highly depend on algorithmic parameters, for instance for L-BFGS:
+\begin{itemize}
+    \item $mem$: memory parameter
+    \item $\tau_1$: slope factor in the Wolfe condition when performing the line search
+    \item $bk\_{max}$: maximum number of backtracks when performing the line search.
+\end{itemize}
+
+These parameters are currently "guessed" in the literature or the fruit of trial-error experiments even though they are crucial for the performance.
+Moreover, the values to get optimal performance may highly rely on the given problem. Two types of features can be extracted from the problem:
+\begin{itemize}
+    \item Analytical features: problem size $n$, known properties (e.g., sparsity)
+    \item Empirical features: condition number estimate, gradient norm at initial guess
+\end{itemize}
+
+The aim of this project is to run a machine learning approach to the parameter selection problem.\\
+
+{\color{blue}
+In the optimization literature, an example of what has been done is \cite{Audet2014} and we propose a pure optimization approach. 
+}
+
+\paragraph{Data}
+
+The data can be collected using collection of test problems from the packages OptimizationProblems.jl and CUTEst.jl, extract there features and run the optimization solvers from JSOSolvers.jl for different set of parameters.
+
+\section{Early challenges}
+
+A Jupyter notebook with example codes in Julia will be provided.
+
+\begin{enumerate}
+    \item Observe the variability of the performance of the solvers depending on the parameters. Define performance metrics that can be used to compare executions.
+    \item List the features that can be collected from the optimization problem and decide on a format to store the data.
+    \item Proof of concept of a Machine Learning approach using L-BFGS solver with the parameter $mem$ mentioned above, and a small subset of problems.
+    \item More ideas on improving our system :).
+\end{enumerate}
+The student will be free to give its own spin to the next steps :).\\
+
+\textbf{The collection of data is coded in Julia, but machine learning analysis can be performed in any language.}
+
+\section{Success criteria}
+
+What would a successful project outcome look like? E.g.:
+\begin{itemize}
+    \item A trained model predicting good mem values
+    \item A reproducible benchmark on 50 problems
+    \item A report comparing baseline vs ML-selected parameters
+\end{itemize}
+
+\section{Required success skills}
+
+\begin{itemize}
+    \item Machine Learning abilities is important
+    \item Comfortable with programming (minimum Python)
+    \item Interested in learning basic Julia (no previous knowledge required).
+    \item No prior knowledge of optimization algorithms is required, however understanding iterative algorithms is a plus.
+    \item Enjoys problem-solving and suggesting improvements
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{main}
+\normalsize
+
+\end{document}
