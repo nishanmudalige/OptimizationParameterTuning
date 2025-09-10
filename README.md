@@ -10,7 +10,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
     - Vary the `mem` variable in the `lbfgs` solver over the set of problems and record the following (i.e. write to file as `.csv` or `.txt`)
       - Number of evaluations of objective function
       - Number of evaluations of gradient (first order)
-      - number of variables
+      - Number of variables
       - Optimization problem name/class
       - Solver (right now, should only be `lbfgs`)
       - Runtime
