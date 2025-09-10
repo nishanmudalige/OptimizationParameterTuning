@@ -19,8 +19,10 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
       - Number of vector-matrix operations
       - See Tangi's sample script for all fields
     - On HPC, run `lbfgs` on entire subset of problems to generate `.csv`
+    - Try plotting results
     - If time permits attempt with another solver
-      - **Caution:** Update variables for different solver 
+      - **Caution:** Update variables for different solver
+      - Priority to `trunk` and `tron`
 
 
 ---
