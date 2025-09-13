@@ -1,6 +1,5 @@
 # Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/
-*-checkpoint.ipynb
 
 # Ignore macOS system files
 .DS_Store
