@@ -6,7 +6,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 - Felix has made very good progress with understanding and implementing the framework. We discussed methods to make implementation more efficient
 - Felix:
-  - Complete running script and recording results for the `lbfgs` solver
+  - Complete running script and recording results for the `lbfgs` solver ✅
   - Create multiple scripts for `trunc` on subsets of the optimization problems
     - Run each script for a subset of the probelms in a different terminal and let OS manage scheduling.
     - We expece OS to run each script from a termainal instance on a single core, therefore we can get results faster
