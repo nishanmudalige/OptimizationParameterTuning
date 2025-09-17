@@ -2,6 +2,22 @@
 A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
 
 ---
+## Things to do (Week 3):
+
+- Felix has made very good progress with understanding and implementing the framework. We discussed methods to make implementation more efficient
+- Felix:
+  - Complete running script and recording results for the `lbfgs` solver
+  - Create multiple scripts for `trunc` on subsets of the optimization problems
+    - Run each script for a subset of the probelms in a different terminal and let OS manage scheduling.
+    - We expece OS to run each script from a termainal instance on a single core, therefore we can get results faster
+    - We can combine the results `.csv` files later
+  - Repeat for `tron` if time permits
+  - Experiment with visualization packages in python if time permints
+    - `ggplot2`, `plotly` and `seaborn`  
+- Tangi and Nishan:
+  - Prepare to discuss methods to visualize results
+    
+---
 ## Things to do (Week 2):
 
 - Felix:
@@ -22,7 +38,6 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
     - If time permits attempt with another solver
       - **Caution:** Update variables for different solver
       - Priority to `trunk` and `tron`
-
 
 ---
 
