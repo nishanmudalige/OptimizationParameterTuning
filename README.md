@@ -2,6 +2,18 @@
 A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
 
 ---
+## Things to do (Week 4):
+
+- Felix:
+  - Add following columns into `.csv` file:
+    - Number of iterations
+    - Time takes for 1 gradient evaluation
+  - Develop script for creating plots
+    - Make plot for each solver and each problem
+    - x-axis is `mem`; vary y-axis with other suitable variables
+  - Develop script to vary `nvar` for `NZF1` for scaling `mem`
+
+---
 ## Things to do (Week 3):
 
 Felix's Progress
