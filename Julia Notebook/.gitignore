@@ -1,6 +1,17 @@
 # Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/
 
-# Ignore macOS system files
+# Ignore Julia package environments
+Manifest.toml
+Project.toml
+
+# Ignore system files
 .DS_Store
+Thumbs.db
+
+# Ignore results folder
+results/
+
+# Ignore any .log files
+*.log
 
