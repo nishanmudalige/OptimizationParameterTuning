@@ -3,8 +3,11 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 ---
 ## Things to do (Week 3):
-# Good news! With a checking mechanism, I don't need to run the script in one setting. I can always pause and resume next time.
-# It takes O(1) to perform the checking so that I don't need to rerun what has previously been recorded. 
+
+Felix's Progress
+  - Good news! With a checking mechanism, I no longer need to run the script in one setting. I can always pause and resume next time.
+  - Before starting a new run, the script checks if that entry already exists by first loading what's been recorded in the CSV file.
+  - It only takes O(1) to perform the check since it's implemented using a hashmap.
 
 - Felix has made very good progress with understanding and implementing the framework. We discussed methods to make implementation more efficient
 - Felix:
