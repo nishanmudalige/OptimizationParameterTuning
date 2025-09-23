@@ -3,6 +3,8 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 ---
 ## Things to do (Week 3):
+# Good news! With a checking mechanism, I don't need to run the script in one setting. I can always pause and resume next time.
+# It takes O(1) to perform the checking so that I don't need to rerun what has previously been recorded. 
 
 - Felix has made very good progress with understanding and implementing the framework. We discussed methods to make implementation more efficient
 - Felix:
