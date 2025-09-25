@@ -25,7 +25,7 @@ function main()
     problems = [Meta.parse("OptimizationProblems.ADNLPProblems.eval($problem)()") for problem ∈ problem_names]; # https://jso.dev/OptimizationProblems.jl/dev/benchmark/                                                
     filename = "./results/lbfgs.csv"
     mkpath(dirname(filename))
-    
+
     df = DataFrame(
                     :status => Symbol[],
                     :name => String[],
@@ -96,7 +96,11 @@ function main()
                     break
                 end
             end
-            CSV.write(filename, DataFrame([last(df)]); append=true)
+            CSV.write(
+                filename,
+                DataFrame([last(df)]);
+                append = isfile(filename) && filesize(filename) > 0
+            )
         end
     end
 end
