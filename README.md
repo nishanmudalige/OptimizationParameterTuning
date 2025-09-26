@@ -6,9 +6,9 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 - Felix:
   - Add following columns into `.csv` file:
-    - Number of iterations
-    - Time takes for 1 gradient evaluation
-    - Time takes for 1 objective evaluation
+    - Number of iterations ✅
+    - Time takes for 1 gradient evaluation ✅
+    - Time takes for 1 objective evaluation ✅
   - Develop script for creating plots
     - Make plot for each solver and each problem
     - x-axis is `mem`; vary y-axis with other suitable variables
