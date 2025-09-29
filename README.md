@@ -10,10 +10,10 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
     - Time takes for 1 gradient evaluation ✅
     - Time takes for 1 objective evaluation ✅
   - Develop script for creating plots
-    - Make plot for each solver and each problem
-    - x-axis is `mem`; vary y-axis with other suitable variables
+    - Make plot for each solver and each problem ✅
+    - x-axis is `mem`; vary y-axis with other suitable variables ✅
   - Develop script to vary `nvar` for `NZF1` for scaling `mem`
-  - Document the columns of the data table in a report.
+  - Document the columns of the data table in a report. ✅
 
 ---
 ## Things to do (Week 3):
