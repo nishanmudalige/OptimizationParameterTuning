@@ -12,7 +12,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Develop script for creating plots
     - Make plot for each solver and each problem ✅
     - x-axis is `mem`; vary y-axis with other suitable variables ✅
-  - Develop script to vary `nvar` for `NZF1` for scaling `mem`
+  - Develop script to vary `nvar` for `NZF1` for scaling `mem`✅
   - Document the columns of the data table in a report. ✅
 
 ---
