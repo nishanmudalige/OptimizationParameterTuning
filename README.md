@@ -5,14 +5,14 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ## Things to do (Week 4):
 
 - Felix:
-  - Add following columns into `.csv` file:
+  - Add following columns into `.csv` file: 
     - Number of iterations ✅
     - Time takes for 1 gradient evaluation ✅
     - Time takes for 1 objective evaluation ✅
-  - Develop script for creating plots
-    - Make plot for each solver and each problem ✅
+  - Develop script for creating plots   
+    - Make plot for each solver and each problem ✅  * organized in sub-directories under ./OptimizationParameterTuning/Julia Notebook/plots
     - x-axis is `mem`; vary y-axis with other suitable variables ✅
-  - Develop script to vary `nvar` for `NZF1` for scaling `mem`✅
+  - Develop script to vary `nvar` for `NZF1` for scaling `mem`✅ * Made a script to vary 'nvar' to close to 1000 for all scalable problems in OptimizationProblems
   - Document the columns of the data table in a report. ✅
 
 ---
