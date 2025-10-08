@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx}
+\usepackage{makecell}
 
 \title{STA378 Documentations}
 \author{Felix Gao}
@@ -14,11 +15,11 @@
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|l|l|p{9cm}|}
+\begin{tabular}{|l|l|p{10.5cm}|}
 \hline
 \textbf{Column} & \textbf{Type} & \textbf{Description} \\
 \hline
-\texttt{status} & Symbol   & Outcome of the solver run (e.g., \texttt{first\_order}, \texttt{max\_time}, \texttt{unbounded}). \\
+\texttt{status} & Symbol   & \makecell[l]{first\_order: solver successfully reached a first-order stationary point\\ max\_time: solver couldn't solve the problem within the time limit\\ unbounded: the minimum of the objective function goes to $-\infty$} \\
 \hline
 \texttt{name} & String   & Identifier for the optimization problem. \\
 \hline
@@ -34,7 +35,7 @@
 \hline
 \texttt{num\_iter} & Int   & Total number of iterations performed. \\
 \hline
-\texttt{nvmops} & Int   & Number of vector/matrix operations executed. \\
+\texttt{nvmops} & Int   & Number of vector matrix product \\
 \hline
 \texttt{neval\_obj} & Int   & Number of objective function evaluations. \\
 \hline
