@@ -11,7 +11,10 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Modify script to record correct time for initial run
     - For lbfgs update max time to 1 min  
   - Run scalable problems up to a max time of 5 min so we can get results to discuss next week
-    - - For lbfgs update max time to 20 min
+    - For lbfgs update max time to 20 min
+  - Start final report
+    - Describe problems
+    - Describe columns
 ---
 ## Things to do (Week 4-5):
 
