@@ -3,6 +3,11 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 [📄 View the full documentation (PDF)](./documentation.pdf)
 
+
+## Week 7:
+- Everyone:
+  - Discuss extending work with ML (and LLM?)
+
 ---
 ## Things to do (Week 6):
 - Nishan:
