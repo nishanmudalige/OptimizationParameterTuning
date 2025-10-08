@@ -1,8 +1,7 @@
 using Pkg
-Pkg.activate(".")
+Pkg.activate(joinpath(@__DIR__, ".."))
+Pkg.instantiate()    
 Pkg.status()
-Pkg.instantiate()
-Pkg.update()
 
 using OptimizationProblems
 using ADNLPModels
