@@ -4,7 +4,16 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](./documentation.pdf)
 
 ---
-## Things to do (Week 4):
+## Things to do (Week 6):
+- Nishan:
+  - Add suggestions for plots (somewhere on repository)
+- Felix:
+  - Modify script to record correct time for initial run
+    - For lbfgs update max time to 1 min  
+  - Run scalable problems up to a max time of 5 min so we can get results to discuss next week
+    - - For lbfgs update max time to 20 min
+---
+## Things to do (Week 4-5):
 
 - Felix:
   - Add following columns into `.csv` file: 
