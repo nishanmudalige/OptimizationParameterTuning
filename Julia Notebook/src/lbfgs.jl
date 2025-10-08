@@ -22,8 +22,8 @@ nlp = OptimizationProblems.ADNLPProblems.arglina(matrix_free = true) # is one of
 meta = OptimizationProblems.meta
 problem_names = meta[meta.contype .== :unconstrained .&& .!meta.has_bounds .&& meta.nvar .>= 5, :name]; # LBFGS is an algorithm to solve unconstrained problems
                                                                 # For this example, we select only problems of size up to 10.
-problems = [Meta.parse("OptimizationProblems.ADNLPProblems.eval($problem)()") for problem ∈ problem_names]; # https://jso.dev/OptimizationProblems.jl/dev/benchmark/                                                
-filename = "./results/lbfgs.csv"
+problems = [Meta.parse("OptimizationProblems.ADNLPProblems.eval($problem)(matrix_free = true)") for problem ∈ problem_names];                                            
+filename = "./matrix_free_results/lbfgs.csv"
 mkpath(dirname(filename))
 
 df = DataFrame(
