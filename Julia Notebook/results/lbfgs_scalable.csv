@@ -175,3 +175,6 @@ first_order,arglina,LBFGSSolver,71,1000,0.011755573,2.367832e6,1,1,2,3.663e-5,2,
 first_order,arglina,LBFGSSolver,72,1000,0.011755683,2.400088e6,1,1,2,3.5377e-5,2,0.00600752,false
 first_order,arglina,LBFGSSolver,73,1000,0.011750955,2.432264e6,1,1,2,3.6981e-5,2,0.006066402,false
 first_order,arglina,LBFGSSolver,74,1000,0.011761995,2.46444e6,1,1,2,3.8173e-5,2,0.005947565,false
+first_order,arglina,LBFGSSolver,75,1000,0.011709825,2.496616e6,1,1,2,3.8233e-5,2,0.010139973,false
+first_order,arglina,LBFGSSolver,76,1000,0.011739823,2.528984e6,1,1,2,3.7972e-5,2,0.005977322,false
+first_order,arglina,LBFGSSolver,77,1000,0.01174898,2.561272e6,1,1,2,3.5518e-5,2,0.006002139,false
