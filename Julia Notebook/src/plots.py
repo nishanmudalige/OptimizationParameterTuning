@@ -29,7 +29,7 @@ for problem_name, problem_df in df.groupby("name"):
     for attribute in problem_df.columns:
         if attribute not in OMITTED_ATTRIBUTES:
             ax = problem_df.plot(x="mem", y=attribute, kind="line", marker="o", title = f"{problem_name} ({nvar} variables) – {status} with {solver}")
-            ax.set_xlabel("mem (MB)")
+            ax.set_xlabel("mem")
             ax.set_ylabel(f"{attribute} ({UNITS.get(attribute, '')})")
             ax.legend().remove()
             if attribute in LOG_SCALE_ATTRS:
