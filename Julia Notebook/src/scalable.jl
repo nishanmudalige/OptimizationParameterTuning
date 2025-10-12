@@ -52,7 +52,7 @@ function main()
     i = 0
     for scalable_problem in scalable_problems
         nlp = scalable_problem(; n=1000)
-        println(nlp.meta)  # CHANGED: println for readability
+        println(nlp.meta)
         i += 1
         param_set = JSOSolvers.LBFGSParameterSet(nlp)
         r = domain(param_set.mem)

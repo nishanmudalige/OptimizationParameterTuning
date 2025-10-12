@@ -297,3 +297,7 @@ first_order,arglinb,LBFGSSolver,92,100,0.000254457,339712.0,2,2,28,1.583e-6,4,5.
 first_order,arglinb,LBFGSSolver,93,100,0.000254707,343168.0,2,2,28,1.473e-6,4,5.237e-5,false
 first_order,arglinb,LBFGSSolver,94,100,0.000257823,346624.0,2,2,28,4.809e-6,4,5.3102e-5,false
 first_order,arglinb,LBFGSSolver,95,100,0.000254918,350080.0,2,2,28,4.198e-6,4,5.209e-5,false
+first_order,arglinb,LBFGSSolver,96,100,0.000254366,353536.0,2,2,28,4.579e-6,4,5.73e-5,false
+first_order,arglinb,LBFGSSolver,97,100,0.000258725,356992.0,2,2,28,1.893e-6,4,5.1538e-5,false
+first_order,arglinb,LBFGSSolver,98,100,0.000253906,360448.0,2,2,28,2.425e-6,4,5.5807e-5,false
+first_order,arglinb,LBFGSSolver,99,100,0.000258966,363904.0,2,2,28,2.215e-6,4,5.0787e-5,false
