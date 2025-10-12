@@ -7,3 +7,7 @@ Thumbs.db
 
 # Ignore any .log files
 *.log
+
+*.aux
+
+*.out
