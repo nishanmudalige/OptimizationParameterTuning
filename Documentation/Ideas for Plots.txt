@@ -1,0 +1,18 @@
+Ideas for plots
+
+* Time vs nem
+* Improvement in time vs. mem
+* (Time/ num_iter) vs. mem (measures per iteration cost)
+* (Time/ neval_grad) vs. mem (measures per gradient cost)
+* num_iter vs. mem
+* neval_obj vs. mem
+* neval_grad vs. mem
+* memary vs. mem
+* Correlation plot with:
+	- time
+	- num_iter
+	- neval_iter
+	- neval_obj
+	- neval_grad
+	- memory
+	- mem
