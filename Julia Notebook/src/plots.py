@@ -1,12 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
-df = pd.read_csv("./results/lbfgs.csv")
-df["memory"] = df["memory"] / (1024 * 1024) # change the data from byte to MB
 
-OMITTED_ATTRIBUTES = {"status", "name", "solver", "mem", "nvar"}
-LOG_SCALE_ATTRS = {"time", "init_eval_obj_time", "init_eval_grad_time"}
+OMITTED_ATTRIBUTES = {"status", "name", "solver", "mem", "nvar", "is_init_run"}
+LOG_SCALE_ATTRS = {"time", "init_eval_obj_time", "init_eval_grad_time", "num_iter", "neval_grad", "nvar_obj"}
 
 UNITS = {
     "time": "seconds",
@@ -19,13 +18,22 @@ UNITS = {
     "init_eval_grad_time": "seconds",
 }
 
-os.makedirs("./plots", exist_ok=True)
+PLOTS_PATH = os.path.join(".", "Julia Notebook", "plots")
+RESULTS_PATH = os.path.join(".", "Julia Notebook", "results")
+
+df = pd.read_csv(os.path.join(RESULTS_PATH, "lbfgs_week6.csv"))
+df["memory"] = df["memory"] / (1024 * 1024) # change the data from byte to MB
+df = df[df["is_init_run"] == False]
+
+os.makedirs(PLOTS_PATH, exist_ok=True)
 
 for problem_name, problem_df in df.groupby("name"):
-    print("Saving plot for " + problem_name)
+    print("Making plots for " + problem_name)
     status = problem_df["status"].iloc[0]
     solver = problem_df["solver"].iloc[0]
     nvar = problem_df["nvar"].iloc[0]
+
+    ## mem vs attributes
     for attribute in problem_df.columns:
         if attribute not in OMITTED_ATTRIBUTES:
             ax = problem_df.plot(x="mem", y=attribute, kind="line", marker="o", title = f"{problem_name} ({nvar} variables) – {status} with {solver}")
@@ -35,6 +43,21 @@ for problem_name, problem_df in df.groupby("name"):
             if attribute in LOG_SCALE_ATTRS:
                 ax.set_yscale("log")
             plt.tight_layout()
-            os.makedirs(f"./plots/{problem_name}", exist_ok=True)
-            plt.savefig(f"./plots/{problem_name}/mem_vs_{attribute}.pdf", bbox_inches="tight")
+            os.makedirs(os.path.join(PLOTS_PATH, problem_name), exist_ok=True)
+            plt.savefig(os.path.join(PLOTS_PATH, problem_name, f"mem_vs_{attribute}.pdf"), bbox_inches="tight")
             plt.close()
+    
+    time_df = problem_df["time"]
+    for attribute in ["num_iter", "neval_obj", "neval_grad"]:
+        problem_df["temp"] = time_df / problem_df[attribute]
+        ax = problem_df.plot(x="mem", y="temp", kind="line", marker="o", title = f"{problem_name} ({nvar} variables) – {status} with {solver}")
+        ax.set_xlabel("mem")
+        ax.set_ylabel(f"{attribute} ({UNITS.get("time", '')} per evaluation)")
+        ax.legend().remove()
+        if attribute in LOG_SCALE_ATTRS:
+            ax.set_yscale("log")
+        plt.tight_layout()
+        os.makedirs(os.path.join(PLOTS_PATH, problem_name), exist_ok=True)
+        plt.savefig(os.path.join(PLOTS_PATH, problem_name, f"mem_vs_time_per_{attribute}_.pdf"), bbox_inches="tight")
+        plt.close()
+
