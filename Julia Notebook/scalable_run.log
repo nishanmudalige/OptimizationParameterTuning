@@ -4157,3 +4157,2347 @@ Running dixmaann with nvar=999 and mem=88
 Running dixmaann with nvar=999 and mem=89
 Running dixmaann with nvar=999 and mem=90
 Running dixmaann with nvar=999 and mem=91
+Running dixmaann with nvar=999 and mem=92
+Running dixmaann with nvar=999 and mem=93
+Running dixmaann with nvar=999 and mem=94
+Running dixmaann with nvar=999 and mem=95
+Running dixmaann with nvar=999 and mem=96
+Running dixmaann with nvar=999 and mem=97
+Running dixmaann with nvar=999 and mem=98
+Running dixmaann with nvar=999 and mem=99
+Running dixmaann with nvar=999 and mem=100
+┌ Warning: dixmaan: number of variables adjusted to be a multiple of 3
+└ @ OptimizationProblems.ADNLPProblems ~/.julia/packages/OptimizationProblems/WlrPI/src/ADNLPProblems/dixmaan_mnop.jl:12
+  Problem name: dixmaano
+   All variables: ████████████████████ 999    All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 999               free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.40% sparsity)   2996            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running dixmaano with nvar=999 and mem=1
+Running dixmaano with nvar=999 and mem=1
+Running dixmaano with nvar=999 and mem=2
+Running dixmaano with nvar=999 and mem=3
+Running dixmaano with nvar=999 and mem=4
+Running dixmaano with nvar=999 and mem=5
+Running dixmaano with nvar=999 and mem=6
+Running dixmaano with nvar=999 and mem=7
+Running dixmaano with nvar=999 and mem=8
+Running dixmaano with nvar=999 and mem=9
+Running dixmaano with nvar=999 and mem=10
+Running dixmaano with nvar=999 and mem=11
+Running dixmaano with nvar=999 and mem=12
+Running dixmaano with nvar=999 and mem=13
+Running dixmaano with nvar=999 and mem=14
+Running dixmaano with nvar=999 and mem=15
+Running dixmaano with nvar=999 and mem=16
+Running dixmaano with nvar=999 and mem=17
+Running dixmaano with nvar=999 and mem=18
+Running dixmaano with nvar=999 and mem=19
+Running dixmaano with nvar=999 and mem=20
+Running dixmaano with nvar=999 and mem=21
+Running dixmaano with nvar=999 and mem=22
+Running dixmaano with nvar=999 and mem=23
+Running dixmaano with nvar=999 and mem=24
+Running dixmaano with nvar=999 and mem=25
+Running dixmaano with nvar=999 and mem=26
+Running dixmaano with nvar=999 and mem=27
+Running dixmaano with nvar=999 and mem=28
+Running dixmaano with nvar=999 and mem=29
+Running dixmaano with nvar=999 and mem=30
+Running dixmaano with nvar=999 and mem=31
+Running dixmaano with nvar=999 and mem=32
+Running dixmaano with nvar=999 and mem=33
+Running dixmaano with nvar=999 and mem=34
+Running dixmaano with nvar=999 and mem=35
+Running dixmaano with nvar=999 and mem=36
+Running dixmaano with nvar=999 and mem=37
+Running dixmaano with nvar=999 and mem=38
+Running dixmaano with nvar=999 and mem=39
+Running dixmaano with nvar=999 and mem=40
+Running dixmaano with nvar=999 and mem=41
+Running dixmaano with nvar=999 and mem=42
+Running dixmaano with nvar=999 and mem=43
+Running dixmaano with nvar=999 and mem=44
+Running dixmaano with nvar=999 and mem=45
+Running dixmaano with nvar=999 and mem=46
+Running dixmaano with nvar=999 and mem=47
+Running dixmaano with nvar=999 and mem=48
+Running dixmaano with nvar=999 and mem=49
+Running dixmaano with nvar=999 and mem=50
+Running dixmaano with nvar=999 and mem=51
+Running dixmaano with nvar=999 and mem=52
+Running dixmaano with nvar=999 and mem=53
+Running dixmaano with nvar=999 and mem=54
+Running dixmaano with nvar=999 and mem=55
+Running dixmaano with nvar=999 and mem=56
+Running dixmaano with nvar=999 and mem=57
+Running dixmaano with nvar=999 and mem=58
+Running dixmaano with nvar=999 and mem=59
+Running dixmaano with nvar=999 and mem=60
+Running dixmaano with nvar=999 and mem=61
+Running dixmaano with nvar=999 and mem=62
+Running dixmaano with nvar=999 and mem=63
+Running dixmaano with nvar=999 and mem=64
+Running dixmaano with nvar=999 and mem=65
+Running dixmaano with nvar=999 and mem=66
+Running dixmaano with nvar=999 and mem=67
+Running dixmaano with nvar=999 and mem=68
+Running dixmaano with nvar=999 and mem=69
+Running dixmaano with nvar=999 and mem=70
+Running dixmaano with nvar=999 and mem=71
+Running dixmaano with nvar=999 and mem=72
+Running dixmaano with nvar=999 and mem=73
+Running dixmaano with nvar=999 and mem=74
+Running dixmaano with nvar=999 and mem=75
+Running dixmaano with nvar=999 and mem=76
+Running dixmaano with nvar=999 and mem=77
+Running dixmaano with nvar=999 and mem=78
+Running dixmaano with nvar=999 and mem=79
+Running dixmaano with nvar=999 and mem=80
+Running dixmaano with nvar=999 and mem=81
+Running dixmaano with nvar=999 and mem=82
+Running dixmaano with nvar=999 and mem=83
+Running dixmaano with nvar=999 and mem=84
+Running dixmaano with nvar=999 and mem=85
+Running dixmaano with nvar=999 and mem=86
+Running dixmaano with nvar=999 and mem=87
+Running dixmaano with nvar=999 and mem=88
+Running dixmaano with nvar=999 and mem=89
+Running dixmaano with nvar=999 and mem=90
+Running dixmaano with nvar=999 and mem=91
+Running dixmaano with nvar=999 and mem=92
+Running dixmaano with nvar=999 and mem=93
+Running dixmaano with nvar=999 and mem=94
+Running dixmaano with nvar=999 and mem=95
+Running dixmaano with nvar=999 and mem=96
+Running dixmaano with nvar=999 and mem=97
+Running dixmaano with nvar=999 and mem=98
+Running dixmaano with nvar=999 and mem=99
+Running dixmaano with nvar=999 and mem=100
+┌ Warning: dixmaan: number of variables adjusted to be a multiple of 3
+└ @ OptimizationProblems.ADNLPProblems ~/.julia/packages/OptimizationProblems/WlrPI/src/ADNLPProblems/dixmaan_mnop.jl:12
+  Problem name: dixmaanp
+   All variables: ████████████████████ 999    All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 999               free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.40% sparsity)   2996            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running dixmaanp with nvar=999 and mem=1
+Running dixmaanp with nvar=999 and mem=1
+Running dixmaanp with nvar=999 and mem=2
+Running dixmaanp with nvar=999 and mem=3
+Running dixmaanp with nvar=999 and mem=4
+Running dixmaanp with nvar=999 and mem=5
+Running dixmaanp with nvar=999 and mem=6
+Running dixmaanp with nvar=999 and mem=7
+Running dixmaanp with nvar=999 and mem=8
+Running dixmaanp with nvar=999 and mem=9
+Running dixmaanp with nvar=999 and mem=10
+Running dixmaanp with nvar=999 and mem=11
+Running dixmaanp with nvar=999 and mem=12
+Running dixmaanp with nvar=999 and mem=13
+Running dixmaanp with nvar=999 and mem=14
+Running dixmaanp with nvar=999 and mem=15
+Running dixmaanp with nvar=999 and mem=16
+Running dixmaanp with nvar=999 and mem=17
+Running dixmaanp with nvar=999 and mem=18
+Running dixmaanp with nvar=999 and mem=19
+Running dixmaanp with nvar=999 and mem=20
+Running dixmaanp with nvar=999 and mem=21
+Running dixmaanp with nvar=999 and mem=22
+Running dixmaanp with nvar=999 and mem=23
+Running dixmaanp with nvar=999 and mem=24
+Running dixmaanp with nvar=999 and mem=25
+Running dixmaanp with nvar=999 and mem=26
+Running dixmaanp with nvar=999 and mem=27
+Running dixmaanp with nvar=999 and mem=28
+Running dixmaanp with nvar=999 and mem=29
+Running dixmaanp with nvar=999 and mem=30
+Running dixmaanp with nvar=999 and mem=31
+Running dixmaanp with nvar=999 and mem=32
+Running dixmaanp with nvar=999 and mem=33
+Running dixmaanp with nvar=999 and mem=34
+Running dixmaanp with nvar=999 and mem=35
+Running dixmaanp with nvar=999 and mem=36
+Running dixmaanp with nvar=999 and mem=37
+Running dixmaanp with nvar=999 and mem=38
+Running dixmaanp with nvar=999 and mem=39
+Running dixmaanp with nvar=999 and mem=40
+Running dixmaanp with nvar=999 and mem=41
+Running dixmaanp with nvar=999 and mem=42
+Running dixmaanp with nvar=999 and mem=43
+Running dixmaanp with nvar=999 and mem=44
+Running dixmaanp with nvar=999 and mem=45
+Running dixmaanp with nvar=999 and mem=46
+Running dixmaanp with nvar=999 and mem=47
+Running dixmaanp with nvar=999 and mem=48
+Running dixmaanp with nvar=999 and mem=49
+Running dixmaanp with nvar=999 and mem=50
+Running dixmaanp with nvar=999 and mem=51
+Running dixmaanp with nvar=999 and mem=52
+Running dixmaanp with nvar=999 and mem=53
+Running dixmaanp with nvar=999 and mem=54
+Running dixmaanp with nvar=999 and mem=55
+Running dixmaanp with nvar=999 and mem=56
+Running dixmaanp with nvar=999 and mem=57
+Running dixmaanp with nvar=999 and mem=58
+Running dixmaanp with nvar=999 and mem=59
+Running dixmaanp with nvar=999 and mem=60
+Running dixmaanp with nvar=999 and mem=61
+Running dixmaanp with nvar=999 and mem=62
+Running dixmaanp with nvar=999 and mem=63
+Running dixmaanp with nvar=999 and mem=64
+Running dixmaanp with nvar=999 and mem=65
+Running dixmaanp with nvar=999 and mem=66
+Running dixmaanp with nvar=999 and mem=67
+Running dixmaanp with nvar=999 and mem=68
+Running dixmaanp with nvar=999 and mem=69
+Running dixmaanp with nvar=999 and mem=70
+Running dixmaanp with nvar=999 and mem=71
+Running dixmaanp with nvar=999 and mem=72
+Running dixmaanp with nvar=999 and mem=73
+Running dixmaanp with nvar=999 and mem=74
+Running dixmaanp with nvar=999 and mem=75
+Running dixmaanp with nvar=999 and mem=76
+Running dixmaanp with nvar=999 and mem=77
+Running dixmaanp with nvar=999 and mem=78
+Running dixmaanp with nvar=999 and mem=79
+Running dixmaanp with nvar=999 and mem=80
+Running dixmaanp with nvar=999 and mem=81
+Running dixmaanp with nvar=999 and mem=82
+Running dixmaanp with nvar=999 and mem=83
+Running dixmaanp with nvar=999 and mem=84
+Running dixmaanp with nvar=999 and mem=85
+Running dixmaanp with nvar=999 and mem=86
+Running dixmaanp with nvar=999 and mem=87
+Running dixmaanp with nvar=999 and mem=88
+Running dixmaanp with nvar=999 and mem=89
+Running dixmaanp with nvar=999 and mem=90
+Running dixmaanp with nvar=999 and mem=91
+Running dixmaanp with nvar=999 and mem=92
+Running dixmaanp with nvar=999 and mem=93
+Running dixmaanp with nvar=999 and mem=94
+Running dixmaanp with nvar=999 and mem=95
+Running dixmaanp with nvar=999 and mem=96
+Running dixmaanp with nvar=999 and mem=97
+Running dixmaanp with nvar=999 and mem=98
+Running dixmaanp with nvar=999 and mem=99
+Running dixmaanp with nvar=999 and mem=100
+  Problem name: dixon3dq
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1998            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running dixon3dq with nvar=1000 and mem=1
+Running dixon3dq with nvar=1000 and mem=1
+Running dixon3dq with nvar=1000 and mem=2
+Running dixon3dq with nvar=1000 and mem=3
+Running dixon3dq with nvar=1000 and mem=4
+Running dixon3dq with nvar=1000 and mem=5
+Running dixon3dq with nvar=1000 and mem=6
+Running dixon3dq with nvar=1000 and mem=7
+Running dixon3dq with nvar=1000 and mem=8
+Running dixon3dq with nvar=1000 and mem=9
+Running dixon3dq with nvar=1000 and mem=10
+Running dixon3dq with nvar=1000 and mem=11
+Running dixon3dq with nvar=1000 and mem=12
+Running dixon3dq with nvar=1000 and mem=13
+Running dixon3dq with nvar=1000 and mem=14
+Running dixon3dq with nvar=1000 and mem=15
+Running dixon3dq with nvar=1000 and mem=16
+Running dixon3dq with nvar=1000 and mem=17
+Running dixon3dq with nvar=1000 and mem=18
+Running dixon3dq with nvar=1000 and mem=19
+Running dixon3dq with nvar=1000 and mem=20
+Running dixon3dq with nvar=1000 and mem=21
+Running dixon3dq with nvar=1000 and mem=22
+Running dixon3dq with nvar=1000 and mem=23
+Running dixon3dq with nvar=1000 and mem=24
+Running dixon3dq with nvar=1000 and mem=25
+Running dixon3dq with nvar=1000 and mem=26
+Running dixon3dq with nvar=1000 and mem=27
+Running dixon3dq with nvar=1000 and mem=28
+Running dixon3dq with nvar=1000 and mem=29
+Running dixon3dq with nvar=1000 and mem=30
+Running dixon3dq with nvar=1000 and mem=31
+Running dixon3dq with nvar=1000 and mem=32
+Running dixon3dq with nvar=1000 and mem=33
+Running dixon3dq with nvar=1000 and mem=34
+Running dixon3dq with nvar=1000 and mem=35
+Running dixon3dq with nvar=1000 and mem=36
+Running dixon3dq with nvar=1000 and mem=37
+Running dixon3dq with nvar=1000 and mem=38
+Running dixon3dq with nvar=1000 and mem=39
+Running dixon3dq with nvar=1000 and mem=40
+Running dixon3dq with nvar=1000 and mem=41
+Running dixon3dq with nvar=1000 and mem=42
+Running dixon3dq with nvar=1000 and mem=43
+Running dixon3dq with nvar=1000 and mem=44
+Running dixon3dq with nvar=1000 and mem=45
+Running dixon3dq with nvar=1000 and mem=46
+Running dixon3dq with nvar=1000 and mem=47
+Running dixon3dq with nvar=1000 and mem=48
+Running dixon3dq with nvar=1000 and mem=49
+Running dixon3dq with nvar=1000 and mem=50
+Running dixon3dq with nvar=1000 and mem=51
+Running dixon3dq with nvar=1000 and mem=52
+Running dixon3dq with nvar=1000 and mem=53
+Running dixon3dq with nvar=1000 and mem=54
+Running dixon3dq with nvar=1000 and mem=55
+Running dixon3dq with nvar=1000 and mem=56
+Running dixon3dq with nvar=1000 and mem=57
+Running dixon3dq with nvar=1000 and mem=58
+Running dixon3dq with nvar=1000 and mem=59
+Running dixon3dq with nvar=1000 and mem=60
+Running dixon3dq with nvar=1000 and mem=61
+Running dixon3dq with nvar=1000 and mem=62
+Running dixon3dq with nvar=1000 and mem=63
+Running dixon3dq with nvar=1000 and mem=64
+Running dixon3dq with nvar=1000 and mem=65
+Running dixon3dq with nvar=1000 and mem=66
+Running dixon3dq with nvar=1000 and mem=67
+Running dixon3dq with nvar=1000 and mem=68
+Running dixon3dq with nvar=1000 and mem=69
+Running dixon3dq with nvar=1000 and mem=70
+Running dixon3dq with nvar=1000 and mem=71
+Running dixon3dq with nvar=1000 and mem=72
+Running dixon3dq with nvar=1000 and mem=73
+Running dixon3dq with nvar=1000 and mem=74
+Running dixon3dq with nvar=1000 and mem=75
+Running dixon3dq with nvar=1000 and mem=76
+Running dixon3dq with nvar=1000 and mem=77
+Running dixon3dq with nvar=1000 and mem=78
+Running dixon3dq with nvar=1000 and mem=79
+Running dixon3dq with nvar=1000 and mem=80
+Running dixon3dq with nvar=1000 and mem=81
+Running dixon3dq with nvar=1000 and mem=82
+Running dixon3dq with nvar=1000 and mem=83
+Running dixon3dq with nvar=1000 and mem=84
+Running dixon3dq with nvar=1000 and mem=85
+Running dixon3dq with nvar=1000 and mem=86
+Running dixon3dq with nvar=1000 and mem=87
+Running dixon3dq with nvar=1000 and mem=88
+Running dixon3dq with nvar=1000 and mem=89
+Running dixon3dq with nvar=1000 and mem=90
+Running dixon3dq with nvar=1000 and mem=91
+Running dixon3dq with nvar=1000 and mem=92
+Running dixon3dq with nvar=1000 and mem=93
+Running dixon3dq with nvar=1000 and mem=94
+Running dixon3dq with nvar=1000 and mem=95
+Running dixon3dq with nvar=1000 and mem=96
+Running dixon3dq with nvar=1000 and mem=97
+Running dixon3dq with nvar=1000 and mem=98
+Running dixon3dq with nvar=1000 and mem=99
+Running dixon3dq with nvar=1000 and mem=100
+  Problem name: dqdrtic
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.80% sparsity)   1000            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running dqdrtic with nvar=1000 and mem=1
+Running dqdrtic with nvar=1000 and mem=1
+Running dqdrtic with nvar=1000 and mem=2
+Running dqdrtic with nvar=1000 and mem=3
+Running dqdrtic with nvar=1000 and mem=4
+Running dqdrtic with nvar=1000 and mem=5
+Running dqdrtic with nvar=1000 and mem=6
+Running dqdrtic with nvar=1000 and mem=7
+Running dqdrtic with nvar=1000 and mem=8
+Running dqdrtic with nvar=1000 and mem=9
+Running dqdrtic with nvar=1000 and mem=10
+Running dqdrtic with nvar=1000 and mem=11
+Running dqdrtic with nvar=1000 and mem=12
+Running dqdrtic with nvar=1000 and mem=13
+Running dqdrtic with nvar=1000 and mem=14
+Running dqdrtic with nvar=1000 and mem=15
+Running dqdrtic with nvar=1000 and mem=16
+Running dqdrtic with nvar=1000 and mem=17
+Running dqdrtic with nvar=1000 and mem=18
+Running dqdrtic with nvar=1000 and mem=19
+Running dqdrtic with nvar=1000 and mem=20
+Running dqdrtic with nvar=1000 and mem=21
+Running dqdrtic with nvar=1000 and mem=22
+Running dqdrtic with nvar=1000 and mem=23
+Running dqdrtic with nvar=1000 and mem=24
+Running dqdrtic with nvar=1000 and mem=25
+Running dqdrtic with nvar=1000 and mem=26
+Running dqdrtic with nvar=1000 and mem=27
+Running dqdrtic with nvar=1000 and mem=28
+Running dqdrtic with nvar=1000 and mem=29
+Running dqdrtic with nvar=1000 and mem=30
+Running dqdrtic with nvar=1000 and mem=31
+Running dqdrtic with nvar=1000 and mem=32
+Running dqdrtic with nvar=1000 and mem=33
+Running dqdrtic with nvar=1000 and mem=34
+Running dqdrtic with nvar=1000 and mem=35
+Running dqdrtic with nvar=1000 and mem=36
+Running dqdrtic with nvar=1000 and mem=37
+Running dqdrtic with nvar=1000 and mem=38
+Running dqdrtic with nvar=1000 and mem=39
+Running dqdrtic with nvar=1000 and mem=40
+Running dqdrtic with nvar=1000 and mem=41
+Running dqdrtic with nvar=1000 and mem=42
+Running dqdrtic with nvar=1000 and mem=43
+Running dqdrtic with nvar=1000 and mem=44
+Running dqdrtic with nvar=1000 and mem=45
+Running dqdrtic with nvar=1000 and mem=46
+Running dqdrtic with nvar=1000 and mem=47
+Running dqdrtic with nvar=1000 and mem=48
+Running dqdrtic with nvar=1000 and mem=49
+Running dqdrtic with nvar=1000 and mem=50
+Running dqdrtic with nvar=1000 and mem=51
+Running dqdrtic with nvar=1000 and mem=52
+Running dqdrtic with nvar=1000 and mem=53
+Running dqdrtic with nvar=1000 and mem=54
+Running dqdrtic with nvar=1000 and mem=55
+Running dqdrtic with nvar=1000 and mem=56
+Running dqdrtic with nvar=1000 and mem=57
+Running dqdrtic with nvar=1000 and mem=58
+Running dqdrtic with nvar=1000 and mem=59
+Running dqdrtic with nvar=1000 and mem=60
+Running dqdrtic with nvar=1000 and mem=61
+Running dqdrtic with nvar=1000 and mem=62
+Running dqdrtic with nvar=1000 and mem=63
+Running dqdrtic with nvar=1000 and mem=64
+Running dqdrtic with nvar=1000 and mem=65
+Running dqdrtic with nvar=1000 and mem=66
+Running dqdrtic with nvar=1000 and mem=67
+Running dqdrtic with nvar=1000 and mem=68
+Running dqdrtic with nvar=1000 and mem=69
+Running dqdrtic with nvar=1000 and mem=70
+Running dqdrtic with nvar=1000 and mem=71
+Running dqdrtic with nvar=1000 and mem=72
+Running dqdrtic with nvar=1000 and mem=73
+Running dqdrtic with nvar=1000 and mem=74
+Running dqdrtic with nvar=1000 and mem=75
+Running dqdrtic with nvar=1000 and mem=76
+Running dqdrtic with nvar=1000 and mem=77
+Running dqdrtic with nvar=1000 and mem=78
+Running dqdrtic with nvar=1000 and mem=79
+Running dqdrtic with nvar=1000 and mem=80
+Running dqdrtic with nvar=1000 and mem=81
+Running dqdrtic with nvar=1000 and mem=82
+Running dqdrtic with nvar=1000 and mem=83
+Running dqdrtic with nvar=1000 and mem=84
+Running dqdrtic with nvar=1000 and mem=85
+Running dqdrtic with nvar=1000 and mem=86
+Running dqdrtic with nvar=1000 and mem=87
+Running dqdrtic with nvar=1000 and mem=88
+Running dqdrtic with nvar=1000 and mem=89
+Running dqdrtic with nvar=1000 and mem=90
+Running dqdrtic with nvar=1000 and mem=91
+Running dqdrtic with nvar=1000 and mem=92
+Running dqdrtic with nvar=1000 and mem=93
+Running dqdrtic with nvar=1000 and mem=94
+Running dqdrtic with nvar=1000 and mem=95
+Running dqdrtic with nvar=1000 and mem=96
+Running dqdrtic with nvar=1000 and mem=97
+Running dqdrtic with nvar=1000 and mem=98
+Running dqdrtic with nvar=1000 and mem=99
+Running dqdrtic with nvar=1000 and mem=100
+  Problem name: dqrtic
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.80% sparsity)   1000            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running dqrtic with nvar=1000 and mem=1
+Running dqrtic with nvar=1000 and mem=1
+Running dqrtic with nvar=1000 and mem=2
+Running dqrtic with nvar=1000 and mem=3
+Running dqrtic with nvar=1000 and mem=4
+Running dqrtic with nvar=1000 and mem=5
+Running dqrtic with nvar=1000 and mem=6
+Running dqrtic with nvar=1000 and mem=7
+Running dqrtic with nvar=1000 and mem=8
+Running dqrtic with nvar=1000 and mem=9
+Running dqrtic with nvar=1000 and mem=10
+Running dqrtic with nvar=1000 and mem=11
+Running dqrtic with nvar=1000 and mem=12
+Running dqrtic with nvar=1000 and mem=13
+Running dqrtic with nvar=1000 and mem=14
+Running dqrtic with nvar=1000 and mem=15
+Running dqrtic with nvar=1000 and mem=16
+Running dqrtic with nvar=1000 and mem=17
+Running dqrtic with nvar=1000 and mem=18
+Running dqrtic with nvar=1000 and mem=19
+Running dqrtic with nvar=1000 and mem=20
+Running dqrtic with nvar=1000 and mem=21
+Running dqrtic with nvar=1000 and mem=22
+Running dqrtic with nvar=1000 and mem=23
+Running dqrtic with nvar=1000 and mem=24
+Running dqrtic with nvar=1000 and mem=25
+Running dqrtic with nvar=1000 and mem=26
+Running dqrtic with nvar=1000 and mem=27
+Running dqrtic with nvar=1000 and mem=28
+Running dqrtic with nvar=1000 and mem=29
+Running dqrtic with nvar=1000 and mem=30
+Running dqrtic with nvar=1000 and mem=31
+Running dqrtic with nvar=1000 and mem=32
+Running dqrtic with nvar=1000 and mem=33
+Running dqrtic with nvar=1000 and mem=34
+Running dqrtic with nvar=1000 and mem=35
+Running dqrtic with nvar=1000 and mem=36
+Running dqrtic with nvar=1000 and mem=37
+Running dqrtic with nvar=1000 and mem=38
+Running dqrtic with nvar=1000 and mem=39
+Running dqrtic with nvar=1000 and mem=40
+Running dqrtic with nvar=1000 and mem=41
+Running dqrtic with nvar=1000 and mem=42
+Running dqrtic with nvar=1000 and mem=43
+Running dqrtic with nvar=1000 and mem=44
+Running dqrtic with nvar=1000 and mem=45
+Running dqrtic with nvar=1000 and mem=46
+Running dqrtic with nvar=1000 and mem=47
+Running dqrtic with nvar=1000 and mem=48
+Running dqrtic with nvar=1000 and mem=49
+Running dqrtic with nvar=1000 and mem=50
+Running dqrtic with nvar=1000 and mem=51
+Running dqrtic with nvar=1000 and mem=52
+Running dqrtic with nvar=1000 and mem=53
+Running dqrtic with nvar=1000 and mem=54
+Running dqrtic with nvar=1000 and mem=55
+Running dqrtic with nvar=1000 and mem=56
+Running dqrtic with nvar=1000 and mem=57
+Running dqrtic with nvar=1000 and mem=58
+Running dqrtic with nvar=1000 and mem=59
+Running dqrtic with nvar=1000 and mem=60
+Running dqrtic with nvar=1000 and mem=61
+Running dqrtic with nvar=1000 and mem=62
+Running dqrtic with nvar=1000 and mem=63
+Running dqrtic with nvar=1000 and mem=64
+Running dqrtic with nvar=1000 and mem=65
+Running dqrtic with nvar=1000 and mem=66
+Running dqrtic with nvar=1000 and mem=67
+Running dqrtic with nvar=1000 and mem=68
+Running dqrtic with nvar=1000 and mem=69
+Running dqrtic with nvar=1000 and mem=70
+Running dqrtic with nvar=1000 and mem=71
+Running dqrtic with nvar=1000 and mem=72
+Running dqrtic with nvar=1000 and mem=73
+Running dqrtic with nvar=1000 and mem=74
+Running dqrtic with nvar=1000 and mem=75
+Running dqrtic with nvar=1000 and mem=76
+Running dqrtic with nvar=1000 and mem=77
+Running dqrtic with nvar=1000 and mem=78
+Running dqrtic with nvar=1000 and mem=79
+Running dqrtic with nvar=1000 and mem=80
+Running dqrtic with nvar=1000 and mem=81
+Running dqrtic with nvar=1000 and mem=82
+Running dqrtic with nvar=1000 and mem=83
+Running dqrtic with nvar=1000 and mem=84
+Running dqrtic with nvar=1000 and mem=85
+Running dqrtic with nvar=1000 and mem=86
+Running dqrtic with nvar=1000 and mem=87
+Running dqrtic with nvar=1000 and mem=88
+Running dqrtic with nvar=1000 and mem=89
+Running dqrtic with nvar=1000 and mem=90
+Running dqrtic with nvar=1000 and mem=91
+Running dqrtic with nvar=1000 and mem=92
+Running dqrtic with nvar=1000 and mem=93
+Running dqrtic with nvar=1000 and mem=94
+Running dqrtic with nvar=1000 and mem=95
+Running dqrtic with nvar=1000 and mem=96
+Running dqrtic with nvar=1000 and mem=97
+Running dqrtic with nvar=1000 and mem=98
+Running dqrtic with nvar=1000 and mem=99
+Running dqrtic with nvar=1000 and mem=100
+  Problem name: edensch
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running edensch with nvar=1000 and mem=1
+Running edensch with nvar=1000 and mem=1
+Running edensch with nvar=1000 and mem=2
+Running edensch with nvar=1000 and mem=3
+Running edensch with nvar=1000 and mem=4
+Running edensch with nvar=1000 and mem=5
+Running edensch with nvar=1000 and mem=6
+Running edensch with nvar=1000 and mem=7
+Running edensch with nvar=1000 and mem=8
+Running edensch with nvar=1000 and mem=9
+Running edensch with nvar=1000 and mem=10
+Running edensch with nvar=1000 and mem=11
+Running edensch with nvar=1000 and mem=12
+Running edensch with nvar=1000 and mem=13
+Running edensch with nvar=1000 and mem=14
+Running edensch with nvar=1000 and mem=15
+Running edensch with nvar=1000 and mem=16
+Running edensch with nvar=1000 and mem=17
+Running edensch with nvar=1000 and mem=18
+Running edensch with nvar=1000 and mem=19
+Running edensch with nvar=1000 and mem=20
+Running edensch with nvar=1000 and mem=21
+Running edensch with nvar=1000 and mem=22
+Running edensch with nvar=1000 and mem=23
+Running edensch with nvar=1000 and mem=24
+Running edensch with nvar=1000 and mem=25
+Running edensch with nvar=1000 and mem=26
+Running edensch with nvar=1000 and mem=27
+Running edensch with nvar=1000 and mem=28
+Running edensch with nvar=1000 and mem=29
+Running edensch with nvar=1000 and mem=30
+Running edensch with nvar=1000 and mem=31
+Running edensch with nvar=1000 and mem=32
+Running edensch with nvar=1000 and mem=33
+Running edensch with nvar=1000 and mem=34
+Running edensch with nvar=1000 and mem=35
+Running edensch with nvar=1000 and mem=36
+Running edensch with nvar=1000 and mem=37
+Running edensch with nvar=1000 and mem=38
+Running edensch with nvar=1000 and mem=39
+Running edensch with nvar=1000 and mem=40
+Running edensch with nvar=1000 and mem=41
+Running edensch with nvar=1000 and mem=42
+Running edensch with nvar=1000 and mem=43
+Running edensch with nvar=1000 and mem=44
+Running edensch with nvar=1000 and mem=45
+Running edensch with nvar=1000 and mem=46
+Running edensch with nvar=1000 and mem=47
+Running edensch with nvar=1000 and mem=48
+Running edensch with nvar=1000 and mem=49
+Running edensch with nvar=1000 and mem=50
+Running edensch with nvar=1000 and mem=51
+Running edensch with nvar=1000 and mem=52
+Running edensch with nvar=1000 and mem=53
+Running edensch with nvar=1000 and mem=54
+Running edensch with nvar=1000 and mem=55
+Running edensch with nvar=1000 and mem=56
+Running edensch with nvar=1000 and mem=57
+Running edensch with nvar=1000 and mem=58
+Running edensch with nvar=1000 and mem=59
+Running edensch with nvar=1000 and mem=60
+Running edensch with nvar=1000 and mem=61
+Running edensch with nvar=1000 and mem=62
+Running edensch with nvar=1000 and mem=63
+Running edensch with nvar=1000 and mem=64
+Running edensch with nvar=1000 and mem=65
+Running edensch with nvar=1000 and mem=66
+Running edensch with nvar=1000 and mem=67
+Running edensch with nvar=1000 and mem=68
+Running edensch with nvar=1000 and mem=69
+Running edensch with nvar=1000 and mem=70
+Running edensch with nvar=1000 and mem=71
+Running edensch with nvar=1000 and mem=72
+Running edensch with nvar=1000 and mem=73
+Running edensch with nvar=1000 and mem=74
+Running edensch with nvar=1000 and mem=75
+Running edensch with nvar=1000 and mem=76
+Running edensch with nvar=1000 and mem=77
+Running edensch with nvar=1000 and mem=78
+Running edensch with nvar=1000 and mem=79
+Running edensch with nvar=1000 and mem=80
+Running edensch with nvar=1000 and mem=81
+Running edensch with nvar=1000 and mem=82
+Running edensch with nvar=1000 and mem=83
+Running edensch with nvar=1000 and mem=84
+Running edensch with nvar=1000 and mem=85
+Running edensch with nvar=1000 and mem=86
+Running edensch with nvar=1000 and mem=87
+Running edensch with nvar=1000 and mem=88
+Running edensch with nvar=1000 and mem=89
+Running edensch with nvar=1000 and mem=90
+Running edensch with nvar=1000 and mem=91
+Running edensch with nvar=1000 and mem=92
+Running edensch with nvar=1000 and mem=93
+Running edensch with nvar=1000 and mem=94
+Running edensch with nvar=1000 and mem=95
+Running edensch with nvar=1000 and mem=96
+Running edensch with nvar=1000 and mem=97
+Running edensch with nvar=1000 and mem=98
+Running edensch with nvar=1000 and mem=99
+Running edensch with nvar=1000 and mem=100
+  Problem name: eg2
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1998            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running eg2 with nvar=1000 and mem=1
+Running eg2 with nvar=1000 and mem=1
+Running eg2 with nvar=1000 and mem=2
+Running eg2 with nvar=1000 and mem=3
+Running eg2 with nvar=1000 and mem=4
+Running eg2 with nvar=1000 and mem=5
+Running eg2 with nvar=1000 and mem=6
+Running eg2 with nvar=1000 and mem=7
+Running eg2 with nvar=1000 and mem=8
+Running eg2 with nvar=1000 and mem=9
+Running eg2 with nvar=1000 and mem=10
+Running eg2 with nvar=1000 and mem=11
+Running eg2 with nvar=1000 and mem=12
+Running eg2 with nvar=1000 and mem=13
+Running eg2 with nvar=1000 and mem=14
+Running eg2 with nvar=1000 and mem=15
+Running eg2 with nvar=1000 and mem=16
+Running eg2 with nvar=1000 and mem=17
+Running eg2 with nvar=1000 and mem=18
+Running eg2 with nvar=1000 and mem=19
+Running eg2 with nvar=1000 and mem=20
+Running eg2 with nvar=1000 and mem=21
+Running eg2 with nvar=1000 and mem=22
+Running eg2 with nvar=1000 and mem=23
+Running eg2 with nvar=1000 and mem=24
+Running eg2 with nvar=1000 and mem=25
+Running eg2 with nvar=1000 and mem=26
+Running eg2 with nvar=1000 and mem=27
+Running eg2 with nvar=1000 and mem=28
+Running eg2 with nvar=1000 and mem=29
+Running eg2 with nvar=1000 and mem=30
+Running eg2 with nvar=1000 and mem=31
+Running eg2 with nvar=1000 and mem=32
+Running eg2 with nvar=1000 and mem=33
+Running eg2 with nvar=1000 and mem=34
+Running eg2 with nvar=1000 and mem=35
+Running eg2 with nvar=1000 and mem=36
+Running eg2 with nvar=1000 and mem=37
+Running eg2 with nvar=1000 and mem=38
+Running eg2 with nvar=1000 and mem=39
+Running eg2 with nvar=1000 and mem=40
+Running eg2 with nvar=1000 and mem=41
+Running eg2 with nvar=1000 and mem=42
+Running eg2 with nvar=1000 and mem=43
+Running eg2 with nvar=1000 and mem=44
+Running eg2 with nvar=1000 and mem=45
+Running eg2 with nvar=1000 and mem=46
+Running eg2 with nvar=1000 and mem=47
+Running eg2 with nvar=1000 and mem=48
+Running eg2 with nvar=1000 and mem=49
+Running eg2 with nvar=1000 and mem=50
+Running eg2 with nvar=1000 and mem=51
+Running eg2 with nvar=1000 and mem=52
+Running eg2 with nvar=1000 and mem=53
+Running eg2 with nvar=1000 and mem=54
+Running eg2 with nvar=1000 and mem=55
+Running eg2 with nvar=1000 and mem=56
+Running eg2 with nvar=1000 and mem=57
+Running eg2 with nvar=1000 and mem=58
+Running eg2 with nvar=1000 and mem=59
+Running eg2 with nvar=1000 and mem=60
+Running eg2 with nvar=1000 and mem=61
+Running eg2 with nvar=1000 and mem=62
+Running eg2 with nvar=1000 and mem=63
+Running eg2 with nvar=1000 and mem=64
+Running eg2 with nvar=1000 and mem=65
+Running eg2 with nvar=1000 and mem=66
+Running eg2 with nvar=1000 and mem=67
+Running eg2 with nvar=1000 and mem=68
+Running eg2 with nvar=1000 and mem=69
+Running eg2 with nvar=1000 and mem=70
+Running eg2 with nvar=1000 and mem=71
+Running eg2 with nvar=1000 and mem=72
+Running eg2 with nvar=1000 and mem=73
+Running eg2 with nvar=1000 and mem=74
+Running eg2 with nvar=1000 and mem=75
+Running eg2 with nvar=1000 and mem=76
+Running eg2 with nvar=1000 and mem=77
+Running eg2 with nvar=1000 and mem=78
+Running eg2 with nvar=1000 and mem=79
+Running eg2 with nvar=1000 and mem=80
+Running eg2 with nvar=1000 and mem=81
+Running eg2 with nvar=1000 and mem=82
+Running eg2 with nvar=1000 and mem=83
+Running eg2 with nvar=1000 and mem=84
+Running eg2 with nvar=1000 and mem=85
+Running eg2 with nvar=1000 and mem=86
+Running eg2 with nvar=1000 and mem=87
+Running eg2 with nvar=1000 and mem=88
+Running eg2 with nvar=1000 and mem=89
+Running eg2 with nvar=1000 and mem=90
+Running eg2 with nvar=1000 and mem=91
+Running eg2 with nvar=1000 and mem=92
+Running eg2 with nvar=1000 and mem=93
+Running eg2 with nvar=1000 and mem=94
+Running eg2 with nvar=1000 and mem=95
+Running eg2 with nvar=1000 and mem=96
+Running eg2 with nvar=1000 and mem=97
+Running eg2 with nvar=1000 and mem=98
+Running eg2 with nvar=1000 and mem=99
+Running eg2 with nvar=1000 and mem=100
+  Problem name: engval1
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running engval1 with nvar=1000 and mem=1
+Running engval1 with nvar=1000 and mem=1
+Running engval1 with nvar=1000 and mem=2
+Running engval1 with nvar=1000 and mem=3
+Running engval1 with nvar=1000 and mem=4
+Running engval1 with nvar=1000 and mem=5
+Running engval1 with nvar=1000 and mem=6
+Running engval1 with nvar=1000 and mem=7
+Running engval1 with nvar=1000 and mem=8
+Running engval1 with nvar=1000 and mem=9
+Running engval1 with nvar=1000 and mem=10
+Running engval1 with nvar=1000 and mem=11
+Running engval1 with nvar=1000 and mem=12
+Running engval1 with nvar=1000 and mem=13
+Running engval1 with nvar=1000 and mem=14
+Running engval1 with nvar=1000 and mem=15
+Running engval1 with nvar=1000 and mem=16
+Running engval1 with nvar=1000 and mem=17
+Running engval1 with nvar=1000 and mem=18
+Running engval1 with nvar=1000 and mem=19
+Running engval1 with nvar=1000 and mem=20
+Running engval1 with nvar=1000 and mem=21
+Running engval1 with nvar=1000 and mem=22
+Running engval1 with nvar=1000 and mem=23
+Running engval1 with nvar=1000 and mem=24
+Running engval1 with nvar=1000 and mem=25
+Running engval1 with nvar=1000 and mem=26
+Running engval1 with nvar=1000 and mem=27
+Running engval1 with nvar=1000 and mem=28
+Running engval1 with nvar=1000 and mem=29
+Running engval1 with nvar=1000 and mem=30
+Running engval1 with nvar=1000 and mem=31
+Running engval1 with nvar=1000 and mem=32
+Running engval1 with nvar=1000 and mem=33
+Running engval1 with nvar=1000 and mem=34
+Running engval1 with nvar=1000 and mem=35
+Running engval1 with nvar=1000 and mem=36
+Running engval1 with nvar=1000 and mem=37
+Running engval1 with nvar=1000 and mem=38
+Running engval1 with nvar=1000 and mem=39
+Running engval1 with nvar=1000 and mem=40
+Running engval1 with nvar=1000 and mem=41
+Running engval1 with nvar=1000 and mem=42
+Running engval1 with nvar=1000 and mem=43
+Running engval1 with nvar=1000 and mem=44
+Running engval1 with nvar=1000 and mem=45
+Running engval1 with nvar=1000 and mem=46
+Running engval1 with nvar=1000 and mem=47
+Running engval1 with nvar=1000 and mem=48
+Running engval1 with nvar=1000 and mem=49
+Running engval1 with nvar=1000 and mem=50
+Running engval1 with nvar=1000 and mem=51
+Running engval1 with nvar=1000 and mem=52
+Running engval1 with nvar=1000 and mem=53
+Running engval1 with nvar=1000 and mem=54
+Running engval1 with nvar=1000 and mem=55
+Running engval1 with nvar=1000 and mem=56
+Running engval1 with nvar=1000 and mem=57
+Running engval1 with nvar=1000 and mem=58
+Running engval1 with nvar=1000 and mem=59
+Running engval1 with nvar=1000 and mem=60
+Running engval1 with nvar=1000 and mem=61
+Running engval1 with nvar=1000 and mem=62
+Running engval1 with nvar=1000 and mem=63
+Running engval1 with nvar=1000 and mem=64
+Running engval1 with nvar=1000 and mem=65
+Running engval1 with nvar=1000 and mem=66
+Running engval1 with nvar=1000 and mem=67
+Running engval1 with nvar=1000 and mem=68
+Running engval1 with nvar=1000 and mem=69
+Running engval1 with nvar=1000 and mem=70
+Running engval1 with nvar=1000 and mem=71
+Running engval1 with nvar=1000 and mem=72
+Running engval1 with nvar=1000 and mem=73
+Running engval1 with nvar=1000 and mem=74
+Running engval1 with nvar=1000 and mem=75
+Running engval1 with nvar=1000 and mem=76
+Running engval1 with nvar=1000 and mem=77
+Running engval1 with nvar=1000 and mem=78
+Running engval1 with nvar=1000 and mem=79
+Running engval1 with nvar=1000 and mem=80
+Running engval1 with nvar=1000 and mem=81
+Running engval1 with nvar=1000 and mem=82
+Running engval1 with nvar=1000 and mem=83
+Running engval1 with nvar=1000 and mem=84
+Running engval1 with nvar=1000 and mem=85
+Running engval1 with nvar=1000 and mem=86
+Running engval1 with nvar=1000 and mem=87
+Running engval1 with nvar=1000 and mem=88
+Running engval1 with nvar=1000 and mem=89
+Running engval1 with nvar=1000 and mem=90
+Running engval1 with nvar=1000 and mem=91
+Running engval1 with nvar=1000 and mem=92
+Running engval1 with nvar=1000 and mem=93
+Running engval1 with nvar=1000 and mem=94
+Running engval1 with nvar=1000 and mem=95
+Running engval1 with nvar=1000 and mem=96
+Running engval1 with nvar=1000 and mem=97
+Running engval1 with nvar=1000 and mem=98
+Running engval1 with nvar=1000 and mem=99
+Running engval1 with nvar=1000 and mem=100
+  Problem name: errinros_mod
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running errinros_mod with nvar=1000 and mem=1
+Running errinros_mod with nvar=1000 and mem=1
+Running errinros_mod with nvar=1000 and mem=2
+Running errinros_mod with nvar=1000 and mem=3
+Running errinros_mod with nvar=1000 and mem=4
+Running errinros_mod with nvar=1000 and mem=5
+Running errinros_mod with nvar=1000 and mem=6
+Running errinros_mod with nvar=1000 and mem=7
+Running errinros_mod with nvar=1000 and mem=8
+Running errinros_mod with nvar=1000 and mem=9
+Running errinros_mod with nvar=1000 and mem=10
+Running errinros_mod with nvar=1000 and mem=11
+Running errinros_mod with nvar=1000 and mem=12
+Running errinros_mod with nvar=1000 and mem=13
+Running errinros_mod with nvar=1000 and mem=14
+Running errinros_mod with nvar=1000 and mem=15
+Running errinros_mod with nvar=1000 and mem=16
+Running errinros_mod with nvar=1000 and mem=17
+Running errinros_mod with nvar=1000 and mem=18
+Running errinros_mod with nvar=1000 and mem=19
+Running errinros_mod with nvar=1000 and mem=20
+Running errinros_mod with nvar=1000 and mem=21
+Running errinros_mod with nvar=1000 and mem=22
+Running errinros_mod with nvar=1000 and mem=23
+Running errinros_mod with nvar=1000 and mem=24
+Running errinros_mod with nvar=1000 and mem=25
+Running errinros_mod with nvar=1000 and mem=26
+Running errinros_mod with nvar=1000 and mem=27
+Running errinros_mod with nvar=1000 and mem=28
+Running errinros_mod with nvar=1000 and mem=29
+Running errinros_mod with nvar=1000 and mem=30
+Running errinros_mod with nvar=1000 and mem=31
+Running errinros_mod with nvar=1000 and mem=32
+Running errinros_mod with nvar=1000 and mem=33
+Running errinros_mod with nvar=1000 and mem=34
+Running errinros_mod with nvar=1000 and mem=35
+Running errinros_mod with nvar=1000 and mem=36
+Running errinros_mod with nvar=1000 and mem=37
+Running errinros_mod with nvar=1000 and mem=38
+Running errinros_mod with nvar=1000 and mem=39
+Running errinros_mod with nvar=1000 and mem=40
+Running errinros_mod with nvar=1000 and mem=41
+Running errinros_mod with nvar=1000 and mem=42
+Running errinros_mod with nvar=1000 and mem=43
+Running errinros_mod with nvar=1000 and mem=44
+Running errinros_mod with nvar=1000 and mem=45
+Running errinros_mod with nvar=1000 and mem=46
+Running errinros_mod with nvar=1000 and mem=47
+Running errinros_mod with nvar=1000 and mem=48
+Running errinros_mod with nvar=1000 and mem=49
+Running errinros_mod with nvar=1000 and mem=50
+Running errinros_mod with nvar=1000 and mem=51
+Running errinros_mod with nvar=1000 and mem=52
+Running errinros_mod with nvar=1000 and mem=53
+Running errinros_mod with nvar=1000 and mem=54
+Running errinros_mod with nvar=1000 and mem=55
+Running errinros_mod with nvar=1000 and mem=56
+Running errinros_mod with nvar=1000 and mem=57
+Running errinros_mod with nvar=1000 and mem=58
+Running errinros_mod with nvar=1000 and mem=59
+Running errinros_mod with nvar=1000 and mem=60
+Running errinros_mod with nvar=1000 and mem=61
+Running errinros_mod with nvar=1000 and mem=62
+Running errinros_mod with nvar=1000 and mem=63
+Running errinros_mod with nvar=1000 and mem=64
+Running errinros_mod with nvar=1000 and mem=65
+Running errinros_mod with nvar=1000 and mem=66
+Running errinros_mod with nvar=1000 and mem=67
+Running errinros_mod with nvar=1000 and mem=68
+Running errinros_mod with nvar=1000 and mem=69
+Running errinros_mod with nvar=1000 and mem=70
+Running errinros_mod with nvar=1000 and mem=71
+Running errinros_mod with nvar=1000 and mem=72
+Running errinros_mod with nvar=1000 and mem=73
+Running errinros_mod with nvar=1000 and mem=74
+Running errinros_mod with nvar=1000 and mem=75
+Running errinros_mod with nvar=1000 and mem=76
+Running errinros_mod with nvar=1000 and mem=77
+Running errinros_mod with nvar=1000 and mem=78
+Running errinros_mod with nvar=1000 and mem=79
+Running errinros_mod with nvar=1000 and mem=80
+Running errinros_mod with nvar=1000 and mem=81
+Running errinros_mod with nvar=1000 and mem=82
+Running errinros_mod with nvar=1000 and mem=83
+Running errinros_mod with nvar=1000 and mem=84
+Running errinros_mod with nvar=1000 and mem=85
+Running errinros_mod with nvar=1000 and mem=86
+Running errinros_mod with nvar=1000 and mem=87
+Running errinros_mod with nvar=1000 and mem=88
+Running errinros_mod with nvar=1000 and mem=89
+Running errinros_mod with nvar=1000 and mem=90
+Running errinros_mod with nvar=1000 and mem=91
+Running errinros_mod with nvar=1000 and mem=92
+Running errinros_mod with nvar=1000 and mem=93
+Running errinros_mod with nvar=1000 and mem=94
+Running errinros_mod with nvar=1000 and mem=95
+Running errinros_mod with nvar=1000 and mem=96
+Running errinros_mod with nvar=1000 and mem=97
+Running errinros_mod with nvar=1000 and mem=98
+Running errinros_mod with nvar=1000 and mem=99
+Running errinros_mod with nvar=1000 and mem=100
+  Problem name: extrosnb
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running extrosnb with nvar=1000 and mem=1
+Running extrosnb with nvar=1000 and mem=1
+Running extrosnb with nvar=1000 and mem=2
+Running extrosnb with nvar=1000 and mem=3
+Running extrosnb with nvar=1000 and mem=4
+Running extrosnb with nvar=1000 and mem=5
+Running extrosnb with nvar=1000 and mem=6
+Running extrosnb with nvar=1000 and mem=7
+Running extrosnb with nvar=1000 and mem=8
+Running extrosnb with nvar=1000 and mem=9
+Running extrosnb with nvar=1000 and mem=10
+Running extrosnb with nvar=1000 and mem=11
+Running extrosnb with nvar=1000 and mem=12
+Running extrosnb with nvar=1000 and mem=13
+Running extrosnb with nvar=1000 and mem=14
+Running extrosnb with nvar=1000 and mem=15
+Running extrosnb with nvar=1000 and mem=16
+Running extrosnb with nvar=1000 and mem=17
+Running extrosnb with nvar=1000 and mem=18
+Running extrosnb with nvar=1000 and mem=19
+Running extrosnb with nvar=1000 and mem=20
+Running extrosnb with nvar=1000 and mem=21
+Running extrosnb with nvar=1000 and mem=22
+Running extrosnb with nvar=1000 and mem=23
+Running extrosnb with nvar=1000 and mem=24
+Running extrosnb with nvar=1000 and mem=25
+Running extrosnb with nvar=1000 and mem=26
+Running extrosnb with nvar=1000 and mem=27
+Running extrosnb with nvar=1000 and mem=28
+Running extrosnb with nvar=1000 and mem=29
+Running extrosnb with nvar=1000 and mem=30
+Running extrosnb with nvar=1000 and mem=31
+Running extrosnb with nvar=1000 and mem=32
+Running extrosnb with nvar=1000 and mem=33
+Running extrosnb with nvar=1000 and mem=34
+Running extrosnb with nvar=1000 and mem=35
+Running extrosnb with nvar=1000 and mem=36
+Running extrosnb with nvar=1000 and mem=37
+Running extrosnb with nvar=1000 and mem=38
+Running extrosnb with nvar=1000 and mem=39
+Running extrosnb with nvar=1000 and mem=40
+Running extrosnb with nvar=1000 and mem=41
+Running extrosnb with nvar=1000 and mem=42
+Running extrosnb with nvar=1000 and mem=43
+Running extrosnb with nvar=1000 and mem=44
+Running extrosnb with nvar=1000 and mem=45
+Running extrosnb with nvar=1000 and mem=46
+Running extrosnb with nvar=1000 and mem=47
+Running extrosnb with nvar=1000 and mem=48
+Running extrosnb with nvar=1000 and mem=49
+Running extrosnb with nvar=1000 and mem=50
+Running extrosnb with nvar=1000 and mem=51
+Running extrosnb with nvar=1000 and mem=52
+Running extrosnb with nvar=1000 and mem=53
+Running extrosnb with nvar=1000 and mem=54
+Running extrosnb with nvar=1000 and mem=55
+Running extrosnb with nvar=1000 and mem=56
+Running extrosnb with nvar=1000 and mem=57
+Running extrosnb with nvar=1000 and mem=58
+Running extrosnb with nvar=1000 and mem=59
+Running extrosnb with nvar=1000 and mem=60
+Running extrosnb with nvar=1000 and mem=61
+Running extrosnb with nvar=1000 and mem=62
+Running extrosnb with nvar=1000 and mem=63
+Running extrosnb with nvar=1000 and mem=64
+Running extrosnb with nvar=1000 and mem=65
+Running extrosnb with nvar=1000 and mem=66
+Running extrosnb with nvar=1000 and mem=67
+Running extrosnb with nvar=1000 and mem=68
+Running extrosnb with nvar=1000 and mem=69
+Running extrosnb with nvar=1000 and mem=70
+Running extrosnb with nvar=1000 and mem=71
+Running extrosnb with nvar=1000 and mem=72
+Running extrosnb with nvar=1000 and mem=73
+Running extrosnb with nvar=1000 and mem=74
+Running extrosnb with nvar=1000 and mem=75
+Running extrosnb with nvar=1000 and mem=76
+Running extrosnb with nvar=1000 and mem=77
+Running extrosnb with nvar=1000 and mem=78
+Running extrosnb with nvar=1000 and mem=79
+Running extrosnb with nvar=1000 and mem=80
+Running extrosnb with nvar=1000 and mem=81
+Running extrosnb with nvar=1000 and mem=82
+Running extrosnb with nvar=1000 and mem=83
+Running extrosnb with nvar=1000 and mem=84
+Running extrosnb with nvar=1000 and mem=85
+Running extrosnb with nvar=1000 and mem=86
+Running extrosnb with nvar=1000 and mem=87
+Running extrosnb with nvar=1000 and mem=88
+Running extrosnb with nvar=1000 and mem=89
+Running extrosnb with nvar=1000 and mem=90
+Running extrosnb with nvar=1000 and mem=91
+Running extrosnb with nvar=1000 and mem=92
+Running extrosnb with nvar=1000 and mem=93
+Running extrosnb with nvar=1000 and mem=94
+Running extrosnb with nvar=1000 and mem=95
+Running extrosnb with nvar=1000 and mem=96
+Running extrosnb with nvar=1000 and mem=97
+Running extrosnb with nvar=1000 and mem=98
+Running extrosnb with nvar=1000 and mem=99
+Running extrosnb with nvar=1000 and mem=100
+  Problem name: fletcbv2
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running fletcbv2 with nvar=1000 and mem=1
+Running fletcbv2 with nvar=1000 and mem=1
+Running fletcbv2 with nvar=1000 and mem=2
+Running fletcbv2 with nvar=1000 and mem=3
+Running fletcbv2 with nvar=1000 and mem=4
+Running fletcbv2 with nvar=1000 and mem=5
+Running fletcbv2 with nvar=1000 and mem=6
+Running fletcbv2 with nvar=1000 and mem=7
+Running fletcbv2 with nvar=1000 and mem=8
+Running fletcbv2 with nvar=1000 and mem=9
+Running fletcbv2 with nvar=1000 and mem=10
+Running fletcbv2 with nvar=1000 and mem=11
+Running fletcbv2 with nvar=1000 and mem=12
+Running fletcbv2 with nvar=1000 and mem=13
+Running fletcbv2 with nvar=1000 and mem=14
+Running fletcbv2 with nvar=1000 and mem=15
+Running fletcbv2 with nvar=1000 and mem=16
+Running fletcbv2 with nvar=1000 and mem=17
+Running fletcbv2 with nvar=1000 and mem=18
+Running fletcbv2 with nvar=1000 and mem=19
+Running fletcbv2 with nvar=1000 and mem=20
+Running fletcbv2 with nvar=1000 and mem=21
+Running fletcbv2 with nvar=1000 and mem=22
+Running fletcbv2 with nvar=1000 and mem=23
+Running fletcbv2 with nvar=1000 and mem=24
+Running fletcbv2 with nvar=1000 and mem=25
+Running fletcbv2 with nvar=1000 and mem=26
+Running fletcbv2 with nvar=1000 and mem=27
+Running fletcbv2 with nvar=1000 and mem=28
+Running fletcbv2 with nvar=1000 and mem=29
+Running fletcbv2 with nvar=1000 and mem=30
+Running fletcbv2 with nvar=1000 and mem=31
+Running fletcbv2 with nvar=1000 and mem=32
+Running fletcbv2 with nvar=1000 and mem=33
+Running fletcbv2 with nvar=1000 and mem=34
+Running fletcbv2 with nvar=1000 and mem=35
+Running fletcbv2 with nvar=1000 and mem=36
+Running fletcbv2 with nvar=1000 and mem=37
+Running fletcbv2 with nvar=1000 and mem=38
+Running fletcbv2 with nvar=1000 and mem=39
+Running fletcbv2 with nvar=1000 and mem=40
+Running fletcbv2 with nvar=1000 and mem=41
+Running fletcbv2 with nvar=1000 and mem=42
+Running fletcbv2 with nvar=1000 and mem=43
+Running fletcbv2 with nvar=1000 and mem=44
+Running fletcbv2 with nvar=1000 and mem=45
+Running fletcbv2 with nvar=1000 and mem=46
+Running fletcbv2 with nvar=1000 and mem=47
+Running fletcbv2 with nvar=1000 and mem=48
+Running fletcbv2 with nvar=1000 and mem=49
+Running fletcbv2 with nvar=1000 and mem=50
+Running fletcbv2 with nvar=1000 and mem=51
+Running fletcbv2 with nvar=1000 and mem=52
+Running fletcbv2 with nvar=1000 and mem=53
+Running fletcbv2 with nvar=1000 and mem=54
+Running fletcbv2 with nvar=1000 and mem=55
+Running fletcbv2 with nvar=1000 and mem=56
+Running fletcbv2 with nvar=1000 and mem=57
+Running fletcbv2 with nvar=1000 and mem=58
+Running fletcbv2 with nvar=1000 and mem=59
+Running fletcbv2 with nvar=1000 and mem=60
+Running fletcbv2 with nvar=1000 and mem=61
+Running fletcbv2 with nvar=1000 and mem=62
+Running fletcbv2 with nvar=1000 and mem=63
+Running fletcbv2 with nvar=1000 and mem=64
+Running fletcbv2 with nvar=1000 and mem=65
+Running fletcbv2 with nvar=1000 and mem=66
+Running fletcbv2 with nvar=1000 and mem=67
+Running fletcbv2 with nvar=1000 and mem=68
+Running fletcbv2 with nvar=1000 and mem=69
+Running fletcbv2 with nvar=1000 and mem=70
+Running fletcbv2 with nvar=1000 and mem=71
+Running fletcbv2 with nvar=1000 and mem=72
+Running fletcbv2 with nvar=1000 and mem=73
+Running fletcbv2 with nvar=1000 and mem=74
+Running fletcbv2 with nvar=1000 and mem=75
+Running fletcbv2 with nvar=1000 and mem=76
+Running fletcbv2 with nvar=1000 and mem=77
+Running fletcbv2 with nvar=1000 and mem=78
+Running fletcbv2 with nvar=1000 and mem=79
+Running fletcbv2 with nvar=1000 and mem=80
+Running fletcbv2 with nvar=1000 and mem=81
+Running fletcbv2 with nvar=1000 and mem=82
+Running fletcbv2 with nvar=1000 and mem=83
+Running fletcbv2 with nvar=1000 and mem=84
+Running fletcbv2 with nvar=1000 and mem=85
+Running fletcbv2 with nvar=1000 and mem=86
+Running fletcbv2 with nvar=1000 and mem=87
+Running fletcbv2 with nvar=1000 and mem=88
+Running fletcbv2 with nvar=1000 and mem=89
+Running fletcbv2 with nvar=1000 and mem=90
+Running fletcbv2 with nvar=1000 and mem=91
+Running fletcbv2 with nvar=1000 and mem=92
+Running fletcbv2 with nvar=1000 and mem=93
+Running fletcbv2 with nvar=1000 and mem=94
+Running fletcbv2 with nvar=1000 and mem=95
+Running fletcbv2 with nvar=1000 and mem=96
+Running fletcbv2 with nvar=1000 and mem=97
+Running fletcbv2 with nvar=1000 and mem=98
+Running fletcbv2 with nvar=1000 and mem=99
+Running fletcbv2 with nvar=1000 and mem=100
+  Problem name: fletcbv3_mod
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running fletcbv3_mod with nvar=1000 and mem=1
+Running fletcbv3_mod with nvar=1000 and mem=1
+Running fletcbv3_mod with nvar=1000 and mem=2
+Running fletcbv3_mod with nvar=1000 and mem=3
+Running fletcbv3_mod with nvar=1000 and mem=4
+Running fletcbv3_mod with nvar=1000 and mem=5
+Running fletcbv3_mod with nvar=1000 and mem=6
+Running fletcbv3_mod with nvar=1000 and mem=7
+Running fletcbv3_mod with nvar=1000 and mem=8
+Running fletcbv3_mod with nvar=1000 and mem=9
+Running fletcbv3_mod with nvar=1000 and mem=10
+Running fletcbv3_mod with nvar=1000 and mem=11
+Running fletcbv3_mod with nvar=1000 and mem=12
+Running fletcbv3_mod with nvar=1000 and mem=13
+Running fletcbv3_mod with nvar=1000 and mem=14
+Running fletcbv3_mod with nvar=1000 and mem=15
+Running fletcbv3_mod with nvar=1000 and mem=16
+Running fletcbv3_mod with nvar=1000 and mem=17
+Running fletcbv3_mod with nvar=1000 and mem=18
+Running fletcbv3_mod with nvar=1000 and mem=19
+Running fletcbv3_mod with nvar=1000 and mem=20
+Running fletcbv3_mod with nvar=1000 and mem=21
+Running fletcbv3_mod with nvar=1000 and mem=22
+Running fletcbv3_mod with nvar=1000 and mem=23
+Running fletcbv3_mod with nvar=1000 and mem=24
+Running fletcbv3_mod with nvar=1000 and mem=25
+Running fletcbv3_mod with nvar=1000 and mem=26
+Running fletcbv3_mod with nvar=1000 and mem=27
+Running fletcbv3_mod with nvar=1000 and mem=28
+Running fletcbv3_mod with nvar=1000 and mem=29
+Running fletcbv3_mod with nvar=1000 and mem=30
+Running fletcbv3_mod with nvar=1000 and mem=31
+Running fletcbv3_mod with nvar=1000 and mem=32
+Running fletcbv3_mod with nvar=1000 and mem=33
+Running fletcbv3_mod with nvar=1000 and mem=34
+Running fletcbv3_mod with nvar=1000 and mem=35
+Running fletcbv3_mod with nvar=1000 and mem=36
+Running fletcbv3_mod with nvar=1000 and mem=37
+Running fletcbv3_mod with nvar=1000 and mem=38
+Running fletcbv3_mod with nvar=1000 and mem=39
+Running fletcbv3_mod with nvar=1000 and mem=40
+Running fletcbv3_mod with nvar=1000 and mem=41
+Running fletcbv3_mod with nvar=1000 and mem=42
+Running fletcbv3_mod with nvar=1000 and mem=43
+Running fletcbv3_mod with nvar=1000 and mem=44
+Running fletcbv3_mod with nvar=1000 and mem=45
+Running fletcbv3_mod with nvar=1000 and mem=46
+Running fletcbv3_mod with nvar=1000 and mem=47
+Running fletcbv3_mod with nvar=1000 and mem=48
+Running fletcbv3_mod with nvar=1000 and mem=49
+Running fletcbv3_mod with nvar=1000 and mem=50
+Running fletcbv3_mod with nvar=1000 and mem=51
+Running fletcbv3_mod with nvar=1000 and mem=52
+Running fletcbv3_mod with nvar=1000 and mem=53
+Running fletcbv3_mod with nvar=1000 and mem=54
+Running fletcbv3_mod with nvar=1000 and mem=55
+Running fletcbv3_mod with nvar=1000 and mem=56
+Running fletcbv3_mod with nvar=1000 and mem=57
+Running fletcbv3_mod with nvar=1000 and mem=58
+Running fletcbv3_mod with nvar=1000 and mem=59
+Running fletcbv3_mod with nvar=1000 and mem=60
+Running fletcbv3_mod with nvar=1000 and mem=61
+Running fletcbv3_mod with nvar=1000 and mem=62
+Running fletcbv3_mod with nvar=1000 and mem=63
+Running fletcbv3_mod with nvar=1000 and mem=64
+Running fletcbv3_mod with nvar=1000 and mem=65
+Running fletcbv3_mod with nvar=1000 and mem=66
+Running fletcbv3_mod with nvar=1000 and mem=67
+Running fletcbv3_mod with nvar=1000 and mem=68
+Running fletcbv3_mod with nvar=1000 and mem=69
+Running fletcbv3_mod with nvar=1000 and mem=70
+Running fletcbv3_mod with nvar=1000 and mem=71
+Running fletcbv3_mod with nvar=1000 and mem=72
+Running fletcbv3_mod with nvar=1000 and mem=73
+Running fletcbv3_mod with nvar=1000 and mem=74
+Running fletcbv3_mod with nvar=1000 and mem=75
+Running fletcbv3_mod with nvar=1000 and mem=76
+Running fletcbv3_mod with nvar=1000 and mem=77
+Running fletcbv3_mod with nvar=1000 and mem=78
+Running fletcbv3_mod with nvar=1000 and mem=79
+Running fletcbv3_mod with nvar=1000 and mem=80
+Running fletcbv3_mod with nvar=1000 and mem=81
+Running fletcbv3_mod with nvar=1000 and mem=82
+Running fletcbv3_mod with nvar=1000 and mem=83
+Running fletcbv3_mod with nvar=1000 and mem=84
+Running fletcbv3_mod with nvar=1000 and mem=85
+Running fletcbv3_mod with nvar=1000 and mem=86
+Running fletcbv3_mod with nvar=1000 and mem=87
+Running fletcbv3_mod with nvar=1000 and mem=88
+Running fletcbv3_mod with nvar=1000 and mem=89
+Running fletcbv3_mod with nvar=1000 and mem=90
+Running fletcbv3_mod with nvar=1000 and mem=91
+Running fletcbv3_mod with nvar=1000 and mem=92
+Running fletcbv3_mod with nvar=1000 and mem=93
+Running fletcbv3_mod with nvar=1000 and mem=94
+Running fletcbv3_mod with nvar=1000 and mem=95
+Running fletcbv3_mod with nvar=1000 and mem=96
+Running fletcbv3_mod with nvar=1000 and mem=97
+Running fletcbv3_mod with nvar=1000 and mem=98
+Running fletcbv3_mod with nvar=1000 and mem=99
+Running fletcbv3_mod with nvar=1000 and mem=100
+  Problem name: fletchcr
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running fletchcr with nvar=1000 and mem=1
+Running fletchcr with nvar=1000 and mem=1
+Running fletchcr with nvar=1000 and mem=2
+Running fletchcr with nvar=1000 and mem=3
+Running fletchcr with nvar=1000 and mem=4
+Running fletchcr with nvar=1000 and mem=5
+Running fletchcr with nvar=1000 and mem=6
+Running fletchcr with nvar=1000 and mem=7
+Running fletchcr with nvar=1000 and mem=8
+Running fletchcr with nvar=1000 and mem=9
+Running fletchcr with nvar=1000 and mem=10
+Running fletchcr with nvar=1000 and mem=11
+Running fletchcr with nvar=1000 and mem=12
+Running fletchcr with nvar=1000 and mem=13
+Running fletchcr with nvar=1000 and mem=14
+Running fletchcr with nvar=1000 and mem=15
+Running fletchcr with nvar=1000 and mem=16
+Running fletchcr with nvar=1000 and mem=17
+Running fletchcr with nvar=1000 and mem=18
+Running fletchcr with nvar=1000 and mem=19
+Running fletchcr with nvar=1000 and mem=20
+Running fletchcr with nvar=1000 and mem=21
+Running fletchcr with nvar=1000 and mem=22
+Running fletchcr with nvar=1000 and mem=23
+Running fletchcr with nvar=1000 and mem=24
+Running fletchcr with nvar=1000 and mem=25
+Running fletchcr with nvar=1000 and mem=26
+Running fletchcr with nvar=1000 and mem=27
+Running fletchcr with nvar=1000 and mem=28
+Running fletchcr with nvar=1000 and mem=29
+Running fletchcr with nvar=1000 and mem=30
+Running fletchcr with nvar=1000 and mem=31
+Running fletchcr with nvar=1000 and mem=32
+Running fletchcr with nvar=1000 and mem=33
+Running fletchcr with nvar=1000 and mem=34
+Running fletchcr with nvar=1000 and mem=35
+Running fletchcr with nvar=1000 and mem=36
+Running fletchcr with nvar=1000 and mem=37
+Running fletchcr with nvar=1000 and mem=38
+Running fletchcr with nvar=1000 and mem=39
+Running fletchcr with nvar=1000 and mem=40
+Running fletchcr with nvar=1000 and mem=41
+Running fletchcr with nvar=1000 and mem=42
+Running fletchcr with nvar=1000 and mem=43
+Running fletchcr with nvar=1000 and mem=44
+Running fletchcr with nvar=1000 and mem=45
+Running fletchcr with nvar=1000 and mem=46
+Running fletchcr with nvar=1000 and mem=47
+Running fletchcr with nvar=1000 and mem=48
+Running fletchcr with nvar=1000 and mem=49
+Running fletchcr with nvar=1000 and mem=50
+Running fletchcr with nvar=1000 and mem=51
+Running fletchcr with nvar=1000 and mem=52
+Running fletchcr with nvar=1000 and mem=53
+Running fletchcr with nvar=1000 and mem=54
+Running fletchcr with nvar=1000 and mem=55
+Running fletchcr with nvar=1000 and mem=56
+Running fletchcr with nvar=1000 and mem=57
+Running fletchcr with nvar=1000 and mem=58
+Running fletchcr with nvar=1000 and mem=59
+Running fletchcr with nvar=1000 and mem=60
+Running fletchcr with nvar=1000 and mem=61
+Running fletchcr with nvar=1000 and mem=62
+Running fletchcr with nvar=1000 and mem=63
+Running fletchcr with nvar=1000 and mem=64
+Running fletchcr with nvar=1000 and mem=65
+Running fletchcr with nvar=1000 and mem=66
+Running fletchcr with nvar=1000 and mem=67
+Running fletchcr with nvar=1000 and mem=68
+Running fletchcr with nvar=1000 and mem=69
+Running fletchcr with nvar=1000 and mem=70
+Running fletchcr with nvar=1000 and mem=71
+Running fletchcr with nvar=1000 and mem=72
+Running fletchcr with nvar=1000 and mem=73
+Running fletchcr with nvar=1000 and mem=74
+Running fletchcr with nvar=1000 and mem=75
+Running fletchcr with nvar=1000 and mem=76
+Running fletchcr with nvar=1000 and mem=77
+Running fletchcr with nvar=1000 and mem=78
+Running fletchcr with nvar=1000 and mem=79
+Running fletchcr with nvar=1000 and mem=80
+Running fletchcr with nvar=1000 and mem=81
+Running fletchcr with nvar=1000 and mem=82
+Running fletchcr with nvar=1000 and mem=83
+Running fletchcr with nvar=1000 and mem=84
+Running fletchcr with nvar=1000 and mem=85
+Running fletchcr with nvar=1000 and mem=86
+Running fletchcr with nvar=1000 and mem=87
+Running fletchcr with nvar=1000 and mem=88
+Running fletchcr with nvar=1000 and mem=89
+Running fletchcr with nvar=1000 and mem=90
+Running fletchcr with nvar=1000 and mem=91
+Running fletchcr with nvar=1000 and mem=92
+Running fletchcr with nvar=1000 and mem=93
+Running fletchcr with nvar=1000 and mem=94
+Running fletchcr with nvar=1000 and mem=95
+Running fletchcr with nvar=1000 and mem=96
+Running fletchcr with nvar=1000 and mem=97
+Running fletchcr with nvar=1000 and mem=98
+Running fletchcr with nvar=1000 and mem=99
+Running fletchcr with nvar=1000 and mem=100
+  Problem name: freuroth
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running freuroth with nvar=1000 and mem=1
+Running freuroth with nvar=1000 and mem=1
+Running freuroth with nvar=1000 and mem=2
+Running freuroth with nvar=1000 and mem=3
+Running freuroth with nvar=1000 and mem=4
+Running freuroth with nvar=1000 and mem=5
+Running freuroth with nvar=1000 and mem=6
+Running freuroth with nvar=1000 and mem=7
+Running freuroth with nvar=1000 and mem=8
+Running freuroth with nvar=1000 and mem=9
+Running freuroth with nvar=1000 and mem=10
+Running freuroth with nvar=1000 and mem=11
+Running freuroth with nvar=1000 and mem=12
+Running freuroth with nvar=1000 and mem=13
+Running freuroth with nvar=1000 and mem=14
+Running freuroth with nvar=1000 and mem=15
+Running freuroth with nvar=1000 and mem=16
+Running freuroth with nvar=1000 and mem=17
+Running freuroth with nvar=1000 and mem=18
+Running freuroth with nvar=1000 and mem=19
+Running freuroth with nvar=1000 and mem=20
+Running freuroth with nvar=1000 and mem=21
+Running freuroth with nvar=1000 and mem=22
+Running freuroth with nvar=1000 and mem=23
+Running freuroth with nvar=1000 and mem=24
+Running freuroth with nvar=1000 and mem=25
+Running freuroth with nvar=1000 and mem=26
+Running freuroth with nvar=1000 and mem=27
+Running freuroth with nvar=1000 and mem=28
+Running freuroth with nvar=1000 and mem=29
+Running freuroth with nvar=1000 and mem=30
+Running freuroth with nvar=1000 and mem=31
+Running freuroth with nvar=1000 and mem=32
+Running freuroth with nvar=1000 and mem=33
+Running freuroth with nvar=1000 and mem=34
+Running freuroth with nvar=1000 and mem=35
+Running freuroth with nvar=1000 and mem=36
+Running freuroth with nvar=1000 and mem=37
+Running freuroth with nvar=1000 and mem=38
+Running freuroth with nvar=1000 and mem=39
+Running freuroth with nvar=1000 and mem=40
+Running freuroth with nvar=1000 and mem=41
+Running freuroth with nvar=1000 and mem=42
+Running freuroth with nvar=1000 and mem=43
+Running freuroth with nvar=1000 and mem=44
+Running freuroth with nvar=1000 and mem=45
+Running freuroth with nvar=1000 and mem=46
+Running freuroth with nvar=1000 and mem=47
+Running freuroth with nvar=1000 and mem=48
+Running freuroth with nvar=1000 and mem=49
+Running freuroth with nvar=1000 and mem=50
+Running freuroth with nvar=1000 and mem=51
+Running freuroth with nvar=1000 and mem=52
+Running freuroth with nvar=1000 and mem=53
+Running freuroth with nvar=1000 and mem=54
+Running freuroth with nvar=1000 and mem=55
+Running freuroth with nvar=1000 and mem=56
+Running freuroth with nvar=1000 and mem=57
+Running freuroth with nvar=1000 and mem=58
+Running freuroth with nvar=1000 and mem=59
+Running freuroth with nvar=1000 and mem=60
+Running freuroth with nvar=1000 and mem=61
+Running freuroth with nvar=1000 and mem=62
+Running freuroth with nvar=1000 and mem=63
+Running freuroth with nvar=1000 and mem=64
+Running freuroth with nvar=1000 and mem=65
+Running freuroth with nvar=1000 and mem=66
+Running freuroth with nvar=1000 and mem=67
+Running freuroth with nvar=1000 and mem=68
+Running freuroth with nvar=1000 and mem=69
+Running freuroth with nvar=1000 and mem=70
+Running freuroth with nvar=1000 and mem=71
+Running freuroth with nvar=1000 and mem=72
+Running freuroth with nvar=1000 and mem=73
+Running freuroth with nvar=1000 and mem=74
+Running freuroth with nvar=1000 and mem=75
+Running freuroth with nvar=1000 and mem=76
+Running freuroth with nvar=1000 and mem=77
+Running freuroth with nvar=1000 and mem=78
+Running freuroth with nvar=1000 and mem=79
+Running freuroth with nvar=1000 and mem=80
+Running freuroth with nvar=1000 and mem=81
+Running freuroth with nvar=1000 and mem=82
+Running freuroth with nvar=1000 and mem=83
+Running freuroth with nvar=1000 and mem=84
+Running freuroth with nvar=1000 and mem=85
+Running freuroth with nvar=1000 and mem=86
+Running freuroth with nvar=1000 and mem=87
+Running freuroth with nvar=1000 and mem=88
+Running freuroth with nvar=1000 and mem=89
+Running freuroth with nvar=1000 and mem=90
+Running freuroth with nvar=1000 and mem=91
+Running freuroth with nvar=1000 and mem=92
+Running freuroth with nvar=1000 and mem=93
+Running freuroth with nvar=1000 and mem=94
+Running freuroth with nvar=1000 and mem=95
+Running freuroth with nvar=1000 and mem=96
+Running freuroth with nvar=1000 and mem=97
+Running freuroth with nvar=1000 and mem=98
+Running freuroth with nvar=1000 and mem=99
+Running freuroth with nvar=1000 and mem=100
+  Problem name: genhumps
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running genhumps with nvar=1000 and mem=1
+Running genhumps with nvar=1000 and mem=1
+Running genhumps with nvar=1000 and mem=2
+Running genhumps with nvar=1000 and mem=3
+Running genhumps with nvar=1000 and mem=4
+Running genhumps with nvar=1000 and mem=5
+Running genhumps with nvar=1000 and mem=6
+Running genhumps with nvar=1000 and mem=7
+Running genhumps with nvar=1000 and mem=8
+Running genhumps with nvar=1000 and mem=9
+Running genhumps with nvar=1000 and mem=10
+Running genhumps with nvar=1000 and mem=11
+Running genhumps with nvar=1000 and mem=12
+Running genhumps with nvar=1000 and mem=13
+Running genhumps with nvar=1000 and mem=14
+Running genhumps with nvar=1000 and mem=15
+Running genhumps with nvar=1000 and mem=16
+Running genhumps with nvar=1000 and mem=17
+Running genhumps with nvar=1000 and mem=18
+Running genhumps with nvar=1000 and mem=19
+Running genhumps with nvar=1000 and mem=20
+Running genhumps with nvar=1000 and mem=21
+Running genhumps with nvar=1000 and mem=22
+Running genhumps with nvar=1000 and mem=23
+Running genhumps with nvar=1000 and mem=24
+Running genhumps with nvar=1000 and mem=25
+Running genhumps with nvar=1000 and mem=26
+Running genhumps with nvar=1000 and mem=27
+Running genhumps with nvar=1000 and mem=28
+Running genhumps with nvar=1000 and mem=29
+Running genhumps with nvar=1000 and mem=30
+Running genhumps with nvar=1000 and mem=31
+Running genhumps with nvar=1000 and mem=32
+Running genhumps with nvar=1000 and mem=33
+Running genhumps with nvar=1000 and mem=34
+Running genhumps with nvar=1000 and mem=35
+Running genhumps with nvar=1000 and mem=36
+Running genhumps with nvar=1000 and mem=37
+Running genhumps with nvar=1000 and mem=38
+Running genhumps with nvar=1000 and mem=39
+Running genhumps with nvar=1000 and mem=40
+Running genhumps with nvar=1000 and mem=41
+Running genhumps with nvar=1000 and mem=42
+Running genhumps with nvar=1000 and mem=43
+Running genhumps with nvar=1000 and mem=44
+Running genhumps with nvar=1000 and mem=45
+Running genhumps with nvar=1000 and mem=46
+Running genhumps with nvar=1000 and mem=47
+Running genhumps with nvar=1000 and mem=48
+Running genhumps with nvar=1000 and mem=49
+Running genhumps with nvar=1000 and mem=50
+Running genhumps with nvar=1000 and mem=51
+Running genhumps with nvar=1000 and mem=52
+Running genhumps with nvar=1000 and mem=53
+Running genhumps with nvar=1000 and mem=54
+Running genhumps with nvar=1000 and mem=55
+Running genhumps with nvar=1000 and mem=56
+Running genhumps with nvar=1000 and mem=57
+Running genhumps with nvar=1000 and mem=58
+Running genhumps with nvar=1000 and mem=59
+Running genhumps with nvar=1000 and mem=60
+Running genhumps with nvar=1000 and mem=61
+Running genhumps with nvar=1000 and mem=62
+Running genhumps with nvar=1000 and mem=63
+Running genhumps with nvar=1000 and mem=64
+Running genhumps with nvar=1000 and mem=65
+Running genhumps with nvar=1000 and mem=66
+Running genhumps with nvar=1000 and mem=67
+Running genhumps with nvar=1000 and mem=68
+Running genhumps with nvar=1000 and mem=69
+Running genhumps with nvar=1000 and mem=70
+Running genhumps with nvar=1000 and mem=71
+Running genhumps with nvar=1000 and mem=72
+Running genhumps with nvar=1000 and mem=73
+Running genhumps with nvar=1000 and mem=74
+Running genhumps with nvar=1000 and mem=75
+Running genhumps with nvar=1000 and mem=76
+Running genhumps with nvar=1000 and mem=77
+Running genhumps with nvar=1000 and mem=78
+Running genhumps with nvar=1000 and mem=79
+Running genhumps with nvar=1000 and mem=80
+Running genhumps with nvar=1000 and mem=81
+Running genhumps with nvar=1000 and mem=82
+Running genhumps with nvar=1000 and mem=83
+Running genhumps with nvar=1000 and mem=84
+Running genhumps with nvar=1000 and mem=85
+Running genhumps with nvar=1000 and mem=86
+Running genhumps with nvar=1000 and mem=87
+Running genhumps with nvar=1000 and mem=88
+Running genhumps with nvar=1000 and mem=89
+Running genhumps with nvar=1000 and mem=90
+Running genhumps with nvar=1000 and mem=91
+Running genhumps with nvar=1000 and mem=92
+Running genhumps with nvar=1000 and mem=93
+Running genhumps with nvar=1000 and mem=94
+Running genhumps with nvar=1000 and mem=95
+Running genhumps with nvar=1000 and mem=96
+Running genhumps with nvar=1000 and mem=97
+Running genhumps with nvar=1000 and mem=98
+Running genhumps with nvar=1000 and mem=99
+Running genhumps with nvar=1000 and mem=100
+  Problem name: genrose
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running genrose with nvar=1000 and mem=1
+Running genrose with nvar=1000 and mem=1
+Running genrose with nvar=1000 and mem=2
+Running genrose with nvar=1000 and mem=3
+Running genrose with nvar=1000 and mem=4
+Running genrose with nvar=1000 and mem=5
+Running genrose with nvar=1000 and mem=6
+Running genrose with nvar=1000 and mem=7
+Running genrose with nvar=1000 and mem=8
+Running genrose with nvar=1000 and mem=9
+Running genrose with nvar=1000 and mem=10
+Running genrose with nvar=1000 and mem=11
+Running genrose with nvar=1000 and mem=12
+Running genrose with nvar=1000 and mem=13
+Running genrose with nvar=1000 and mem=14
+Running genrose with nvar=1000 and mem=15
+Running genrose with nvar=1000 and mem=16
+Running genrose with nvar=1000 and mem=17
+Running genrose with nvar=1000 and mem=18
+Running genrose with nvar=1000 and mem=19
+Running genrose with nvar=1000 and mem=20
+Running genrose with nvar=1000 and mem=21
+Running genrose with nvar=1000 and mem=22
+Running genrose with nvar=1000 and mem=23
+Running genrose with nvar=1000 and mem=24
+Running genrose with nvar=1000 and mem=25
+Running genrose with nvar=1000 and mem=26
+Running genrose with nvar=1000 and mem=27
+Running genrose with nvar=1000 and mem=28
+Running genrose with nvar=1000 and mem=29
+Running genrose with nvar=1000 and mem=30
+Running genrose with nvar=1000 and mem=31
+Running genrose with nvar=1000 and mem=32
+Running genrose with nvar=1000 and mem=33
+Running genrose with nvar=1000 and mem=34
+Running genrose with nvar=1000 and mem=35
+Running genrose with nvar=1000 and mem=36
+Running genrose with nvar=1000 and mem=37
+Running genrose with nvar=1000 and mem=38
+Running genrose with nvar=1000 and mem=39
+Running genrose with nvar=1000 and mem=40
+Running genrose with nvar=1000 and mem=41
+Running genrose with nvar=1000 and mem=42
+Running genrose with nvar=1000 and mem=43
+Running genrose with nvar=1000 and mem=44
+Running genrose with nvar=1000 and mem=45
+Running genrose with nvar=1000 and mem=46
+Running genrose with nvar=1000 and mem=47
+Running genrose with nvar=1000 and mem=48
+Running genrose with nvar=1000 and mem=49
+Running genrose with nvar=1000 and mem=50
+Running genrose with nvar=1000 and mem=51
+Running genrose with nvar=1000 and mem=52
+Running genrose with nvar=1000 and mem=53
+Running genrose with nvar=1000 and mem=54
+Running genrose with nvar=1000 and mem=55
+Running genrose with nvar=1000 and mem=56
+Running genrose with nvar=1000 and mem=57
+Running genrose with nvar=1000 and mem=58
+Running genrose with nvar=1000 and mem=59
+Running genrose with nvar=1000 and mem=60
+Running genrose with nvar=1000 and mem=61
+Running genrose with nvar=1000 and mem=62
+Running genrose with nvar=1000 and mem=63
+Running genrose with nvar=1000 and mem=64
+Running genrose with nvar=1000 and mem=65
+Running genrose with nvar=1000 and mem=66
+Running genrose with nvar=1000 and mem=67
+Running genrose with nvar=1000 and mem=68
+Running genrose with nvar=1000 and mem=69
+Running genrose with nvar=1000 and mem=70
+Running genrose with nvar=1000 and mem=71
+Running genrose with nvar=1000 and mem=72
+Running genrose with nvar=1000 and mem=73
+Running genrose with nvar=1000 and mem=74
+Running genrose with nvar=1000 and mem=75
+Running genrose with nvar=1000 and mem=76
+Running genrose with nvar=1000 and mem=77
+Running genrose with nvar=1000 and mem=78
+Running genrose with nvar=1000 and mem=79
+Running genrose with nvar=1000 and mem=80
+Running genrose with nvar=1000 and mem=81
+Running genrose with nvar=1000 and mem=82
+Running genrose with nvar=1000 and mem=83
+Running genrose with nvar=1000 and mem=84
+Running genrose with nvar=1000 and mem=85
+Running genrose with nvar=1000 and mem=86
+Running genrose with nvar=1000 and mem=87
+Running genrose with nvar=1000 and mem=88
+Running genrose with nvar=1000 and mem=89
+Running genrose with nvar=1000 and mem=90
+Running genrose with nvar=1000 and mem=91
+Running genrose with nvar=1000 and mem=92
+Running genrose with nvar=1000 and mem=93
+Running genrose with nvar=1000 and mem=94
+Running genrose with nvar=1000 and mem=95
+Running genrose with nvar=1000 and mem=96
+Running genrose with nvar=1000 and mem=97
+Running genrose with nvar=1000 and mem=98
+Running genrose with nvar=1000 and mem=99
+Running genrose with nvar=1000 and mem=100
+  Problem name: genrose_nash
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running genrose_nash with nvar=1000 and mem=1
+Running genrose_nash with nvar=1000 and mem=1
+Running genrose_nash with nvar=1000 and mem=2
+Running genrose_nash with nvar=1000 and mem=3
+Running genrose_nash with nvar=1000 and mem=4
+Running genrose_nash with nvar=1000 and mem=5
+Running genrose_nash with nvar=1000 and mem=6
+Running genrose_nash with nvar=1000 and mem=7
+Running genrose_nash with nvar=1000 and mem=8
+Running genrose_nash with nvar=1000 and mem=9
+Running genrose_nash with nvar=1000 and mem=10
+Running genrose_nash with nvar=1000 and mem=11
+Running genrose_nash with nvar=1000 and mem=12
+Running genrose_nash with nvar=1000 and mem=13
+Running genrose_nash with nvar=1000 and mem=14
+Running genrose_nash with nvar=1000 and mem=15
+Running genrose_nash with nvar=1000 and mem=16
+Running genrose_nash with nvar=1000 and mem=17
+Running genrose_nash with nvar=1000 and mem=18
+Running genrose_nash with nvar=1000 and mem=19
+Running genrose_nash with nvar=1000 and mem=20
+Running genrose_nash with nvar=1000 and mem=21
+Running genrose_nash with nvar=1000 and mem=22
+Running genrose_nash with nvar=1000 and mem=23
+Running genrose_nash with nvar=1000 and mem=24
+Running genrose_nash with nvar=1000 and mem=25
+Running genrose_nash with nvar=1000 and mem=26
+Running genrose_nash with nvar=1000 and mem=27
+Running genrose_nash with nvar=1000 and mem=28
+Running genrose_nash with nvar=1000 and mem=29
+Running genrose_nash with nvar=1000 and mem=30
+Running genrose_nash with nvar=1000 and mem=31
+Running genrose_nash with nvar=1000 and mem=32
+Running genrose_nash with nvar=1000 and mem=33
+Running genrose_nash with nvar=1000 and mem=34
+Running genrose_nash with nvar=1000 and mem=35
+Running genrose_nash with nvar=1000 and mem=36
+Running genrose_nash with nvar=1000 and mem=37
+Running genrose_nash with nvar=1000 and mem=38
+Running genrose_nash with nvar=1000 and mem=39
+Running genrose_nash with nvar=1000 and mem=40
+Running genrose_nash with nvar=1000 and mem=41
+Running genrose_nash with nvar=1000 and mem=42
+Running genrose_nash with nvar=1000 and mem=43
+Running genrose_nash with nvar=1000 and mem=44
+Running genrose_nash with nvar=1000 and mem=45
+Running genrose_nash with nvar=1000 and mem=46
+Running genrose_nash with nvar=1000 and mem=47
+Running genrose_nash with nvar=1000 and mem=48
+Running genrose_nash with nvar=1000 and mem=49
+Running genrose_nash with nvar=1000 and mem=50
+Running genrose_nash with nvar=1000 and mem=51
+Running genrose_nash with nvar=1000 and mem=52
+Running genrose_nash with nvar=1000 and mem=53
+Running genrose_nash with nvar=1000 and mem=54
+Running genrose_nash with nvar=1000 and mem=55
+Running genrose_nash with nvar=1000 and mem=56
+Running genrose_nash with nvar=1000 and mem=57
+Running genrose_nash with nvar=1000 and mem=58
+Running genrose_nash with nvar=1000 and mem=59
+Running genrose_nash with nvar=1000 and mem=60
+Running genrose_nash with nvar=1000 and mem=61
+Running genrose_nash with nvar=1000 and mem=62
+Running genrose_nash with nvar=1000 and mem=63
+Running genrose_nash with nvar=1000 and mem=64
+Running genrose_nash with nvar=1000 and mem=65
+Running genrose_nash with nvar=1000 and mem=66
+Running genrose_nash with nvar=1000 and mem=67
+Running genrose_nash with nvar=1000 and mem=68
+Running genrose_nash with nvar=1000 and mem=69
+Running genrose_nash with nvar=1000 and mem=70
+Running genrose_nash with nvar=1000 and mem=71
+Running genrose_nash with nvar=1000 and mem=72
+Running genrose_nash with nvar=1000 and mem=73
+Running genrose_nash with nvar=1000 and mem=74
+Running genrose_nash with nvar=1000 and mem=75
+Running genrose_nash with nvar=1000 and mem=76
+Running genrose_nash with nvar=1000 and mem=77
+Running genrose_nash with nvar=1000 and mem=78
+Running genrose_nash with nvar=1000 and mem=79
+Running genrose_nash with nvar=1000 and mem=80
+Running genrose_nash with nvar=1000 and mem=81
+Running genrose_nash with nvar=1000 and mem=82
+Running genrose_nash with nvar=1000 and mem=83
+Running genrose_nash with nvar=1000 and mem=84
+Running genrose_nash with nvar=1000 and mem=85
+Running genrose_nash with nvar=1000 and mem=86
+Running genrose_nash with nvar=1000 and mem=87
+Running genrose_nash with nvar=1000 and mem=88
+Running genrose_nash with nvar=1000 and mem=89
+Running genrose_nash with nvar=1000 and mem=90
+Running genrose_nash with nvar=1000 and mem=91
+Running genrose_nash with nvar=1000 and mem=92
+Running genrose_nash with nvar=1000 and mem=93
+Running genrose_nash with nvar=1000 and mem=94
+Running genrose_nash with nvar=1000 and mem=95
+Running genrose_nash with nvar=1000 and mem=96
+Running genrose_nash with nvar=1000 and mem=97
+Running genrose_nash with nvar=1000 and mem=98
+Running genrose_nash with nvar=1000 and mem=99
+Running genrose_nash with nvar=1000 and mem=100
+  Problem name: indef_mod
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.40% sparsity)   2997            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running indef_mod with nvar=1000 and mem=1
+Running indef_mod with nvar=1000 and mem=1
+Running indef_mod with nvar=1000 and mem=2
+Running indef_mod with nvar=1000 and mem=3
+Running indef_mod with nvar=1000 and mem=4
+Running indef_mod with nvar=1000 and mem=5
+Running indef_mod with nvar=1000 and mem=6
+Running indef_mod with nvar=1000 and mem=7
+Running indef_mod with nvar=1000 and mem=8
+Running indef_mod with nvar=1000 and mem=9
+Running indef_mod with nvar=1000 and mem=10
+Running indef_mod with nvar=1000 and mem=11
+Running indef_mod with nvar=1000 and mem=12
+Running indef_mod with nvar=1000 and mem=13
+Running indef_mod with nvar=1000 and mem=14
+Running indef_mod with nvar=1000 and mem=15
+Running indef_mod with nvar=1000 and mem=16
+Running indef_mod with nvar=1000 and mem=17
+Running indef_mod with nvar=1000 and mem=18
+Running indef_mod with nvar=1000 and mem=19
+Running indef_mod with nvar=1000 and mem=20
+Running indef_mod with nvar=1000 and mem=21
+Running indef_mod with nvar=1000 and mem=22
+Running indef_mod with nvar=1000 and mem=23
+Running indef_mod with nvar=1000 and mem=24
+Running indef_mod with nvar=1000 and mem=25
+Running indef_mod with nvar=1000 and mem=26
+Running indef_mod with nvar=1000 and mem=27
+Running indef_mod with nvar=1000 and mem=28
+Running indef_mod with nvar=1000 and mem=29
+Running indef_mod with nvar=1000 and mem=30
+Running indef_mod with nvar=1000 and mem=31
+Running indef_mod with nvar=1000 and mem=32
+Running indef_mod with nvar=1000 and mem=33
+Running indef_mod with nvar=1000 and mem=34
+Running indef_mod with nvar=1000 and mem=35
+Running indef_mod with nvar=1000 and mem=36
+Running indef_mod with nvar=1000 and mem=37
+Running indef_mod with nvar=1000 and mem=38
+Running indef_mod with nvar=1000 and mem=39
+Running indef_mod with nvar=1000 and mem=40
+Running indef_mod with nvar=1000 and mem=41
+Running indef_mod with nvar=1000 and mem=42
+Running indef_mod with nvar=1000 and mem=43
+Running indef_mod with nvar=1000 and mem=44
+Running indef_mod with nvar=1000 and mem=45
+Running indef_mod with nvar=1000 and mem=46
+Running indef_mod with nvar=1000 and mem=47
+Running indef_mod with nvar=1000 and mem=48
+Running indef_mod with nvar=1000 and mem=49
+Running indef_mod with nvar=1000 and mem=50
+Running indef_mod with nvar=1000 and mem=51
+Running indef_mod with nvar=1000 and mem=52
+Running indef_mod with nvar=1000 and mem=53
+Running indef_mod with nvar=1000 and mem=54
+Running indef_mod with nvar=1000 and mem=55
+Running indef_mod with nvar=1000 and mem=56
+Running indef_mod with nvar=1000 and mem=57
+Running indef_mod with nvar=1000 and mem=58
+Running indef_mod with nvar=1000 and mem=59
+Running indef_mod with nvar=1000 and mem=60
+Running indef_mod with nvar=1000 and mem=61
+Running indef_mod with nvar=1000 and mem=62
+Running indef_mod with nvar=1000 and mem=63
+Running indef_mod with nvar=1000 and mem=64
+Running indef_mod with nvar=1000 and mem=65
+Running indef_mod with nvar=1000 and mem=66
+Running indef_mod with nvar=1000 and mem=67
+Running indef_mod with nvar=1000 and mem=68
+Running indef_mod with nvar=1000 and mem=69
+Running indef_mod with nvar=1000 and mem=70
+Running indef_mod with nvar=1000 and mem=71
+Running indef_mod with nvar=1000 and mem=72
+Running indef_mod with nvar=1000 and mem=73
+Running indef_mod with nvar=1000 and mem=74
+Running indef_mod with nvar=1000 and mem=75
+Running indef_mod with nvar=1000 and mem=76
+Running indef_mod with nvar=1000 and mem=77
+Running indef_mod with nvar=1000 and mem=78
+Running indef_mod with nvar=1000 and mem=79
+Running indef_mod with nvar=1000 and mem=80
+Running indef_mod with nvar=1000 and mem=81
+Running indef_mod with nvar=1000 and mem=82
+Running indef_mod with nvar=1000 and mem=83
+Running indef_mod with nvar=1000 and mem=84
+Running indef_mod with nvar=1000 and mem=85
+Running indef_mod with nvar=1000 and mem=86
+Running indef_mod with nvar=1000 and mem=87
+Running indef_mod with nvar=1000 and mem=88
+Running indef_mod with nvar=1000 and mem=89
+Running indef_mod with nvar=1000 and mem=90
+Running indef_mod with nvar=1000 and mem=91
+Running indef_mod with nvar=1000 and mem=92
+Running indef_mod with nvar=1000 and mem=93
+Running indef_mod with nvar=1000 and mem=94
+Running indef_mod with nvar=1000 and mem=95
+Running indef_mod with nvar=1000 and mem=96
+Running indef_mod with nvar=1000 and mem=97
+Running indef_mod with nvar=1000 and mem=98
+Running indef_mod with nvar=1000 and mem=99
+Running indef_mod with nvar=1000 and mem=100
+  Problem name: integreq
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: (  0.00% sparsity)   500500          linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running integreq with nvar=1000 and mem=1
+Running integreq with nvar=1000 and mem=1
+Running integreq with nvar=1000 and mem=2
+Running integreq with nvar=1000 and mem=3
+Running integreq with nvar=1000 and mem=4
+Running integreq with nvar=1000 and mem=5
+Running integreq with nvar=1000 and mem=6
+Running integreq with nvar=1000 and mem=7
+Running integreq with nvar=1000 and mem=8
+Running integreq with nvar=1000 and mem=9
+Running integreq with nvar=1000 and mem=10
+Running integreq with nvar=1000 and mem=11
+Running integreq with nvar=1000 and mem=12
+Running integreq with nvar=1000 and mem=13
+Running integreq with nvar=1000 and mem=14
+Running integreq with nvar=1000 and mem=15
+Running integreq with nvar=1000 and mem=16
+Running integreq with nvar=1000 and mem=17
+Running integreq with nvar=1000 and mem=18
+Running integreq with nvar=1000 and mem=19
+Running integreq with nvar=1000 and mem=20
+Running integreq with nvar=1000 and mem=21
+Running integreq with nvar=1000 and mem=22
+Running integreq with nvar=1000 and mem=23
+Running integreq with nvar=1000 and mem=24
+Running integreq with nvar=1000 and mem=25
+Running integreq with nvar=1000 and mem=26
+Running integreq with nvar=1000 and mem=27
+Running integreq with nvar=1000 and mem=28
+Running integreq with nvar=1000 and mem=29
+Running integreq with nvar=1000 and mem=30
+Running integreq with nvar=1000 and mem=31
+Running integreq with nvar=1000 and mem=32
+Running integreq with nvar=1000 and mem=33
+Running integreq with nvar=1000 and mem=34
+Running integreq with nvar=1000 and mem=35
+Running integreq with nvar=1000 and mem=36
+Running integreq with nvar=1000 and mem=37
+Running integreq with nvar=1000 and mem=38
+Running integreq with nvar=1000 and mem=39
+Running integreq with nvar=1000 and mem=40
+Running integreq with nvar=1000 and mem=41
+Running integreq with nvar=1000 and mem=42
+Running integreq with nvar=1000 and mem=43
+Running integreq with nvar=1000 and mem=44
+Running integreq with nvar=1000 and mem=45
+Running integreq with nvar=1000 and mem=46
+Running integreq with nvar=1000 and mem=47
+Running integreq with nvar=1000 and mem=48
+Running integreq with nvar=1000 and mem=49
+Running integreq with nvar=1000 and mem=50
+Running integreq with nvar=1000 and mem=51
+Running integreq with nvar=1000 and mem=52
+Running integreq with nvar=1000 and mem=53
+Running integreq with nvar=1000 and mem=54
+Running integreq with nvar=1000 and mem=55
+Running integreq with nvar=1000 and mem=56
+Running integreq with nvar=1000 and mem=57
+Running integreq with nvar=1000 and mem=58
+Running integreq with nvar=1000 and mem=59
+Running integreq with nvar=1000 and mem=60
+Running integreq with nvar=1000 and mem=61
+Running integreq with nvar=1000 and mem=62
+Running integreq with nvar=1000 and mem=63
+Running integreq with nvar=1000 and mem=64
+Running integreq with nvar=1000 and mem=65
+Running integreq with nvar=1000 and mem=66
+Running integreq with nvar=1000 and mem=67
+Running integreq with nvar=1000 and mem=68
+Running integreq with nvar=1000 and mem=69
+Running integreq with nvar=1000 and mem=70
+Running integreq with nvar=1000 and mem=71
+Running integreq with nvar=1000 and mem=72
+Running integreq with nvar=1000 and mem=73
+Running integreq with nvar=1000 and mem=74
+Running integreq with nvar=1000 and mem=75
+Running integreq with nvar=1000 and mem=76
+Running integreq with nvar=1000 and mem=77
+Running integreq with nvar=1000 and mem=78
+Running integreq with nvar=1000 and mem=79
+Running integreq with nvar=1000 and mem=80
+Running integreq with nvar=1000 and mem=81
+Running integreq with nvar=1000 and mem=82
+Running integreq with nvar=1000 and mem=83
+Running integreq with nvar=1000 and mem=84
+Running integreq with nvar=1000 and mem=85
+Running integreq with nvar=1000 and mem=86
+Running integreq with nvar=1000 and mem=87
+Running integreq with nvar=1000 and mem=88
+Running integreq with nvar=1000 and mem=89
+Running integreq with nvar=1000 and mem=90
+Running integreq with nvar=1000 and mem=91
+Running integreq with nvar=1000 and mem=92
+Running integreq with nvar=1000 and mem=93
+Running integreq with nvar=1000 and mem=94
+Running integreq with nvar=1000 and mem=95
+Running integreq with nvar=1000 and mem=96
+Running integreq with nvar=1000 and mem=97
+Running integreq with nvar=1000 and mem=98
+Running integreq with nvar=1000 and mem=99
+Running integreq with nvar=1000 and mem=100
+  Problem name: liarwhd
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running liarwhd with nvar=1000 and mem=1
+Running liarwhd with nvar=1000 and mem=1
+Running liarwhd with nvar=1000 and mem=2
+Running liarwhd with nvar=1000 and mem=3
+Running liarwhd with nvar=1000 and mem=4
+Running liarwhd with nvar=1000 and mem=5
+Running liarwhd with nvar=1000 and mem=6
+Running liarwhd with nvar=1000 and mem=7
+Running liarwhd with nvar=1000 and mem=8
+Running liarwhd with nvar=1000 and mem=9
+Running liarwhd with nvar=1000 and mem=10
+Running liarwhd with nvar=1000 and mem=11
+Running liarwhd with nvar=1000 and mem=12
+Running liarwhd with nvar=1000 and mem=13
+Running liarwhd with nvar=1000 and mem=14
+Running liarwhd with nvar=1000 and mem=15
+Running liarwhd with nvar=1000 and mem=16
+Running liarwhd with nvar=1000 and mem=17
+Running liarwhd with nvar=1000 and mem=18
+Running liarwhd with nvar=1000 and mem=19
+Running liarwhd with nvar=1000 and mem=20
+Running liarwhd with nvar=1000 and mem=21
+Running liarwhd with nvar=1000 and mem=22
+Running liarwhd with nvar=1000 and mem=23
+Running liarwhd with nvar=1000 and mem=24
+Running liarwhd with nvar=1000 and mem=25
+Running liarwhd with nvar=1000 and mem=26
+Running liarwhd with nvar=1000 and mem=27
+Running liarwhd with nvar=1000 and mem=28
+Running liarwhd with nvar=1000 and mem=29
+Running liarwhd with nvar=1000 and mem=30
+Running liarwhd with nvar=1000 and mem=31
+Running liarwhd with nvar=1000 and mem=32
+Running liarwhd with nvar=1000 and mem=33
+Running liarwhd with nvar=1000 and mem=34
+Running liarwhd with nvar=1000 and mem=35
+Running liarwhd with nvar=1000 and mem=36
+Running liarwhd with nvar=1000 and mem=37
+Running liarwhd with nvar=1000 and mem=38
+Running liarwhd with nvar=1000 and mem=39
+Running liarwhd with nvar=1000 and mem=40
+Running liarwhd with nvar=1000 and mem=41
+Running liarwhd with nvar=1000 and mem=42
+Running liarwhd with nvar=1000 and mem=43
+Running liarwhd with nvar=1000 and mem=44
+Running liarwhd with nvar=1000 and mem=45
+Running liarwhd with nvar=1000 and mem=46
+Running liarwhd with nvar=1000 and mem=47
+Running liarwhd with nvar=1000 and mem=48
+Running liarwhd with nvar=1000 and mem=49
+Running liarwhd with nvar=1000 and mem=50
+Running liarwhd with nvar=1000 and mem=51
+Running liarwhd with nvar=1000 and mem=52
+Running liarwhd with nvar=1000 and mem=53
+Running liarwhd with nvar=1000 and mem=54
+Running liarwhd with nvar=1000 and mem=55
+Running liarwhd with nvar=1000 and mem=56
+Running liarwhd with nvar=1000 and mem=57
+Running liarwhd with nvar=1000 and mem=58
+Running liarwhd with nvar=1000 and mem=59
+Running liarwhd with nvar=1000 and mem=60
+Running liarwhd with nvar=1000 and mem=61
+Running liarwhd with nvar=1000 and mem=62
+Running liarwhd with nvar=1000 and mem=63
+Running liarwhd with nvar=1000 and mem=64
+Running liarwhd with nvar=1000 and mem=65
+Running liarwhd with nvar=1000 and mem=66
+Running liarwhd with nvar=1000 and mem=67
+Running liarwhd with nvar=1000 and mem=68
+Running liarwhd with nvar=1000 and mem=69
+Running liarwhd with nvar=1000 and mem=70
+Running liarwhd with nvar=1000 and mem=71
+Running liarwhd with nvar=1000 and mem=72
+Running liarwhd with nvar=1000 and mem=73
+Running liarwhd with nvar=1000 and mem=74
+Running liarwhd with nvar=1000 and mem=75
+Running liarwhd with nvar=1000 and mem=76
+Running liarwhd with nvar=1000 and mem=77
+Running liarwhd with nvar=1000 and mem=78
+Running liarwhd with nvar=1000 and mem=79
+Running liarwhd with nvar=1000 and mem=80
+Running liarwhd with nvar=1000 and mem=81
+Running liarwhd with nvar=1000 and mem=82
+Running liarwhd with nvar=1000 and mem=83
+Running liarwhd with nvar=1000 and mem=84
+Running liarwhd with nvar=1000 and mem=85
+Running liarwhd with nvar=1000 and mem=86
+Running liarwhd with nvar=1000 and mem=87
+Running liarwhd with nvar=1000 and mem=88
+Running liarwhd with nvar=1000 and mem=89
+Running liarwhd with nvar=1000 and mem=90
+Running liarwhd with nvar=1000 and mem=91
+Running liarwhd with nvar=1000 and mem=92
+Running liarwhd with nvar=1000 and mem=93
+Running liarwhd with nvar=1000 and mem=94
+Running liarwhd with nvar=1000 and mem=95
+Running liarwhd with nvar=1000 and mem=96
+Running liarwhd with nvar=1000 and mem=97
+Running liarwhd with nvar=1000 and mem=98
+Running liarwhd with nvar=1000 and mem=99
+Running liarwhd with nvar=1000 and mem=100
+  Problem name: morebv
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.40% sparsity)   2997            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running morebv with nvar=1000 and mem=1
+Running morebv with nvar=1000 and mem=1
+Running morebv with nvar=1000 and mem=2
+Running morebv with nvar=1000 and mem=3
+Running morebv with nvar=1000 and mem=4
+Running morebv with nvar=1000 and mem=5
+Running morebv with nvar=1000 and mem=6
+Running morebv with nvar=1000 and mem=7
+Running morebv with nvar=1000 and mem=8
+Running morebv with nvar=1000 and mem=9
+Running morebv with nvar=1000 and mem=10
+Running morebv with nvar=1000 and mem=11
+Running morebv with nvar=1000 and mem=12
+Running morebv with nvar=1000 and mem=13
+Running morebv with nvar=1000 and mem=14
+Running morebv with nvar=1000 and mem=15
+Running morebv with nvar=1000 and mem=16
+Running morebv with nvar=1000 and mem=17
+Running morebv with nvar=1000 and mem=18
+Running morebv with nvar=1000 and mem=19
+Running morebv with nvar=1000 and mem=20
+Running morebv with nvar=1000 and mem=21
+Running morebv with nvar=1000 and mem=22
+Running morebv with nvar=1000 and mem=23
+Running morebv with nvar=1000 and mem=24
+Running morebv with nvar=1000 and mem=25
+Running morebv with nvar=1000 and mem=26
+Running morebv with nvar=1000 and mem=27
+Running morebv with nvar=1000 and mem=28
+Running morebv with nvar=1000 and mem=29
+Running morebv with nvar=1000 and mem=30
+Running morebv with nvar=1000 and mem=31
+Running morebv with nvar=1000 and mem=32
+Running morebv with nvar=1000 and mem=33
+Running morebv with nvar=1000 and mem=34
+Running morebv with nvar=1000 and mem=35
+Running morebv with nvar=1000 and mem=36
+Running morebv with nvar=1000 and mem=37
