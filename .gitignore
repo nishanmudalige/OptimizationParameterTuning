@@ -6,7 +6,6 @@
 Thumbs.db
 
 # Ignore any .log files
-*.log
 
 *.aux
 
@@ -15,3 +14,7 @@ Thumbs.db
 .venv
 
 Julia Notebook/archived/
+
+Documentation.log
+        Julia Notebook/run.log
+        main.log
