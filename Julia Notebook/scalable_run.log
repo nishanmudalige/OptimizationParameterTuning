@@ -6501,3 +6501,979 @@ Running morebv with nvar=1000 and mem=34
 Running morebv with nvar=1000 and mem=35
 Running morebv with nvar=1000 and mem=36
 Running morebv with nvar=1000 and mem=37
+Running morebv with nvar=1000 and mem=38
+Running morebv with nvar=1000 and mem=39
+Running morebv with nvar=1000 and mem=40
+Running morebv with nvar=1000 and mem=41
+Running morebv with nvar=1000 and mem=42
+Running morebv with nvar=1000 and mem=43
+Running morebv with nvar=1000 and mem=44
+Running morebv with nvar=1000 and mem=45
+Running morebv with nvar=1000 and mem=46
+Running morebv with nvar=1000 and mem=47
+Running morebv with nvar=1000 and mem=48
+Running morebv with nvar=1000 and mem=49
+Running morebv with nvar=1000 and mem=50
+Running morebv with nvar=1000 and mem=51
+Running morebv with nvar=1000 and mem=52
+Running morebv with nvar=1000 and mem=53
+Running morebv with nvar=1000 and mem=54
+Running morebv with nvar=1000 and mem=55
+Running morebv with nvar=1000 and mem=56
+Running morebv with nvar=1000 and mem=57
+Running morebv with nvar=1000 and mem=58
+Running morebv with nvar=1000 and mem=59
+Running morebv with nvar=1000 and mem=60
+Running morebv with nvar=1000 and mem=61
+Running morebv with nvar=1000 and mem=62
+Running morebv with nvar=1000 and mem=63
+Running morebv with nvar=1000 and mem=64
+Running morebv with nvar=1000 and mem=65
+Running morebv with nvar=1000 and mem=66
+Running morebv with nvar=1000 and mem=67
+Running morebv with nvar=1000 and mem=68
+Running morebv with nvar=1000 and mem=69
+Running morebv with nvar=1000 and mem=70
+Running morebv with nvar=1000 and mem=71
+Running morebv with nvar=1000 and mem=72
+Running morebv with nvar=1000 and mem=73
+Running morebv with nvar=1000 and mem=74
+Running morebv with nvar=1000 and mem=75
+Running morebv with nvar=1000 and mem=76
+Running morebv with nvar=1000 and mem=77
+Running morebv with nvar=1000 and mem=78
+Running morebv with nvar=1000 and mem=79
+Running morebv with nvar=1000 and mem=80
+Running morebv with nvar=1000 and mem=81
+Running morebv with nvar=1000 and mem=82
+Running morebv with nvar=1000 and mem=83
+Running morebv with nvar=1000 and mem=84
+Running morebv with nvar=1000 and mem=85
+Running morebv with nvar=1000 and mem=86
+Running morebv with nvar=1000 and mem=87
+Running morebv with nvar=1000 and mem=88
+Running morebv with nvar=1000 and mem=89
+Running morebv with nvar=1000 and mem=90
+Running morebv with nvar=1000 and mem=91
+Running morebv with nvar=1000 and mem=92
+Running morebv with nvar=1000 and mem=93
+Running morebv with nvar=1000 and mem=94
+Running morebv with nvar=1000 and mem=95
+Running morebv with nvar=1000 and mem=96
+Running morebv with nvar=1000 and mem=97
+Running morebv with nvar=1000 and mem=98
+Running morebv with nvar=1000 and mem=99
+Running morebv with nvar=1000 and mem=100
+  Problem name: ncb20
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 96.08% sparsity)   19621           linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running ncb20 with nvar=1000 and mem=1
+Running ncb20 with nvar=1000 and mem=1
+Running ncb20 with nvar=1000 and mem=2
+Running ncb20 with nvar=1000 and mem=3
+Running ncb20 with nvar=1000 and mem=4
+Running ncb20 with nvar=1000 and mem=5
+Running ncb20 with nvar=1000 and mem=6
+Running ncb20 with nvar=1000 and mem=7
+Running ncb20 with nvar=1000 and mem=8
+Running ncb20 with nvar=1000 and mem=9
+Running ncb20 with nvar=1000 and mem=10
+Running ncb20 with nvar=1000 and mem=11
+Running ncb20 with nvar=1000 and mem=12
+Running ncb20 with nvar=1000 and mem=13
+Running ncb20 with nvar=1000 and mem=14
+Running ncb20 with nvar=1000 and mem=15
+Running ncb20 with nvar=1000 and mem=16
+Running ncb20 with nvar=1000 and mem=17
+Running ncb20 with nvar=1000 and mem=18
+Running ncb20 with nvar=1000 and mem=19
+Running ncb20 with nvar=1000 and mem=20
+Running ncb20 with nvar=1000 and mem=21
+Running ncb20 with nvar=1000 and mem=22
+Running ncb20 with nvar=1000 and mem=23
+Running ncb20 with nvar=1000 and mem=24
+Running ncb20 with nvar=1000 and mem=25
+Running ncb20 with nvar=1000 and mem=26
+Running ncb20 with nvar=1000 and mem=27
+Running ncb20 with nvar=1000 and mem=28
+Running ncb20 with nvar=1000 and mem=29
+Running ncb20 with nvar=1000 and mem=30
+Running ncb20 with nvar=1000 and mem=31
+Running ncb20 with nvar=1000 and mem=32
+Running ncb20 with nvar=1000 and mem=33
+Running ncb20 with nvar=1000 and mem=34
+Running ncb20 with nvar=1000 and mem=35
+Running ncb20 with nvar=1000 and mem=36
+Running ncb20 with nvar=1000 and mem=37
+Running ncb20 with nvar=1000 and mem=38
+Running ncb20 with nvar=1000 and mem=39
+Running ncb20 with nvar=1000 and mem=40
+Running ncb20 with nvar=1000 and mem=41
+Running ncb20 with nvar=1000 and mem=42
+Running ncb20 with nvar=1000 and mem=43
+Running ncb20 with nvar=1000 and mem=44
+Running ncb20 with nvar=1000 and mem=45
+Running ncb20 with nvar=1000 and mem=46
+Running ncb20 with nvar=1000 and mem=47
+Running ncb20 with nvar=1000 and mem=48
+Running ncb20 with nvar=1000 and mem=49
+Running ncb20 with nvar=1000 and mem=50
+Running ncb20 with nvar=1000 and mem=51
+Running ncb20 with nvar=1000 and mem=52
+Running ncb20 with nvar=1000 and mem=53
+Running ncb20 with nvar=1000 and mem=54
+Running ncb20 with nvar=1000 and mem=55
+Running ncb20 with nvar=1000 and mem=56
+Running ncb20 with nvar=1000 and mem=57
+Running ncb20 with nvar=1000 and mem=58
+Running ncb20 with nvar=1000 and mem=59
+Running ncb20 with nvar=1000 and mem=60
+Running ncb20 with nvar=1000 and mem=61
+Running ncb20 with nvar=1000 and mem=62
+Running ncb20 with nvar=1000 and mem=63
+Running ncb20 with nvar=1000 and mem=64
+Running ncb20 with nvar=1000 and mem=65
+Running ncb20 with nvar=1000 and mem=66
+Running ncb20 with nvar=1000 and mem=67
+Running ncb20 with nvar=1000 and mem=68
+Running ncb20 with nvar=1000 and mem=69
+Running ncb20 with nvar=1000 and mem=70
+Running ncb20 with nvar=1000 and mem=71
+Running ncb20 with nvar=1000 and mem=72
+Running ncb20 with nvar=1000 and mem=73
+Running ncb20 with nvar=1000 and mem=74
+Running ncb20 with nvar=1000 and mem=75
+Running ncb20 with nvar=1000 and mem=76
+Running ncb20 with nvar=1000 and mem=77
+Running ncb20 with nvar=1000 and mem=78
+Running ncb20 with nvar=1000 and mem=79
+Running ncb20 with nvar=1000 and mem=80
+Running ncb20 with nvar=1000 and mem=81
+Running ncb20 with nvar=1000 and mem=82
+Running ncb20 with nvar=1000 and mem=83
+Running ncb20 with nvar=1000 and mem=84
+Running ncb20 with nvar=1000 and mem=85
+Running ncb20 with nvar=1000 and mem=86
+Running ncb20 with nvar=1000 and mem=87
+Running ncb20 with nvar=1000 and mem=88
+Running ncb20 with nvar=1000 and mem=89
+Running ncb20 with nvar=1000 and mem=90
+Running ncb20 with nvar=1000 and mem=91
+Running ncb20 with nvar=1000 and mem=92
+Running ncb20 with nvar=1000 and mem=93
+Running ncb20 with nvar=1000 and mem=94
+Running ncb20 with nvar=1000 and mem=95
+Running ncb20 with nvar=1000 and mem=96
+Running ncb20 with nvar=1000 and mem=97
+Running ncb20 with nvar=1000 and mem=98
+Running ncb20 with nvar=1000 and mem=99
+Running ncb20 with nvar=1000 and mem=100
+  Problem name: ncb20b
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 96.04% sparsity)   19810           linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running ncb20b with nvar=1000 and mem=1
+Running ncb20b with nvar=1000 and mem=1
+Running ncb20b with nvar=1000 and mem=2
+Running ncb20b with nvar=1000 and mem=3
+Running ncb20b with nvar=1000 and mem=4
+Running ncb20b with nvar=1000 and mem=5
+Running ncb20b with nvar=1000 and mem=6
+Running ncb20b with nvar=1000 and mem=7
+Running ncb20b with nvar=1000 and mem=8
+Running ncb20b with nvar=1000 and mem=9
+Running ncb20b with nvar=1000 and mem=10
+Running ncb20b with nvar=1000 and mem=11
+Running ncb20b with nvar=1000 and mem=12
+Running ncb20b with nvar=1000 and mem=13
+Running ncb20b with nvar=1000 and mem=14
+Running ncb20b with nvar=1000 and mem=15
+Running ncb20b with nvar=1000 and mem=16
+Running ncb20b with nvar=1000 and mem=17
+Running ncb20b with nvar=1000 and mem=18
+Running ncb20b with nvar=1000 and mem=19
+Running ncb20b with nvar=1000 and mem=20
+Running ncb20b with nvar=1000 and mem=21
+Running ncb20b with nvar=1000 and mem=22
+Running ncb20b with nvar=1000 and mem=23
+Running ncb20b with nvar=1000 and mem=24
+Running ncb20b with nvar=1000 and mem=25
+Running ncb20b with nvar=1000 and mem=26
+Running ncb20b with nvar=1000 and mem=27
+Running ncb20b with nvar=1000 and mem=28
+Running ncb20b with nvar=1000 and mem=29
+Running ncb20b with nvar=1000 and mem=30
+Running ncb20b with nvar=1000 and mem=31
+Running ncb20b with nvar=1000 and mem=32
+Running ncb20b with nvar=1000 and mem=33
+Running ncb20b with nvar=1000 and mem=34
+Running ncb20b with nvar=1000 and mem=35
+Running ncb20b with nvar=1000 and mem=36
+Running ncb20b with nvar=1000 and mem=37
+Running ncb20b with nvar=1000 and mem=38
+Running ncb20b with nvar=1000 and mem=39
+Running ncb20b with nvar=1000 and mem=40
+Running ncb20b with nvar=1000 and mem=41
+Running ncb20b with nvar=1000 and mem=42
+Running ncb20b with nvar=1000 and mem=43
+Running ncb20b with nvar=1000 and mem=44
+Running ncb20b with nvar=1000 and mem=45
+Running ncb20b with nvar=1000 and mem=46
+Running ncb20b with nvar=1000 and mem=47
+Running ncb20b with nvar=1000 and mem=48
+Running ncb20b with nvar=1000 and mem=49
+Running ncb20b with nvar=1000 and mem=50
+Running ncb20b with nvar=1000 and mem=51
+Running ncb20b with nvar=1000 and mem=52
+Running ncb20b with nvar=1000 and mem=53
+Running ncb20b with nvar=1000 and mem=54
+Running ncb20b with nvar=1000 and mem=55
+Running ncb20b with nvar=1000 and mem=56
+Running ncb20b with nvar=1000 and mem=57
+Running ncb20b with nvar=1000 and mem=58
+Running ncb20b with nvar=1000 and mem=59
+Running ncb20b with nvar=1000 and mem=60
+Running ncb20b with nvar=1000 and mem=61
+Running ncb20b with nvar=1000 and mem=62
+Running ncb20b with nvar=1000 and mem=63
+Running ncb20b with nvar=1000 and mem=64
+Running ncb20b with nvar=1000 and mem=65
+Running ncb20b with nvar=1000 and mem=66
+Running ncb20b with nvar=1000 and mem=67
+Running ncb20b with nvar=1000 and mem=68
+Running ncb20b with nvar=1000 and mem=69
+Running ncb20b with nvar=1000 and mem=70
+Running ncb20b with nvar=1000 and mem=71
+Running ncb20b with nvar=1000 and mem=72
+Running ncb20b with nvar=1000 and mem=73
+Running ncb20b with nvar=1000 and mem=74
+Running ncb20b with nvar=1000 and mem=75
+Running ncb20b with nvar=1000 and mem=76
+Running ncb20b with nvar=1000 and mem=77
+Running ncb20b with nvar=1000 and mem=78
+Running ncb20b with nvar=1000 and mem=79
+Running ncb20b with nvar=1000 and mem=80
+Running ncb20b with nvar=1000 and mem=81
+Running ncb20b with nvar=1000 and mem=82
+Running ncb20b with nvar=1000 and mem=83
+Running ncb20b with nvar=1000 and mem=84
+Running ncb20b with nvar=1000 and mem=85
+Running ncb20b with nvar=1000 and mem=86
+Running ncb20b with nvar=1000 and mem=87
+Running ncb20b with nvar=1000 and mem=88
+Running ncb20b with nvar=1000 and mem=89
+Running ncb20b with nvar=1000 and mem=90
+Running ncb20b with nvar=1000 and mem=91
+Running ncb20b with nvar=1000 and mem=92
+Running ncb20b with nvar=1000 and mem=93
+Running ncb20b with nvar=1000 and mem=94
+Running ncb20b with nvar=1000 and mem=95
+Running ncb20b with nvar=1000 and mem=96
+Running ncb20b with nvar=1000 and mem=97
+Running ncb20b with nvar=1000 and mem=98
+Running ncb20b with nvar=1000 and mem=99
+Running ncb20b with nvar=1000 and mem=100
+  Problem name: noncvxu2
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.20% sparsity)   3991            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running noncvxu2 with nvar=1000 and mem=1
+Running noncvxu2 with nvar=1000 and mem=1
+Running noncvxu2 with nvar=1000 and mem=2
+Running noncvxu2 with nvar=1000 and mem=3
+Running noncvxu2 with nvar=1000 and mem=4
+Running noncvxu2 with nvar=1000 and mem=5
+Running noncvxu2 with nvar=1000 and mem=6
+Running noncvxu2 with nvar=1000 and mem=7
+Running noncvxu2 with nvar=1000 and mem=8
+Running noncvxu2 with nvar=1000 and mem=9
+Running noncvxu2 with nvar=1000 and mem=10
+Running noncvxu2 with nvar=1000 and mem=11
+Running noncvxu2 with nvar=1000 and mem=12
+Running noncvxu2 with nvar=1000 and mem=13
+Running noncvxu2 with nvar=1000 and mem=14
+Running noncvxu2 with nvar=1000 and mem=15
+Running noncvxu2 with nvar=1000 and mem=16
+Running noncvxu2 with nvar=1000 and mem=17
+Running noncvxu2 with nvar=1000 and mem=18
+Running noncvxu2 with nvar=1000 and mem=19
+Running noncvxu2 with nvar=1000 and mem=20
+Running noncvxu2 with nvar=1000 and mem=21
+Running noncvxu2 with nvar=1000 and mem=22
+Running noncvxu2 with nvar=1000 and mem=23
+Running noncvxu2 with nvar=1000 and mem=24
+Running noncvxu2 with nvar=1000 and mem=25
+Running noncvxu2 with nvar=1000 and mem=26
+Running noncvxu2 with nvar=1000 and mem=27
+Running noncvxu2 with nvar=1000 and mem=28
+Running noncvxu2 with nvar=1000 and mem=29
+Running noncvxu2 with nvar=1000 and mem=30
+Running noncvxu2 with nvar=1000 and mem=31
+Running noncvxu2 with nvar=1000 and mem=32
+Running noncvxu2 with nvar=1000 and mem=33
+Running noncvxu2 with nvar=1000 and mem=34
+Running noncvxu2 with nvar=1000 and mem=35
+Running noncvxu2 with nvar=1000 and mem=36
+Running noncvxu2 with nvar=1000 and mem=37
+Running noncvxu2 with nvar=1000 and mem=38
+Running noncvxu2 with nvar=1000 and mem=39
+Running noncvxu2 with nvar=1000 and mem=40
+Running noncvxu2 with nvar=1000 and mem=41
+Running noncvxu2 with nvar=1000 and mem=42
+Running noncvxu2 with nvar=1000 and mem=43
+Running noncvxu2 with nvar=1000 and mem=44
+Running noncvxu2 with nvar=1000 and mem=45
+Running noncvxu2 with nvar=1000 and mem=46
+Running noncvxu2 with nvar=1000 and mem=47
+Running noncvxu2 with nvar=1000 and mem=48
+Running noncvxu2 with nvar=1000 and mem=49
+Running noncvxu2 with nvar=1000 and mem=50
+Running noncvxu2 with nvar=1000 and mem=51
+Running noncvxu2 with nvar=1000 and mem=52
+Running noncvxu2 with nvar=1000 and mem=53
+Running noncvxu2 with nvar=1000 and mem=54
+Running noncvxu2 with nvar=1000 and mem=55
+Running noncvxu2 with nvar=1000 and mem=56
+Running noncvxu2 with nvar=1000 and mem=57
+Running noncvxu2 with nvar=1000 and mem=58
+Running noncvxu2 with nvar=1000 and mem=59
+Running noncvxu2 with nvar=1000 and mem=60
+Running noncvxu2 with nvar=1000 and mem=61
+Running noncvxu2 with nvar=1000 and mem=62
+Running noncvxu2 with nvar=1000 and mem=63
+Running noncvxu2 with nvar=1000 and mem=64
+Running noncvxu2 with nvar=1000 and mem=65
+Running noncvxu2 with nvar=1000 and mem=66
+Running noncvxu2 with nvar=1000 and mem=67
+Running noncvxu2 with nvar=1000 and mem=68
+Running noncvxu2 with nvar=1000 and mem=69
+Running noncvxu2 with nvar=1000 and mem=70
+Running noncvxu2 with nvar=1000 and mem=71
+Running noncvxu2 with nvar=1000 and mem=72
+Running noncvxu2 with nvar=1000 and mem=73
+Running noncvxu2 with nvar=1000 and mem=74
+Running noncvxu2 with nvar=1000 and mem=75
+Running noncvxu2 with nvar=1000 and mem=76
+Running noncvxu2 with nvar=1000 and mem=77
+Running noncvxu2 with nvar=1000 and mem=78
+Running noncvxu2 with nvar=1000 and mem=79
+Running noncvxu2 with nvar=1000 and mem=80
+Running noncvxu2 with nvar=1000 and mem=81
+Running noncvxu2 with nvar=1000 and mem=82
+Running noncvxu2 with nvar=1000 and mem=83
+Running noncvxu2 with nvar=1000 and mem=84
+Running noncvxu2 with nvar=1000 and mem=85
+Running noncvxu2 with nvar=1000 and mem=86
+Running noncvxu2 with nvar=1000 and mem=87
+Running noncvxu2 with nvar=1000 and mem=88
+Running noncvxu2 with nvar=1000 and mem=89
+Running noncvxu2 with nvar=1000 and mem=90
+Running noncvxu2 with nvar=1000 and mem=91
+Running noncvxu2 with nvar=1000 and mem=92
+Running noncvxu2 with nvar=1000 and mem=93
+Running noncvxu2 with nvar=1000 and mem=94
+Running noncvxu2 with nvar=1000 and mem=95
+Running noncvxu2 with nvar=1000 and mem=96
+Running noncvxu2 with nvar=1000 and mem=97
+Running noncvxu2 with nvar=1000 and mem=98
+Running noncvxu2 with nvar=1000 and mem=99
+Running noncvxu2 with nvar=1000 and mem=100
+  Problem name: noncvxun
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.20% sparsity)   3984            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running noncvxun with nvar=1000 and mem=1
+Running noncvxun with nvar=1000 and mem=1
+Running noncvxun with nvar=1000 and mem=2
+Running noncvxun with nvar=1000 and mem=3
+Running noncvxun with nvar=1000 and mem=4
+Running noncvxun with nvar=1000 and mem=5
+Running noncvxun with nvar=1000 and mem=6
+Running noncvxun with nvar=1000 and mem=7
+Running noncvxun with nvar=1000 and mem=8
+Running noncvxun with nvar=1000 and mem=9
+Running noncvxun with nvar=1000 and mem=10
+Running noncvxun with nvar=1000 and mem=11
+Running noncvxun with nvar=1000 and mem=12
+Running noncvxun with nvar=1000 and mem=13
+Running noncvxun with nvar=1000 and mem=14
+Running noncvxun with nvar=1000 and mem=15
+Running noncvxun with nvar=1000 and mem=16
+Running noncvxun with nvar=1000 and mem=17
+Running noncvxun with nvar=1000 and mem=18
+Running noncvxun with nvar=1000 and mem=19
+Running noncvxun with nvar=1000 and mem=20
+Running noncvxun with nvar=1000 and mem=21
+Running noncvxun with nvar=1000 and mem=22
+Running noncvxun with nvar=1000 and mem=23
+Running noncvxun with nvar=1000 and mem=24
+Running noncvxun with nvar=1000 and mem=25
+Running noncvxun with nvar=1000 and mem=26
+Running noncvxun with nvar=1000 and mem=27
+Running noncvxun with nvar=1000 and mem=28
+Running noncvxun with nvar=1000 and mem=29
+Running noncvxun with nvar=1000 and mem=30
+Running noncvxun with nvar=1000 and mem=31
+Running noncvxun with nvar=1000 and mem=32
+Running noncvxun with nvar=1000 and mem=33
+Running noncvxun with nvar=1000 and mem=34
+Running noncvxun with nvar=1000 and mem=35
+Running noncvxun with nvar=1000 and mem=36
+Running noncvxun with nvar=1000 and mem=37
+Running noncvxun with nvar=1000 and mem=38
+Running noncvxun with nvar=1000 and mem=39
+Running noncvxun with nvar=1000 and mem=40
+Running noncvxun with nvar=1000 and mem=41
+Running noncvxun with nvar=1000 and mem=42
+Running noncvxun with nvar=1000 and mem=43
+Running noncvxun with nvar=1000 and mem=44
+Running noncvxun with nvar=1000 and mem=45
+Running noncvxun with nvar=1000 and mem=46
+Running noncvxun with nvar=1000 and mem=47
+Running noncvxun with nvar=1000 and mem=48
+Running noncvxun with nvar=1000 and mem=49
+Running noncvxun with nvar=1000 and mem=50
+Running noncvxun with nvar=1000 and mem=51
+Running noncvxun with nvar=1000 and mem=52
+Running noncvxun with nvar=1000 and mem=53
+Running noncvxun with nvar=1000 and mem=54
+Running noncvxun with nvar=1000 and mem=55
+Running noncvxun with nvar=1000 and mem=56
+Running noncvxun with nvar=1000 and mem=57
+Running noncvxun with nvar=1000 and mem=58
+Running noncvxun with nvar=1000 and mem=59
+Running noncvxun with nvar=1000 and mem=60
+Running noncvxun with nvar=1000 and mem=61
+Running noncvxun with nvar=1000 and mem=62
+Running noncvxun with nvar=1000 and mem=63
+Running noncvxun with nvar=1000 and mem=64
+Running noncvxun with nvar=1000 and mem=65
+Running noncvxun with nvar=1000 and mem=66
+Running noncvxun with nvar=1000 and mem=67
+Running noncvxun with nvar=1000 and mem=68
+Running noncvxun with nvar=1000 and mem=69
+Running noncvxun with nvar=1000 and mem=70
+Running noncvxun with nvar=1000 and mem=71
+Running noncvxun with nvar=1000 and mem=72
+Running noncvxun with nvar=1000 and mem=73
+Running noncvxun with nvar=1000 and mem=74
+Running noncvxun with nvar=1000 and mem=75
+Running noncvxun with nvar=1000 and mem=76
+Running noncvxun with nvar=1000 and mem=77
+Running noncvxun with nvar=1000 and mem=78
+Running noncvxun with nvar=1000 and mem=79
+Running noncvxun with nvar=1000 and mem=80
+Running noncvxun with nvar=1000 and mem=81
+Running noncvxun with nvar=1000 and mem=82
+Running noncvxun with nvar=1000 and mem=83
+Running noncvxun with nvar=1000 and mem=84
+Running noncvxun with nvar=1000 and mem=85
+Running noncvxun with nvar=1000 and mem=86
+Running noncvxun with nvar=1000 and mem=87
+Running noncvxun with nvar=1000 and mem=88
+Running noncvxun with nvar=1000 and mem=89
+Running noncvxun with nvar=1000 and mem=90
+Running noncvxun with nvar=1000 and mem=91
+Running noncvxun with nvar=1000 and mem=92
+Running noncvxun with nvar=1000 and mem=93
+Running noncvxun with nvar=1000 and mem=94
+Running noncvxun with nvar=1000 and mem=95
+Running noncvxun with nvar=1000 and mem=96
+Running noncvxun with nvar=1000 and mem=97
+Running noncvxun with nvar=1000 and mem=98
+Running noncvxun with nvar=1000 and mem=99
+Running noncvxun with nvar=1000 and mem=100
+  Problem name: nondia
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.60% sparsity)   1999            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running nondia with nvar=1000 and mem=1
+Running nondia with nvar=1000 and mem=1
+Running nondia with nvar=1000 and mem=2
+Running nondia with nvar=1000 and mem=3
+Running nondia with nvar=1000 and mem=4
+Running nondia with nvar=1000 and mem=5
+Running nondia with nvar=1000 and mem=6
+Running nondia with nvar=1000 and mem=7
+Running nondia with nvar=1000 and mem=8
+Running nondia with nvar=1000 and mem=9
+Running nondia with nvar=1000 and mem=10
+Running nondia with nvar=1000 and mem=11
+Running nondia with nvar=1000 and mem=12
+Running nondia with nvar=1000 and mem=13
+Running nondia with nvar=1000 and mem=14
+Running nondia with nvar=1000 and mem=15
+Running nondia with nvar=1000 and mem=16
+Running nondia with nvar=1000 and mem=17
+Running nondia with nvar=1000 and mem=18
+Running nondia with nvar=1000 and mem=19
+Running nondia with nvar=1000 and mem=20
+Running nondia with nvar=1000 and mem=21
+Running nondia with nvar=1000 and mem=22
+Running nondia with nvar=1000 and mem=23
+Running nondia with nvar=1000 and mem=24
+Running nondia with nvar=1000 and mem=25
+Running nondia with nvar=1000 and mem=26
+Running nondia with nvar=1000 and mem=27
+Running nondia with nvar=1000 and mem=28
+Running nondia with nvar=1000 and mem=29
+Running nondia with nvar=1000 and mem=30
+Running nondia with nvar=1000 and mem=31
+Running nondia with nvar=1000 and mem=32
+Running nondia with nvar=1000 and mem=33
+Running nondia with nvar=1000 and mem=34
+Running nondia with nvar=1000 and mem=35
+Running nondia with nvar=1000 and mem=36
+Running nondia with nvar=1000 and mem=37
+Running nondia with nvar=1000 and mem=38
+Running nondia with nvar=1000 and mem=39
+Running nondia with nvar=1000 and mem=40
+Running nondia with nvar=1000 and mem=41
+Running nondia with nvar=1000 and mem=42
+Running nondia with nvar=1000 and mem=43
+Running nondia with nvar=1000 and mem=44
+Running nondia with nvar=1000 and mem=45
+Running nondia with nvar=1000 and mem=46
+Running nondia with nvar=1000 and mem=47
+Running nondia with nvar=1000 and mem=48
+Running nondia with nvar=1000 and mem=49
+Running nondia with nvar=1000 and mem=50
+Running nondia with nvar=1000 and mem=51
+Running nondia with nvar=1000 and mem=52
+Running nondia with nvar=1000 and mem=53
+Running nondia with nvar=1000 and mem=54
+Running nondia with nvar=1000 and mem=55
+Running nondia with nvar=1000 and mem=56
+Running nondia with nvar=1000 and mem=57
+Running nondia with nvar=1000 and mem=58
+Running nondia with nvar=1000 and mem=59
+Running nondia with nvar=1000 and mem=60
+Running nondia with nvar=1000 and mem=61
+Running nondia with nvar=1000 and mem=62
+Running nondia with nvar=1000 and mem=63
+Running nondia with nvar=1000 and mem=64
+Running nondia with nvar=1000 and mem=65
+Running nondia with nvar=1000 and mem=66
+Running nondia with nvar=1000 and mem=67
+Running nondia with nvar=1000 and mem=68
+Running nondia with nvar=1000 and mem=69
+Running nondia with nvar=1000 and mem=70
+Running nondia with nvar=1000 and mem=71
+Running nondia with nvar=1000 and mem=72
+Running nondia with nvar=1000 and mem=73
+Running nondia with nvar=1000 and mem=74
+Running nondia with nvar=1000 and mem=75
+Running nondia with nvar=1000 and mem=76
+Running nondia with nvar=1000 and mem=77
+Running nondia with nvar=1000 and mem=78
+Running nondia with nvar=1000 and mem=79
+Running nondia with nvar=1000 and mem=80
+Running nondia with nvar=1000 and mem=81
+Running nondia with nvar=1000 and mem=82
+Running nondia with nvar=1000 and mem=83
+Running nondia with nvar=1000 and mem=84
+Running nondia with nvar=1000 and mem=85
+Running nondia with nvar=1000 and mem=86
+Running nondia with nvar=1000 and mem=87
+Running nondia with nvar=1000 and mem=88
+Running nondia with nvar=1000 and mem=89
+Running nondia with nvar=1000 and mem=90
+Running nondia with nvar=1000 and mem=91
+Running nondia with nvar=1000 and mem=92
+Running nondia with nvar=1000 and mem=93
+Running nondia with nvar=1000 and mem=94
+Running nondia with nvar=1000 and mem=95
+Running nondia with nvar=1000 and mem=96
+Running nondia with nvar=1000 and mem=97
+Running nondia with nvar=1000 and mem=98
+Running nondia with nvar=1000 and mem=99
+Running nondia with nvar=1000 and mem=100
+  Problem name: nondquar
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: ( 99.40% sparsity)   2997            linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running nondquar with nvar=1000 and mem=1
+Running nondquar with nvar=1000 and mem=1
+Running nondquar with nvar=1000 and mem=2
+Running nondquar with nvar=1000 and mem=3
+Running nondquar with nvar=1000 and mem=4
+Running nondquar with nvar=1000 and mem=5
+Running nondquar with nvar=1000 and mem=6
+Running nondquar with nvar=1000 and mem=7
+Running nondquar with nvar=1000 and mem=8
+Running nondquar with nvar=1000 and mem=9
+Running nondquar with nvar=1000 and mem=10
+Running nondquar with nvar=1000 and mem=11
+Running nondquar with nvar=1000 and mem=12
+Running nondquar with nvar=1000 and mem=13
+Running nondquar with nvar=1000 and mem=14
+Running nondquar with nvar=1000 and mem=15
+Running nondquar with nvar=1000 and mem=16
+Running nondquar with nvar=1000 and mem=17
+Running nondquar with nvar=1000 and mem=18
+Running nondquar with nvar=1000 and mem=19
+Running nondquar with nvar=1000 and mem=20
+Running nondquar with nvar=1000 and mem=21
+Running nondquar with nvar=1000 and mem=22
+Running nondquar with nvar=1000 and mem=23
+Running nondquar with nvar=1000 and mem=24
+Running nondquar with nvar=1000 and mem=25
+Running nondquar with nvar=1000 and mem=26
+Running nondquar with nvar=1000 and mem=27
+Running nondquar with nvar=1000 and mem=28
+Running nondquar with nvar=1000 and mem=29
+Running nondquar with nvar=1000 and mem=30
+Running nondquar with nvar=1000 and mem=31
+Running nondquar with nvar=1000 and mem=32
+Running nondquar with nvar=1000 and mem=33
+Running nondquar with nvar=1000 and mem=34
+Running nondquar with nvar=1000 and mem=35
+Running nondquar with nvar=1000 and mem=36
+Running nondquar with nvar=1000 and mem=37
+Running nondquar with nvar=1000 and mem=38
+Running nondquar with nvar=1000 and mem=39
+Running nondquar with nvar=1000 and mem=40
+Running nondquar with nvar=1000 and mem=41
+Running nondquar with nvar=1000 and mem=42
+Running nondquar with nvar=1000 and mem=43
+Running nondquar with nvar=1000 and mem=44
+Running nondquar with nvar=1000 and mem=45
+Running nondquar with nvar=1000 and mem=46
+Running nondquar with nvar=1000 and mem=47
+Running nondquar with nvar=1000 and mem=48
+Running nondquar with nvar=1000 and mem=49
+Running nondquar with nvar=1000 and mem=50
+Running nondquar with nvar=1000 and mem=51
+Running nondquar with nvar=1000 and mem=52
+Running nondquar with nvar=1000 and mem=53
+Running nondquar with nvar=1000 and mem=54
+Running nondquar with nvar=1000 and mem=55
+Running nondquar with nvar=1000 and mem=56
+Running nondquar with nvar=1000 and mem=57
+Running nondquar with nvar=1000 and mem=58
+Running nondquar with nvar=1000 and mem=59
+Running nondquar with nvar=1000 and mem=60
+Running nondquar with nvar=1000 and mem=61
+Running nondquar with nvar=1000 and mem=62
+Running nondquar with nvar=1000 and mem=63
+Running nondquar with nvar=1000 and mem=64
+Running nondquar with nvar=1000 and mem=65
+Running nondquar with nvar=1000 and mem=66
+Running nondquar with nvar=1000 and mem=67
+Running nondquar with nvar=1000 and mem=68
+Running nondquar with nvar=1000 and mem=69
+Running nondquar with nvar=1000 and mem=70
+Running nondquar with nvar=1000 and mem=71
+Running nondquar with nvar=1000 and mem=72
+Running nondquar with nvar=1000 and mem=73
+Running nondquar with nvar=1000 and mem=74
+Running nondquar with nvar=1000 and mem=75
+Running nondquar with nvar=1000 and mem=76
+Running nondquar with nvar=1000 and mem=77
+Running nondquar with nvar=1000 and mem=78
+Running nondquar with nvar=1000 and mem=79
+Running nondquar with nvar=1000 and mem=80
+Running nondquar with nvar=1000 and mem=81
+Running nondquar with nvar=1000 and mem=82
+Running nondquar with nvar=1000 and mem=83
+Running nondquar with nvar=1000 and mem=84
+Running nondquar with nvar=1000 and mem=85
+Running nondquar with nvar=1000 and mem=86
+Running nondquar with nvar=1000 and mem=87
+Running nondquar with nvar=1000 and mem=88
+Running nondquar with nvar=1000 and mem=89
+Running nondquar with nvar=1000 and mem=90
+Running nondquar with nvar=1000 and mem=91
+Running nondquar with nvar=1000 and mem=92
+Running nondquar with nvar=1000 and mem=93
+Running nondquar with nvar=1000 and mem=94
+Running nondquar with nvar=1000 and mem=95
+Running nondquar with nvar=1000 and mem=96
+Running nondquar with nvar=1000 and mem=97
+Running nondquar with nvar=1000 and mem=98
+Running nondquar with nvar=1000 and mem=99
+Running nondquar with nvar=1000 and mem=100
+  Problem name: penalty1
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: (  0.00% sparsity)   500500          linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running penalty1 with nvar=1000 and mem=1
+Running penalty1 with nvar=1000 and mem=1
+Running penalty1 with nvar=1000 and mem=2
+Running penalty1 with nvar=1000 and mem=3
+Running penalty1 with nvar=1000 and mem=4
+Running penalty1 with nvar=1000 and mem=5
+Running penalty1 with nvar=1000 and mem=6
+Running penalty1 with nvar=1000 and mem=7
+Running penalty1 with nvar=1000 and mem=8
+Running penalty1 with nvar=1000 and mem=9
+Running penalty1 with nvar=1000 and mem=10
+Running penalty1 with nvar=1000 and mem=11
+Running penalty1 with nvar=1000 and mem=12
+Running penalty1 with nvar=1000 and mem=13
+Running penalty1 with nvar=1000 and mem=14
+Running penalty1 with nvar=1000 and mem=15
+Running penalty1 with nvar=1000 and mem=16
+Running penalty1 with nvar=1000 and mem=17
+Running penalty1 with nvar=1000 and mem=18
+Running penalty1 with nvar=1000 and mem=19
+Running penalty1 with nvar=1000 and mem=20
+Running penalty1 with nvar=1000 and mem=21
+Running penalty1 with nvar=1000 and mem=22
+Running penalty1 with nvar=1000 and mem=23
+Running penalty1 with nvar=1000 and mem=24
+Running penalty1 with nvar=1000 and mem=25
+Running penalty1 with nvar=1000 and mem=26
+Running penalty1 with nvar=1000 and mem=27
+Running penalty1 with nvar=1000 and mem=28
+Running penalty1 with nvar=1000 and mem=29
+Running penalty1 with nvar=1000 and mem=30
+Running penalty1 with nvar=1000 and mem=31
+Running penalty1 with nvar=1000 and mem=32
+Running penalty1 with nvar=1000 and mem=33
+Running penalty1 with nvar=1000 and mem=34
+Running penalty1 with nvar=1000 and mem=35
+Running penalty1 with nvar=1000 and mem=36
+Running penalty1 with nvar=1000 and mem=37
+Running penalty1 with nvar=1000 and mem=38
+Running penalty1 with nvar=1000 and mem=39
+Running penalty1 with nvar=1000 and mem=40
+Running penalty1 with nvar=1000 and mem=41
+Running penalty1 with nvar=1000 and mem=42
+Running penalty1 with nvar=1000 and mem=43
+Running penalty1 with nvar=1000 and mem=44
+Running penalty1 with nvar=1000 and mem=45
+Running penalty1 with nvar=1000 and mem=46
+Running penalty1 with nvar=1000 and mem=47
+Running penalty1 with nvar=1000 and mem=48
+Running penalty1 with nvar=1000 and mem=49
+Running penalty1 with nvar=1000 and mem=50
+Running penalty1 with nvar=1000 and mem=51
+Running penalty1 with nvar=1000 and mem=52
+Running penalty1 with nvar=1000 and mem=53
+Running penalty1 with nvar=1000 and mem=54
+Running penalty1 with nvar=1000 and mem=55
+Running penalty1 with nvar=1000 and mem=56
+Running penalty1 with nvar=1000 and mem=57
+Running penalty1 with nvar=1000 and mem=58
+Running penalty1 with nvar=1000 and mem=59
+Running penalty1 with nvar=1000 and mem=60
+Running penalty1 with nvar=1000 and mem=61
+Running penalty1 with nvar=1000 and mem=62
+Running penalty1 with nvar=1000 and mem=63
+Running penalty1 with nvar=1000 and mem=64
+Running penalty1 with nvar=1000 and mem=65
+Running penalty1 with nvar=1000 and mem=66
+Running penalty1 with nvar=1000 and mem=67
+Running penalty1 with nvar=1000 and mem=68
+Running penalty1 with nvar=1000 and mem=69
+Running penalty1 with nvar=1000 and mem=70
+Running penalty1 with nvar=1000 and mem=71
+Running penalty1 with nvar=1000 and mem=72
+Running penalty1 with nvar=1000 and mem=73
+Running penalty1 with nvar=1000 and mem=74
+Running penalty1 with nvar=1000 and mem=75
+Running penalty1 with nvar=1000 and mem=76
+Running penalty1 with nvar=1000 and mem=77
+Running penalty1 with nvar=1000 and mem=78
+Running penalty1 with nvar=1000 and mem=79
+Running penalty1 with nvar=1000 and mem=80
+Running penalty1 with nvar=1000 and mem=81
+Running penalty1 with nvar=1000 and mem=82
+Running penalty1 with nvar=1000 and mem=83
+Running penalty1 with nvar=1000 and mem=84
+Running penalty1 with nvar=1000 and mem=85
+Running penalty1 with nvar=1000 and mem=86
+Running penalty1 with nvar=1000 and mem=87
+Running penalty1 with nvar=1000 and mem=88
+Running penalty1 with nvar=1000 and mem=89
+Running penalty1 with nvar=1000 and mem=90
+Running penalty1 with nvar=1000 and mem=91
+Running penalty1 with nvar=1000 and mem=92
+Running penalty1 with nvar=1000 and mem=93
+Running penalty1 with nvar=1000 and mem=94
+Running penalty1 with nvar=1000 and mem=95
+Running penalty1 with nvar=1000 and mem=96
+Running penalty1 with nvar=1000 and mem=97
+Running penalty1 with nvar=1000 and mem=98
+Running penalty1 with nvar=1000 and mem=99
+Running penalty1 with nvar=1000 and mem=100
+  Problem name: penalty2
+   All variables: ████████████████████ 1000   All constraints: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            free: ████████████████████ 1000              free: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                lower: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                upper: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+         low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0              low/upp: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+           fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0                fixed: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+          infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0               infeas: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+            nnzh: (  0.00% sparsity)   500500          linear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                    nonlinear: ⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅⋅ 0     
+                                                         nnzj: (------% sparsity)         
+
+
+Running penalty2 with nvar=1000 and mem=1
+Running penalty2 with nvar=1000 and mem=1
+Running penalty2 with nvar=1000 and mem=2
+Running penalty2 with nvar=1000 and mem=3
+Running penalty2 with nvar=1000 and mem=4
+Running penalty2 with nvar=1000 and mem=5
+Running penalty2 with nvar=1000 and mem=6
+Running penalty2 with nvar=1000 and mem=7
+Running penalty2 with nvar=1000 and mem=8
+Running penalty2 with nvar=1000 and mem=9
+Running penalty2 with nvar=1000 and mem=10
+Running penalty2 with nvar=1000 and mem=11
+Running penalty2 with nvar=1000 and mem=12
+Running penalty2 with nvar=1000 and mem=13
+Running penalty2 with nvar=1000 and mem=14
+Running penalty2 with nvar=1000 and mem=15
+Running penalty2 with nvar=1000 and mem=16
+Running penalty2 with nvar=1000 and mem=17
+Running penalty2 with nvar=1000 and mem=18
+Running penalty2 with nvar=1000 and mem=19
+Running penalty2 with nvar=1000 and mem=20
+Running penalty2 with nvar=1000 and mem=21
+Running penalty2 with nvar=1000 and mem=22
+Running penalty2 with nvar=1000 and mem=23
+Running penalty2 with nvar=1000 and mem=24
+Running penalty2 with nvar=1000 and mem=25
+Running penalty2 with nvar=1000 and mem=26
+Running penalty2 with nvar=1000 and mem=27
+Running penalty2 with nvar=1000 and mem=28
+Running penalty2 with nvar=1000 and mem=29
+Running penalty2 with nvar=1000 and mem=30
+Running penalty2 with nvar=1000 and mem=31
+Running penalty2 with nvar=1000 and mem=32
+Running penalty2 with nvar=1000 and mem=33
+Running penalty2 with nvar=1000 and mem=34
+Running penalty2 with nvar=1000 and mem=35
+Running penalty2 with nvar=1000 and mem=36
+Running penalty2 with nvar=1000 and mem=37
+Running penalty2 with nvar=1000 and mem=38
+Running penalty2 with nvar=1000 and mem=39
+Running penalty2 with nvar=1000 and mem=40
+Running penalty2 with nvar=1000 and mem=41
+Running penalty2 with nvar=1000 and mem=42
+Running penalty2 with nvar=1000 and mem=43
+Running penalty2 with nvar=1000 and mem=44
+Running penalty2 with nvar=1000 and mem=45
+Running penalty2 with nvar=1000 and mem=46
+Running penalty2 with nvar=1000 and mem=47
+Running penalty2 with nvar=1000 and mem=48
+Running penalty2 with nvar=1000 and mem=49
+Running penalty2 with nvar=1000 and mem=50
+Running penalty2 with nvar=1000 and mem=51
+Running penalty2 with nvar=1000 and mem=52
+Running penalty2 with nvar=1000 and mem=53
+Running penalty2 with nvar=1000 and mem=54
+Running penalty2 with nvar=1000 and mem=55
+Running penalty2 with nvar=1000 and mem=56
+Running penalty2 with nvar=1000 and mem=57
+Running penalty2 with nvar=1000 and mem=58
+Running penalty2 with nvar=1000 and mem=59
+Running penalty2 with nvar=1000 and mem=60
+Running penalty2 with nvar=1000 and mem=61
+Running penalty2 with nvar=1000 and mem=62
+Running penalty2 with nvar=1000 and mem=63
+Running penalty2 with nvar=1000 and mem=64
+Running penalty2 with nvar=1000 and mem=65
+Running penalty2 with nvar=1000 and mem=66
+Running penalty2 with nvar=1000 and mem=67
+Running penalty2 with nvar=1000 and mem=68
+Running penalty2 with nvar=1000 and mem=69
+Running penalty2 with nvar=1000 and mem=70
+Running penalty2 with nvar=1000 and mem=71
+Running penalty2 with nvar=1000 and mem=72
+Running penalty2 with nvar=1000 and mem=73
+Running penalty2 with nvar=1000 and mem=74
+Running penalty2 with nvar=1000 and mem=75
+Running penalty2 with nvar=1000 and mem=76
+Running penalty2 with nvar=1000 and mem=77
+Running penalty2 with nvar=1000 and mem=78
+Running penalty2 with nvar=1000 and mem=79
+Running penalty2 with nvar=1000 and mem=80
+Running penalty2 with nvar=1000 and mem=81
+Running penalty2 with nvar=1000 and mem=82
+Running penalty2 with nvar=1000 and mem=83
+Running penalty2 with nvar=1000 and mem=84
+Running penalty2 with nvar=1000 and mem=85
+Running penalty2 with nvar=1000 and mem=86
+Running penalty2 with nvar=1000 and mem=87
+Running penalty2 with nvar=1000 and mem=88
+Running penalty2 with nvar=1000 and mem=89
+Running penalty2 with nvar=1000 and mem=90
+Running penalty2 with nvar=1000 and mem=91
+Running penalty2 with nvar=1000 and mem=92
+Running penalty2 with nvar=1000 and mem=93
+Running penalty2 with nvar=1000 and mem=94
+Running penalty2 with nvar=1000 and mem=95
+Running penalty2 with nvar=1000 and mem=96
+Running penalty2 with nvar=1000 and mem=97
+Running penalty2 with nvar=1000 and mem=98
+Running penalty2 with nvar=1000 and mem=99
+Running penalty2 with nvar=1000 and mem=100
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
