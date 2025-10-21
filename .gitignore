@@ -15,6 +15,4 @@ Thumbs.db
 
 archived/
 
-Documentation.log
-        Julia Notebook/run.log
-        main.log
+*.log
