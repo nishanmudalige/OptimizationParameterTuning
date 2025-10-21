@@ -1,11 +1,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
-import numpy as np
 
 
 OMITTED_ATTRIBUTES = {"status", "name", "solver", "mem", "nvar", "is_init_run"}
-LOG_SCALE_ATTRS = {"time", "init_eval_obj_time", "init_eval_grad_time", "num_iter", "neval_grad", "nvar_obj"}
+LOG_SCALE_ATTRS = { "time", 
+                    "init_eval_obj_time", 
+                    "init_eval_obj_mem",
+                    "init_eval_obj_alloc",
+                    "init_eval_grad_time", 
+                    "init_eval_grad_time",
+                    "init_eval_grad_alloc",
+                    "num_iter",
+                    "neval_grad", 
+                    "nvar_obj"}
 
 UNITS = {
     "time": "seconds",
@@ -15,13 +23,17 @@ UNITS = {
     "neval_obj": "#evaluations",
     "neval_grad": "#evaluations",
     "init_eval_obj_time" : "seconds",
+    "init_eval_obj_mem" : "MB",
+    "init_eval_obj_alloc" : "allocations",
     "init_eval_grad_time": "seconds",
+    "init_eval_grad_mem" : "MB",
+    "init_eval_grad_alloc" : "allocations"
 }
 
 PLOTS_PATH = os.path.join(".", "Julia Notebook", "plots")
 RESULTS_PATH = os.path.join(".", "Julia Notebook", "results")
 
-df = pd.read_csv(os.path.join(RESULTS_PATH, "lbfgs_week6.csv"))
+df = pd.read_csv(os.path.join(RESULTS_PATH, "complete_lbfgs.csv"))
 df["memory"] = df["memory"] / (1024 * 1024) # change the data from byte to MB
 df = df[df["is_init_run"] == False]
 
