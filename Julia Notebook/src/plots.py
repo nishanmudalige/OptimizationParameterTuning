@@ -13,7 +13,7 @@ LOG_SCALE_ATTRS = { "time",
                     "init_eval_grad_alloc",
                     "num_iter",
                     "neval_grad", 
-                    "nvar_obj"}
+                    "neval_obj"}
 
 UNITS = {
     "time": "seconds",
@@ -34,7 +34,7 @@ PLOTS_PATH = os.path.join(".", "Julia Notebook", "plots")
 RESULTS_PATH = os.path.join(".", "Julia Notebook", "results")
 
 df = pd.read_csv(os.path.join(RESULTS_PATH, "complete_lbfgs.csv"))
-df["memory"] = df["memory"] / (1024 * 1024) # change the data from byte to MB
+df["memory"] = df["memory"]
 df = df[df["is_init_run"] == False]
 
 os.makedirs(PLOTS_PATH, exist_ok=True)
