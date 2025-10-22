@@ -18,7 +18,7 @@ using SolverBenchmark
 
 MAX_TIME = 60.0 * 30
 PROBLEM_NAME="NZF1"
-START_N = 1000000
+START_N = 1000
 MULTIPLIER = 10
 MAX_N = 100000000
 
@@ -83,8 +83,7 @@ function main()
                         neval_grad = nlp.counters.neval_grad,
                         init_eval_grad_time = init_eval_grad_time,
                         init_eval_grad_mem = init_eval_grad_mem / 1e6,
-                        init_eval_grad_alloc = init_eval_grad_alloc,
-                        is_init_run = is_init_run
+                        init_eval_grad_alloc = init_eval_grad_alloc
                     )
                 )
             is_init_run = false
@@ -97,7 +96,7 @@ function main()
             DataFrame([last(df)]);
             append = isfile(filename) && filesize(filename) > 0
         )
+        n *= MULTIPLIER
     end
-    n *= MULTIPLIER
 end
 main()
