@@ -7,6 +7,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 - Felix: Prepare globale vissualizations of data
   - E.g. average time across each value of `mem`
   - E.g. average memory (MB) across each value of `mem`
+  - Run the scalable script with nvar = 10,000.
 - Tangi: Provide Felix with information on the complexity of each problem
 - Sage: Update factor analysis with recent results
 - Nishan: Examine factor analysis by Sage
