@@ -30,7 +30,7 @@ for out_dir, df in [(lbfgs_plots, lbfgs_df), (scalable_plots, scalable_df)]:
     ax.annotate(
     f"Min\nmem={min_mem}\ntime={min_time:.2f}",
     xy=(min_mem, min_time),
-    xytext=(0.5, 0.5),
+    xytext=(min_mem + 10, min_time + 1),
     ha="center", color="red", fontsize=10,
     arrowprops=dict(arrowstyle="->", color="red", lw=1.2))
     ax.set_xlabel("mem")
@@ -50,7 +50,7 @@ for out_dir, df in [(lbfgs_plots, lbfgs_df), (scalable_plots, scalable_df)]:
     ax.annotate(
     f"Min\nmem={min_mem}\ntime={min_memory:.2f}",
     xy=(min_mem, min_memory),
-    xytext=(min_mem, min_memory * 1.05),
+    xytext=(min_mem + 10, min_memory + 30),
     ha="center", color="red", fontsize=10,
     arrowprops=dict(arrowstyle="->", color="red", lw=1.2))
     ax.set_xlabel("mem")
