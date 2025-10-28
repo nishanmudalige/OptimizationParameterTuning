@@ -34,7 +34,6 @@ PLOTS_PATH = os.path.join(".", "Julia Notebook", "plots")
 RESULTS_PATH = os.path.join(".", "Julia Notebook", "results")
 
 df = pd.read_csv(os.path.join(RESULTS_PATH, "complete_lbfgs.csv"))
-df["memory"] = df["memory"]
 df = df[df["is_init_run"] == False]
 
 os.makedirs(PLOTS_PATH, exist_ok=True)
