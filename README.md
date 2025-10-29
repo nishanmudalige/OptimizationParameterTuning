@@ -3,6 +3,15 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 [📄 View the full documentation (PDF)](./Documentation/Documentation.pdf)
 
+## Week 9:
+- Nishan and Sage: Meet later this week to discuss factor analysis and PCA
+- Felix:
+  - Update `small_experiment.jl`
+  - Examine results in `complete_scalable_10000.cav`
+  - Think of ways to classify families of problems using meta data and expression trees
+- Tangi
+  - Continuing to work on parallelizing script  
+
 ## Week 8:
 - Felix: Prepare globale vissualizations of data
   - E.g. average time across each value of `mem`
