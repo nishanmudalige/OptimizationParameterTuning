@@ -8,6 +8,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 - Felix:
   - Update `small_experiment.jl`
   - Examine results in `complete_scalable_10000.cav`
+  - Add a plot to show the number of problems solved (:first_order or :unbounded) w.r.t. to mem.
   - Think of ways to classify families of problems using meta data and expression trees
 - Tangi
   - Continuing to work on parallelizing script  
