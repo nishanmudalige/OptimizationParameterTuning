@@ -16,8 +16,8 @@ using SolverParameters # Define the main structure to handle the algorithm's par
 using JSOSolvers
 using SolverBenchmark
 
-MAX_TIME = 60.0 * 30
 PROBLEM_NAME="NZF1"
+MAX_TIME = 60.0 * 60
 START_N = 100
 MULTIPLIER = 20
 MAX_N = 100000000
@@ -103,7 +103,6 @@ function main()
             DataFrame([last(df)]);
             append = isfile(filename) && filesize(filename) > 0,
         )
-        n *= MULTIPLIER
     end
 end
 main()
