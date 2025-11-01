@@ -19,7 +19,7 @@ using SolverBenchmark
 PROBLEM_NAME="NZF1"
 MAX_TIME = 60.0 * 60
 START_N = 100
-MULTIPLIER = 20
+MULTIPLIER = 10
 MAX_N = 100000000
 
 
@@ -59,6 +59,7 @@ function main()
         mem = 66
         reset!(nlp)
         println("Running $problem with nvar=$(nlp.meta.nvar) and mem=$mem")
+        n *= 10
         try
             _, init_eval_obj_time, init_eval_obj_mem, _, init_eval_obj_gcstats =
                 @timed obj(nlp, nlp.meta.x0)
