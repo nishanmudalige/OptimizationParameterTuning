@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array} 
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em} 
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{STA378 Final Report}
+\author{Felix Gao}
+\date{September 2025}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+Hyperparameter tuning plays a critical role in determining the efficiency and robustness of optimization solvers used for large-scale, unconstrained problems. We investigate the impact of the L-BFGS memory parameter \textit{mem} on solver performance using a benchmark suite implemented in Julia through the \textit{JSOSolvers.jl} and \textit{OptimizationProblems.jl} packages. The performance of the algorithm can be measured in term of elapsed time, number of evaluation of the objective function $f$, its gradient, its Hessian, or the memory used. The existing algorithms highly depend on algorithmic parameters, for instance for L-BFGS: 
+\begin{itemize}
+\item \textit{mem}: memory parameter
+\item $r_1$: slope factor in the Wolfe condition when performing the line search
+\item $bk_max$: maximum number of backtracks when performing the line search
+\end{itemize}\\
+These parameters are currently "guessed" in the literature or the fruit of trial-error experiments even though they are crucial for the performance.
+
+
+\newpage
+\section{Background and Introduction}
+\subsection*{Unconstrained optimization algorithms}
+In the field of continuous numerical optimization, the aim is to develop solvers that can locate a local minimum of unconstrained optimization problems: $$\min_{x\in\mathbb{R}^n}{f(x)}$$
+where $f : \mathbb{R}^n \rightarrow \mathbb{R}$ and using first-order (gradient vector of size $n$) and eventually using second-order derivatives (Hessian matrix - symmetric matrix of size $n$) of the objective function $f$. There exists a variety of algorithms for such problem and you can find a list of implementations in the Julia package \href{https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl}{JSOSolver.jl}. These algorithms are iterative algorithms that start from an initial guess $x_0 \in \mathbb{R}^n$ and compute a follow-up iterate until a stationary point is reached, i.e, $\nabla{f(x)} \approx 0$.\\
+
+In Calculus, the most common optimization algorithms are \textbf{Gradient Descent} and \textbf{Newton's Method}. However, when the problem becomes very large, it can be very inefficient and hardware expensive to locate a local minimum. For example, 
+
+
+
+
+
+\newpage
+\section{Methodology and Implementation}
+\newpage
+\section{Results}
+\subsection*{Dataframe Description}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|l|l|Y|}
+\hline
+\textbf{Column} & \textbf{Type} & \textbf{Description} \\
+\hline
+\texttt{status} & Symbol &
+\textbf{first\_order}: solver successfully reached a first-order stationary point;
+\textbf{max\_time}: solver couldn't solve the problem within the time limit;
+\textbf{unbounded}: the minimum of the objective function goes to $-\infty$. \\
+\hline
+\texttt{name} & String & Identifier for the optimization problem. \\
+\hline
+\texttt{solver} & String & Name of the solver/algorithm applied. \\
+\hline
+\texttt{mem} & Int & Hyperparameter of the solver. \\
+\hline
+\texttt{nvar} & Int & Number of decision variables in the problem. \\
+\hline
+\texttt{time} & Float64 & Total time(s) for solving the problem. \\
+\hline
+\texttt{memory} & Float64 & Total memory(MB) used for solving the problem. \\
+\hline
+\texttt{num\_iter} & Int & Total number of iterations performed. \\
+\hline
+\texttt{nvmops} & Int & Number of vector–matrix products. \\
+\hline
+\texttt{neval\_obj} & Int & Number of objective function evaluations. \\
+\hline
+\texttt{init\_eval\_obj\_time} & Float64 & Time (seconds) for the initial objective evaluation. \\
+\hline
+\texttt{init\_eval\_obj\_mem} & Float64 & Memory (MB) for the initial objective evaluation. \\
+\hline
+\texttt{init\_eval\_obj\_alloc} & Float64 & Number of heap allocations for the initial objective evaluation. \\
+\hline
+\texttt{neval\_grad} & Int & Number of gradient evaluations. \\
+\hline
+\texttt{init\_eval\_grad\_time} & Float64 & Time (seconds) for the initial gradient evaluation. \\
+\hline
+\texttt{init\_eval\_grad\_mem} & Float64 & Memory (MB) for the initial gradient evaluation. \\
+\hline
+\texttt{init\_eval\_grad\_alloc} & Float64 & Number of heap allocations for the initial gradient evaluation. \\
+\hline
+\texttt{is\_init\_run} & Bool & Indicates whether this is the initial run. \\
+\hline
+\end{tabularx}
+\caption{Description of columns in the solver benchmark data table.}
+\end{table}
+\newpage
+\section{Conclusions}
+\newpage
+\section{Future work}
+
+
+
+\end{document}
