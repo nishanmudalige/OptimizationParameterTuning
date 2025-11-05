@@ -5,6 +5,7 @@ using ADNLPModels
 
 # Data from OptimizationProblems.jl
 # Careful, nvar and ncon are the default, they may vary if variable_nvar or variable_ncon are true.
+meta = OptimizationProblems.meta
 name_problem = "arglina"
 scalable_problem_names = meta[(meta.name .== name_problem), :]
 
@@ -31,3 +32,4 @@ fun = nlp.f(x)
 mtk_tree = Symbolics._toexpr(fun)
 using ExpressionTreeForge # A bit outdated so it's not easy to find a compatible version.
 expr_tree_Symbolics = transform_to_expr_tree(mtk_tree)
+

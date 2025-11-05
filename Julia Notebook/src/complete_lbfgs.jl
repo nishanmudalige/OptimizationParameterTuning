@@ -21,10 +21,6 @@ MAX_TIME = 60.0
 function main()
     meta = OptimizationProblems.meta
 
-    # Dataframe contains all the lbfgs problems
-    nlp = OptimizationProblems.ADNLPProblems.arglina(matrix_free = true) # is one of them
-    meta = OptimizationProblems.meta
-
     problem_names = meta[
         (meta.contype .== :unconstrained) .& (.!meta.has_bounds) .& (meta.nvar .>= 5),
         :name,
