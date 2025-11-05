@@ -20,10 +20,12 @@ import logging
 from pathlib import Path
 from typing import List, Tuple
 
-import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA, FactorAnalysis
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
 # ------------ Configuration ------------
 
@@ -32,7 +34,6 @@ OUTPUT_DIR = Path("./output_data")
 
 METRIC_COLS = ["nvmops", "neval_obj", "neval_grad", "num_iter", "mem"]
 ID_COL_CANDIDATES = ["status", "name", "solver", "mem", "nvar"]
-
 
 # ------------ Core Functions ------------
 
@@ -121,6 +122,40 @@ def save_outputs(outdir: Path, metric_cols: List[str], scaler: StandardScaler,
     logging.info("Saved outputs to %s", outdir)
 
 
+def analyze_metric_distributions(df: pd.DataFrame, metric_cols: list, outdir: Path):
+    """
+    Explore each metric's distribution before PCA/FA.
+    Saves:
+        - Histogram of raw values
+        - Histogram of log-transformed values
+        - Summary CSV of skewness and kurtosis
+    """
+    outdir.mkdir(parents=True, exist_ok=True)
+    summary = []
+
+    for col in metric_cols:
+        x = df[col].dropna()
+        log_x = np.log1p(x)  # log(1 + x)
+
+        # Compute summary stats
+        skew_raw = x.skew()
+        skew_log = log_x.skew()
+        summary.append({"metric": col, "skew_raw": skew_raw, "skew_log": skew_log})
+
+        # Plot raw and log histograms
+        fig, axes = plt.subplots(1, 2, figsize=(8, 3))
+        sns.histplot(x, bins=40, ax=axes[0], color="tomato", kde=True)
+        axes[0].set_title(f"{col} (raw)")
+        sns.histplot(log_x, bins=40, ax=axes[1], color="seagreen", kde=True)
+        axes[1].set_title(f"{col} (log-transformed)")
+        plt.tight_layout()
+        plt.savefig(outdir / f"{col}_distribution.png", dpi=200)
+        plt.close()
+
+    pd.DataFrame(summary).to_csv(outdir / "distribution_summary.csv", index=False)
+    print(f"Saved distribution plots and skewness summary to {outdir}")
+
+
 # ------------ Main ------------
 
 def main() -> None:
@@ -132,14 +167,22 @@ def main() -> None:
 
     id_cols = choose_id_cols(df, ID_COL_CANDIDATES)
 
-    X_scaled, scaler = standardize(df, METRIC_COLS)
+    # doing log transformation
+    df_transformed = df.copy()
+    cols_to_log = ["neval_obj", "neval_grad", "num_iter"]
+    df_transformed[cols_to_log] = np.log1p(df_transformed[cols_to_log])
+    print(df_transformed[:2])
+
+    X_scaled, scaler = standardize(df_transformed, METRIC_COLS)
     pca_df = pca_report(X_scaled)
     F, loadings = run_factor_analysis(X_scaled, n_components=1)
-    scores_df = build_scores(df, id_cols, METRIC_COLS, F)
+    scores_df = build_scores(df_transformed, id_cols, METRIC_COLS, F)
 
     save_outputs(OUTPUT_DIR, METRIC_COLS, scaler, X_scaled, pca_df, loadings, scores_df)
 
     logging.info("Pipeline complete. Top cumulative variance: %.2f%%", pca_df['cumulative'].iloc[0] * 100)
+
+    #analyze_metric_distributions(df, METRIC_COLS, OUTPUT_DIR)
 
 
 if __name__ == "__main__":
