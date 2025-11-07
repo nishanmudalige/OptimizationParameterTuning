@@ -33,3 +33,7 @@ mtk_tree = Symbolics._toexpr(fun)
 using ExpressionTreeForge # A bit outdated so it's not easy to find a compatible version.
 expr_tree_Symbolics = transform_to_expr_tree(mtk_tree)
 
+expr_tree = copy(expr_tree_Expr)
+element_functions = extract_element_functions(expr_tree)
+show(element_functions[2])
+
