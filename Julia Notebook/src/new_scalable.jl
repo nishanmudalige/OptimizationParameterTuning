@@ -28,14 +28,14 @@ function main()
     ]
 
 
-    scalable_problem_names = scalable_problem_names[63:79, :]
+    scalable_problem_names = scalable_problem_names[51:79, :]
 
     scalable_problems = (
         eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(row.name)")) for
         row in eachrow(scalable_problem_names)
     )
 
-    filename = "../results/remaining_scalable.csv"
+    filename = "../results/remaining_scalable_10000.csv"
     mkpath(dirname(filename))
 
     df = DataFrame(
@@ -61,7 +61,7 @@ function main()
 
     i = 0
     for scalable_problem in scalable_problems
-        nlp_build_time = @elapsed nlp = scalable_problem(; n = 1000, matrix_free = true)
+        nlp_build_time = @elapsed nlp = scalable_problem(; n = 10000, matrix_free = true)
         i += 1
         param_set = JSOSolvers.LBFGSParameterSet(nlp)
         r = domain(param_set.mem)
