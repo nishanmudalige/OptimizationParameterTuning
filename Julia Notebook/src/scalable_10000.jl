@@ -28,14 +28,14 @@ function main()
     ]
 
 
-    scalable_problem_names = scalable_problem_names
+    scalable_problem_names = scalable_problem_names[51:79, :]
 
     scalable_problems = (
         eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(row.name)")) for
         row in eachrow(scalable_problem_names)
     )
 
-    filename = "../results/complete_scalable_10000.csv"
+    filename = "../results/remaining_scalable_10000.csv"
     mkpath(dirname(filename))
 
     df = DataFrame(
