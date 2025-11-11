@@ -14,7 +14,7 @@ using ADNLPModels # see https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl
 # is a concrete implementation of the ty
 using SolverParameters # Define the main structure to handle the algorithm's parameters
 using JSOSolvers
-using SolverBenchmark
+# using SolverBenchmark
 
 MAX_TIME = 60.0 * 10
 
@@ -28,7 +28,7 @@ function main()
     ]
 
 
-    scalable_problem_names = scalable_problem_names[51:79, :]
+    scalable_problem_names = scalable_problem_names[46:79, :]
 
     scalable_problems = (
         eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(row.name)")) for

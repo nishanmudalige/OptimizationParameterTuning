@@ -1,0 +1,265 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array} 
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em} 
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{STA378 Final Report}
+\author{Felix Gao}
+\date{September 2025}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+Optimization methods such as L-BFGS rely on hyperparameters that strongly influence convergence. In practice, these values are often chosen by rules of thumb or trial-and-error, which may lead to suboptimal performance on different problem types. We investigate a machine-learning approach to systematically select L-BFGS hyperparameters based on problem characteristics. We extract analytical features (e.g., problem size, sparsity) and empirical features (e.g., condition number estimate, initial gradient norm, intial objective evaluation), and train a machine-learning model that predicts the optimal memory parameter $mem$. Experiments on both regular and scalable problems show that our approach improves runtime and reduces memory compared to standard default settings. This work highlights the potential of learning-based parameter selection to enhance classical optimization algorithms.
+
+
+
+
+
+
+% Hyperparameter tuning plays a critical role in determining the efficiency and robustness of optimization solvers used for large-scale, unconstrained problems. We investigate the impact of the L-BFGS memory parameter \textit{mem} on solver performance using a benchmark suite implemented in Julia through the \textit{JSOSolvers.jl} and \textit{OptimizationProblems.jl} packages. The performance of the algorithm can be measured in term of elapsed time, number of evaluation of the objective function $f$, its gradient, its Hessian, or the memory used. The existing algorithms highly depend on algorithmic parameters, for instance for L-BFGS: 
+% \begin{itemize}
+% \item \textit{mem}: memory parameter
+% \item $r_1$: slope factor in the Wolfe condition when performing the line search
+% \item ${bk}_{max}$: maximum number of backtracks when performing the line search
+% \end{itemize}
+% These parameters are currently "guessed" in the literature or the fruit of trial-error experiments even though they are crucial for the performance. Moreover, the values to get optimal performance may highly rely on the given problem. Two types of features can be extracted from the problem: 
+% \begin{itemize}
+% \item Analytical features: problem size $n$, known properties (e.g., sparisity)
+% \item Empirical features: condition number estimate, gradient evaluation at initial guess and objective function evaluation at initial guess
+% \end{itemize}
+
+% The aim of this project is to run a machine learning approach to the parameter se
+
+
+\newpage
+\section{Background and Introduction}
+\subsection{Unconstrained Optimization Algorithms}
+In the field of continuous numerical optimization, the aim is to develop solvers that can locate a local minimum of unconstrained optimization problems: $$\min_{x\in\mathbb{R}^n}{f(x)}$$
+where $f : \mathbb{R}^n \rightarrow \mathbb{R}$ and using first-order (gradient vector of size $n$) and eventually using second-order derivatives (Hessian matrix - symmetric matrix of size $n$) of the objective function $f$. There exists a variety of algorithms for such problem and you can find a list of implementations in the Julia package \href{https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl}{JSOSolver.jl}. These algorithms are iterative algorithms that start from an initial guess $x_0 \in \mathbb{R}^n$ and compute a follow-up iterate until a stationary point is reached, i.e, $\nabla{f(x)} \approx 0$.
+
+\subsection{Line Search Methods}
+
+Line search methods form a broad class of iterative optimization algorithms in which, at each iteration, a search direction $\mathbf{p}_k$ is computed and a suitable step length $\alpha_k > 0$ is chosen to determine how far to move along that direction. The general update rule is given by
+\[
+\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k,
+\]
+where $\alpha_k$ is referred to as the \textit{step length} or \textit{learning rate}. 
+
+The performance of a line search method depends critically on two components: the choice of the search direction $\mathbf{p}_k$ and the strategy used to determine $\alpha_k$. Typical search directions include the negative gradient direction used in the Steepest Descent method and the Newton direction in second-order methods. 
+
+An ideal step length achieves a sufficient reduction in the objective function while maintaining numerical stability. In practice, $\alpha_k$ is often determined through a line search procedure that satisfies certain conditions, such as the \textit{Wolfe} or \textit{Armijo} conditions, which ensure both sufficient decrease and appropriate curvature. These conditions balance convergence speed with robustness, preventing steps that are excessively short or that overshoot the minimum.
+
+\subsection{Steepest Descent (Gradient Descent)}
+
+The Steepest Descent method, also known as Gradient Descent, is an iterative optimization algorithm used to find a local minimum of a differentiable function. 
+We consider a scalar-valued objective function 
+\[
+f: \mathbb{R}^n \to \mathbb{R}, \quad \mathbf{w} \mapsto f(\mathbf{w}),
+\]
+and aim to find the point $\mathbf{w}^*$ that minimizes $f(\mathbf{w})$.
+
+The procedure can be summarized as follows:
+\begin{itemize}
+    \item Initialize with an initial guess $\mathbf{w}_0 \in \mathbb{R}^n$.
+    \item At each iteration $k = 0, 1, 2, \ldots$, compute the gradient $\nabla f(\mathbf{w}_k)$.
+    \item Update the parameter vector according to
+    \[
+    \mathbf{w}_{k+1} = \mathbf{w}_k - \alpha_k \nabla f(\mathbf{w}_k),
+    \]
+    where $\alpha_k > 0$ is the step size (or learning rate).
+\end{itemize}
+
+The process is repeated until a convergence criterion is met. 
+In theory, convergence is achieved when the gradient norm becomes sufficiently small, i.e., $\|\nabla f(\mathbf{w}_k)\| < \epsilon$. 
+In practice, termination is often based on a combination of factors such as a maximum number of iterations, a small relative change in $f(\mathbf{w})$, or when the gradient norm falls below a predefined threshold.
+
+
+To minimize the function $F(w)$, we use the update rule $$\mathbf{w} \leftarrow \mathbf{w} - \alpha \nabla_{\mathbf{w}}F(\mathbf{w})$$
+
+\subsection{Newton’s Method}
+
+Newton’s Method is a second-order iterative optimization algorithm that uses both the gradient and the Hessian of the objective function to determine the search direction. 
+It can achieve significantly faster convergence compared to first-order methods such as Steepest Descent, particularly near the optimal point.
+
+We consider a twice continuously differentiable scalar-valued function
+\[
+f: \mathbb{R}^n \to \mathbb{R}.
+\]
+At iteration $k$, Newton’s Method computes the search direction $\mathbf{p}_k^N$ by solving the linear system
+\[
+\nabla^2 f(\mathbf{x}_k)\, \mathbf{p}_k^N = -\nabla f(\mathbf{x}_k),
+\]
+where $\nabla f(\mathbf{x}_k)$ is the gradient and $\nabla^2 f(\mathbf{x}_k)$ is the Hessian matrix of second derivatives. 
+The parameter vector is then updated as
+\[
+\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k^N,
+\]
+where $\alpha_k > 0$ is the step size, often obtained by a line search procedure to ensure sufficient decrease in $f$.
+
+In an ideal case with exact line search, $\alpha_k = 1$ is typically accepted for all sufficiently large $k$, and the method achieves \textit{quadratic convergence}. 
+Formally, if the Hessian $\nabla^2 f(\mathbf{x})$ is Lipschitz continuous in a neighborhood of the solution $\mathbf{x}^*$, and if $\nabla^2 f(\mathbf{x}^*)$ is positive definite, then:
+\begin{enumerate}
+    \item For a starting point $\mathbf{x}_0$ sufficiently close to $\mathbf{x}^*$, the sequence $\{\mathbf{x}_k\}$ converges to $\mathbf{x}^*$.
+    \item The convergence rate is quadratic; that is,
+    \[
+    \|\mathbf{x}_{k+1} - \mathbf{x}^*\| \leq C \|\mathbf{x}_k - \mathbf{x}^*\|^2,
+    \]
+    for some constant $C > 0$.
+    \item The gradient norms $\|\nabla f(\mathbf{x}_k)\|$ also converge quadratically to zero.
+\end{enumerate}
+
+Despite its theoretical efficiency, Newton’s Method can be computationally expensive for high-dimensional problems, since it requires forming and inverting the Hessian matrix at every iteration. 
+Moreover, if the Hessian is not positive definite, the computed direction $\mathbf{p}_k^N$ may fail to be a descent direction, potentially leading to divergence. 
+In practice, modified Newton methods or quasi-Newton algorithms (such as BFGS and L-BFGS) are employed to approximate curvature information efficiently while maintaining desirable convergence behavior.
+
+\subsection{Quasi-Newton Methods}
+Optimization methods such as steepest descent and Newton’s Method are widely used in scientific computing to find local minima of differentiable functions. However, for large-scale problems, these methods can become computationally expensive and memory-intensive. 
+Quasi-Newton methods, similar to the steepest descent approach, require only the gradient of the objective function at each iteration. By observing how the gradient changes between steps, these methods build an approximate model of the objective function that is accurate enough to achieve superlinear convergence. Compared to steepest descent, their improvement in speed and stability is substantial, particularly on challenging problems. Because they avoid computing second derivatives, quasi-Newton methods can even be more efficient than full Newton’s Method. Modern optimization libraries now include many variants of quasi-Newton algorithms designed for unconstrained, constrained, and large-scale optimization problems.
+
+\subsection{Implementations of Quasi-Newton Methods}
+\begin{itemize}
+\item The BFGS Method
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{images/bfgs_algorithm.png}
+        \caption{BFGS Algorithm (adapted from Nocedal \& Wright, 2006)}
+        \label{fig:bfgs_algo}
+    \end{figure}
+
+\item The L-BFGS Method
+    \begin{figure}[H]
+        \includegraphics[width=0.75 \textwidth]{images/lbfgs_algorithm.png}
+        \caption{L-BFGS Algorithm (adapted from Nocedal \& Wright, 2006)}
+        \label{fig:bfgs_algo}
+    \end{figure}
+
+    \newpage
+
+    \begin{figure}[H]
+        \includegraphics[width=0.55 \textwidth]{images/two_loop_recursion.png}
+        \caption{L-BFGS two-loop recursion (adapted from Nocedal \& Wright, 2006)}
+        \label{fig:bfgs_algo}
+    \end{figure}
+\end{itemize}
+
+\subsection{Rate of Convergence Analysis}
+
+The convergence behavior of an optimization algorithm measures how quickly its iterates approach the optimal solution. 
+Designing algorithms with both good global convergence properties and rapid local convergence can be challenging, as these objectives often conflict. 
+For example, the Steepest Descent method guarantees global convergence under mild assumptions but tends to converge slowly in practice, especially on ill-conditioned problems. 
+In contrast, Newton’s Method achieves much faster local (quadratic) convergence but may fail globally if the initial point is far from the optimum or if the Hessian is not positive definite.
+
+To study convergence quantitatively, consider the quadratic objective function
+\[
+f(\mathbf{x}) = \tfrac{1}{2}\mathbf{x}^T Q \mathbf{x} - \mathbf{b}^T \mathbf{x},
+\]
+where $Q$ is symmetric and positive definite. 
+For this problem, the gradient is $\nabla f(\mathbf{x}) = Q\mathbf{x} - \mathbf{b}$, and the minimizer $\mathbf{x}^*$ satisfies $Q\mathbf{x}^* = \mathbf{b}$.
+When the Steepest Descent method is applied with an exact line search, the optimal step size at iteration $k$ is
+\[
+\alpha_k = \frac{\nabla f(\mathbf{x}_k)^T \nabla f(\mathbf{x}_k)}{\nabla f(\mathbf{x}_k)^T Q \nabla f(\mathbf{x}_k)}.
+\]
+The resulting iteration can be expressed as
+\[
+\mathbf{x}_{k+1} = \mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k).
+\]
+
+It can be shown that the decrease in the objective function satisfies the inequality
+\[
+\|\mathbf{x}_{k+1} - \mathbf{x}^*\|_Q 
+\leq \frac{\kappa(Q) - 1}{\kappa(Q) + 1}
+\, \|\mathbf{x}_k - \mathbf{x}^*\|_Q,
+\]
+where $\|\mathbf{x}\|_Q = \sqrt{\mathbf{x}^T Q \mathbf{x}}$ and $\kappa(Q)$ is the \textit{condition number} of $Q$, defined as the ratio of its largest to smallest eigenvalue. 
+
+This result implies that Steepest Descent converges \textit{linearly}, and its rate depends heavily on the condition number of the Hessian. 
+If $\kappa(Q)$ is large (i.e., $Q$ is ill-conditioned), the iterates tend to “zigzag” toward the solution and convergence becomes slow. 
+This inefficiency motivates second-order methods such as Newton’s Method and Quasi-Newton algorithms, which exploit curvature information to improve convergence speed.
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Methodology and Implementation}
+\subsection{Dataframe Description}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|l|l|Y|}
+\hline
+\textbf{Column} & \textbf{Type} & \textbf{Description} \\
+\hline
+\texttt{status} & Symbol &
+\textbf{first\_order}: solver successfully reached a first-order stationary point;
+\textbf{max\_time}: solver couldn't solve the problem within the time limit;
+\textbf{unbounded}: the minimum of the objective function goes to $-\infty$. \\
+\hline
+\texttt{name} & String & Identifier for the optimization problem. \\
+\hline
+\texttt{solver} & String & Name of the solver/algorithm applied. \\
+\hline
+\texttt{mem} & Int & Hyperparameter of the solver. \\
+\hline
+\texttt{nvar} & Int & Number of decision variables in the problem. \\
+\hline
+\texttt{time} & Float64 & Total time(s) for solving the problem. \\
+\hline
+\texttt{memory} & Float64 & Total memory(MB) used for solving the problem. \\
+\hline
+\texttt{num\_iter} & Int & Total number of iterations performed. \\
+\hline
+\texttt{nvmops} & Int & Number of vector–matrix products. \\
+\hline
+\texttt{neval\_obj} & Int & Number of objective function evaluations. \\
+\hline
+\texttt{init\_eval\_obj\_time} & Float64 & Time (seconds) for the initial objective evaluation. \\
+\hline
+\texttt{init\_eval\_obj\_mem} & Float64 & Memory (MB) for the initial objective evaluation. \\
+\hline
+\texttt{init\_eval\_obj\_alloc} & Float64 & Number of heap allocations for the initial objective evaluation. \\
+\hline
+\texttt{neval\_grad} & Int & Number of gradient evaluations. \\
+\hline
+\texttt{init\_eval\_grad\_time} & Float64 & Time (seconds) for the initial gradient evaluation. \\
+\hline
+\texttt{init\_eval\_grad\_mem} & Float64 & Memory (MB) for the initial gradient evaluation. \\
+\hline
+\texttt{init\_eval\_grad\_alloc} & Float64 & Number of heap allocations for the initial gradient evaluation. \\
+\hline
+\texttt{is\_init\_run} & Bool & Indicates whether this is the initial run. \\
+\hline
+\end{tabularx}
+\caption{Description of columns in the solver benchmark data table.}
+\end{table}
+
+
+\newpage
+\section{Results}
+\newpage
+\section{Conclusions}
+\newpage
+\section{Future work}
+
+
+
+\end{document}
