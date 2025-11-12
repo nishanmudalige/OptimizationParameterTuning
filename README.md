@@ -1,7 +1,13 @@
 # OptimizationParemeterTuning
 A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
 
-[📄 View the full documentation (PDF)](./Documentation/Documentation.pdf)
+[📄 View the full documentation (PDF)](Documentation/STA378/main.pdf)
+## Week 10:
+- Felix:
+  - Merge all datasets into a single dataset
+  - Extract information such as height from expression trees
+  - Update decision_tree.ipynb (remove columns from meta)
+  
 
 ## Week 9:
 - Nishan and Sage: Meet later this week to discuss factor analysis and PCA
