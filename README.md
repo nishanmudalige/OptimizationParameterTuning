@@ -1,13 +1,16 @@
 # OptimizationParemeterTuning
 A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
 
+[📄 View the full documentation (PDF)](Documentation/STA378/main.pdf)
+
+---
+
 ## Week 11:
 - Felix:
   - Finalize parellizing code for scalable problems
   - Fix code on extractinf features from expression to make tree
   - Use above for classification/regression tree
 
-[📄 View the full documentation (PDF)](Documentation/STA378/main.pdf)
 ## Week 10:
 - Felix:
   - Merge all datasets into a single dataset
