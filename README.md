@@ -4,7 +4,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](Documentation/STA378/main.pdf)
 ## Week 10:
 - Felix:
-  - Merge all datasets into [complete_dataset](Julia Notebook/results/complete_dataset_as_of_nov6.csv)
+  - Merge all datasets into a single dataset
   - Extract information such as height from expression trees
   - Update decision_tree.ipynb (remove columns from meta)
   
