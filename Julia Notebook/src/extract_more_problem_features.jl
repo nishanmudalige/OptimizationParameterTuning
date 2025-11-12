@@ -7,7 +7,6 @@ using ADNLPModels
 # Careful, nvar and ncon are the default, they may vary if variable_nvar or variable_ncon are true.
 meta = OptimizationProblems.meta
 name_problem = "arglina"
-scalable_problem_names = meta[(meta.name .== name_problem), :]
 
 # Get the type
 nlp = OptimizationProblems.ADNLPProblems.arglina()
