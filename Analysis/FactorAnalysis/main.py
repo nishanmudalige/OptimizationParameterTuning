@@ -29,10 +29,10 @@ import numpy as np
 
 # ------------ Configuration ------------
 
-INPUT_PATH = Path("./data/lbfgs_week6.csv")  # load data
-OUTPUT_DIR = Path("./output_data")
+INPUT_PATH = Path("./data/complete_scalable_10000.csv")  # load data
+OUTPUT_DIR = Path("./output_data3")
 
-METRIC_COLS = ["nvmops", "neval_obj", "neval_grad", "num_iter", "mem"]
+METRIC_COLS = ["neval_obj", "neval_grad", "num_iter", "mem"]
 ID_COL_CANDIDATES = ["status", "name", "solver", "mem", "nvar"]
 
 # ------------ Core Functions ------------
@@ -171,6 +171,7 @@ def main() -> None:
     df_transformed = df.copy()
     cols_to_log = ["neval_obj", "neval_grad", "num_iter"]
     df_transformed[cols_to_log] = np.log1p(df_transformed[cols_to_log])
+    print(df["num_iter"] == df["nvmops"])
     print(df_transformed[:2])
 
     X_scaled, scaler = standardize(df_transformed, METRIC_COLS)
