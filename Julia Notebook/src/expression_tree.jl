@@ -23,7 +23,7 @@ function depth(node::ExpressionTreeForge.M_implementation_tree.Type_node{T}) whe
 end
 
 meta = OptimizationProblems.meta
-problem_names = meta[(meta.contype .== :unconstrained) .& (.!meta.has_bounds) .& (meta.nvar .>= 5),:name]
+problem_names = meta[(meta.contype .== :unconstrained) .& (.!meta.has_bounds) .& (meta.nvar .>= 5),:name,]
 
 problems = [Meta.parse("OptimizationProblems.ADNLPProblems.$(problem)") 
                     for problem ∈ problem_names];
@@ -33,6 +33,9 @@ mkpath(dirname(filename))
 
 df = DataFrame(
     :problem => String[],
+    :nvar => Int[],
+    :objtype => Symbol[],
+    :variable_nvar => Bool[],
     :length => Int[],
     :depth => Int[]
 )
@@ -49,7 +52,14 @@ for pb_expr in problems
 
         tree_length = length(expr_tree_Symbolics)
         tree_depth = depth(expr_tree_Symbolics)
-        push!(df, (; problem = nlp.meta.name, length = tree_length, depth = tree_depth))
+        push!(df, (; problem = nlp.meta.name, 
+                        nvar = nlp.meta.nvar,
+                        objtype = getfield(OptimizationProblems, Symbol(nlp.meta.name * "_meta"))[:objtype],
+                        variable_nvar = getfield(OptimizationProblems, Symbol(nlp.meta.name * "_meta"))[:variable_nvar],
+                        length = tree_length, 
+                        depth = tree_depth
+                )
+            )
     catch e
         @info "Failed to extract information on $(nlp.meta.name)): $e"
     end
