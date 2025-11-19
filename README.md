@@ -5,6 +5,11 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 
 ---
 
+## Week 12:
+- Felis:
+  - Complete classification tree
+  - Continue working on report  
+
 ## Week 11:
 - Felix:
   - Finalize parellizing code for scalable problems
