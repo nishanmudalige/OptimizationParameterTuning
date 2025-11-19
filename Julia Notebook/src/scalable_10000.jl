@@ -27,7 +27,6 @@ function main()
         [:nvar, :name],
     ]
 
-
     scalable_problem_names = scalable_problem_names[52:79, :]
 
     scalable_problems = (
@@ -113,7 +112,11 @@ function main()
                     @info "Solver failed on $(nlp.meta.name): $e"
                     break
                 end
-                CSV.write(filename, df; append = isfile(filename))
+                CSV.write(
+                    filename,
+                    DataFrame([last(df)]);
+                    append = isfile(filename) && filesize(filename) > 0,
+                )
             end
         end
     end
