@@ -28,12 +28,14 @@ import seaborn as sns
 import numpy as np
 
 # ------------ Configuration ------------
-
-INPUT_PATH = Path("./data/complete_scalable_10000.csv")  # load data
+ # load data
+INPUT_PATH = Path("./data/complete_dataset_as_of_Nov6.csv")
 OUTPUT_DIR = Path("./output_data3")
 
-METRIC_COLS = ["neval_obj", "neval_grad", "num_iter", "mem"]
-ID_COL_CANDIDATES = ["status", "name", "solver", "mem", "nvar"]
+METRIC_COLS = ["neval_obj", "neval_grad", "num_iter", "time", "is_scalable"]
+
+ID_COL_CANDIDATES = ["status", 'time', "name", "solver", "mem", "nvar"]
+
 
 # ------------ Core Functions ------------
 
@@ -64,6 +66,7 @@ def check_required(df: pd.DataFrame, required: List[str]) -> None:
 
 
 def standardize(df: pd.DataFrame, metric_cols: List[str]) -> Tuple[np.ndarray, StandardScaler]:
+    """Standardize metric columns. (Z-Score)"""
     X = df[metric_cols].to_numpy()
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
@@ -163,16 +166,15 @@ def main() -> None:
 
     df = load_csv(INPUT_PATH)
     df = filter_init_runs(df)
-    check_required(df, METRIC_COLS)
+    # df_scalable = df[df["is_scalable"].astype(str).str.lower() == "true"]
 
+    check_required(df, METRIC_COLS)
     id_cols = choose_id_cols(df, ID_COL_CANDIDATES)
 
     # doing log transformation
     df_transformed = df.copy()
-    cols_to_log = ["neval_obj", "neval_grad", "num_iter"]
+    cols_to_log = ["neval_obj", "neval_grad", "num_iter", "time"]
     df_transformed[cols_to_log] = np.log1p(df_transformed[cols_to_log])
-    print(df["num_iter"] == df["nvmops"])
-    print(df_transformed[:2])
 
     X_scaled, scaler = standardize(df_transformed, METRIC_COLS)
     pca_df = pca_report(X_scaled)
@@ -183,8 +185,8 @@ def main() -> None:
 
     logging.info("Pipeline complete. Top cumulative variance: %.2f%%", pca_df['cumulative'].iloc[0] * 100)
 
-    #analyze_metric_distributions(df, METRIC_COLS, OUTPUT_DIR)
 
 
 if __name__ == "__main__":
+
     main()
