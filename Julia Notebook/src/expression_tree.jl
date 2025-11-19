@@ -6,65 +6,62 @@ Pkg.status()
 using OptimizationProblems
 using ADNLPModels
 using Symbolics
-using ExpressionTreeForge # A bit outdated so it's not easy to find a compatible version.
 using CSV, DataFrames
+using ExpressionTreeForge
 
-struct Type_node
-    type_node::Symbol
-    children::Vector{Type_node}
-end
-
-function Base.length(node::Type_node)
-    if isempty(node.childre)
+function length(node::ExpressionTreeForge.M_implementation_tree.Type_node{T}) where {T}
+    if isempty(node.children)
         return 1
-    else    
+    else
         return sum(length, node.children)
     end
 end
 
-function depth(node::Type_node)
+function depth(node::ExpressionTreeForge.M_implementation_tree.Type_node{T}) where {T}
     isempty(node.children) && return 1
     return 1 + maximum(depth.(node.children))
 end
 
-function main()
-    meta = OptimizationProblems.meta
-    problem_names = meta[(meta.contype .== :unconstrained) .& (.!meta.has_bounds) .& (meta.nvar .>= 5),:name]
+meta = OptimizationProblems.meta
+problem_names = meta[(meta.contype .== :unconstrained) .& (.!meta.has_bounds) .& (meta.nvar .>= 5),:name,]
 
-    problems = [Meta.parse("OptimizationProblems.ADNLPProblems.$(problem)") 
+problems = [Meta.parse("OptimizationProblems.ADNLPProblems.$(problem)") 
                     for problem ∈ problem_names];
 
-    filename = "../metadata/length_and_depth.csv"
-    mkpath(dirname(filename))
+filename = "./metadata/length_and_depth.csv"
+mkpath(dirname(filename))
 
-    df = DataFrame(
-        :problem => String[],
-        :length => Int[],
-        :depth => Int[]
-    )
+df = DataFrame(
+    :problem => String[],
+    :nvar => Int[],
+    :objtype => Symbol[],
+    :variable_nvar => Bool[],
+    :length => Int[],
+    :depth => Int[]
+)
 
-    for problem in problems
-        try
-            nlp = eval(problem)()      # call the zero-arg constructor
-            println("Extracting information of $(nlp.meta.name)")
-            n = nlp.meta.nvar
-            Symbolics.@variables x[1:n]
-            fun = nlp.f(x)
-            mtk_tree = Symbolics._toexpr(fun)
-            expr_tree_Symbolics = transform_to_expr_tree(mtk_tree)
+for pb_expr in problems
+    nlp = eval(pb_expr)()     # call the zero-arg constructor
+    println("Extracting information of $(nlp.meta.name)")
+    try
+        n = nlp.meta.nvar
+        Symbolics.@variables x[1:n]
+        fun = nlp.f(x)
+        mtk_tree = Symbolics._toexpr(fun)
+        expr_tree_Symbolics = transform_to_expr_tree(mtk_tree)
 
-            tree_length = length(expr_tree_Symbolics)
-            tree_depth = depth(expr_tree_Symbolics)
-            push!(df, (; problem = nlp.meta.name, tree_length, tree_depth))
-
-            CSV.write(
-                filename,
-                DataFrame([last(df)]);
-                append = isfile(filename) && filesize(filename) > 0,
+        tree_length = length(expr_tree_Symbolics)
+        tree_depth = depth(expr_tree_Symbolics)
+        push!(df, (; problem = nlp.meta.name, 
+                        nvar = nlp.meta.nvar,
+                        objtype = getfield(OptimizationProblems, Symbol(nlp.meta.name * "_meta"))[:objtype],
+                        variable_nvar = getfield(OptimizationProblems, Symbol(nlp.meta.name * "_meta"))[:variable_nvar],
+                        length = tree_length, 
+                        depth = tree_depth
+                )
             )
-        catch e
-            @info "Failed to extract information on $(problem): $e"
-        end
+    catch e
+        @info "Failed to extract information on $(nlp.meta.name)): $e"
     end
+    CSV.write(filename, df)
 end
-main()
