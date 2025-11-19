@@ -28,11 +28,10 @@ end
     using ADNLPModels
     using SolverParameters
     using JSOSolvers
-    using SolverBenchmark
     using Dates
 end
 
-const MAX_TIME = 60.0 * 10  # 10 minutes
+MAX_TIME = 60.0 * 10  # 10 minutes
 
 # ---------- helpers ----------
 # Robust way to fetch a problem constructor by name (no eval)
