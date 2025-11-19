@@ -15,7 +15,11 @@ struct Type_node
 end
 
 function Base.length(node::Type_node)
-    isempty(node.children) ? 1 : sum(child -> length(child), node.children)
+    if isempty(node.childre)
+        return 1
+    else    
+        return sum(length, node.children)
+    end
 end
 
 function depth(node::Type_node)
