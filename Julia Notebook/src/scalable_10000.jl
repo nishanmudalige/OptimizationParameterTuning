@@ -28,7 +28,7 @@ function main()
     ]
 
 
-    scalable_problem_names = scalable_problem_names[46:79, :]
+    scalable_problem_names = scalable_problem_names[52:79, :]
 
     scalable_problems = (
         eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(row.name)")) for
@@ -113,11 +113,7 @@ function main()
                     @info "Solver failed on $(nlp.meta.name): $e"
                     break
                 end
-                CSV.write(
-                    filename,
-                    DataFrame([last(df)]);
-                    append = isfile(filename) && filesize(filename) > 0,
-                )
+                CSV.write(filename, df; append = isfile(filename))
             end
         end
     end
