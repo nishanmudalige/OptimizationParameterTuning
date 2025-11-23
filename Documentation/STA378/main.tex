@@ -191,17 +191,143 @@ This result implies that Steepest Descent converges \textit{linearly}, and its r
 If $\kappa(Q)$ is large (i.e., $Q$ is ill-conditioned), the iterates tend to “zigzag” toward the solution and convergence becomes slow. 
 This inefficiency motivates second-order methods such as Newton’s Method and Quasi-Newton algorithms, which exploit curvature information to improve convergence speed.
 
-
-
-
-
-
-
-
-
 \newpage
+
 \section{Methodology and Implementation}
-\subsection{Dataframe Description}
+
+\subsection{Benchmark Suite Construction}
+
+The benchmark problems were drawn from the \textit{OptimizationProblems.jl} package. 
+To focus on meaningful instances of smooth, large-scale optimization, the initial 
+benchmark selection was restricted to problems that were \textit{unconstrained}, 
+\textit{free of bound constraints}, and of dimension at least five. These criteria 
+exclude trivial toy problems and ensure that curvature approximation and memory effects 
+in L-BFGS are non-negligible. Formally, the first-stage problem set was obtained by 
+filtering according to
+\[
+\texttt{contype == :unconstrained}, \qquad \lnot\texttt{has\_bounds}, \qquad \texttt{nvar} \ge 5.
+\]
+
+For the scalable phase of the benchmark, we focused on problems whose dimension can be 
+chosen programmatically at construction time. In the metadata of the \textit{OptimizationProblems.jl} suite, this capability is indicated by the flag 
+\texttt{variable\_nvar = true}, which serves as a direct marker of scalability. Since the project centers on unconstrained smooth optimization, we retained only those problems explicitly classified as unconstrained and free of bound constraints. Although \texttt{meta.contype = :unconstrained} already implies the absence of general constraints, we additionally filtered for \texttt{ncon = 0} as a defensive measure to ensure that no equality or inequality constraints were included due to potential inconsistencies in the metadata. This refined subset of scalable, unconstrained, bound-free problems constituted the core of the large-scale experiments.
+
+\subsection{Solver Configuration}
+
+All optimization experiments were performed using the L-BFGS implementation from 
+\textit{JSOSolvers.jl}. Since the primary objective of the project was to understand how 
+the limited-memory parameter affects performance across a wide range of problem instances, 
+the memory values were not chosen manually. Instead, for each problem we queried the 
+problem-specific L-BFGS parameter space provided by \texttt{LBFGSParameterSet}, and 
+exhaustively evaluated every admissible memory value between the lower and upper bounds of 
+the domain \texttt{param\_set.mem}. This ensured that the experiments captured the full 
+range of memory configurations that the solver considers meaningful for each problem.
+
+Although several other algorithms (including trust-region solvers) were explored 
+informally during the development phase to better understand the solver landscape within 
+the \textit{JuliaSmoothOptimizers} ecosystem, the final benchmarking results focus 
+exclusively on L-BFGS to maintain a consistent and interpretable comparison across 
+problems. All runs used the default algorithmic settings supplied by \textit{JSOSolvers}, 
+with the exception of the line search. Because some problems may exhibit pathological or 
+slow line-search behaviour, a wall-clock time limit of 60 seconds was imposed on each run 
+to prevent individual cases from dominating the overall computation time. 
+
+For each problem and each memory value, the solver was initialized from the same starting 
+point to ensure a controlled comparison. Before running the solver, we also explicitly 
+evaluated the initial objective and gradient, allowing us to separately record their 
+computation time, memory usage, and allocation statistics. These measurements were included 
+in the final dataset to facilitate a deeper analysis of initialization overhead and 
+objective/gradient evaluation behaviour across problems. All remaining solver parameters 
+were left at their default values to isolate the impact of the memory parameter as the sole 
+variable under investigation.
+
+\subsection{Experimental Protocol}
+
+The experimental workflow was designed to produce consistent and reproducible benchmarks
+across both fixed-dimension and scalable problem families. For problems supporting an
+arbitrary variable dimension, we constructed instances at several increasing sizes
+(e.g., \(n = 1{,}000\), \(10{,}000\), and higher whenever permitted by the available HPC
+resources). These settings allow us to characterize how the computational behaviour of
+L-BFGS evolves as the dimension increases, complementing the fixed-dimension benchmarks
+from the first part of the project. In addition to the full memory sweep performed for
+each scalable instance, a secondary experiment was conducted on a representative problem
+in which the dimension was systematically varied while holding the memory parameter fixed.
+This provided a clearer picture of dimension-driven scaling behaviour independent of the
+limited-memory parameter.
+
+For every problem instance, the solver was always initialized from the same starting point,
+and each run was subject to a fixed wall-clock time limit to prevent divergent or
+pathological cases from dominating total runtime. Because Julia's JIT compilation can
+introduce substantial one-time overhead, especially for large-scale problems, each
+experiment included a warm-up evaluation phase whose results were discarded to ensure that
+reported timings reflect steady-state solver performance. Throughout the experiments,
+objective and gradient evaluations were also measured independently of L-BFGS iterations,
+allowing us to track how fundamental evaluation costs scale with problem dimension.
+
+For very large instances, particularly those approaching \(n = 10^{5}\) and beyond, the
+memory requirements of the model evaluation and matrix-free operations exceeded the
+available RAM on the 32~GB HPC nodes, causing early termination or timeouts. These
+resource-induced failures were recorded explicitly, as they provide practical insight into
+the scalability limits of both the underlying problems and the L-BFGS implementation. All
+results were logged incrementally to CSV files to ensure robustness during long-running
+experiments.
+
+\subsection{Performance Metrics}
+
+A comprehensive set of performance metrics was recorded for every solver run to enable a
+multi-faceted analysis of L-BFGS behaviour across different memory settings and problem
+dimensions. For each run, we logged standard optimization metrics including the final
+solver status, number of iterations, number of objective evaluations, number of gradient
+evaluations, and the number of matrix-free vector–product operations (\texttt{nvmops}).
+These quantities provide insight into both convergence behaviour and the computational
+effort required by the algorithm.
+
+In addition to iteration-level metrics, we recorded detailed timing and memory information.
+Each call to L-BFGS was timed end-to-end, and the reported runtime includes both the solver
+iterations and the initial model construction cost. Peak memory usage was measured in
+megabytes to assess the interaction between problem dimension, memory parameter, and
+algorithmic overhead. To better understand initialization costs, the objective and gradient
+were evaluated once prior to the L-BFGS call, and their evaluation time, memory usage, and
+allocation counts were logged separately. These initialization statistics are particularly
+important for large-scale problems where evaluation cost may dominate solver iterations.
+
+All measurements were logged incrementally to CSV files, with each row representing a 
+single solver run and each column corresponding to a recorded metric. Separate CSV files 
+were generated for the fixed dimension benchmarks and the scalable problem set, allowing 
+the experiments to run independently and recover gracefully from long execution times or 
+interrupted HPC sessions. For downstream analysis, including exploratory statistics, 
+factor analysis, PCA conducted with collaborators, and the construction of several 
+classifiers for predictive modelling, the completed CSV files were merged into a unified 
+dataset. One of the large scale experiments is still running, and its results will be 
+incorporated once the computation completes.
+
+A complete description of all recorded metrics is provided in
+Table~\ref{tab:dataframe-description}.  
+The table summarizes every column in the benchmarking dataframe, including solver status
+codes, problem identifiers, memory parameters, dimensionality, iteration statistics, 
+objective and gradient evaluation counts, as well as detailed timing, allocation, and
+memory measurements. These fields together form the core dataset used in the subsequent
+analysis, enabling comparisons across memory settings, problem dimensions, and solver
+outcomes.
+
+\subsection{Expression Tree Analysis}
+
+In addition to benchmarking solver performance, we also examined the structural complexity 
+of the objective functions by analyzing their symbolic expression trees. For every 
+unconstrained and bound free problem of dimension at least five, we converted the 
+Symbolics.jl representation of the objective into an expression tree using the 
+ExpressionTreeForge.jl framework. Two structural metrics were computed for each tree. 
+The first is the tree length, defined recursively as the total number of nodes, where 
+leaf nodes contribute a count of one and internal nodes contribute the sum of the lengths 
+of their children. The second is the tree depth, defined as the maximum root to leaf path 
+length, with the root assigned depth one. These metrics provide a coarse but informative 
+measure of algebraic and compositional complexity, offering insight into how problem 
+structure may influence solver behaviour. The resulting dataset, which includes the 
+problem name, dimension, objective type, indicator of arbitrary variable dimension, tree 
+length, and tree depth, was stored in a separate CSV file and later merged with the 
+solver based benchmarking data to support a richer comparative analysis.
+
+
 
 \begin{table}[H]
 \centering
@@ -250,6 +376,7 @@ This inefficiency motivates second-order methods such as Newton’s Method and Q
 \hline
 \end{tabularx}
 \caption{Description of columns in the solver benchmark data table.}
+\label{tab:dataframe-description}
 \end{table}
 
 
