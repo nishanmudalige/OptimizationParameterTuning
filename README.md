@@ -11,7 +11,8 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - MSE plot
   - Confusion matrix
   - Overfitting graphs
-  - Experimenting on feature correlation  
+  - Experimenting on feature correlation
+  - Work on report
 
 
 ## Week 12:
