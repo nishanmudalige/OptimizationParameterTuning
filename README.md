@@ -4,6 +4,15 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](Documentation/STA378/main.pdf)
 
 ---
+## Week 13:
+- Felix:
+  - Examine `R^2`. Explore other pseudo `R^2`
+  - Compare the results of the 3 classification methods
+  - MSE plot
+  - Confusion matrix
+  - Overfitting graphs
+  - Experimenting on feature correlation  
+
 
 ## Week 12:
 - Felix:
