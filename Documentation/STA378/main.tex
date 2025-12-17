@@ -6,48 +6,72 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{hyperref}
+\usepackage{geometry}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Preamble
+\lstdefinestyle{criteria}{
+  basicstyle=\ttfamily\small,
+  columns=fullflexible,
+  keepspaces=true,
+  frame=single,
+  rulecolor=\color{black},
+  showstringspaces=false,
+  breaklines=true,
+  aboveskip=0.75\baselineskip,
+  belowskip=0.75\baselineskip
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{inlinecode}{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!15},
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
 
 
+% Optional: nicer "Input/Output" labels
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
 
-\renewcommand{\arraystretch}{1.15}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em} 
-
-\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
-
-\title{STA378 Final Report}
-\author{Felix Gao}
-\date{September 2025}
 
 \begin{document}
-\maketitle
 
-\section{Abstract}
-Optimization methods such as L-BFGS rely on hyperparameters that strongly influence convergence. In practice, these values are often chosen by rules of thumb or trial-and-error, which may lead to suboptimal performance on different problem types. We investigate a machine-learning approach to systematically select L-BFGS hyperparameters based on problem characteristics. We extract analytical features (e.g., problem size, sparsity) and empirical features (e.g., condition number estimate, initial gradient norm, intial objective evaluation), and train a machine-learning model that predicts the optimal memory parameter $mem$. Experiments on both regular and scalable problems show that our approach improves runtime and reduces memory compared to standard default settings. This work highlights the potential of learning-based parameter selection to enhance classical optimization algorithms.
+% --- Start Cover Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm} % Add vertical space at top
+    
+    {\Huge \textbf{A Machine Learning Approach for HyperParameter Tuning of Unconstrained Optimization Solvers}} % Main Title
+    
+    \vspace{1.5cm}
+    
+    {\Large \textit{Final Project Report}} % Subtitle
+    
+    \vfill % Pushes the remaining text to the bottom
+    
+    \textbf{Felix Gao}\\
+    Department of Mathematical and Computational Sciences\\
+    University of Toronto\\
+    \date{\today}
+    
+    \vspace{2cm} % Add space at bottom
+\end{titlepage}
+\pagenumbering{roman} 
 
-
-
-
-
-
-% Hyperparameter tuning plays a critical role in determining the efficiency and robustness of optimization solvers used for large-scale, unconstrained problems. We investigate the impact of the L-BFGS memory parameter \textit{mem} on solver performance using a benchmark suite implemented in Julia through the \textit{JSOSolvers.jl} and \textit{OptimizationProblems.jl} packages. The performance of the algorithm can be measured in term of elapsed time, number of evaluation of the objective function $f$, its gradient, its Hessian, or the memory used. The existing algorithms highly depend on algorithmic parameters, for instance for L-BFGS: 
-% \begin{itemize}
-% \item \textit{mem}: memory parameter
-% \item $r_1$: slope factor in the Wolfe condition when performing the line search
-% \item ${bk}_{max}$: maximum number of backtracks when performing the line search
-% \end{itemize}
-% These parameters are currently "guessed" in the literature or the fruit of trial-error experiments even though they are crucial for the performance. Moreover, the values to get optimal performance may highly rely on the given problem. Two types of features can be extracted from the problem: 
-% \begin{itemize}
-% \item Analytical features: problem size $n$, known properties (e.g., sparisity)
-% \item Empirical features: condition number estimate, gradient evaluation at initial guess and objective function evaluation at initial guess
-% \end{itemize}
-
-% The aim of this project is to run a machine learning approach to the parameter se
-
-
+\tableofcontents
 \newpage
+
+\section*{Abstract}
+Optimization methods such as L-BFGS rely on hyperparameters that strongly influence convergence. In practice, these values are often chosen by heuristics or trial-and-error, which may lead to suboptimal performance on different problem types. We investigate a machine-learning approach to systematically select L-BFGS hyperparameters based on problem characteristics. We extract analytical features (e.g., problem size, memory usage) and empirical features (e.g., initial objective evaluation, initial gradient evaluation), and train a machine-learning model that predicts the optimal memory parameter $mem$. As $mem$ increases, the memory used by the algorithm increases as well. This introduces a fundamental trade-off where increasing $mem$ yields a more accurate curvature approximation that potentially reduces the total iteration count, but it proportionally increases memory consumption and per-iteration computational overhead. Experiments on both regular and scalable problems show that our approach improves runtime and reduces memory compared to standard default settings. This work highlights the potential of learning-based parameter selection to enhance classical optimization algorithms.
+
 \section{Background and Introduction}
 \subsection{Unconstrained Optimization Algorithms}
 In the field of continuous numerical optimization, the aim is to develop solvers that can locate a local minimum of unconstrained optimization problems: $$\min_{x\in\mathbb{R}^n}{f(x)}$$
@@ -64,33 +88,6 @@ where $\alpha_k$ is referred to as the \textit{step length} or \textit{learning 
 The performance of a line search method depends critically on two components: the choice of the search direction $\mathbf{p}_k$ and the strategy used to determine $\alpha_k$. Typical search directions include the negative gradient direction used in the Steepest Descent method and the Newton direction in second-order methods. 
 
 An ideal step length achieves a sufficient reduction in the objective function while maintaining numerical stability. In practice, $\alpha_k$ is often determined through a line search procedure that satisfies certain conditions, such as the \textit{Wolfe} or \textit{Armijo} conditions, which ensure both sufficient decrease and appropriate curvature. These conditions balance convergence speed with robustness, preventing steps that are excessively short or that overshoot the minimum.
-
-\subsection{Steepest Descent (Gradient Descent)}
-
-The Steepest Descent method, also known as Gradient Descent, is an iterative optimization algorithm used to find a local minimum of a differentiable function. 
-We consider a scalar-valued objective function 
-\[
-f: \mathbb{R}^n \to \mathbb{R}, \quad \mathbf{w} \mapsto f(\mathbf{w}),
-\]
-and aim to find the point $\mathbf{w}^*$ that minimizes $f(\mathbf{w})$.
-
-The procedure can be summarized as follows:
-\begin{itemize}
-    \item Initialize with an initial guess $\mathbf{w}_0 \in \mathbb{R}^n$.
-    \item At each iteration $k = 0, 1, 2, \ldots$, compute the gradient $\nabla f(\mathbf{w}_k)$.
-    \item Update the parameter vector according to
-    \[
-    \mathbf{w}_{k+1} = \mathbf{w}_k - \alpha_k \nabla f(\mathbf{w}_k),
-    \]
-    where $\alpha_k > 0$ is the step size (or learning rate).
-\end{itemize}
-
-The process is repeated until a convergence criterion is met. 
-In theory, convergence is achieved when the gradient norm becomes sufficiently small, i.e., $\|\nabla f(\mathbf{w}_k)\| < \epsilon$. 
-In practice, termination is often based on a combination of factors such as a maximum number of iterations, a small relative change in $f(\mathbf{w})$, or when the gradient norm falls below a predefined threshold.
-
-
-To minimize the function $F(w)$, we use the update rule $$\mathbf{w} \leftarrow \mathbf{w} - \alpha \nabla_{\mathbf{w}}F(\mathbf{w})$$
 
 \subsection{Newton’s Method}
 
@@ -133,251 +130,239 @@ Optimization methods such as steepest descent and Newton’s Method are widely u
 Quasi-Newton methods, similar to the steepest descent approach, require only the gradient of the objective function at each iteration. By observing how the gradient changes between steps, these methods build an approximate model of the objective function that is accurate enough to achieve superlinear convergence. Compared to steepest descent, their improvement in speed and stability is substantial, particularly on challenging problems. Because they avoid computing second derivatives, quasi-Newton methods can even be more efficient than full Newton’s Method. Modern optimization libraries now include many variants of quasi-Newton algorithms designed for unconstrained, constrained, and large-scale optimization problems.
 
 \subsection{Implementations of Quasi-Newton Methods}
-\begin{itemize}
-\item The BFGS Method
-    \begin{figure}[H]
-        \includegraphics[width=\textwidth]{images/bfgs_algorithm.png}
-        \caption{BFGS Algorithm (adapted from Nocedal \& Wright, 2006)}
-        \label{fig:bfgs_algo}
-    \end{figure}
+\begin{algorithm}[H]
+\caption{(BFGS Method).}
+\label{alg:bfgs_method}
+\begin{algorithmic}[1]
+\State Given starting point $x_0$, convergence tolerance $\epsilon > 0$,
+\Statex \hspace{\algorithmicindent} inverse Hessian approximation $H_0$;
+\State $k \gets 0$;
+\While{$\lVert \nabla f_k \rVert > \epsilon$}
+    \State Compute search direction
+    \Statex \hspace{\algorithmicindent}\(\displaystyle p_k = - H_k \nabla f_k;\)\hfill (6.18)
+    \State Set $x_{k+1} = x_k + \alpha_k p_k$ where $\alpha_k$ is computed from a line search
+    \Statex \hspace{\algorithmicindent} procedure to satisfy the Wolfe conditions (3.6);
+    \State Define $s_k = x_{k+1} - x_k$ and $y_k = \nabla f_{k+1} - \nabla f_k$;
+    \State Compute $H_{k+1}$ by means of (6.17);
+    \State $k \gets k + 1$;
+\EndWhile
+\State end (while)
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]
+\caption{(L-BFGS).}
+\label{alg:lbfgs}
+\begin{algorithmic}[1]
+\State Choose starting point $x_0$, integer $m > 0$;
+\State $k \gets 0$;
+\Repeat
+    \State Choose $H_k^{0}$ (for example, by using (7.20));
+    \State Compute $p_k \gets - H_k \nabla f_k$ from Algorithm 7.4;
+    \State Compute $x_{k+1} \gets x_k + \alpha_k p_k$, where $\alpha_k$ is chosen to
+    \Statex \hspace{\algorithmicindent} satisfy the Wolfe conditions;
+    \If{$k > m$}
+        \State Discard the vector pair $\{s_{k-m},\, y_{k-m}\}$ from storage;
+    \EndIf
+    \State Compute and save $s_k \gets x_{k+1} - x_k$, $y_k = \nabla f_{k+1} - \nabla f_k$;
+    \State $k \gets k + 1$;
+\Until{convergence.}
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]
+\caption{(L-BFGS two-loop recursion).}
+\label{alg:two_loop}
+\begin{algorithmic}[1]
+\State $q \gets \nabla f_k$;
+\For{$i = k-1,\, k-2,\, \ldots,\, k-m$}
+    \State $\alpha_i \gets \rho_i s_i^{T} q$;
+    \State $q \gets q - \alpha_i y_i$;
+\EndFor
+\State end (for)
+\State $r \gets H_k^{0} q$;
+\For{$i = k-m,\, k-m+1,\, \ldots,\, k-1$}
+    \State $\beta \gets \rho_i y_i^{T} r$;
+    \State $r \gets r + s_i(\alpha_i - \beta)$;
+\EndFor
+\State end (for)
+\State stop with result $H_k \nabla f_k = r$.
+\end{algorithmic}
+\end{algorithm}
 
-\item The L-BFGS Method
-    \begin{figure}[H]
-        \includegraphics[width=0.75 \textwidth]{images/lbfgs_algorithm.png}
-        \caption{L-BFGS Algorithm (adapted from Nocedal \& Wright, 2006)}
-        \label{fig:bfgs_algo}
-    \end{figure}
-
-    \newpage
-
-    \begin{figure}[H]
-        \includegraphics[width=0.55 \textwidth]{images/two_loop_recursion.png}
-        \caption{L-BFGS two-loop recursion (adapted from Nocedal \& Wright, 2006)}
-        \label{fig:bfgs_algo}
-    \end{figure}
-\end{itemize}
-
-\subsection{Rate of Convergence Analysis}
-
-The convergence behavior of an optimization algorithm measures how quickly its iterates approach the optimal solution. 
-Designing algorithms with both good global convergence properties and rapid local convergence can be challenging, as these objectives often conflict. 
-For example, the Steepest Descent method guarantees global convergence under mild assumptions but tends to converge slowly in practice, especially on ill-conditioned problems. 
-In contrast, Newton’s Method achieves much faster local (quadratic) convergence but may fail globally if the initial point is far from the optimum or if the Hessian is not positive definite.
-
-To study convergence quantitatively, consider the quadratic objective function
-\[
-f(\mathbf{x}) = \tfrac{1}{2}\mathbf{x}^T Q \mathbf{x} - \mathbf{b}^T \mathbf{x},
-\]
-where $Q$ is symmetric and positive definite. 
-For this problem, the gradient is $\nabla f(\mathbf{x}) = Q\mathbf{x} - \mathbf{b}$, and the minimizer $\mathbf{x}^*$ satisfies $Q\mathbf{x}^* = \mathbf{b}$.
-When the Steepest Descent method is applied with an exact line search, the optimal step size at iteration $k$ is
-\[
-\alpha_k = \frac{\nabla f(\mathbf{x}_k)^T \nabla f(\mathbf{x}_k)}{\nabla f(\mathbf{x}_k)^T Q \nabla f(\mathbf{x}_k)}.
-\]
-The resulting iteration can be expressed as
-\[
-\mathbf{x}_{k+1} = \mathbf{x}_k - \alpha_k \nabla f(\mathbf{x}_k).
-\]
-
-It can be shown that the decrease in the objective function satisfies the inequality
-\[
-\|\mathbf{x}_{k+1} - \mathbf{x}^*\|_Q 
-\leq \frac{\kappa(Q) - 1}{\kappa(Q) + 1}
-\, \|\mathbf{x}_k - \mathbf{x}^*\|_Q,
-\]
-where $\|\mathbf{x}\|_Q = \sqrt{\mathbf{x}^T Q \mathbf{x}}$ and $\kappa(Q)$ is the \textit{condition number} of $Q$, defined as the ratio of its largest to smallest eigenvalue. 
-
-This result implies that Steepest Descent converges \textit{linearly}, and its rate depends heavily on the condition number of the Hessian. 
-If $\kappa(Q)$ is large (i.e., $Q$ is ill-conditioned), the iterates tend to “zigzag” toward the solution and convergence becomes slow. 
-This inefficiency motivates second-order methods such as Newton’s Method and Quasi-Newton algorithms, which exploit curvature information to improve convergence speed.
-
+\subsection{Expression Tree}
+An expression tree is a standard data structure in computer science for representing algebraic expressions in a form that
+makes their structure explicit. Each internal node encodes an operator (for example addition, multiplication, or a
+nonlinear function), and each leaf encodes an operand such as a variable or constant. This representation induces a
+natural notion of complexity: the tree length corresponds to the total number of nodes in the expression, while the tree
+depth corresponds to the maximum number of nested operations along any root to leaf path. Because these quantities reflect
+how many operations are composed and how deeply they are nested, they provide compact, problem specific descriptors of the
+objective that complement purely numeric timing features.
 \newpage
 
 \section{Methodology and Implementation}
-
 \subsection{Benchmark Suite Construction}
+\label{subsec:bench_suite}
 
-The benchmark problems were drawn from the \textit{OptimizationProblems.jl} package. 
-To focus on meaningful instances of smooth, large-scale optimization, the initial 
-benchmark selection was restricted to problems that were \textit{unconstrained}, 
-\textit{free of bound constraints}, and of dimension at least five. These criteria 
-exclude trivial toy problems and ensure that curvature approximation and memory effects 
-in L-BFGS are non-negligible. Formally, the first-stage problem set was obtained by 
-filtering according to
-\[
-\texttt{contype == :unconstrained}, \qquad \lnot\texttt{has\_bounds}, \qquad \texttt{nvar} \ge 5.
-\]
+\paragraph{Source and scope.}
+Benchmark problems were obtained from
+\href{https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl}{\textit{OptimizationProblems.jl}},
+a maintained library of smooth test problems with consistent metadata and evaluation routines. Since this project targets
+large scale unconstrained smooth optimization with L-BFGS, we restricted attention to problems that are unconstrained,
+free of bound constraints, and satisfy \lstinline[style=inlinecode]|nvar >= 5|. These criteria exclude trivial instances and ensure that
+curvature approximation and limited memory effects are practically relevant.
 
-For the scalable phase of the benchmark, we focused on problems whose dimension can be 
-chosen programmatically at construction time. In the metadata of the \textit{OptimizationProblems.jl} suite, this capability is indicated by the flag 
-\texttt{variable\_nvar = true}, which serves as a direct marker of scalability. Since the project centers on unconstrained smooth optimization, we retained only those problems explicitly classified as unconstrained and free of bound constraints. Although \texttt{meta.contype = :unconstrained} already implies the absence of general constraints, we additionally filtered for \texttt{ncon = 0} as a defensive measure to ensure that no equality or inequality constraints were included due to potential inconsistencies in the metadata. This refined subset of scalable, unconstrained, bound-free problems constituted the core of the large-scale experiments.
+\paragraph{Regular and scalable problems.}
+The benchmark contains two types of problem families. Regular problems have a fixed dimension determined by the problem
+definition. Scalable problems allow the dimension to be specified at construction time, as indicated by the metadata flag
+\lstinline[style=inlinecode]|variable_nvar = true|. For scalable families, we generate multiple instances by varying the dimension \(n\) in
+order to study how performance and the best choice of \texttt{mem} change with problem size.
+
+\paragraph{Selection criteria.}
+The first stage selection criteria are summarized in Listing~\ref{lst:filtering_stage1}. In addition, we require
+\lstinline[style=inlinecode]|ncon = 0| as a consistency check to verify the absence of equality or inequality constraints.
+
+\begin{lstlisting}[style=criteria, caption={First stage filtering criteria.}, label={lst:filtering_stage1}]
+contype == :unconstrained
+!has_bounds
+nvar >= 5
+\end{lstlisting}
+
+\paragraph{Benchmark summary.}
+After filtering, the benchmark contains 105 distinct problem families, including 84 scalable families. The experiments
+comprise \(19{,}015\) solver runs in total, partitioned into \(10{,}605\) runs on regular (fixed dimension) instances and
+\(8{,}410\) runs on scalable instances. For the regular subset, the dimension satisfies \(n \in [5, 100]\), with median
+\(100\) and mean \(77.94\). For the scalable subset, the dimension satisfies \(n \in [961, 1000]\), with median \(1000\)
+and mean \(998.16\). In both subsets, for all problems, we exhaustively evaluate the L-BFGS memory parameter over the integer range \(\texttt{mem} \in \{1,2,\ldots,100\}\).
+
+\paragraph{Initialization runs.}
+To avoid bias from one time initialization overhead (for example compilation and cache setup), we exclude the first solver
+call for each newly constructed problem instance from the primary analysis. We retain these runs and label them with \lstinline[style=inlinecode]|is_init_run = true| to enable a direct comparison between the first call and the subsequent call at the same memory setting (typically \(\texttt{mem}=1\)).
 
 \subsection{Solver Configuration}
+\label{subsec:solver_config}
 
-All optimization experiments were performed using the L-BFGS implementation from 
-\textit{JSOSolvers.jl}. Since the primary objective of the project was to understand how 
-the limited-memory parameter affects performance across a wide range of problem instances, 
-the memory values were not chosen manually. Instead, for each problem we queried the 
-problem-specific L-BFGS parameter space provided by \texttt{LBFGSParameterSet}, and 
-exhaustively evaluated every admissible memory value between the lower and upper bounds of 
-the domain \texttt{param\_set.mem}. This ensured that the experiments captured the full 
-range of memory configurations that the solver considers meaningful for each problem.
+All experiments use the L-BFGS solver from
+\href{https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl}{\textit{JSOSolvers.jl}}.
+Our objective is to isolate the effect of the limited-memory parameter \texttt{mem}. Accordingly, we vary only
+\texttt{mem} and keep all other solver settings at their default values. For each problem instance, we obtain the
+admissible integer domain of \texttt{mem} from \texttt{LBFGSParameterSet} and evaluate all values in that domain.
 
-Although several other algorithms (including trust-region solvers) were explored 
-informally during the development phase to better understand the solver landscape within 
-the \textit{JuliaSmoothOptimizers} ecosystem, the final benchmarking results focus 
-exclusively on L-BFGS to maintain a consistent and interpretable comparison across 
-problems. All runs used the default algorithmic settings supplied by \textit{JSOSolvers}, 
-with the exception of the line search. Because some problems may exhibit pathological or 
-slow line-search behaviour, a wall-clock time limit of 60 seconds was imposed on each run 
-to prevent individual cases from dominating the overall computation time. 
+Each run starts from the same initial point provided by the test problem. To prevent pathological cases from dominating
+total compute time, we impose a wall-clock time limit of 60 seconds per run for regular instances and 300 seconds per run
+for scalable instances. In addition to solver outcomes (for example runtime, iteration count, and termination status), we
+record the cost of evaluating the objective and gradient at the starting point. These measurements are used as empirical
+features and to characterize initialization overhead.
 
-For each problem and each memory value, the solver was initialized from the same starting 
-point to ensure a controlled comparison. Before running the solver, we also explicitly 
-evaluated the initial objective and gradient, allowing us to separately record their 
-computation time, memory usage, and allocation statistics. These measurements were included 
-in the final dataset to facilitate a deeper analysis of initialization overhead and 
-objective/gradient evaluation behaviour across problems. All remaining solver parameters 
-were left at their default values to isolate the impact of the memory parameter as the sole 
-variable under investigation.
+\subsection{Data Collection and Target Definition}
+\label{subsec:data_target}
 
-\subsection{Experimental Protocol}
+For each solver run, we record the termination status, runtime, iteration count, and solver statistics including the
+number of objective and gradient evaluations and memory or allocation measurements when available. Runs that exceed the
+wall-clock limit or terminate abnormally are treated as failures and are excluded when defining the optimal parameter.
 
-The experimental workflow was designed to produce consistent and reproducible benchmarks
-across both fixed-dimension and scalable problem families. For problems supporting an
-arbitrary variable dimension, we constructed instances at several increasing sizes
-(e.g., \(n = 1{,}000\), \(10{,}000\), and higher whenever permitted by the available HPC
-resources). These settings allow us to characterize how the computational behaviour of
-L-BFGS evolves as the dimension increases, complementing the fixed-dimension benchmarks
-from the first part of the project. In addition to the full memory sweep performed for
-each scalable instance, a secondary experiment was conducted on a representative problem
-in which the dimension was systematically varied while holding the memory parameter fixed.
-This provided a clearer picture of dimension-driven scaling behaviour independent of the
-limited-memory parameter.
+For each problem instance, we define the optimal memory parameter \(\texttt{mem}^\ast\) as the value of \texttt{mem} that
+minimizes runtime among successful runs within the tested domain. When multiple values achieve the same runtime within
+numerical tolerance, we break ties by selecting the smaller \texttt{mem} to favor lower memory usage.
 
-For every problem instance, the solver was always initialized from the same starting point,
-and each run was subject to a fixed wall-clock time limit to prevent divergent or
-pathological cases from dominating total runtime. Because Julia's JIT compilation can
-introduce substantial one-time overhead, especially for large-scale problems, each
-experiment included a warm-up evaluation phase whose results were discarded to ensure that
-reported timings reflect steady-state solver performance. Throughout the experiments,
-objective and gradient evaluations were also measured independently of L-BFGS iterations,
-allowing us to track how fundamental evaluation costs scale with problem dimension.
+Initialization runs flagged by \texttt{is\_init\_run = true} are excluded from the primary analysis to avoid one time
+overhead effects, but are retained for secondary comparisons.
 
-For very large instances, particularly those approaching \(n = 10^{5}\) and beyond, the
-memory requirements of the model evaluation and matrix-free operations exceeded the
-available RAM on the 32~GB HPC nodes, causing early termination or timeouts. These
-resource-induced failures were recorded explicitly, as they provide practical insight into
-the scalability limits of both the underlying problems and the L-BFGS implementation. All
-results were logged incrementally to CSV files to ensure robustness during long-running
-experiments.
+\subsection{Feature Extraction}
+\label{subsec:features}
 
-\subsection{Performance Metrics}
+Gradients are computed via automatic differentiation through
+\href{https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl}{\textit{ADNLPModels.jl}}. We construct the learning feature
+set from three sources. First, we use analytical features from problem metadata, including \(\mathrm{nvar}\),
+\lstinline[style=inlinecode]|is_scalable|, \lstinline[style=inlinecode]|variable_nvar|, and the objective type label.
+Second, we include empirical features measured at the starting point, namely the objective evaluation cost and gradient
+evaluation cost (recorded in time, memory, and allocation statistics). Third, we augment these features with symbolic
+structure descriptors by converting the objective into an expression tree using
+\href{https://github.com/JuliaSmoothOptimizers/ExpressionTreeForge.jl}{\textit{ExpressionTreeForge.jl}} and computing two
+recursion based quantities: the number of leaves in the tree (\texttt{expr\_leaf\_count}) and the maximum root to leaf path
+length (\texttt{expr\_max\_depth}).
 
-A comprehensive set of performance metrics was recorded for every solver run to enable a
-multi-faceted analysis of L-BFGS behaviour across different memory settings and problem
-dimensions. For each run, we logged standard optimization metrics including the final
-solver status, number of iterations, number of objective evaluations, number of gradient
-evaluations, and the number of matrix-free vector–product operations (\texttt{nvmops}).
-These quantities provide insight into both convergence behaviour and the computational
-effort required by the algorithm.
-
-In addition to iteration-level metrics, we recorded detailed timing and memory information.
-Each call to L-BFGS was timed end-to-end, and the reported runtime includes both the solver
-iterations and the initial model construction cost. Peak memory usage was measured in
-megabytes to assess the interaction between problem dimension, memory parameter, and
-algorithmic overhead. To better understand initialization costs, the objective and gradient
-were evaluated once prior to the L-BFGS call, and their evaluation time, memory usage, and
-allocation counts were logged separately. These initialization statistics are particularly
-important for large-scale problems where evaluation cost may dominate solver iterations.
-
-All measurements were logged incrementally to CSV files, with each row representing a 
-single solver run and each column corresponding to a recorded metric. Separate CSV files 
-were generated for the fixed dimension benchmarks and the scalable problem set, allowing 
-the experiments to run independently and recover gracefully from long execution times or 
-interrupted HPC sessions. For downstream analysis, including exploratory statistics, 
-factor analysis, PCA conducted with collaborators, and the construction of several 
-classifiers for predictive modelling, the completed CSV files were merged into a unified 
-dataset. One of the large scale experiments is still running, and its results will be 
-incorporated once the computation completes.
-
-A complete description of all recorded metrics is provided in
-Table~\ref{tab:dataframe-description}.  
-The table summarizes every column in the benchmarking dataframe, including solver status
-codes, problem identifiers, memory parameters, dimensionality, iteration statistics, 
-objective and gradient evaluation counts, as well as detailed timing, allocation, and
-memory measurements. These fields together form the core dataset used in the subsequent
-analysis, enabling comparisons across memory settings, problem dimensions, and solver
-outcomes.
-
-\subsection{Expression Tree Analysis}
-
-In addition to benchmarking solver performance, we also examined the structural complexity 
-of the objective functions by analyzing their symbolic expression trees. For every 
-unconstrained and bound free problem of dimension at least five, we converted the 
-Symbolics.jl representation of the objective into an expression tree using the 
-ExpressionTreeForge.jl framework. Two structural metrics were computed for each tree. 
-The first is the tree length, defined recursively as the total number of nodes, where 
-leaf nodes contribute a count of one and internal nodes contribute the sum of the lengths 
-of their children. The second is the tree depth, defined as the maximum root to leaf path 
-length, with the root assigned depth one. These metrics provide a coarse but informative 
-measure of algebraic and compositional complexity, offering insight into how problem 
-structure may influence solver behaviour. The resulting dataset, which includes the 
-problem name, dimension, objective type, indicator of arbitrary variable dimension, tree 
-length, and tree depth, was stored in a separate CSV file and later merged with the 
-solver based benchmarking data to support a richer comparative analysis.
-
-
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|l|l|Y|}
+\small
+\begin{tabularx}{\textwidth}{|>{\ttfamily\raggedright\arraybackslash}p{0.34\textwidth}|l|Y|}
 \hline
 \textbf{Column} & \textbf{Type} & \textbf{Description} \\
 \hline
-\texttt{status} & Symbol &
-\textbf{first\_order}: solver successfully reached a first-order stationary point;
-\textbf{max\_time}: solver couldn't solve the problem within the time limit;
-\textbf{unbounded}: the minimum of the objective function goes to $-\infty$. \\
+status & Symbol &
+Termination status of the solver run (for example \textbf{first\_order}, \textbf{max\_time}, \textbf{unbounded}). \\
 \hline
-\texttt{name} & String & Identifier for the optimization problem. \\
+problem & String &
+Identifier of the optimization problem instance (problem name as stored in metadata). \\
 \hline
-\texttt{solver} & String & Name of the solver/algorithm applied. \\
+solver & String &
+Name of the solver used for the run (here L-BFGS). \\
 \hline
-\texttt{mem} & Int & Hyperparameter of the solver. \\
+mem & Int &
+L-BFGS memory parameter controlling the number of stored curvature pairs. \\
 \hline
-\texttt{nvar} & Int & Number of decision variables in the problem. \\
+nvar & Int &
+Number of decision variables \(n\). \\
 \hline
-\texttt{time} & Float64 & Total time(s) for solving the problem. \\
+time & Float64 &
+Wall-clock solve time in seconds. \\
 \hline
-\texttt{memory} & Float64 & Total memory(MB) used for solving the problem. \\
+memory & Float64 &
+Memory usage associated with the solver run (MB). \\
 \hline
-\texttt{num\_iter} & Int & Total number of iterations performed. \\
+num\_iter & Int &
+Total number of iterations performed by the solver. \\
 \hline
-\texttt{nvmops} & Int & Number of vector–matrix products. \\
+nvmops & Int &
+Number of vector--matrix style operations reported by the solver. \\
 \hline
-\texttt{neval\_obj} & Int & Number of objective function evaluations. \\
+neval\_obj & Int &
+Number of objective function evaluations. \\
 \hline
-\texttt{init\_eval\_obj\_time} & Float64 & Time (seconds) for the initial objective evaluation. \\
+init\_eval\_obj\_time & Float64 &
+Wall-clock time (seconds) for the initial objective evaluation at the starting point. \\
 \hline
-\texttt{init\_eval\_obj\_mem} & Float64 & Memory (MB) for the initial objective evaluation. \\
+init\_eval\_obj\_mem & Float64 &
+Memory usage (MB) for the initial objective evaluation. \\
 \hline
-\texttt{init\_eval\_obj\_alloc} & Float64 & Number of heap allocations for the initial objective evaluation. \\
+init\_eval\_obj\_alloc & Float64 &
+Number of heap allocations for the initial objective evaluation. \\
 \hline
-\texttt{neval\_grad} & Int & Number of gradient evaluations. \\
+neval\_grad & Int &
+Number of gradient evaluations. \\
 \hline
-\texttt{init\_eval\_grad\_time} & Float64 & Time (seconds) for the initial gradient evaluation. \\
+init\_eval\_grad\_time & Float64 &
+Wall-clock time (seconds) for the initial gradient evaluation at the starting point. \\
 \hline
-\texttt{init\_eval\_grad\_mem} & Float64 & Memory (MB) for the initial gradient evaluation. \\
+init\_eval\_grad\_mem & Float64 &
+Memory usage (MB) for the initial gradient evaluation. \\
 \hline
-\texttt{init\_eval\_grad\_alloc} & Float64 & Number of heap allocations for the initial gradient evaluation. \\
+init\_eval\_grad\_alloc & Float64 &
+Number of heap allocations for the initial gradient evaluation. \\
 \hline
-\texttt{is\_init\_run} & Bool & Indicates whether this is the initial run. \\
+is\_init\_run & Bool &
+Whether the row corresponds to the first solver call for a newly constructed instance (initialization run). \\
+\hline
+is\_scalable & Bool &
+Indicator that the problem family supports programmatic variation of dimension. \\
+\hline
+objtype & String &
+Objective type label provided by the problem metadata (for example least squares versus other). \\
+\hline
+variable\_nvar & Bool &
+Metadata flag indicating whether \(\mathrm{nvar}\) can be specified at construction time. \\
+\hline
+expr\_leaf\_count & Int &
+Number of leaves in the objective expression tree (nodes with no children), computed by a recursive traversal. \\
+\hline
+expr\_max\_depth & Int &
+Maximum root-to-leaf path length in the objective expression tree, computed by a recursive traversal. \\
 \hline
 \end{tabularx}
-\caption{Description of columns in the solver benchmark data table.}
+\caption{Description of columns in the solver benchmark dataset.}
 \label{tab:dataframe-description}
 \end{table}
+
 
 
 \newpage
