@@ -204,7 +204,7 @@ depth corresponds to the maximum number of nested operations along any root to l
 how many operations are composed and how deeply they are nested, they provide compact, problem specific descriptors of the
 objective that complement purely numeric timing features.
 
-\subsection{Orable Optimal Memory Parameter}
+\subsection{Oracle Optimal Memory Parameter}
 We refer to the oracle-optimal memory parameter as the value that minimizes the observed
 wall-clock runtime for a given problem instance when evaluated exhaustively over all
 candidate memory values.
@@ -425,12 +425,23 @@ orthogonal projection, the out-of-sample predictive \(R^2\) reported here may be
 when evaluated on unseen problem instances with noisy runtime measurements.
 
 \subsection{Memory Selection Performance}
-Memory selection quality is evaluated by comparing the selected configuration to the
-oracle-optimal configuration for each problem instance.
-We define the performance ratio
-\( r = \widehat{T}(x,\hat{m}) / T(x,m^\star) \),
-where \(\widehat{T}(x,m)\) denotes the model-predicted runtime and \(T(x,m^\star)\) denotes
-the oracle-best observed runtime for the same instance.
+Let \(x\) denote a problem instance identified by \((\texttt{problem}, \texttt{nvar})\).
+Given a trained runtime regressor \(\widehat{T}(x,m)\) and candidate set
+\(m \in \{1,\dots,100\}\), we select
+\[
+\hat{m}(x) = \arg\min_{m \in \{1,\dots,100\}} \widehat{T}(x,m),
+\qquad
+m^\star(x) = \arg\min_{m \in \{1,\dots,100\}} T(x,m),
+\]
+and report the surrogate performance ratio
+\[
+r(x) = \frac{\widehat{T}\!\left(x,\hat{m}(x)\right)}{T\!\left(x,m^\star(x)\right)},
+\]
+where \(T(x,m)\) is the observed wall-clock runtime. Since the numerator is model-predicted,
+\(r(x)\) may be below \(1\); smaller values indicate that the selector is predicted to be
+closer to the oracle-best configuration.
+
+Table~\ref{tab:selection} reports the resulting exact match accuracy and ratio-based performance metrics on the test set.
 
 \begin{table}[H]
 \centering
@@ -447,11 +458,6 @@ Fraction with \(r \le 1.10\) & 0.76 \\
 \caption{Memory selection performance on the test set.}
 \label{tab:selection}
 \end{table}
-
-Although exact recovery of the oracle memory parameter is challenging due to the large
-discrete search space, the learned selector frequently identifies memory values whose
-predicted runtime is close to the oracle optimum, as reflected by the median ratio and
-the fraction of instances within fixed optimality thresholds.
 
 \newpage
 
