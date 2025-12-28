@@ -1,7 +1,7 @@
 # OptimizationParemeterTuning
 A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
 
-[📄 View the full documentation (PDF)](Documentation/STA378/Final_Report.pdf)
+[📄 View the full documentation (PDF)](Documentation/Final_Report.pdf)
 
 ---
 ## Week 13:
