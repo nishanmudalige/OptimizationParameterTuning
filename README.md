@@ -15,3 +15,11 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Calculate area under the curves
 - Tangi and Felix to set up meeting on bash script parallelizing solvers
 
+--
+
+## Week 2
+
+- Felix:
+  - Examine another solver to repeat analysis
+  - Discuss ideas and strategy to complete the work
+  - If time permits: read up on interpretting performance profiles
