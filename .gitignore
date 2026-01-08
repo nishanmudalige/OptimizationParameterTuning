@@ -1,53 +1,15 @@
-# Ignore Jupyter notebook checkpoints
+# IDE
+.idea/
+.vscode/
+
+# Python env
+venv/
+.venv/
+__pycache__/
+*.pyc
 .ipynb_checkpoints/
 
-# Ignore system files
+# OS
 .DS_Store
 Thumbs.db
-
-# Ignore any .log files
-
-*.aux
-
-*.out
-
-.venv
-
-archived/
-
-*.log
-
-*.fls
-
-*.aux
-
-*.fdb_latexmk
-
-*.synctex.gz
-
-# LaTeX build artifacts
-*.aux
-*.bbl
-*.bcf
-*.blg
-*.fls
-*.fdb_latexmk
-*.log
-*.out
-*.synctex.gz
-*.toc
-*.nav
-*.snm
-*.lof
-*.lot
-*.lol
-*.idx
-*.ilg
-*.ind
-*.dvi
-*.pdfsync
-*.thm
-
-# Output folder
-/out/
 
