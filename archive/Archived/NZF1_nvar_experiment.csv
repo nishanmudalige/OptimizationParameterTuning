@@ -1,5 +1,0 @@
-status,name,solver,mem,nvar,time,memory,num_iter,nvmops,neval_obj,init_eval_obj_time,init_eval_obj_mem,init_eval_obj_alloc,neval_grad,init_eval_grad_time,init_eval_grad_mem,init_eval_grad_alloc
-first_order,NZF1,LBFGSSolver,66,91,5.777785316999999,160.90504,59,59,70,0.076023586,14.51212,272241,64,0.674617183,78.952184,1527219
-first_order,NZF1,LBFGSSolver,66,1989,0.5692712400000001,4.401592,85,85,98,8.086e-6,0.000592,3,90,0.006605948,0.0166,5
-first_order,NZF1,LBFGSSolver,66,39988,209.97566993,87.392944,80,80,92,0.00010425,0.000592,3,84,2.549914179,0.3206,5
-max_time,NZF1,LBFGSSolver,66,799994,3404.7497539160004,1747.21896,1,1,12,0.001890895,0.000592,3,4,1153.657050503,6.400664,5
