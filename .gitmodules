@@ -1,0 +1,3 @@
+[submodule "AutoJSOSolverSelection.jl"]
+	path = AutoJSOSolverSelection.jl
+	url = https://github.com/tmigot/AutoJSOSolverSelection.jl.git
