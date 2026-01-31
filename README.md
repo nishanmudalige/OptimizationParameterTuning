@@ -14,6 +14,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Compare `lbfgs` with `trunc`
   - Calculate area under the curves
 - Tangi and Felix to set up meeting on bash script parallelizing solvers
+https://github.com/tmigot/AutoJSOSolverSelection.jl
 
 ---
 
