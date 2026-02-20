@@ -4,6 +4,19 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](docs/Documentation/Final_Report/Final_Report_Felix_Gao.pdf)
 
 ---
+### Things to do
+
+- Start writing report with column description
+- Update plots
+- Think about new new categorical variable for time
+  - Aim for approximately 5 categories
+- Think about new new categorical variable for number of variables
+  - Aim for approximately 5 categories
+- Boxplots for size of problems
+- Set up OneDrive for file
+
+---
+
 ## New Ideas
 
 - Repeat analysis with other solvers `trunc`, `tron`, `fomo`
@@ -15,12 +28,3 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Calculate area under the curves
 - Tangi and Felix to set up meeting on bash script parallelizing solvers
 https://github.com/tmigot/AutoJSOSolverSelection.jl
-
----
-
-## Week 2
-
-- Felix:
-  - Examine another solver to repeat analysis
-  - Discuss ideas and strategy to complete the work
-  - If time permits: read up on interpretting performance profiles
