@@ -6,11 +6,12 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ---
 ### Things to do
 
+- Debug to get the data set working again
+- Re apply machine learning script
 - Start writing report with column description
-- Update plots
-- Think about new new categorical variable for time
+- Finalize the new categorical variable for time
   - Aim for approximately 5 categories
-- Think about new new categorical variable for number of variables
+- Finalize the new categorical variable for number of variables
   - Aim for approximately 5 categories
 - Boxplots for size of problems
 - Set up OneDrive for `.csv` file 
