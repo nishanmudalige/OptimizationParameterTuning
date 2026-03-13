@@ -7,16 +7,15 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ### Things to do
 
 - For March 20: Felix to create Jupyter Notebook document + email Tangi and Nishan with summary
-
-- Debug to get the data set working again
-- Re apply machine learning script
+- Tangi: looks at `existing` problems that we skipped in the script.
+- Add the new features to feature_cols
+- Try to use multivariate regression
+- Can we predict stats_elapsed_time based on (neval_obj, neval_grad, timed_bytes)? It would be another regressor :).
 - Start writing report with column description
 - Finalize the new categorical variable for time
   - Aim for approximately 5 categories
 - Finalize the new categorical variable for number of variables
   - Aim for approximately 5 categories
-- Boxplots for size of problems
-- Set up OneDrive for `.csv` file 
 
 ---
 
