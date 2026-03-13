@@ -6,6 +6,8 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ---
 ### Things to do
 
+- For March 20: Felix to create Jupyter Notebook document + email Tangi and Nishan with summary
+
 - Debug to get the data set working again
 - Re apply machine learning script
 - Start writing report with column description
