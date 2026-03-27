@@ -6,6 +6,16 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 ---
 ### Things to do
 
+- For April 3:
+- Attempts other models to obtain better prediciton for `timed_bytes`
+  - example misture  model (Gaussian mixture)
+- Try Random Forest compared to ExtraTreesRegressor
+- Use the reposnes from model to predict elapsed time
+- Include scalable problems as an indicator variable
+
+---
+### Things to do
+
 - For March 20: Felix to create Jupyter Notebook document + email Tangi and Nishan with summary
 - Tangi: looks at `existing` problems that we skipped in the script.
 - Add the new features to feature_cols
