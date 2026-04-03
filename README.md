@@ -4,9 +4,25 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](docs/Documentation/Final_Report/Final_Report_Felix_Gao.pdf)
 
 ---
-### Things to do
+### Things To Do (For April 10)
 
-- For April 3:
+- Compare `best observed mem` with `best predicted mem`
+  - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
+  - `best predicted mem` is the value of `mem` suggested by the model. Run solver using this to get the run time using this value and compare.
+- Try gradient boosting
+- Obtain 3 plots
+  - Results from Model 1
+  - Results from Model 2
+  - Comparing results from both models
+- Create a pipleline (in `Julia`) obtain the results (Model 1 and Model 2 combined)
+  - Examine of to do this with multiple languages
+    - Using JSON
+    - Using Jupyter Notebook
+- CREATE DOCUMENTATION
+      
+---
+### Things To Do (For April 3)
+
 - Attempts other models to obtain better prediciton for `timed_bytes`
   - example misture  model (Gaussian mixture)
 - Try Random Forest compared to ExtraTreesRegressor
