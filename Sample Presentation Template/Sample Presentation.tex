@@ -1,0 +1,171 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+% Gotham theme
+\usetheme{gotham}
+
+% We need TikZ for the circles
+\usepackage{tikz}
+
+\usepackage{xcolor}
+\usepackage{svg}
+
+\definecolor{UTBlue}{HTML}{1E3765}
+\definecolor{Pantone633}{HTML}{007FA3}
+\definecolor{Pantone2985}{HTML}{6FC7EA}
+\definecolor{PantoneWarmRed}{HTML}{DC4633}
+\definecolor{Pantone227}{HTML}{AB1368}
+
+
+
+% --- Custom TOC circles: green filled circles with white numbers ---
+% 1. Define a template that draws the circle
+\defbeamertemplate{section in toc}{green circles}{%
+  \leavevmode%
+  \begin{beamercolorbox}[sep=-0.5pt,left]{section in toc}%
+    \tikz[baseline=(tocprefix.base)]{
+      \node[
+        circle,
+%        fill=green!70!black, % adjust to taste
+	fill = Pantone633,
+        inner sep=2pt,
+        text=white
+      ] (tocprefix) {\small\inserttocsectionnumber};
+    }%
+    \hspace{0.6em}\inserttocsection\par%
+  \end{beamercolorbox}%
+}
+
+\defbeamertemplate{footline}{slide number only}{%
+  \hfill\insertframenumber\hspace*{0.5em}\vskip0.3em%
+}
+
+\setbeamertemplate{footline}[slide number only]
+
+	\gothamset{
+		numbering= framenumber,
+		% tocframe template= gotham simple,
+		parttocframe default=off,
+		sectiontocframe default=off,
+		subsectiontocframe default=off,
+%		background=dark,
+%		block=fill,
+	}
+
+\setbeamercolor{progress bar}{fg=UTBlue, bg=UTBlue!25}
+%\setbeamercolor{background canvas}{bg=pitchblack}
+%\setbeamercolor{normal text}{fg=lightbeige}
+%\setbeamercolor{frametitle}{bg=UTBlue, fg=Pantone2985!25}
+\setbeamercolor{frametitle}{bg=UTBlue, fg=white}
+
+
+%\setbeamertemplate{frametitle}{
+%  \nointerlineskip
+%   \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex]{frametitle}
+%    \hspace*{1ex}\insertframetitle
+%    \hfill
+%    \includegraphics[height=3ex]{UTLogoWhite.pdf}
+%    \hspace*{1ex}
+%  \end{beamercolorbox}
+%}
+
+
+% 2. Tell beamer to actually use this template
+\setbeamertemplate{section in toc}[green circles]
+
+% (Optional) hide subsection entries to keep TOC simple
+\setcounter{tocdepth}{1}
+
+
+
+
+
+
+
+
+\title{Main Title Goes Here}
+\subtitle{Subtitle Goes Here}
+\author{Dr. Nishan Mudalige and Dr. Masoud Ataei\\[3.0em] }
+\date{\includegraphics[width=0.35\textwidth]{UTM-MCS-logo.jpg}}
+
+\begin{document}
+
+\begin{frame}
+  \vspace*{5.0em}
+  \titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%
+%% Insert Table of Contents %%
+%%%%%%%%%%%%%%%%
+\begin{frame}{Table of contents}
+  \vspace*{1.00em}
+  \tableofcontents
+\end{frame}
+
+
+
+
+
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+
+\section{Sample Section One}
+\label{Sample-Section-One}
+
+\begin{frame}{First Frame}
+\phantomsection\label{First Frame}
+
+Here is an example of a bulleted list:
+
+\begin{itemize}
+\item An item
+\item	Another item
+\item	Yet another item
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Second Frame}
+\phantomsection\label{Second-Frame}
+%\small
+
+\begin{enumerate}
+\item Enumerated item 1
+\item Enumerated item 2  
+\item Enumerated item 3
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+%%%%%%%%%% %%%%%%%%%% %%%%%%%%%%
+
+\section{Sample Section Two}
+\label{Sample-Section-Two}
+
+\begin{frame}{Third Frame}
+\phantomsection\label{Third Frame}
+
+Here is an example of including an image:
+
+\begin{center}
+\includegraphics[width=0.35\textwidth]{Images/test_image.png}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+
+\end{document}
