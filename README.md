@@ -4,7 +4,16 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](docs/Documentation/Final_Report/Final_Report_Felix_Gao.pdf)
 
 ---
-### Things To Do (For April 10)
+### Things To Do (For April 14)
+- Felix:
+  - Compare `best observed mem` with `best predicted mem`
+    - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
+    - `best predicted mem` is the value of `mem` suggested by the model. Run solver using this to get the run time using this value and compare.
+- Nishan
+  - Add theme for Felix to make `LaTeX` presentation
+
+---
+### Things To Do (For April 9)
 
 - Compare `best observed mem` with `best predicted mem`
   - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
