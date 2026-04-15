@@ -4,7 +4,15 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
 [📄 View the full documentation (PDF)](docs/Documentation/Final_Report/Final_Report_Felix_Gao.pdf)
 
 ---
-### Things To Do (For April 14)
+### Things To Do (For April XX)
+- Felix:
+  - Compare regret per problem, try to make buckets of problems, some interpretation (?), what are the problems where we are really off.
+  - Compare the prediction with the baseline 1 (default mem = 5), and with baseline 2 (best fixed mem over the whole dataset).
+  - Right now, we are using data where all the 100 mem were successful. Try ideas to add the others: idea 1 is adding a feature solved/unsolved, Idea 2 is adding "fake" values for time, neval, bytes.
+  - Try to find a LateX template for the poster.
+  - For the pipeline: Either use JSON, or use Pycall to call the Python part from Julia.
+---
+### Things To Do (For April 15)
 - Felix:
   - Compare `best observed mem` with `best predicted mem`
     - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
@@ -27,6 +35,7 @@ A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimiza
   - Examine of to do this with multiple languages
     - Using JSON
     - Using Jupyter Notebook
+    - [Update April 15th] Another idea is https://github.com/JuliaPy/PyCall.jl
 - CREATE DOCUMENTATION
       
 ---
