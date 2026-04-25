@@ -29,25 +29,25 @@ for uid, problem_df in df.groupby(["name", "nvar"]):
     status = problem_df["status"].iloc[0]
     solver = problem_df["source_solver"].iloc[0]
 
-    ## mem vs attributes
-    for attribute in problem_df.columns:
-        if attribute in ATTRIBUTES:
-            ax = problem_df.plot(x="mem", y=attribute, kind="line", marker="o", title = f"{problem_name} ({nvar} variables) – {status} with {solver}")
-            ax.set_xlabel("mem")
-            ax.set_ylabel(f"{attribute} ({UNITS.get(attribute, '')})")
-            ax.legend().remove()
-            ax.set_xlim(1, 100)
-            ax.set_xticks([1, 20, 40, 60, 80, 100])
-            if attribute in LOG_SCALED_ATTRS:
-                y = problem_df[attribute]
-                if (y > 0).any():
-                    ax.set_yscale("log")
-                else:
-                    print(f"Skipping log scale for {problem_name}, nvar={nvar}, attribute={attribute} because there are no positive values.")
-            plt.tight_layout()
-            os.makedirs(os.path.join(PLOTS_PATH, f"{problem_name}_({nvar})"), exist_ok=True)
-            plt.savefig(os.path.join(PLOTS_PATH, f"{problem_name}_({nvar})", f"mem_vs_{attribute}.pdf"), bbox_inches="tight")
-            plt.close()
+    # ## mem vs attributes
+    # for attribute in problem_df.columns:
+    #     if attribute in ATTRIBUTES:
+    #         ax = problem_df.plot(x="mem", y=attribute, kind="line", marker="o", title = f"{problem_name} ({nvar} variables) – {status} with {solver}")
+    #         ax.set_xlabel("mem")
+    #         ax.set_ylabel(f"{attribute} ({UNITS.get(attribute, '')})")
+    #         ax.legend().remove()
+    #         ax.set_xlim(1, 100)
+    #         ax.set_xticks([1, 20, 40, 60, 80, 100])
+    #         if attribute in LOG_SCALED_ATTRS:
+    #             y = problem_df[attribute]
+    #             if (y > 0).any():
+    #                 ax.set_yscale("log")
+    #             else:
+    #                 print(f"Skipping log scale for {problem_name}, nvar={nvar}, attribute={attribute} because there are no positive values.")
+    #         plt.tight_layout()
+    #         os.makedirs(os.path.join(PLOTS_PATH, f"{problem_name}_({nvar})"), exist_ok=True)
+    #         plt.savefig(os.path.join(PLOTS_PATH, f"{problem_name}_({nvar})", f"mem_vs_{attribute}.pdf"), bbox_inches="tight")
+    #         plt.close()
     
     # time_df = problem_df["stats_elapsed_time"]
     # for attribute in ["nvmops", "neval_obj", "neval_grad"]:
