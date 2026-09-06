@@ -63,7 +63,7 @@ METRICS = {
     },
 }
 
-subtitle = f"n={n_instances} complete instances, DNF → {PENALTY_TIME}s"
+subtitle = f"n={n_instances} complete instances"
 
 # ─────────────────────────────────────────────
 #  Helper: annotate the minimum point
