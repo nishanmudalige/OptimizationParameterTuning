@@ -33,6 +33,11 @@ jobs:
         run: python -m memtune info
       - name: Regression tests (sample and full dataset)
         run: python -m pytest
+      - name: Notebook tests (one runner is enough)
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.12'
+        run: |
+          python -m pip install -r requirements-notebooks.txt
+          python -m pytest tests/test_notebooks.py
 
   docker:
     name: Docker image

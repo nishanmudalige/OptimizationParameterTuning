@@ -1,0 +1,8 @@
+# Tools to run the notebooks (on top of requirements-lock.txt):
+#   python -m pip install -r requirements-notebooks.txt
+#   python -m ipykernel install --user --name memtune --display-name "memtune"
+-r requirements-lock.txt
+jupyterlab==4.2.5
+ipykernel==6.29.5
+nbclient==0.10.0
+nbformat==5.10.4

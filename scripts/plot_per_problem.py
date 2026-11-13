@@ -21,8 +21,9 @@ import argparse
 from memtune import paths
 
 _ap = argparse.ArgumentParser(description="Per-problem plots of mem against solver attributes")
-_ap.add_argument("--data", help="dataset CSV (default: data/lbfgs_runs.csv or MEMTUNE_DATA_DIR)")
+_ap.add_argument("--data", help="dataset file or folder (default: data/lbfgs_runs.csv.gz or MEMTUNE_DATA_DIR)")
 _ap.add_argument("--out", help="output directory (default: results/ or MEMTUNE_RESULTS_DIR)")
+_ap.add_argument("--limit", type=int, help="plot only the first N problem instances (all 280 take about 15 minutes)")
 _args = _ap.parse_args()
 
 
@@ -168,6 +169,8 @@ ALL_PLOT_ATTRS = ATTRIBUTES | {m[0] for m in DERIVED_METRICS if m[0] in df.colum
 log(f"Plotting attributes: {sorted(ALL_PLOT_ATTRS)}")
 
 groups = list(df.groupby(["name", "nvar"]))
+if _args.limit:
+    groups = groups[: _args.limit]
 total = len(groups)
 log(f"Total problem instances: {total}")
 

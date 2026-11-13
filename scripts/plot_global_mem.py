@@ -13,7 +13,7 @@ import argparse
 from memtune import paths
 
 _ap = argparse.ArgumentParser(description="Plot mem against solver metrics, averaged over instances")
-_ap.add_argument("--data", help="dataset CSV (default: data/lbfgs_runs.csv or MEMTUNE_DATA_DIR)")
+_ap.add_argument("--data", help="dataset file or folder (default: data/lbfgs_runs.csv.gz or MEMTUNE_DATA_DIR)")
 _ap.add_argument("--out", help="output directory (default: results/ or MEMTUNE_RESULTS_DIR)")
 _args = _ap.parse_args()
 

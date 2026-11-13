@@ -59,8 +59,11 @@ import argparse
 from memtune import paths
 
 _ap = argparse.ArgumentParser(description="Compare regression model families for the Stage 1 targets")
-_ap.add_argument("--data", help="dataset CSV (default: data/lbfgs_runs.csv or MEMTUNE_DATA_DIR)")
+_ap.add_argument("--data", help="dataset file or folder (default: data/lbfgs_runs.csv.gz or MEMTUNE_DATA_DIR)")
 _ap.add_argument("--out", help="output directory (default: results/ or MEMTUNE_RESULTS_DIR)")
+_ap.add_argument("--quick", action="store_true",
+                 help="try only the first parameter setting of every model family (minutes instead of hours)")
+_ap.add_argument("--families", help="comma-separated model families to run, e.g. Ridge,RandomForest (default: all)")
 _args = _ap.parse_args()
 
 
@@ -113,9 +116,15 @@ log("=" * 70)
 log("LOADING DATA")
 log("=" * 70)
 
-df = pd.read_csv(DATA_PATH)
+df = pd.read_csv(DATA_PATH, low_memory=False)
 df = df.sort_values(["name", "nvar", "mem"]).reset_index(drop=True)
 log(f"Loaded {len(df)} rows from {DATA_PATH}")
+
+# Failed runs (errors, time-outs) have no evaluation counts or allocations: train on the complete rows only.
+_needed = feature_cols_reg + target_cols_reg + target_col_model
+_before = len(df)
+df = df.dropna(subset=_needed).reset_index(drop=True)
+log(f"Dropped {_before - len(df)} rows with missing features or targets; {len(df)} rows remain")
 
 first = list(set(group_key + feature_cols_reg + target_cols_reg + target_col_model))
 df = df[first + [c for c in df.columns if c not in first]]
@@ -267,6 +276,15 @@ if HAS_LGBM:
     ], True))
 
 
+if _args.families:
+    wanted = {f.strip().lower() for f in _args.families.split(",") if f.strip()}
+    known = {c[0].lower() for c in candidates}
+    if wanted - known:
+        raise SystemExit(f"unknown model families: {sorted(wanted - known)}; available: {sorted(c[0] for c in candidates)}")
+    candidates = [c for c in candidates if c[0].lower() in wanted]
+if _args.quick:
+    candidates = [(name, cls, grid[:1], wrap) for name, cls, grid, wrap in candidates]
+
 total_combos = sum(len(pg) for _, _, pg, _ in candidates)
 log(f"Model families: {len(candidates)}")
 log(f"Total combinations: {total_combos}")
@@ -362,6 +380,10 @@ for fam_idx, (name, model_class, param_grid, needs_wrapper) in enumerate(candida
         log(f"  Leaderboard saved to {OUTPUT_DIR}/leaderboard.csv")
     else:
         log(f"  >>> {name} FAILED: no valid model found")
+
+
+if global_best_name is None:
+    raise SystemExit("No model could be trained; see the FAILED messages above.")
 
 
 # =============================================================================

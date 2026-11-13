@@ -105,23 +105,33 @@ The first build takes about two minutes (it downloads the packages); later build
 ### Notebooks (optional)
 
 ```bash
-python -m pip install jupyterlab ipykernel
-python -m ipykernel install --user --name memtune
-jupyter lab notebooks/
+python -m pip install -r requirements-notebooks.txt         # JupyterLab, ipykernel, nbclient (pinned)
+python -m ipykernel install --user --name memtune --display-name "memtune"
+jupyter lab notebooks/                                      # interactive
 ```
 
-Select the `memtune` kernel. The notebooks import `memtune.paths`, so they find data and models without any
-edit.
+The notebooks use the standard `python3` kernel of the environment you started Jupyter from, so activate the
+environment first (or pick the `memtune` kernel). They import `memtune.paths`, so they find data and models
+without any edit. To run one without opening Jupyter (this is what the tests do):
+
+```bash
+jupyter nbconvert --to notebook --execute --output-dir results/notebooks notebooks/05_hybrid_framework.ipynb
+```
+
+Each notebook takes 10 – 20 seconds. Anything they train is written to `results/retrained_models/`, never to
+`models/`. On Windows you may see a harmless `Proactor event loop does not implement add_reader` warning from
+`zmq`.
 
 ## 3. Check the installation
 
 ```bash
 python -m memtune info      # shows the resolved paths and whether the library versions are right
-python -m pytest            # about 1.5 min; regression tests on the sample and on the full dataset
+python -m pytest            # about 1.5 min; regression tests on the sample and on the full dataset (notebook tests need requirements-notebooks.txt)
 ```
 
 `memtune info` prints `versions : OK` when everything matches. A healthy run of the tests ends with
-`passed` (the notebook tests are reported as `skipped` unless you install `nbclient` and `ipykernel`).
+`passed`. The six notebook tests are reported as `skipped` until you install `requirements-notebooks.txt`; with it, the
+whole suite (64 tests) takes about two and a half minutes.
 
 ## 4. The data
 

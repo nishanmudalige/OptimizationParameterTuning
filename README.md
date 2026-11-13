@@ -85,6 +85,21 @@ Instance-specific selection improves on the default, but a single large fixed va
 hindsight is a strong reference. The numbers come from one train/test split; see the paper for the
 discussion and its limitations.
 
+## What you can run
+
+| | Command | Time |
+|---|---|---|
+| Recompute the results above | `python -m memtune evaluate` | 5 s |
+| Recommend `mem` for your problems | `python -m memtune recommend problems.csv` | 5 s |
+| Tests (64, incl. all notebooks) | `python -m pytest` | 2.5 min |
+| Plots | `python scripts/plot_global_mem.py`, `python scripts/plot_per_problem.py --limit 5` | seconds |
+| Compare model families | `python scripts/train_model_comparison.py --quick` | seconds (full sweep: hours) |
+| Build the dataset from logs | `python scripts/build_dataset.py` (example logs in `tests/data/example_logs`) | seconds |
+| Notebooks | `python -m pip install -r requirements-notebooks.txt`, then `jupyter lab notebooks/` | 10 – 20 s each |
+
+Details and exact commands for every system: [`docs/USAGE.md`](docs/USAGE.md). The Julia scripts that collect the
+raw measurements are not part of this repository yet; the dataset they produced is in `data/`.
+
 ## Repository layout
 
 ```

@@ -1,0 +1,6 @@
+{"problem": "arglina", "name": "ARGLINA", "nvar": 100, "mem": 1, "neval_obj": 21, "neval_grad": 21, "timed_bytes": 1501000.0, "stats_elapsed_time": 0.05, "timed_time": 0.05, "status": "first_order", "error_solver": ""}
+{"problem": "arglina", "name": "ARGLINA", "nvar": 100, "mem": 2, "neval_obj": 22, "neval_grad": 22, "timed_bytes": 1502000.0, "stats_elapsed_time": 0.025, "timed_time": 0.025, "status": "first_order", "error_solver": ""}
+{"problem": "arglina", "name": "ARGLINA", "nvar": 100, "mem": 3, "neval_obj": 23, "neval_grad": 23, "timed_bytes": 1503000.0, "stats_elapsed_time": 0.0167, "timed_time": 0.0167, "status": "time_limit", "error_solver": "Timeout after 3600.0 s"}
+{"problem": "woods", "name": "WOODS", "nvar": 100, "mem": 1, "neval_obj": 21, "neval_grad": 21, "timed_bytes": 1501000.0, "stats_elapsed_time": 0.4, "timed_time": 0.4, "status": "first_order", "error_solver": ""}
+{"problem": "woods", "name": "WOODS", "nvar": 100, "mem": 2, "neval_obj": 22, "neval_grad": 22, "timed_bytes": 1502000.0, "stats_elapsed_time": 0.2, "timed_time": 0.2, "status": "error", "error_solver": "DomainError: example failure"}
+{"problem": "woods", "name": "WOODS", "nvar": 100, "mem": 3, "neval_obj": 23, "neval_grad": 23, "timed_bytes": 1503000.0, "stats_elapsed_time": 0.1333, "timed_time": 0.1333, "status": "first_order", "error_solver": ""}

@@ -1,7 +1,6 @@
 """Smoke test: the modelling notebooks run top to bottom against the packaged paths.
 
-Needs the full dataset and ``pip install nbclient ipykernel``; otherwise skipped.
-Notebook 01 also reads extra intermediate tables, so it is not included here.
+Needs ``pip install -r requirements-notebooks.txt`` (nbclient, ipykernel); otherwise skipped.
 """
 import os
 import shutil
@@ -15,7 +14,7 @@ nbformat = pytest.importorskip("nbformat")
 nbclient = pytest.importorskip("nbclient")
 pytest.importorskip("ipykernel")
 
-NOTEBOOKS = ["02_random_forest", "03_gradient_boosting", "04_linear_regression",
+NOTEBOOKS = ["01_data_exploration", "02_random_forest", "03_gradient_boosting", "04_linear_regression",
              "05_hybrid_framework", "06_end_to_end_pipeline"]
 
 

@@ -14,10 +14,12 @@ python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sampl
 | `test_models.py` | the 8 models are byte-identical to the published ones (SHA-256), load with the pinned libraries and expect the right number of inputs |
 | `test_predict.py` | `recommend_mem` gives the same choice as the evaluation pipeline |
 | `test_machine_independence.py` | the program works from any working directory, with data in a folder with spaces, with `MEMTUNE_DATA_DIR` or `--data`, gives a clear error for a missing dataset, and no source file contains a machine-specific absolute path |
-| `test_build_dataset.py` | the penalty rules for failed runs and the table join of `scripts/build_dataset.py` |
+| `test_build_dataset.py` | the penalty rules for failed runs and the table join of `scripts/build_dataset.py` (synthetic tables) |
+| `test_build_dataset_script.py` | runs the script end to end on the example logs in `tests/data/example_logs/` (log reading, join, penalties, `--gzip`, error message) |
+| `test_scripts.py` | every script starts (`--help`); `plot_global_mem`, `plot_per_problem --limit 2` and `train_model_comparison --quick` run and write their outputs |
 | `test_dataset_file.py` | the shipped `data/lbfgs_runs.csv.gz` has the documented checksums (archive and unzipped content), shape and `mem` range; `python -m gzip -d` restores the CSV; the code finds the `.gz` with or without a plain CSV |
 | `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
-| `test_notebooks.py` | notebooks 02 – 06 run top to bottom (needs `pip install nbclient ipykernel`, otherwise skipped) |
+| `test_notebooks.py` | notebooks 01 – 06 run top to bottom and leave the models unchanged (needs `pip install -r requirements-notebooks.txt`, otherwise skipped) |
 
 ## Where the reference results come from
 

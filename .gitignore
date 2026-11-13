@@ -41,3 +41,6 @@ logs_*/
 *.toc
 *.vrb
 *.synctex.gz
+
+# ...except the tiny example logs used by the tests and the user guide
+!/tests/data/example_logs/**/*.log

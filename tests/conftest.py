@@ -31,6 +31,11 @@ def full_csv():
 
 
 @pytest.fixture(scope="session")
+def full_csv_or_sample():
+    return _full_dataset() or SAMPLE_CSV
+
+
+@pytest.fixture(scope="session")
 def golden_sample():
     return json.loads((TESTS / "golden" / "golden_sample.json").read_text(encoding="utf-8"))
 
