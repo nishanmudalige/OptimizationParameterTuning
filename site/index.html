@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>memtune demo</title>
+  <meta name="description" content="Interactive demo: how a two-stage machine-learning framework recommends the L-BFGS memory parameter for an unconstrained optimization problem.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="eyebrow">memtune · interactive demo</p>
+      <h1>Choosing the L-BFGS memory parameter</h1>
+      <p class="lede">
+        L-BFGS keeps the last <code>mem</code> updates; <code>JSOSolvers.jl</code> uses <code>mem = 5</code>.
+        Pick a test problem and a size, then watch the two-stage framework predict the solver's work and run time
+        for every <code>mem</code> from 1 to 100 and recommend one. Measured runs are shown next to the predictions.
+      </p>
+      <nav class="links">
+        <a href="https://github.com/nishanmudalige/OptimizationParameterTuning">Code and data</a>
+        <a href="https://doi.org/10.33137/codex.v2i1.47829">Paper</a>
+        <a href="https://github.com/nishanmudalige/OptimizationParameterTuning/blob/main/docs/DEMO_ROADMAP.md">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="Choose a problem">
+      <label class="field">
+        <span>Problem</span>
+        <select id="problem"></select>
+      </label>
+      <label class="field">
+        <span>Size (number of variables)</span>
+        <select id="size"></select>
+      </label>
+      <fieldset class="field seg" id="model">
+        <legend>Stage 2 model</legend>
+        <label><input type="radio" name="model" value="rf" checked> Random forest</label>
+        <label><input type="radio" name="model" value="gb"> XGBoost</label>
+      </fieldset>
+      <div class="actions">
+        <button id="run" class="primary" type="button">Run the framework</button>
+        <button id="random" type="button" title="Pick a random instance the models never saw in training">Random test problem</button>
+      </div>
+    </section>
+
+    <ol class="steps" id="steps" aria-label="Stages">
+      <li data-step="1"><span>1</span>Problem features</li>
+      <li data-step="2"><span>2</span>Stage 1: solver work</li>
+      <li data-step="3"><span>3</span>Stage 2: run time</li>
+      <li data-step="4"><span>4</span>Recommendation</li>
+    </ol>
+
+    <p id="status" class="status" role="status">Loading data…</p>
+
+    <section class="panel" data-panel="1" hidden>
+      <div class="panel-head">
+        <h2><span class="num">1</span> The problem</h2>
+        <span id="role" class="badge"></span>
+      </div>
+      <p class="explain">The framework never runs the solver. It only sees these 14 features, measured once per problem
+        (Julia: <code>OptimizationProblems.jl</code>, <code>ADNLPModels.jl</code>, expression trees).</p>
+      <div class="table-scroll"><table id="features" class="kv"></table></div>
+    </section>
+
+    <section class="panel" data-panel="2" hidden>
+      <div class="panel-head"><h2><span class="num">2</span> Stage 1: predicted solver work</h2></div>
+      <p class="explain">For every <code>mem</code>, a hybrid of a random forest (evaluation counts) and XGBoost (memory)
+        predicts how much work L-BFGS will do. Lines are predictions, dots are measured runs.</p>
+      <div class="grid3">
+        <div class="chart" id="chart-obj"></div>
+        <div class="chart" id="chart-grad"></div>
+        <div class="chart" id="chart-bytes"></div>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="3" hidden>
+      <div class="panel-head"><h2><span class="num">3</span> Stage 2: predicted run time</h2></div>
+      <p class="explain">The three Stage 1 predictions go into a second model that predicts the run time. The framework
+        then picks the <code>mem</code> with the smallest predicted time.</p>
+      <div class="chart tall" id="chart-time"></div>
+    </section>
+
+    <section class="panel" data-panel="4" hidden>
+      <div class="panel-head"><h2><span class="num">4</span> Recommendation</h2></div>
+      <div class="rec">
+        <div class="rec-number"><span class="label">Recommended</span><span id="rec-mem" class="big"></span><span class="label">mem</span></div>
+        <div class="table-scroll"><table id="compare" class="compare"></table></div>
+      </div>
+      <p class="explain" id="compare-note"></p>
+    </section>
+
+    <section class="notes">
+      <h2>How to read this, and its limits</h2>
+      <ul>
+        <li><strong>Training data:</strong> 77 scalable unconstrained problems of <code>OptimizationProblems.jl</code> at
+          <span id="range"></span> variables, each solved for <code>mem</code> = 1 … 100 (21,802 runs). Problems marked
+          <em>test</em> were never seen by the models; <em>training</em> problems were.</li>
+        <li><strong>Ratio to best:</strong> run time of a choice divided by the fastest measured run for that problem
+          (1 = optimal in hindsight).</li>
+        <li><strong>Limits:</strong> results come from one train/test split; the timing features depend on the machine
+          that measured them; the predicted run-time curve often does not follow the measured one, so a single
+          large fixed value (<code>mem = 87</code>, chosen with hindsight) is a strong reference. See the paper.</li>
+        <li><strong>Not covered:</strong> non-scalable (small, fixed-size) problems and sizes outside the training range;
+          computing features for new problems live is on the <a href="https://github.com/nishanmudalige/OptimizationParameterTuning/blob/main/docs/DEMO_ROADMAP.md">roadmap</a>.</li>
+      </ul>
+      <p class="meta" id="meta"></p>
+    </section>
+  </main>
+
+  <noscript><p class="wrap">This demo needs JavaScript.</p></noscript>
+</body>
+</html>

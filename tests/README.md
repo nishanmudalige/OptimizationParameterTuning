@@ -19,6 +19,7 @@ python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sampl
 | `test_scripts.py` | every script starts (`--help`); `plot_global_mem`, `plot_per_problem --limit 2` and `train_model_comparison --quick` run and write their outputs |
 | `test_dataset_file.py` | the shipped `data/lbfgs_runs.csv.gz` has the documented checksums (archive and unzipped content), shape and `mem` range; `python -m gzip -d` restores the CSV; the code finds the `.gz` with or without a plain CSV |
 | `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
+| `test_demo_site.py` | the interactive demo's data covers all 280 instances, the test problems' recommendations equal the paper's evaluation, `explain` agrees with `recommend_mem`, the page's files and Hugging Face settings exist |
 | `test_notebooks.py` | notebooks 01 – 06 run top to bottom and leave the models unchanged (needs `pip install -r requirements-notebooks.txt`, otherwise skipped) |
 
 ## Where the reference results come from

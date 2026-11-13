@@ -17,6 +17,7 @@ All of the following were run from a fresh clone on Windows 11 (Python 3.12), an
 | Per-problem plots | `python scripts/plot_per_problem.py [--limit N]` | 13 min for all, seconds with `--limit` |
 | Model comparison | `python scripts/train_model_comparison.py --quick` | seconds; the full sweep takes hours |
 | Notebooks 01 – 06 | `jupyter nbconvert --execute ...` | 10 – 20 s each |
+| Interactive demo data | `python scripts/export_demo_data.py` | 10 s |
 
 Julia: the data-collection scripts (parallel L-BFGS runs over problems and `mem` values) are written in Julia and
 are **not part of this repository yet**; everything here starts from their output, the dataset in `data/`.
@@ -141,7 +142,27 @@ Install the notebook tools once (`python -m pip install -r requirements-notebook
 They load the committed models and write anything they train to `results/retrained_models/`, never into
 `models/`. The outputs are cleared in the repository; run a notebook to see its results.
 
-## 7. Tests
+## 7. Interactive demo
+
+```bash
+python scripts/export_demo_data.py              # writes site/data/ (280 instances, 2.5 MB, about 10 s)
+python -m http.server --directory site 8000     # open http://localhost:8000
+```
+
+The page (`site/index.html`, `app.js`, `style.css`) is static: it reads the precomputed files in `site/data/`, made
+from the committed models with `memtune.predict.explain`, so it always shows what the package computes (a test checks
+that the test-problem recommendations equal the paper's evaluation). The URL keeps the selection, e.g.
+`#id=sinquad_1000&model=gb`, so you can link to an example.
+
+Hosting:
+- **GitHub Pages:** `.github/workflows/pages.yml` builds, tests and publishes the page on every push to `main` once a
+  repository admin has set *Settings → Pages → Source* to **GitHub Actions**. Address: <https://nishanmudalige.github.io/OptimizationParameterTuning/>.
+- **Hugging Face:** create a Space with SDK *Static*, run the export, and upload the contents of `site/` (its
+  `README.md` already has the Space settings).
+
+Plan and next steps: [`DEMO_ROADMAP.md`](DEMO_ROADMAP.md).
+
+## 8. Tests
 
 ```bash
 python -m pytest                 # all tests, about 1.5 min (uses the shipped dataset)

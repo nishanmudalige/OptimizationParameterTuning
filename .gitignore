@@ -44,3 +44,6 @@ logs_*/
 
 # ...except the tiny example logs used by the tests and the user guide
 !/tests/data/example_logs/**/*.log
+
+# Demo data is generated (scripts/export_demo_data.py), built in CI
+/site/data/
