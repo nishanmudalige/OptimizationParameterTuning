@@ -33,6 +33,10 @@ python -m pip install -r requirements-lock.txt
 python -m pip install -e . --no-deps
 ```
 
+Debian / Ubuntu (including WSL): `python3 -m venv` needs one extra package, otherwise it stops with
+"ensurepip is not available". Install it once with `sudo apt install python3-venv python3-pip` and repeat
+the commands.
+
 macOS only: XGBoost needs the OpenMP runtime. If `import xgboost` fails with a `libomp` error, run
 `brew install libomp` and try again.
 
@@ -49,6 +53,17 @@ python -m pip install -e . --no-deps
 If PowerShell refuses to run `Activate.ps1`, run
 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once, or use `cmd` and `.venv\Scripts\activate.bat`.
 Windows needs no compiler: all packages ship wheels.
+
+### Windows with WSL (Ubuntu or another Linux distribution)
+
+Follow the Linux instructions inside the WSL terminal, and keep **both the repository and the dataset in the
+Linux file system** (for example `~/OptimizationParameterTuning`), not under `/mnt/c/...`. Reading Windows
+files from WSL goes through a slow cross-system layer, and the tests and notebooks read the 100 MB dataset
+and the pickled models repeatedly. Microsoft explains this in
+[Working across file systems](https://learn.microsoft.com/en-us/windows/wsl/filesystems#file-storage-and-performance-across-file-systems).
+Copy the dataset once (`cp /mnt/c/path/lbfgs_runs.csv ~/OptimizationParameterTuning/data/`) instead of
+pointing `MEMTUNE_DATA_DIR` at a Windows folder. Use either the Windows environment or the WSL one for a
+given clone, not both: a `.venv` created by Windows Python does not work in WSL.
 
 ### Conda (any system)
 
@@ -109,8 +124,10 @@ layout (found from the location of the package, not from your current directory)
 | `RuntimeError: xgboost==3.2.0 required, found …` | `python -m pip install -r requirements-lock.txt` inside the activated environment |
 | `No matching distribution found for numpy==1.26.4` | You are on Python 3.13+; use 3.10–3.12 (`py -3.12`, `pyenv`, `conda create -n memtune python=3.11`) |
 | `Dataset not found: …` | See step 4 |
+| `ensurepip is not available` (Debian/Ubuntu) | `sudo apt install python3-venv python3-pip` |
 | `XGBoostError … libomp` (macOS) | `brew install libomp` |
 | Paths with spaces or `OneDrive` folders | Supported. If a OneDrive file is "online only", make it available offline first; otherwise reads fail with an I/O error |
 | Windows: "path too long" while cloning | `git config --global core.longpaths true` |
+| Very slow tests or notebooks in WSL | The repository or data is under `/mnt/c`; move both into the Linux home (see the WSL section) |
 | `ModuleNotFoundError: memtune` in a notebook | The notebook kernel is not the environment where you ran `pip install -e .` |
 | Warning "Trying to unpickle estimator … from version 1.5.1" | Appears only with a different scikit-learn; install the pinned one |
