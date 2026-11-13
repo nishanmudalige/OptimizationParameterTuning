@@ -63,8 +63,9 @@ Write-Host ""
 Write-Host ""
 Write-Host "Smoke test: recomputing the paper's results ..."
 $tmp = Join-Path ([IO.Path]::GetTempPath()) ("memtune_" + [guid]::NewGuid().ToString('N'))
-& $venvPython -m memtune evaluate --out $tmp | Select-Object -Skip 3 -First 6
+$result = & $venvPython -m memtune evaluate --out $tmp
 if ($LASTEXITCODE -ne 0) { throw "Smoke test failed" }
+$result | Select-Object -Skip 3 -First 6
 
 Write-Host @"
 
