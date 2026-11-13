@@ -1,0 +1,11 @@
+# Exact versions used to produce and verify the published results (Python 3.10 - 3.12).
+# Install:  python -m pip install -r requirements-lock.txt && python -m pip install -e . --no-deps
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+scikit-learn==1.5.1
+xgboost==3.2.0
+joblib==1.4.2
+matplotlib==3.9.2
+seaborn==0.13.2
+pytest==8.3.3

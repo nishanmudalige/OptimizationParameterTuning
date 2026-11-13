@@ -1,0 +1,36 @@
+# Tests
+
+```bash
+python -m pytest                # about 20 s, uses tests/data/sample_runs.csv
+python -m pytest -m full        # tests that need the complete dataset (skipped if it is not found)
+```
+
+## What is checked
+
+| File | Checks |
+|---|---|
+| `test_regression_sample.py` | the packaged pipeline reproduces the reference results on the sample data: data size, train/test split, Stage 1 and Stage 2 MSE and R², the end-to-end table, and the `mem` chosen for every test instance |
+| `test_regression_full.py` | the same on the full dataset, plus the numbers reported in the paper (default `mem = 5`: 90th percentile 2.684, mean 2.262; `mem = 87`: 1.280, 1.093; framework RF: 2.195, 1.637; framework XGBoost: 2.061, 1.459) |
+| `test_models.py` | the 8 models are byte-identical to the published ones (SHA-256), load with the pinned libraries and expect the right number of inputs |
+| `test_predict.py` | `recommend_mem` gives the same choice as the evaluation pipeline |
+| `test_machine_independence.py` | the program works from any working directory, with data in a folder with spaces, with `MEMTUNE_DATA_DIR` or `--data`, gives a clear error for a missing dataset, and no source file contains a machine-specific absolute path |
+| `test_build_dataset.py` | the penalty rules for failed runs and the table join of `scripts/build_dataset.py` |
+| `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
+| `test_notebooks.py` | notebooks 02 – 06 run top to bottom (needs the full dataset and `pip install nbclient ipykernel`) |
+
+## Where the reference results come from
+
+`tests/golden/generate_golden.py` re-implements the original notebook logic (`final_pipeline.ipynb`,
+`multiple_regression_hybrid.ipynb`) **without importing `memtune`**, and writes
+`golden_sample.json` and `golden_full.json`. The tests compare the package against these files: exact for
+counts and chosen `mem`, relative tolerance 1e-9 for floating-point metrics. If a number ever changes, the test
+fails, and the reason must be understood before the reference is updated.
+
+To regenerate (only when the intended behaviour changes):
+
+```bash
+python tests/golden/generate_golden.py --data tests/data/sample_runs.csv --models models --out tests/golden/golden_sample.json
+python tests/golden/generate_golden.py --data data/lbfgs_runs.csv        --models models --out tests/golden/golden_full.json
+```
+
+`tests/data/make_sample.py` rebuilds the sample dataset from the full one (25 random complete instances).

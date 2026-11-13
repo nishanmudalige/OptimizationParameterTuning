@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memtune"
+version = "1.0.0"
+description = "Machine-learning selection of the L-BFGS memory parameter for unconstrained optimization"
+readme = "README.md"
+license = { file = "LICENSE" }
+# numpy 1.26 (needed by the pinned scikit-learn 1.5.1 / pandas 2.2) has no wheels for Python 3.13.
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "numpy>=1.26,<2",
+    "pandas>=2.2,<2.3",
+    "scipy>=1.13,<1.14",
+    "scikit-learn==1.5.1",   # the pickled models were written with 1.5.1
+    "xgboost==3.2.0",        # other versions load the XGBoost models but predict wrong values
+    "joblib>=1.4",
+]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.9", "seaborn>=0.13"]
+notebooks = ["matplotlib>=3.9", "seaborn>=0.13", "jupyterlab>=4", "ipykernel>=6"]
+dev = ["pytest>=8", "matplotlib>=3.9", "seaborn>=0.13"]
+
+[project.scripts]
+memtune = "memtune.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "full: needs the complete dataset (set MEMTUNE_DATA_DIR or put lbfgs_runs.csv in data/); skipped otherwise",
+]
+addopts = "-ra"

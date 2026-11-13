@@ -1,21 +1,41 @@
-# IDE
-.idea/
-.vscode/
-
-# Python env
-venv/
+# Python environments
 .venv/
+venv/
+env/
+stats-env/
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
 .ipynb_checkpoints/
 
-# OS
+# Editors / OS
+.idea/
+.vscode/
 .DS_Store
 Thumbs.db
 
-# Datasets
-*.csv
-*.json
+# Data: large, not distributed with the code (see data/README.md)
+/data/*
+!/data/README.md
+!/data/.gitkeep
 
-*.csv
-*.pdf
+# Generated outputs
+/results/*
+!/results/.gitkeep
+*.log
+
+# Julia
+Manifest.toml
+logs_*/
+
+# LaTeX build files
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.synctex.gz
