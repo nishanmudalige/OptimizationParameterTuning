@@ -5,8 +5,12 @@
     python scripts/export_demo_data.py --out DIR
 
 Output:
-    index.json               one entry per (problem, size): split, recommendations, observed best
+    index.json               one entry per (problem, size): split, recommendations, observed best;
+                             meta.table4: the test-set results of every policy
     instances/<id>.json      features, Stage 1 and Stage 2 curves over mem = 1..100, observed values
+
+Policies: "rf" and "gb" are the paper's framework with either Stage 2; "one_step" is the one-step model
+(NOT in the paper, see memtune/one_step.py). Its curve is stored under stage2.one_step for simplicity.
 
 The static page in site/ reads these files; nothing runs on a server.
 """
@@ -22,9 +26,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from memtune import __version__, load_framework, paths
+from memtune import __version__, evaluate_framework, load_framework, paths
 from memtune.data import GROUP_KEY, N_MEM, TIME_COLUMN, prepare, split_instances
-from memtune.models import REQUIRED_VERSIONS
+from memtune.models import POLICIES, REQUIRED_VERSIONS
 from memtune.predict import MEM_GRID, PROBLEM_FEATURES, explain, recommend_mem
 
 OBSERVED = ["neval_obj", "neval_grad", "timed_bytes", TIME_COLUMN]
@@ -89,8 +93,10 @@ def main(argv=None) -> int:
 
     inst = raw.groupby(GROUP_KEY, sort=True).first().reset_index()  # features are constant per instance
     fw = load_framework()
+    if fw.one_step is None:
+        raise SystemExit("models/one_step/random_forest.pkl is missing; run scripts/train_one_step_model.py")
     curves = explain(inst, fw)
-    rec = {key: recommend_mem(inst, fw, stage2=key) for key in ("rf", "gb")}
+    rec = {key: recommend_mem(inst, fw, stage2=key) for key in POLICIES}
 
     index = []
     for i, row in inst.iterrows():
@@ -118,7 +124,8 @@ def main(argv=None) -> int:
                 "neval_grad": [sig(v) for v in c["stage1_neval_grad"]],
                 "bytes": [sig(v) for v in c["stage1_bytes"]],
             },
-            "stage2": {"rf": [sig(v) for v in c["stage2_time_rf"]], "gb": [sig(v) for v in c["stage2_time_gb"]]},
+            "stage2": {"rf": [sig(v) for v in c["stage2_time_rf"]], "gb": [sig(v) for v in c["stage2_time_gb"]],
+                       "one_step": [sig(v) for v in c["one_step_time"]]},
             "observed": {
                 "neval_obj": [sig(v) for v in obs["neval_obj"].reindex(MEM_GRID)],
                 "neval_grad": [sig(v) for v in obs["neval_grad"].reindex(MEM_GRID)],
@@ -127,10 +134,15 @@ def main(argv=None) -> int:
                 "status": [None if pd.isna(s) else str(s) for s in obs["status"].reindex(MEM_GRID)],
             },
             "observed_time_at": {"default": observed_at(DEFAULT_MEM), "fixed": observed_at(FIXED_MEM),
-                                 "rf": observed_at(entry["rec"]["rf"]), "gb": observed_at(entry["rec"]["gb"]),
+                                 **{k: observed_at(entry["rec"][k]) for k in POLICIES},
                                  "best": observed_at(best_mem) if best_mem else None},
         }
         (out / "instances" / f"{sid}.json").write_text(json.dumps(detail, separators=(",", ":")), encoding="utf-8")
+
+    # end-to-end results on the 43 test instances (paper's Table 4, plus the one-step model)
+    res = evaluate_framework(a.data)
+    table4 = {k: {m: round(v[m], 4) for m in ("Q50", "Q90", "mean")} | {"total_time": round(v["total_time"], 1)}
+              for k, v in res["table4"].items()}
 
     meta = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -138,6 +150,7 @@ def main(argv=None) -> int:
         "n_instances": len(index), "n_problems": int(inst["name"].nunique()), "n_mem": N_MEM,
         "default_mem": DEFAULT_MEM, "fixed_mem": FIXED_MEM, "features": FEATURE_HELP,
         "training_nvar_range": [int(inst["nvar"].min()), int(inst["nvar"].max())],
+        "table4": table4,
     }
     (out / "index.json").write_text(json.dumps({"meta": meta, "instances": index}, separators=(",", ":")),
                                     encoding="utf-8")

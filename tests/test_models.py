@@ -26,7 +26,7 @@ def test_checksum_unchanged(key, rel):
     "key, n_features",
     [("stage1_rf", 15), ("stage1_xgb", 15), ("stage1_lr", 15),
      ("stage2_hybrid_rf", 3), ("stage2_hybrid_xgb", 3),
-     ("stage2_truth_rf", 3), ("stage2_truth_xgb", 3), ("stage2_truth_lr", 3)],
+     ("stage2_truth_rf", 3), ("stage2_truth_xgb", 3), ("stage2_truth_lr", 3), ("one_step_rf", 15)],
 )
 def test_model_loads_with_expected_input_width(key, n_features):
     import warnings

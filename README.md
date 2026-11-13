@@ -16,12 +16,13 @@ models, and everything needed to reproduce the reported numbers on Linux, macOS 
 
 ## Interactive demo
 
-[![Screenshot of the interactive demo: problem features, Stage 1 and Stage 2 curves over mem, and the recommendation](docs/images/demo.png)](https://nishanmudalige.github.io/OptimizationParameterTuning/)
+[![Screenshot of the interactive demo: Stage 1 and Stage 2 curves over mem, and the recommendations of the framework and the one-step model](docs/images/demo.png)](https://nishanmudalige.github.io/OptimizationParameterTuning/)
 
 **[Open the demo](https://nishanmudalige.github.io/OptimizationParameterTuning/)**. Pick one of the 280 benchmark problems (or a random test problem the models never
-saw), press *Run the framework*, and watch it go through the stages: problem features, predicted solver work
-(Stage 1), predicted run time for every `mem` from 1 to 100 (Stage 2), and the recommended `mem`, compared with the
-default 5, the fixed 87 and the best measured run. To run it on your own machine:
+saw), press *Run*, and watch it go through the stages: problem features, predicted solver work (Stage 1), predicted
+run time for every `mem` from 1 to 100 (Stage 2), and the recommended `mem`, compared with the default 5, the fixed 87,
+the one-step model (see [below](#a-one-step-model-not-in-the-paper)) and the best measured run. To run it on your own
+machine:
 
 ```bash
 python scripts/export_demo_data.py              # precompute the data (about 10 s)
@@ -102,15 +103,42 @@ Instance-specific selection improves on the default, but a single large fixed va
 hindsight is a strong reference. The numbers come from one train/test split; see the paper for the
 discussion and its limitations.
 
+### A one-step model (not in the paper)
+
+The framework tends to recommend a very small `mem`: of the 280 instances in the data, the XGBoost Stage 2 picks
+`mem` ≤ 3 for 176, the random forest for 157. The reason is that Stage 2 sees only the three Stage 1 numbers.
+Allocated memory grows with `mem`, and across problems it also grows with problem size, so Stage 2 learned that more
+memory means a longer run. Within one problem, its predicted run time therefore *rises* with `mem` (median correlation
++0.56 for XGBoost), while the measured run time *falls* (−0.25). On the test problems this costs time: the framework's
+choices take 4,884 s (XGBoost) and 4,977 s (random forest) in total, against 3,309 s for the default `mem = 5`.
+
+`memtune` therefore also ships a **one-step model**: a random forest that predicts the run time directly from the 15
+features, `mem` included (`models/one_step/`, [`src/memtune/one_step.py`](src/memtune/one_step.py)). It was trained on
+the same 172 training instances, with its settings chosen by cross-validation on those instances only; the test
+instances were not used.
+
+| Policy (43 test instances) | Median | 75th pct. | 90th pct. | Mean | Total time |
+|---|---:|---:|---:|---:|---:|
+| Default `mem = 5` | 1.059 | 1.628 | 2.684 | 2.262 | 3,309 s |
+| Best fixed `mem = 87`, chosen with hindsight | 1.000 | 1.056 | 1.280 | 1.093 | 2,474 s |
+| Framework, XGBoost Stage 2 (paper) | 1.000 | 1.297 | 2.061 | 1.459 | 4,884 s |
+| One-step model (not in the paper) | 1.009 | 1.131 | 1.394 | 1.140 | 2,584 s |
+
+It never picks `mem` ≤ 3 on the test problems and beats the framework and the default on every summary, but not the
+fixed `mem = 87`, which was chosen by looking at the test results. Use it with
+`python -m memtune recommend problems.csv --stage2 one_step`; retrain it with
+`python scripts/train_one_step_model.py --select`.
+
 ## What you can run
 
 | | Command | Time |
 |---|---|---|
 | Recompute the results above | `python -m memtune evaluate` | 5 s |
 | Recommend `mem` for your problems | `python -m memtune recommend problems.csv` | 5 s |
-| Tests (64, incl. all notebooks) | `python -m pytest` | 2.5 min |
+| Tests (79, incl. all notebooks) | `python -m pytest` | 2.5 min |
 | Plots | `python scripts/plot_global_mem.py`, `python scripts/plot_per_problem.py --limit 5` | seconds |
 | Compare model families | `python scripts/train_model_comparison.py --quick` | seconds (full sweep: hours) |
+| Retrain the one-step model | `python scripts/train_one_step_model.py --select` | 20 s |
 | Build the dataset from logs | `python scripts/build_dataset.py` (example logs in `tests/data/example_logs`) | seconds |
 | Notebooks | `python -m pip install -r requirements-notebooks.txt`, then `jupyter lab notebooks/` | 10 – 20 s each |
 | Interactive demo | `python scripts/export_demo_data.py`, then `python -m http.server --directory site 8000` | 10 s |
@@ -122,9 +150,9 @@ raw measurements are not part of this repository yet; the dataset they produced 
 
 ```
 ├── src/memtune/        Python package: data preparation, models, evaluation, recommendation, CLI
-├── scripts/            command-line scripts: dataset building, plots, model comparison
+├── scripts/            command-line scripts: dataset building, plots, model comparison, one-step model, demo data
 ├── notebooks/          the exploration and modelling notebooks behind the paper (outputs cleared)
-├── models/             trained Stage 1 / Stage 2 models and their checksums (see models/README.md)
+├── models/             trained Stage 1 / Stage 2 models, the one-step model, checksums (see models/README.md)
 ├── data/               the dataset, compressed (lbfgs_runs.csv.gz), and its documentation
 ├── results/            generated tables and figures (not in git)
 ├── tests/              regression tests, a small sample dataset and reference ("golden") results
@@ -142,7 +170,7 @@ raw measurements are not part of this repository yet; the dataset they produced 
 
 ## Pre-trained models
 
-Eight scikit-learn / XGBoost models in [`models/`](models/README.md). They are pickles: load them only with
+Eight scikit-learn / XGBoost models of the paper, plus the one-step model, in [`models/`](models/README.md). They are pickles: load them only with
 the versions in `requirements-lock.txt` (scikit-learn 1.5.1, **XGBoost 3.2.0**). Other XGBoost versions load
 the files but silently return wrong predictions, so `memtune` refuses to run with a different one.
 Only load pickles from sources you trust.

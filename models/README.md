@@ -16,6 +16,7 @@ All models are scikit-learn or XGBoost regressors saved with `joblib`. They were
 | `stage2_ground_truth/random_forest.pkl` | 2 | *observed* `neval_obj`, `neval_grad`, `timed_bytes` → log1p time | Stage 2 on ground-truth inputs |
 | `stage2_ground_truth/xgboost.pkl` | 2 | same | same |
 | `stage2_ground_truth/linear_regression.pkl` | 2 | same | same |
+| `one_step/random_forest.pkl` | – | 15 problem features (incl. `mem`) → log1p(`stats_elapsed_time`) | **one-step model, not in the paper** (see below) |
 | `legacy/stage2_rf_on_predicted_stage1.pkl` | 2 | predictions of the random-forest Stage 1 | used only by notebooks 02, 03 and 06 |
 | `legacy/stage2_xgb_on_predicted_stage1.pkl` | 2 | same | same |
 
@@ -25,11 +26,20 @@ hybrid models expect log-scale inputs.
 
 Feature order for Stage 1 is `memtune.data.FEATURES`; targets are in `log1p` scale.
 
+## The one-step model (not in the paper)
+
+`one_step/random_forest.pkl` predicts the run time directly from the features, without Stage 1. It exists because
+the framework's Stage 2 favours very small `mem` (see the README, *A one-step model*). It is a scikit-learn random
+forest (`n_estimators=200, min_samples_leaf=20, max_features=0.5, random_state=0`, settings chosen by grouped
+5-fold cross-validation on the training instances), trained on the paper's 172 training instances by
+`scripts/train_one_step_model.py`, which rebuilds the same file. Unlike the other files it was made in this
+repository, not for the paper.
+
 ## Use
 
 ```python
 from memtune import load_framework, recommend_mem
-fw = load_framework()                      # checks the library versions, loads the four framework models
+fw = load_framework()                      # checks the library versions, loads the framework and one-step models
 ```
 
 or `python -m memtune recommend problems.csv` ([`../docs/USAGE.md`](../docs/USAGE.md)).

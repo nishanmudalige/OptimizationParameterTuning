@@ -49,6 +49,7 @@ Prepare a CSV with one row per problem and these columns (they are the problem f
 ```bash
 python -m memtune recommend my_problems.csv --output recommendations.csv
 python -m memtune recommend my_problems.csv --stage2 gb      # XGBoost Stage 2 instead of the random forest
+python -m memtune recommend my_problems.csv --stage2 one_step  # the one-step model (not in the paper)
 ```
 
 The output is your CSV with an added `recommended_mem` column. From Python:
@@ -58,12 +59,18 @@ import pandas as pd
 from memtune import recommend_mem
 
 problems = pd.read_csv("my_problems.csv")
-problems["recommended_mem"] = recommend_mem(problems, stage2="rf")   # or "gb"
+problems["recommended_mem"] = recommend_mem(problems, stage2="rf")   # or "gb", or "one_step"
 ```
 
 Ties between equally good `mem` values go to the largest one, as in the paper's evaluation.
 The paper's results are for the unconstrained problems of `OptimizationProblems.jl` and L-BFGS from
 `JSOSolvers.jl`; treat recommendations for very different problems with care.
+
+`"rf"` and `"gb"` are the paper's framework. It tends to pick a very small `mem` (Stage 2 links more allocated
+memory to a longer run). `"one_step"` is a random forest that predicts the run time directly from the features; it
+is not in the paper, avoids that bias and did better on the test problems (README, *A one-step model*). Retrain it
+with `python scripts/train_one_step_model.py` (`--select` first reruns the cross-validation that chose its
+settings, on the training instances only).
 
 ## 2. Reproduce the paper's results
 
@@ -72,7 +79,8 @@ python -m memtune evaluate                      # uses data/lbfgs_runs.csv.gz, n
 python -m memtune evaluate --data /path/to/lbfgs_runs.csv.gz --out /path/to/output
 ```
 
-It prints the Stage 1 / Stage 2 accuracy and the end-to-end table, and writes
+It prints the Stage 1 / Stage 2 accuracy and the end-to-end table (the paper's rows, plus a row `one_step_rf`
+for the one-step model, which is not in the paper), and writes
 `evaluation.json` and `table4.csv` to the results folder. The expected output is in the table of the
 [README](../README.md). The split is by problem instance (80 % / 20 %, seed 66), so all 100 `mem`
 values of an instance are on the same side.

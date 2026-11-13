@@ -25,7 +25,12 @@ MODEL_FILES = {
     "stage2_truth_rf": "stage2_ground_truth/random_forest.pkl",
     "stage2_truth_xgb": "stage2_ground_truth/xgboost.pkl",
     "stage2_truth_lr": "stage2_ground_truth/linear_regression.pkl",
+    # not in the paper: see memtune.one_step
+    "one_step_rf": "one_step/random_forest.pkl",
 }
+
+#: Policies that choose ``mem``: the paper's framework with either Stage 2, and the one-step model.
+POLICIES = ("rf", "gb", "one_step")
 
 
 def check_versions(strict: bool = True) -> list:
@@ -68,6 +73,7 @@ class Framework:
     stage1_xgb: object
     stage2_rf: object
     stage2_xgb: object
+    one_step: object = None  # not in the paper: see memtune.one_step
 
     def stage1_hybrid(self, X: np.ndarray) -> np.ndarray:
         a = self.stage1_rf.predict(X)
@@ -76,6 +82,19 @@ class Framework:
 
     def stage2(self, which: str):
         return {"rf": self.stage2_rf, "xgb": self.stage2_xgb, "gb": self.stage2_xgb}[which]
+
+    def log_time(self, X: np.ndarray, which: str = "rf") -> np.ndarray:
+        """Predicted log1p run time for rows of ``data.FEATURES``.
+
+        ``which`` is ``"rf"`` / ``"gb"`` (the paper's framework: Stage 1 hybrid, then that Stage 2) or
+        ``"one_step"`` (features -> run time directly; not in the paper).
+        """
+        if which == "one_step":
+            if self.one_step is None:
+                raise FileNotFoundError(f"one-step model not found ({MODEL_FILES['one_step_rf']}); "
+                                        "run scripts/train_one_step_model.py")
+            return self.one_step.predict(X)
+        return self.stage2(which).predict(self.stage1_hybrid(X))
 
 
 def load_framework(directory=None, strict: bool = True) -> Framework:
@@ -87,4 +106,6 @@ def load_framework(directory=None, strict: bool = True) -> Framework:
             stage1_xgb=load_model("stage1_xgb", directory),
             stage2_rf=load_model("stage2_hybrid_rf", directory),
             stage2_xgb=load_model("stage2_hybrid_xgb", directory),
+            one_step=load_model("one_step_rf", directory)
+            if (Path(_models_dir(directory)) / MODEL_FILES["one_step_rf"]).is_file() else None,
         )

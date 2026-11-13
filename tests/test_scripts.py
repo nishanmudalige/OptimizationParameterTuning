@@ -6,7 +6,8 @@ import pytest
 
 from conftest import ROOT
 
-SCRIPTS = ["build_dataset", "plot_global_mem", "plot_per_problem", "train_model_comparison"]
+SCRIPTS = ["build_dataset", "export_demo_data", "plot_global_mem", "plot_per_problem", "train_model_comparison",
+           "train_one_step_model"]
 
 
 def run(script, args, cwd, timeout=600):
@@ -14,7 +15,7 @@ def run(script, args, cwd, timeout=600):
     import os
 
     return subprocess.run([sys.executable, str(ROOT / "scripts" / f"{script}.py"), *args], cwd=cwd,
-                          capture_output=True, text=True, timeout=timeout, env={**os.environ, **env_extra})
+                          capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout, env={**os.environ, **env_extra})
 
 
 @pytest.mark.parametrize("script", SCRIPTS)

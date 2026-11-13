@@ -11,7 +11,8 @@ python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sampl
 |---|---|
 | `test_regression_sample.py` | the packaged pipeline reproduces the reference results on the sample data: data size, train/test split, Stage 1 and Stage 2 MSE and R², the end-to-end table, and the `mem` chosen for every test instance |
 | `test_regression_full.py` | the same on the full dataset, plus the numbers reported in the paper (default `mem = 5`: 90th percentile 2.684, mean 2.262; `mem = 87`: 1.280, 1.093; framework RF: 2.195, 1.637; framework XGBoost: 2.061, 1.459) |
-| `test_models.py` | the 8 models are byte-identical to the published ones (SHA-256), load with the pinned libraries and expect the right number of inputs |
+| `test_one_step.py` | the one-step model (not in the paper): its test-set numbers stay as documented and beat the framework and the default; the framework's predicted time rises with `mem` within an instance while the measured and the one-step ones fall; `train_one_step_model.py` rebuilds a model with the same choices |
+| `test_models.py` | the 9 models are byte-identical to the committed ones (SHA-256), load with the pinned libraries and expect the right number of inputs |
 | `test_predict.py` | `recommend_mem` gives the same choice as the evaluation pipeline |
 | `test_machine_independence.py` | the program works from any working directory, with data in a folder with spaces, with `MEMTUNE_DATA_DIR` or `--data`, gives a clear error for a missing dataset, and no source file contains a machine-specific absolute path |
 | `test_build_dataset.py` | the penalty rules for failed runs and the table join of `scripts/build_dataset.py` (synthetic tables) |
@@ -19,7 +20,7 @@ python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sampl
 | `test_scripts.py` | every script starts (`--help`); `plot_global_mem`, `plot_per_problem --limit 2` and `train_model_comparison --quick` run and write their outputs |
 | `test_dataset_file.py` | the shipped `data/lbfgs_runs.csv.gz` has the documented checksums (archive and unzipped content), shape and `mem` range; `python -m gzip -d` restores the CSV; the code finds the `.gz` with or without a plain CSV |
 | `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
-| `test_demo_site.py` | the interactive demo's data covers all 280 instances, the test problems' recommendations equal the paper's evaluation, `explain` agrees with `recommend_mem`, the page's files and Hugging Face settings exist |
+| `test_demo_site.py` | the interactive demo's data covers all 280 instances, the test problems' recommendations equal the paper's evaluation (and the one-step model's evaluation), `explain` agrees with `recommend_mem`, the page's files and Hugging Face settings exist |
 | `test_notebooks.py` | notebooks 01 – 06 run top to bottom and leave the models unchanged (needs `pip install -r requirements-notebooks.txt`, otherwise skipped) |
 
 ## Where the reference results come from

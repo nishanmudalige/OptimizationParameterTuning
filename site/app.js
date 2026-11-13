@@ -6,7 +6,18 @@ const STEP_DELAY_MS = 750;
 const state = { index: null, meta: null, byId: new Map(), cache: new Map(), current: null, model: "rf", running: false };
 const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const MODEL_NAME = { rf: "random forest", gb: "XGBoost" };
+const MODEL_NAME = { rf: "framework, random forest", gb: "framework, XGBoost", one_step: "one-step model" };
+const POLICY_ROWS = [  // [policy key, label, meta.table4 key]
+  ["rf", "Framework, random-forest Stage 2", "framework_rf"],
+  ["gb", "Framework, XGBoost Stage 2", "framework_gb"],
+  ["one_step", 'One-step model <span class="tag">not in paper</span>', "one_step_rf"],
+];
+const TIME_EXPLAIN = {
+  framework: "The three Stage 1 predictions go into a second model that predicts the run time. The framework then picks " +
+    "the <code>mem</code> with the smallest predicted time.",
+  one_step: "The one-step model (not in the paper) predicts the run time directly from the 15 features, " +
+    "<code>mem</code> included, and picks the <code>mem</code> with the smallest predicted time.",
+};
 const ROLE_TEXT = {
   test: ["Test problem", "The models never saw this problem during training."],
   train: ["Training problem", "This problem was part of the training data, so the models have seen its runs."],
@@ -162,15 +173,28 @@ function renderStage2(d, showRecommendation) {
   const shapes = marks.map(([x, , color, dash]) => ({
     type: "line", xref: "x", yref: "paper", x0: x, x1: x, y0: 0, y1: 1, line: { color, width: dash === "solid" ? 2.5 : 1.5, dash },
   }));
-  const annotations = marks.map(([x, text, color], i) => ({
-    x, y: 1, xref: "x", yref: "paper", yanchor: "bottom", text, showarrow: false,
-    font: { size: 11, color }, xshift: i === 2 ? 0 : 0,
-  }));
-  const layout = plotLayout(`Run time (${MODEL_NAME[state.model]} Stage 2)`, "seconds",
+  const annotations = marks.map(([x, text, color], i) => {
+    const isRec = i === 2;
+    // the recommendation label sits inside the plot, anchored away from the edges so it is never clipped
+    return {
+      x, y: 1, xref: "x", yref: "paper", text, showarrow: false, font: { size: 11, color },
+      yanchor: isRec ? "top" : "bottom", xanchor: isRec ? (x > 85 ? "right" : x < 15 ? "left" : "center") : "center",
+      xshift: isRec ? (x > 85 ? -4 : x < 15 ? 4 : 0) : 0, yshift: isRec ? -2 : 0,
+      bgcolor: isRec ? css("--surface") : undefined,
+    };
+  });
+  const layout = plotLayout(`Predicted run time (${MODEL_NAME[state.model]})`, "seconds",
                             { shapes, annotations, margin: { l: 60, r: 14, t: 52, b: 40 }, showlegend: true,
                               legend: { orientation: "h", x: 1, xanchor: "right", y: 1.18, font: { size: 11 } } });
   Plotly.react("chart-time", [lineTrace(d.mem, d.stage2[state.model], "predicted"),
                               dotTrace(d.mem, d.observed.time, "measured", d.observed.status)], layout, PLOT_CONFIG);
+}
+
+function renderModelTexts() {
+  const oneStep = state.model === "one_step";
+  $("time-explain").innerHTML = TIME_EXPLAIN[oneStep ? "one_step" : "framework"];
+  $("stage1-skip").hidden = !oneStep;
+  $("time-heading").textContent = oneStep ? "Predicted run time (one-step model)" : "Stage 2: predicted run time";
 }
 
 function renderRecommendation(d) {
@@ -182,7 +206,7 @@ function renderRecommendation(d) {
   const rows = [
     ["Default of JSOSolvers.jl", state.meta.default_mem, t.default, ""],
     ["Fixed value, best on the whole benchmark", state.meta.fixed_mem, t.fixed, ""],
-    [`Framework (${MODEL_NAME[state.model]})`, rec, t[state.model], "framework"],
+    ...POLICY_ROWS.map(([key, label]) => [label, d.rec[key], t[key], key === state.model ? "chosen" : ""]),
     ["Best measured for this problem (hindsight)", d.best_observed_mem, best, "best"],
   ];
   $("compare").innerHTML =
@@ -191,13 +215,32 @@ function renderRecommendation(d) {
       `<tr class="${cls}"><td>${label}</td><td class="num-cell">${mem ?? "–"}</td><td class="num-cell">${fmtSeconds(time)}</td><td class="num-cell">${ratio(time)}</td></tr>`).join("") +
     "</tbody>";
   const notes = [ROLE_TEXT[d.role][1]];
+  if (state.model !== "one_step" && rec <= 3 && t.default !== null && t[state.model] !== null && t[state.model] > t.default)
+    notes.push("The framework picked a very small mem here and it ran slower than the default; see \u201cWhy the framework often picks a very small mem\u201d below.");
   if (d.n_observed < 100) notes.push(`Only ${d.n_observed} of the 100 runs were measured; "not measured" marks the missing ones.`);
   if (d.observed.status.some((s) => s && s !== "first_order")) notes.push("Crosses in the charts are runs that hit the time limit; their time is a penalty value, not a real run time.");
   notes.push("The paper counts differences below 0.1 s as ties.");
   $("compare-note").textContent = notes.join(" ");
 }
 
+function renderResults() {
+  const t4 = state.meta.table4;
+  if (!t4) return;
+  const rows = [
+    ["Default <code>mem</code> = 5", "baseline1_mem5"],
+    ["Fixed <code>mem</code> = 87 (chosen with hindsight)", "baseline2_mem87"],
+    ...POLICY_ROWS.map(([, label, key]) => [label, key]),
+  ];
+  $("results").innerHTML =
+    `<thead><tr><th>Choice</th><th class="num-cell">Median</th><th class="num-cell">90th pct.</th><th class="num-cell">Mean</th><th class="num-cell">Total</th></tr></thead><tbody>` +
+    rows.filter(([, k]) => t4[k]).map(([label, k]) =>
+      `<tr><td>${label}</td><td class="num-cell">${t4[k].Q50.toFixed(2)}</td><td class="num-cell">${t4[k].Q90.toFixed(2)}</td>` +
+      `<td class="num-cell">${t4[k].mean.toFixed(2)}</td><td class="num-cell">${fmtInt(t4[k].total_time)} s</td></tr>`).join("") +
+    "</tbody>";
+}
+
 function renderAll(d) {
+  renderModelTexts();
   renderFeatures(d);
   for (const n of [1, 2, 3, 4]) panel(n).hidden = false;
   renderStage1(d);
@@ -219,6 +262,7 @@ async function run(animate) {
     if (!animate) { renderAll(d); return; }
     for (const n of [1, 2, 3, 4]) panel(n).hidden = true;
     markStep(1);
+    renderModelTexts();
     renderFeatures(d); panel(1).hidden = false;
     await sleep(STEP_DELAY_MS);
     markStep(2); panel(2).hidden = false; renderStage1(d);
@@ -255,9 +299,10 @@ async function main() {
   $("meta").textContent = `${m.n_instances} instances of ${m.n_problems} problems · data generated ${m.generated}` +
     ` · memtune ${m.memtune_version}${m.git ? ` (${m.git})` : ""} · scikit-learn ${m.libraries["scikit-learn"]}, XGBoost ${m.libraries.xgboost}`;
   fillProblems();
+  renderResults();
 
   const h = readHash();
-  if (h.model === "gb" || h.model === "rf") state.model = h.model;
+  if (MODEL_NAME[h.model]) state.model = h.model;
   document.querySelector(`input[name="model"][value="${state.model}"]`).checked = true;
   if (!h.id || !selectInstance(h.id)) {
     const first = state.index.find((i) => i.role === "test") || state.index[0];

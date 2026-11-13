@@ -19,6 +19,9 @@ def _cmd_evaluate(a) -> int:
     print("Stage 1 (log targets, test set):", json.dumps(res["stage1"]))
     print("Stage 2 (log time, test set):   ", json.dumps(res["stage2"]), "\n")
     print(table4_frame(res).to_string())
+    if "one_step_rf" in res["table4"]:
+        print("(one_step_rf is not in the paper: a one-step model without the framework's small-mem bias,"
+              " see docs/USAGE.md)")
     out = paths.results_dir(a.out)
     (out / "evaluation.json").write_text(json.dumps(res, indent=1, sort_keys=True), encoding="utf-8")
     table4_frame(res).to_csv(out / "table4.csv")
@@ -63,7 +66,8 @@ def main(argv=None) -> int:
         s.set_defaults(fn=fn)
         if name == "recommend":
             s.add_argument("features", help="CSV with one row per problem (see docs/USAGE.md)")
-            s.add_argument("--stage2", choices=["rf", "gb"], default="rf")
+            s.add_argument("--stage2", choices=["rf", "gb", "one_step"], default="rf",
+                           help="rf / gb: the paper's framework; one_step: the one-step model (not in the paper)")
             s.add_argument("--output", help="write CSV here instead of stdout")
     a = p.parse_args(argv)
     return a.fn(a)

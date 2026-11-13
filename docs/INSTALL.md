@@ -162,7 +162,7 @@ python -m pytest            # about 1.5 min; regression tests on the sample and 
 
 `memtune info` prints `versions : OK` when everything matches. A healthy run of the tests ends with
 `passed`. The six notebook tests are reported as `skipped` until you install `requirements-notebooks.txt`; with it, the
-whole suite (64 tests) takes about two and a half minutes.
+whole suite (79 tests) takes about two and a half minutes.
 
 ## 4. The data
 

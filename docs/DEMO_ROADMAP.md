@@ -26,8 +26,9 @@ the measured runs. This page is the plan; the status column says what exists.
 ## Phase 1: static demo (built)
 
 **User flow.**
-1. Choose a problem (77), a size (the sizes in the data), and a Stage 2 model (random forest or XGBoost).
-2. Click *Run the framework*. The four stages appear one after another; or use *Random test problem* to see an
+1. Choose a problem (77), a size (the sizes in the data), and a model: the paper's framework with a random-forest or
+   XGBoost Stage 2, or the one-step model (not in the paper, added after we saw the framework favour very small `mem`).
+2. Click *Run*. The four stages appear one after another; or use *Random test problem* to see an
    instance the models never saw.
 3. Read the result.
 
@@ -38,7 +39,8 @@ the measured runs. This page is the plan; the status column says what exists.
 | 1 | Problem | the 14 features with plain-language meanings; badge *test* / *training* / *not used (incomplete runs)* |
 | 2 | Stage 1 | predicted `neval_obj`, `neval_grad` and allocated memory over `mem` (lines), measured values (dots), log scale |
 | 3 | Stage 2 | predicted run time over `mem` with the measured run time; markers for the default 5, the fixed 87 and the recommendation |
-| 4 | Recommendation | recommended `mem`; table of measured time and ratio to the best for: default 5, fixed 87, recommendation, best in hindsight |
+| 4 | Recommendation | recommended `mem`; table of measured time and ratio to the best for: default 5, fixed 87, both framework variants, the one-step model, best in hindsight |
+| – | Notes | why the framework favours very small `mem`; results of every policy on the 43 test problems |
 
 **Files**
 

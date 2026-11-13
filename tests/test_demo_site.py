@@ -48,8 +48,12 @@ def test_export_covers_every_instance(exported):
 @pytest.mark.full
 def test_test_instances_match_the_papers_evaluation(exported, golden_full):
     _, index = exported
-    for key, policy in (("rf", "framework_rf"), ("gb", "framework_gb")):
-        chosen = golden_full["chosen_mem"][policy]
+    for key, policy in (("rf", "framework_rf"), ("gb", "framework_gb"), ("one_step", "one_step_rf")):
+        if policy not in golden_full["chosen_mem"]:  # one-step model: not in the paper, so not in the golden file
+            from memtune import evaluate_framework
+            chosen = evaluate_framework()["chosen_mem"][policy]
+        else:
+            chosen = golden_full["chosen_mem"][policy]
         got = {f"{i['name']}|{i['nvar']}": i["rec"][key] for i in index["instances"] if i["role"] == "test"}
         assert got == chosen, key
 
@@ -60,12 +64,15 @@ def test_instance_files_have_what_the_page_reads(exported):
     for inst in index["instances"][:25]:
         d = json.loads((out / "instances" / f"{inst['id']}.json").read_text(encoding="utf-8"))
         assert len(d["features"]) == 14 and d["mem"] == list(range(1, 101))
-        for group, keys in (("stage1", ("neval_obj", "neval_grad", "bytes")), ("stage2", ("rf", "gb")),
+        for group, keys in (("stage1", ("neval_obj", "neval_grad", "bytes")), ("stage2", ("rf", "gb", "one_step")),
                             ("observed", ("neval_obj", "neval_grad", "bytes", "time", "status"))):
             for k in keys:
                 assert len(d[group][k]) == 100, (group, k)
-        assert set(d["observed_time_at"]) == {"default", "fixed", "rf", "gb", "best"}
-        assert 1 <= d["rec"]["rf"] <= 100 and 1 <= d["rec"]["gb"] <= 100
+        assert set(d["observed_time_at"]) == {"default", "fixed", "rf", "gb", "one_step", "best"}
+        assert all(1 <= d["rec"][k] <= 100 for k in ("rf", "gb", "one_step"))
+    t4 = index["meta"]["table4"]
+    assert set(t4) == {"baseline1_mem5", "baseline2_mem87", "framework_rf", "framework_gb", "one_step_rf"}
+    assert t4["framework_gb"]["Q90"] == pytest.approx(2.0613, abs=1e-4)
 
 
 @pytest.mark.full

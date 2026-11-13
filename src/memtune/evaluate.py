@@ -47,11 +47,13 @@ def fixed_mem_score(test: pd.DataFrame, mem: int) -> np.ndarray:
 
 
 def evaluate_framework(data_path=None, models_dir=None, default_mem: int = 5, fixed_mem: int = 87,
-                       strict: bool = True) -> dict:
+                       strict: bool = True, one_step: bool = True) -> dict:
     """Recompute the paper's Stage 1, Stage 2 and end-to-end (Table 4) numbers.
 
     Returns a nested dict: ``stage1``, ``stage2``, ``table4`` (Q50/Q75/Q90/mean and total times) and
-    ``chosen_mem`` (the ``mem`` picked per test instance, key ``"name|nvar"``).
+    ``chosen_mem`` (the ``mem`` picked per test instance, key ``"name|nvar"``). With ``one_step`` (and the
+    model file present) ``table4`` and ``chosen_mem`` also get a row ``one_step_rf``: the one-step model,
+    which is NOT in the paper (see :mod:`memtune.one_step`).
     """
     fw: Framework = load_framework(models_dir, strict=strict)
     df, _, test = load_dataset(data_path)
@@ -83,6 +85,8 @@ def evaluate_framework(data_path=None, models_dir=None, default_mem: int = 5, fi
         pred = model.predict(X2)
         out["stage2"][key] = {"mse": float(mean_squared_error(y2, pred)), "r2": float(r2_score(y2, pred))}
         scores[f"framework_{key}"] = pred
+    if one_step and fw.one_step is not None:
+        scores["one_step_rf"] = fw.log_time(X, "one_step")
     for name, score in scores.items():
         m = performance_ratios(test, score)
         out["table4"][name] = {
