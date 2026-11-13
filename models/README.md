@@ -32,8 +32,10 @@ Feature order for Stage 1 is `memtune.data.FEATURES`; targets are in `log1p` sca
 the framework's Stage 2 favours very small `mem` (see the README, *A one-step model*). It is a scikit-learn random
 forest (`n_estimators=200, min_samples_leaf=20, max_features=0.5, random_state=0`, settings chosen by grouped
 5-fold cross-validation on the training instances), trained on the paper's 172 training instances by
-`scripts/train_one_step_model.py`, which rebuilds the same file. Unlike the other files it was made in this
-repository, not for the paper.
+`scripts/train_one_step_model.py`. On Windows the script rebuilds this exact file. On Linux and macOS
+scikit-learn draws different random numbers for the same seed, so the forest comes out slightly different with
+the same quality (on Linux: 90th percentile 1.41, mean 1.11, total 2,687 s on the test problems, against 1.39,
+1.14 and 2,584 s for this file). Unlike the other files it was made in this repository, not for the paper.
 
 ## Use
 
