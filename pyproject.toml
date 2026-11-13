@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,8 @@ name = "memtune"
 version = "1.0.0"
 description = "Machine-learning selection of the L-BFGS memory parameter for unconstrained optimization"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 # numpy 1.26 (needed by the pinned scikit-learn 1.5.1 / pandas 2.2) has no wheels for Python 3.13.
 requires-python = ">=3.10,<3.13"
 dependencies = [
