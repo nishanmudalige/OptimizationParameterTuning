@@ -20,6 +20,8 @@ Thumbs.db
 # Data: large, not distributed with the code (see data/README.md)
 /data/*
 !/data/README.md
+!/data/lbfgs_runs.csv.gz
+!/data/SHA256SUMS
 !/data/.gitkeep
 
 # Generated outputs

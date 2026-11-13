@@ -11,11 +11,10 @@ SAMPLE_CSV = TESTS / "data" / "sample_runs.csv"
 
 
 def _full_dataset():
-    candidates = []
-    if os.environ.get("MEMTUNE_DATA_DIR"):
-        candidates.append(Path(os.environ["MEMTUNE_DATA_DIR"]) / "lbfgs_runs.csv")
-    candidates.append(ROOT / "data" / "lbfgs_runs.csv")
-    return next((c for c in candidates if c.is_file()), None)
+    from memtune.paths import dataset_path
+
+    path = dataset_path()
+    return path if path.is_file() else None
 
 
 @pytest.fixture(scope="session")
@@ -27,7 +26,7 @@ def sample_csv():
 def full_csv():
     path = _full_dataset()
     if path is None:
-        pytest.skip("full dataset not available (set MEMTUNE_DATA_DIR or put lbfgs_runs.csv in data/)")
+        pytest.skip("full dataset not available (set MEMTUNE_DATA_DIR or put lbfgs_runs.csv[.gz] in data/)")
     return path
 
 

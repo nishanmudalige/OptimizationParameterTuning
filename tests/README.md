@@ -1,8 +1,8 @@
 # Tests
 
 ```bash
-python -m pytest                # about 20 s, uses tests/data/sample_runs.csv
-python -m pytest -m full        # tests that need the complete dataset (skipped if it is not found)
+python -m pytest                # everything, about 1.5 min (the full dataset is data/lbfgs_runs.csv.gz)
+python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sample_runs.csv
 ```
 
 ## What is checked
@@ -15,8 +15,9 @@ python -m pytest -m full        # tests that need the complete dataset (skipped 
 | `test_predict.py` | `recommend_mem` gives the same choice as the evaluation pipeline |
 | `test_machine_independence.py` | the program works from any working directory, with data in a folder with spaces, with `MEMTUNE_DATA_DIR` or `--data`, gives a clear error for a missing dataset, and no source file contains a machine-specific absolute path |
 | `test_build_dataset.py` | the penalty rules for failed runs and the table join of `scripts/build_dataset.py` |
+| `test_dataset_file.py` | the shipped `data/lbfgs_runs.csv.gz` has the documented checksums (archive and unzipped content), shape and `mem` range; `python -m gzip -d` restores the CSV; the code finds the `.gz` with or without a plain CSV |
 | `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
-| `test_notebooks.py` | notebooks 02 – 06 run top to bottom (needs the full dataset and `pip install nbclient ipykernel`) |
+| `test_notebooks.py` | notebooks 02 – 06 run top to bottom (needs `pip install nbclient ipykernel`, otherwise skipped) |
 
 ## Where the reference results come from
 
@@ -30,7 +31,7 @@ To regenerate (only when the intended behaviour changes):
 
 ```bash
 python tests/golden/generate_golden.py --data tests/data/sample_runs.csv --models models --out tests/golden/golden_sample.json
-python tests/golden/generate_golden.py --data data/lbfgs_runs.csv        --models models --out tests/golden/golden_full.json
+python tests/golden/generate_golden.py --data data/lbfgs_runs.csv.gz     --models models --out tests/golden/golden_full.json
 ```
 
 `tests/data/make_sample.py` rebuilds the sample dataset from the full one (25 random complete instances).

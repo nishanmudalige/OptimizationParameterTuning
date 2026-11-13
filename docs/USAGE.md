@@ -49,8 +49,8 @@ The paper's results are for the unconstrained problems of `OptimizationProblems.
 ## 2. Reproduce the paper's results
 
 ```bash
-python -m memtune evaluate                      # needs the dataset (data/README.md)
-python -m memtune evaluate --data /path/to/lbfgs_runs.csv --out /path/to/output
+python -m memtune evaluate                      # uses data/lbfgs_runs.csv.gz, no unzipping needed
+python -m memtune evaluate --data /path/to/lbfgs_runs.csv.gz --out /path/to/output
 ```
 
 It prints the Stage 1 / Stage 2 accuracy and the end-to-end table, and writes
@@ -67,7 +67,8 @@ python scripts/build_dataset.py --time-limit 3600
 ```
 
 Failed runs get a penalty time: an error counts as twice the time limit, a time-out as the time limit.
-Output: `lbfgs_runs.csv` (all runs) and `lbfgs_runs_success.csv` (runs without error). The columns are
+Output: `lbfgs_runs.csv` (all runs; add `--gzip` for the compressed `lbfgs_runs.csv.gz`) and
+`lbfgs_runs_success.csv` (runs without error). The columns are
 documented in [`../data/README.md`](../data/README.md).
 
 ## 4. Plots
@@ -106,8 +107,8 @@ Run them top to bottom. They load the committed models and write anything they t
 ## 7. Tests
 
 ```bash
-python -m pytest                 # fast tests: sample dataset, no extra files
-python -m pytest -m full         # only the tests that need the full dataset
+python -m pytest                 # all tests, about 1.5 min (uses the shipped dataset)
+python -m pytest -m "not full"   # fast tests only (sample dataset), about 20 s
 ```
 
 See [`../tests/README.md`](../tests/README.md).

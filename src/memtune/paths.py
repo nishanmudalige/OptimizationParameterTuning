@@ -16,6 +16,8 @@ from pathlib import Path
 
 #: File name of the merged dataset (one row per problem instance x ``mem`` value).
 DATASET_NAME = "lbfgs_runs.csv"
+#: The repository ships it compressed; pandas reads it directly, no unzipping needed.
+DATASET_NAME_GZ = DATASET_NAME + ".gz"
 
 
 def _find_root() -> Path:
@@ -58,9 +60,21 @@ def results_dir(explicit=None, create: bool = True) -> Path:
     return path
 
 
+def _prefer_existing(csv: Path) -> Path:
+    """``x.csv`` if it exists, else ``x.csv.gz`` if that exists, else ``x.csv`` (for error messages)."""
+    gz = csv.with_name(csv.name + ".gz") if csv.suffix == ".csv" else None
+    if not csv.is_file() and gz is not None and gz.is_file():
+        return gz
+    return csv
+
+
 def dataset_path(explicit=None) -> Path:
-    """Path of the merged dataset. ``explicit`` may be the CSV file itself or a directory."""
+    """Path of the merged dataset.
+
+    ``explicit`` may be the file itself (``.csv`` or ``.csv.gz``) or a directory. A plain ``.csv`` is
+    used if present, otherwise the compressed ``.csv.gz`` next to it.
+    """
     if explicit is not None:
         p = Path(explicit).expanduser().resolve()
-        return p / DATASET_NAME if p.is_dir() else p
-    return data_dir() / DATASET_NAME
+        return _prefer_existing(p / DATASET_NAME) if p.is_dir() else _prefer_existing(p)
+    return _prefer_existing(data_dir() / DATASET_NAME)

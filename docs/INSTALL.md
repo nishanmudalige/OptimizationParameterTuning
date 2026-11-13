@@ -11,8 +11,8 @@ trained models are pickles.
 | XGBoost | **3.2.0** | other versions load the models but give wrong predictions (checked: 3.0.5 gives R² = −52 instead of 0.86) |
 | numpy / pandas / scipy | 1.26.4 / 2.2.3 / 1.13.1 | tested combination, pinned in `requirements-lock.txt` |
 
-Disk space: about 100 MB for the repository and packages, plus the dataset (about 100 MB, see
-[`../data/README.md`](../data/README.md)).
+Disk space: about 100 MB for the repository and packages; the dataset is included (1.9 MB compressed,
+98 MB if you unzip it, see [`../data/README.md`](../data/README.md)).
 
 ## 1. Get the code
 
@@ -61,7 +61,7 @@ Linux file system** (for example `~/OptimizationParameterTuning`), not under `/m
 files from WSL goes through a slow cross-system layer, and the tests and notebooks read the 100 MB dataset
 and the pickled models repeatedly. Microsoft explains this in
 [Working across file systems](https://learn.microsoft.com/en-us/windows/wsl/filesystems#file-storage-and-performance-across-file-systems).
-Copy the dataset once (`cp /mnt/c/path/lbfgs_runs.csv ~/OptimizationParameterTuning/data/`) instead of
+The dataset comes with the repository; if you use a different copy, copy it into the Linux file system too instead of
 pointing `MEMTUNE_DATA_DIR` at a Windows folder. Use either the Windows environment or the WSL one for a
 given clone, not both: a `.venv` created by Windows Python does not work in WSL.
 
@@ -87,15 +87,21 @@ edit.
 
 ```bash
 python -m memtune info      # shows the resolved paths and whether the library versions are right
-python -m pytest            # about 20 s; uses the small sample dataset that is committed
+python -m pytest            # about 1.5 min; regression tests on the sample and on the full dataset
 ```
 
 `memtune info` prints `versions : OK` when everything matches. A healthy run of the tests ends with
-`passed` (tests that need the full dataset are reported as `skipped` until you add it).
+`passed` (the notebook tests are reported as `skipped` unless you install `nbclient` and `ipykernel`).
 
-## 4. Add the data (needed for `evaluate`, plots and the full tests)
+## 4. The data
 
-Copy `lbfgs_runs.csv` to `data/` or point to it from anywhere:
+The dataset is already in the repository as `data/lbfgs_runs.csv.gz` (compressed, 1.9 MB). **No unzipping is
+needed**: `python -m memtune evaluate` and the whole test suite read it directly, so step 3 already ran the
+full regression tests too. To get the plain CSV for another program, see
+[`../data/README.md`](../data/README.md) (`gunzip -k data/lbfgs_runs.csv.gz`, or
+`python -m gzip -d data/lbfgs_runs.csv.gz` on any system, including Windows).
+
+To use a dataset stored elsewhere, point to it from anywhere:
 
 | System | Command |
 |---|---|
@@ -103,7 +109,8 @@ Copy `lbfgs_runs.csv` to `data/` or point to it from anywhere:
 | Windows PowerShell | `$env:MEMTUNE_DATA_DIR = "D:\path\to\folder"` |
 | Windows cmd | `set MEMTUNE_DATA_DIR=D:\path\to\folder` |
 
-or pass `--data` to any command. Then run `python -m pytest` again: the full-data regression tests now run too.
+or pass `--data` (a file or a folder) to any command. The folder may contain `lbfgs_runs.csv` or
+`lbfgs_runs.csv.gz`.
 
 ## Where things are looked for
 
@@ -113,7 +120,7 @@ layout (found from the location of the package, not from your current directory)
 | What | Flag | Environment variable | Default |
 |---|---|---|---|
 | Repository root | – | `MEMTUNE_ROOT` | folder containing `pyproject.toml` |
-| Dataset | `--data` (file or folder) | `MEMTUNE_DATA_DIR` | `data/lbfgs_runs.csv` |
+| Dataset | `--data` (file or folder) | `MEMTUNE_DATA_DIR` | `data/lbfgs_runs.csv.gz` (or `.csv`) |
 | Models | `--models` | `MEMTUNE_MODELS_DIR` | `models/` |
 | Outputs | `--out` | `MEMTUNE_RESULTS_DIR` | `results/` |
 
@@ -123,7 +130,7 @@ layout (found from the location of the package, not from your current directory)
 |---|---|
 | `RuntimeError: xgboost==3.2.0 required, found …` | `python -m pip install -r requirements-lock.txt` inside the activated environment |
 | `No matching distribution found for numpy==1.26.4` | You are on Python 3.13+; use 3.10–3.12 (`py -3.12`, `pyenv`, `conda create -n memtune python=3.11`) |
-| `Dataset not found: …` | See step 4 |
+| `Dataset not found: …` | Check that `data/lbfgs_runs.csv.gz` exists (it is part of the repository) or see step 4 |
 | `ensurepip is not available` (Debian/Ubuntu) | `sudo apt install python3-venv python3-pip` |
 | `XGBoostError … libomp` (macOS) | `brew install libomp` |
 | Paths with spaces or `OneDrive` folders | Supported. If a OneDrive file is "online only", make it available offline first; otherwise reads fail with an I/O error |

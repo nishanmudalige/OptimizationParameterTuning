@@ -78,6 +78,7 @@ def main(argv=None) -> int:
     ap.add_argument("--problem-logs", help="directory with problem log files (output.json_*.log), searched recursively")
     ap.add_argument("--solver-logs", help="directory with solver log files (output.json_*.log), searched recursively")
     ap.add_argument("--time-limit", type=float, default=3600.0, help="per-run time limit in seconds (default 3600)")
+    ap.add_argument("--gzip", action="store_true", help="write lbfgs_runs.csv.gz (about 50x smaller) instead of lbfgs_runs.csv")
     a = ap.parse_args(argv)
 
     data = paths.data_dir(a.data_dir)
@@ -93,7 +94,7 @@ def main(argv=None) -> int:
             ap.error(f"{f} not found: pass --problem-logs / --solver-logs, or place the file there")
 
     df = merge_tables(pd.read_csv(solver_csv), pd.read_csv(problem_csv), a.time_limit)
-    out = data / paths.DATASET_NAME
+    out = data / (paths.DATASET_NAME_GZ if a.gzip else paths.DATASET_NAME)
     df.to_csv(out, index=False)
     ok = df[df[ERROR_COLS].isna().all(axis=1)]
     ok.to_csv(data / "lbfgs_runs_success.csv", index=False)

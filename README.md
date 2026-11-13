@@ -67,7 +67,7 @@ python -m memtune recommend my_problems.csv --output recommendations.csv
 ## Results
 
 Recomputed from the committed models and the benchmark data with `python -m memtune evaluate`
-(215 problem instances × 100 values of `mem` = 21,500 L-BFGS runs; 172 instances for training, **43 for
+(215 complete problem instances × 100 values of `mem` = 21,500 L-BFGS runs; 172 instances for training, **43 for
 testing**; one fit, one split, seed 66). The *performance ratio* of a policy on an instance is its run time
 divided by the run time of the best `mem` in hindsight (1 is perfect).
 
@@ -89,7 +89,7 @@ discussion and its limitations.
 ├── scripts/            command-line scripts: dataset building, plots, model comparison
 ├── notebooks/          the exploration and modelling notebooks behind the paper (outputs cleared)
 ├── models/             trained Stage 1 / Stage 2 models and their checksums (see models/README.md)
-├── data/               dataset location (not in git; see data/README.md)
+├── data/               the dataset, compressed (lbfgs_runs.csv.gz), and its documentation
 ├── results/            generated tables and figures (not in git)
 ├── tests/              regression tests, a small sample dataset and reference ("golden") results
 └── docs/               INSTALL.md (setup on every system), USAGE.md (user guide)
@@ -97,11 +97,11 @@ discussion and its limitations.
 
 ## Reproducing the results
 
-1. Install (above) and put the dataset where the code can find it ([`data/README.md`](data/README.md)).
+1. Install (above). The dataset is included as `data/lbfgs_runs.csv.gz` and is read directly, no unzipping
+   needed ([`data/README.md`](data/README.md) explains how to get the plain CSV if you want it).
 2. `python -m memtune evaluate` recomputes Stage 1 and Stage 2 accuracy and the table above.
 3. `python -m pytest` runs the regression tests: the packaged code must reproduce results computed
    independently with the original notebook logic ([`tests/README.md`](tests/README.md)).
-   Tests that need the full dataset run when it is available and are skipped otherwise.
 
 ## Pre-trained models
 

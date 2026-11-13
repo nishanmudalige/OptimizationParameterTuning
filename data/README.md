@@ -1,13 +1,51 @@
 # Data
 
-The benchmark is **not stored in git** (about 100 MB; `data/*` is ignored except this file). The code looks
-for `data/lbfgs_runs.csv`; use `MEMTUNE_DATA_DIR` or `--data` to keep it elsewhere
-([`../docs/INSTALL.md`](../docs/INSTALL.md)).
+The benchmark ships **compressed** in this folder: `lbfgs_runs.csv.gz` (1.9 MB; the plain CSV is 98 MB, which is
+why it is compressed). Everything in `memtune` reads the `.gz` file directly, so **you do not have to unzip it
+to use the code**. Unzip it only if you want the plain CSV for another tool (Excel, R, a text editor, a
+notebook of your own).
 
-> Status: where the dataset is distributed (GitHub release, Zenodo, …) is still to be decided by the
-> authors. Until then, ask the authors for `lbfgs_runs.csv`. A small sample with the same columns that the
-> pipeline needs is in `tests/data/sample_runs.csv` (25 instances, 2,500 rows) so you can try everything
-> without the full file.
+## Unzipping (only if you need the plain CSV)
+
+Run one of these in the repository folder. Each creates `data/lbfgs_runs.csv` and keeps the `.gz` file.
+
+| System | Command |
+|---|---|
+| Linux / macOS | `gunzip -k data/lbfgs_runs.csv.gz` |
+| Windows (PowerShell or cmd) | `python -m gzip -d data\lbfgs_runs.csv.gz` (uses the Python you installed for this project) |
+| Any system | `python -m gzip -d data/lbfgs_runs.csv.gz` |
+| Windows, graphical | install [7-Zip](https://www.7-zip.org/), right-click the file, *7-Zip → Extract Here* |
+| In Python | `pd.read_csv("data/lbfgs_runs.csv.gz")`: pandas decompresses automatically |
+
+Windows Explorer cannot open `.gz` files by itself.
+
+If both `lbfgs_runs.csv` and `lbfgs_runs.csv.gz` exist, `memtune` uses the plain `.csv`. The unzipped file is
+git-ignored, so unzipping never dirties the repository.
+
+### Check the files
+
+`data/SHA256SUMS` has the checksum of the archive and of the unzipped CSV (the tests check both):
+
+```bash
+cd data && sha256sum -c SHA256SUMS --ignore-missing          # Linux / macOS
+```
+
+```powershell
+Get-FileHash data\lbfgs_runs.csv.gz -Algorithm SHA256        # Windows: compare with data\SHA256SUMS
+```
+
+To keep the data somewhere else (another disk, a cluster folder), set `MEMTUNE_DATA_DIR` or pass `--data`; both
+accept the file or its folder ([`../docs/INSTALL.md`](../docs/INSTALL.md)). A small sample with the columns the
+pipeline needs is in `tests/data/sample_runs.csv`.
+
+## How the data was produced
+
+1. The L-BFGS runs and the problem features were collected with parallel Julia scripts that run the
+   `JSOSolvers.jl` L-BFGS solver for every problem and every `mem` in 1..100 and write JSON-lines logs. Those
+   scripts are not part of this repository yet.
+2. The logs were merged and filtered with `scripts/build_dataset.py` (originally `json_to_csv_converter.py`),
+   which produced the table stored here. `python scripts/build_dataset.py --gzip` writes the same kind of
+   file, compressed.
 
 ## What it contains
 
@@ -50,13 +88,6 @@ NLPModels objects.
 limit for an error, the time limit for a recognised time-out message. **In the dataset used in the paper,
 all 315 `time_limit` runs carry `stats_elapsed_time = 7200` s (twice the 3,600 s limit)**, so the effective
 time limit in the data is 7,200 s. Keep this in mind when you interpret absolute times.
-
-## Producing the file yourself
-
-The measurements come from two data-collection steps (problem features, and L-BFGS runs for every `mem`).
-Their raw JSON-lines logs are merged by `scripts/build_dataset.py`
-([`../docs/USAGE.md`](../docs/USAGE.md), section 3). The distributed data-collection scripts themselves are
-not part of this repository yet.
 
 ## Intermediate files
 

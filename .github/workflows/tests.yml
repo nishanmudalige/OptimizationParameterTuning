@@ -31,5 +31,5 @@ jobs:
           python -m pip install -e . --no-deps
       - name: Show resolved paths and versions
         run: python -m memtune info
-      - name: Regression tests (sample dataset)
-        run: python -m pytest -m "not full"
+      - name: Regression tests (sample and full dataset)
+        run: python -m pytest
