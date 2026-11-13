@@ -1,76 +1,117 @@
-# OptimizationParemeterTuning
-A Machine Learning Approach for Hyper-Parameter Tuning of Unconstrained Optimization Solvers
+# memtune: choosing the L-BFGS memory parameter with machine learning
 
-[📄 View the full documentation (PDF)](docs/Documentation/Final_Report/Final_Report_Felix_Gao.pdf)
+[![tests](https://github.com/nishanmudalige/OptimizationParameterTuning/actions/workflows/tests.yml/badge.svg)](https://github.com/nishanmudalige/OptimizationParameterTuning/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
----
-### Things To Do (For April XX)
-- Felix:
-  - Compare regret per problem, try to make buckets of problems, some interpretation (?), what are the problems where we are really off.
-  - Compare the prediction with the baseline 1 (default mem = 5), and with baseline 2 (best fixed mem over the whole dataset).
-  - Right now, we are using data where all the 100 mem were successful. Try ideas to add the others: idea 1 is adding a feature solved/unsolved, Idea 2 is adding "fake" values for time, neval, bytes.
-  - Try to find a LateX template for the poster.
-  - For the pipeline: Either use JSON, or use Pycall to call the Python part from Julia.
----
-### Things To Do (For April 15)
-- Felix:
-  - Compare `best observed mem` with `best predicted mem`
-    - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
-    - `best predicted mem` is the value of `mem` suggested by the model. Run solver using this to get the run time using this value and compare.
-- Nishan
-  - Add theme for Felix to make `LaTeX` presentation
+L-BFGS has one setting that strongly affects its speed: the **memory** `mem`, the number of past
+updates it keeps. [`JSOSolvers.jl`](https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl) defaults to
+`mem = 5`. This repository contains a two-stage statistical-learning framework that recommends `mem` for
+an unconstrained problem from cheap problem features, the benchmark data it was built on, the trained
+models, and everything needed to reproduce the reported numbers on Linux, macOS or Windows.
 
----
-### Things To Do (For April 9)
+1. **Stage 1** predicts, for a problem and a candidate `mem`, the number of objective and gradient
+   evaluations and the allocated memory (random forest and XGBoost).
+2. **Stage 2** turns those three quantities into a predicted run time (random forest or XGBoost).
+3. The framework recommends the `mem` in 1..100 with the smallest predicted run time.
 
-- Compare `best observed mem` with `best predicted mem`
-  - `best observed mem` is the value of `mem` which gives the shortest time with the observed data
-  - `best predicted mem` is the value of `mem` suggested by the model. Run solver using this to get the run time using this value and compare.
-- Try gradient boosting
-- Obtain 3 plots
-  - Results from Model 1
-  - Results from Model 2
-  - Comparing results from both models
-- Create a pipleline (in `Julia`) obtain the results (Model 1 and Model 2 combined)
-  - Examine of to do this with multiple languages
-    - Using JSON
-    - Using Jupyter Notebook
-    - [Update April 15th] Another idea is https://github.com/JuliaPy/PyCall.jl
-- CREATE DOCUMENTATION
-      
----
-### Things To Do (For April 3)
+## Cite
 
-- Attempts other models to obtain better prediciton for `timed_bytes`
-  - example misture  model (Gaussian mixture)
-- Try Random Forest compared to ExtraTreesRegressor
-- Use the reposnes from model to predict elapsed time
-- Include scalable problems as an indicator variable
+If you use this code or data, please cite the paper (see [`CITATION.cff`](CITATION.cff); GitHub shows a
+"Cite this repository" button):
 
----
-### Things to do
+> Y. Gao, *Leveraging High-Performance Scientific Computing for the Limited-Memory Hyperparameter Tuning of
+> Large-Scale Unconstrained Continuous Optimization Solvers*, Journal of Computational and Data Exploration
+> 2(1), 2026. DOI: [10.33137/codex.v2i1.47829](https://doi.org/10.33137/codex.v2i1.47829)
 
-- For March 20: Felix to create Jupyter Notebook document + email Tangi and Nishan with summary
-- Tangi: looks at `existing` problems that we skipped in the script.
-- Add the new features to feature_cols
-- Try to use multivariate regression
-- Can we predict stats_elapsed_time based on (neval_obj, neval_grad, timed_bytes)? It would be another regressor :).
-- Start writing report with column description
-- Finalize the new categorical variable for time
-  - Aim for approximately 5 categories
-- Finalize the new categorical variable for number of variables
-  - Aim for approximately 5 categories
+## Quick start
 
----
+Requires Python 3.10 – 3.12 (3.13 is not supported by the pinned numpy). Full instructions, including
+Conda and troubleshooting: [`docs/INSTALL.md`](docs/INSTALL.md).
 
-## New Ideas
+<table>
+<tr><th>Linux / macOS</th><th>Windows (PowerShell)</th></tr>
+<tr><td>
 
-- Repeat analysis with other solvers `trunc`, `tron`, `fomo`
-  - See https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl/tree/main/src
-  - solvers ending in `ls` are essentially the same as the ones without `ls`
-- Create plots of perforance profile
-  - Compare `lbfgs` with optimal value of 'mem' and default value of `mem`
-  - Compare `lbfgs` with `trunc`
-  - Calculate area under the curves
-- Tangi and Felix to set up meeting on bash script parallelizing solvers
-https://github.com/tmigot/AutoJSOSolverSelection.jl
+```bash
+git clone https://github.com/nishanmudalige/OptimizationParameterTuning.git
+cd OptimizationParameterTuning
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-lock.txt
+python -m pip install -e . --no-deps
+python -m pytest
+```
+
+</td><td>
+
+```powershell
+git clone https://github.com/nishanmudalige/OptimizationParameterTuning.git
+cd OptimizationParameterTuning
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-lock.txt
+python -m pip install -e . --no-deps
+python -m pytest
+```
+
+</td></tr>
+</table>
+
+Recommend `mem` for your own problems (a CSV with one row per problem; columns listed in
+[`docs/USAGE.md`](docs/USAGE.md)):
+
+```bash
+python -m memtune recommend my_problems.csv --output recommendations.csv
+```
+
+## Results
+
+Recomputed from the committed models and the benchmark data with `python -m memtune evaluate`
+(215 complete problem instances × 100 values of `mem` = 21,500 L-BFGS runs; 172 instances for training, **43 for
+testing**; one fit, one split, seed 66). The *performance ratio* of a policy on an instance is its run time
+divided by the run time of the best `mem` in hindsight (1 is perfect).
+
+| Policy | Median | 75th pct. | 90th pct. | Mean |
+|---|---:|---:|---:|---:|
+| Default `mem = 5` (Baseline 1) | 1.059 | 1.628 | 2.684 | 2.262 |
+| Best fixed `mem = 87`, chosen with hindsight (Baseline 2) | 1.000 | 1.056 | 1.280 | 1.093 |
+| Framework, random-forest Stage 2 | 1.000 | 1.577 | 2.195 | 1.637 |
+| Framework, XGBoost Stage 2 | 1.000 | 1.297 | 2.061 | 1.459 |
+
+Instance-specific selection improves on the default, but a single large fixed value chosen with
+hindsight is a strong reference. The numbers come from one train/test split; see the paper for the
+discussion and its limitations.
+
+## Repository layout
+
+```
+├── src/memtune/        Python package: data preparation, models, evaluation, recommendation, CLI
+├── scripts/            command-line scripts: dataset building, plots, model comparison
+├── notebooks/          the exploration and modelling notebooks behind the paper (outputs cleared)
+├── models/             trained Stage 1 / Stage 2 models and their checksums (see models/README.md)
+├── data/               the dataset, compressed (lbfgs_runs.csv.gz), and its documentation
+├── results/            generated tables and figures (not in git)
+├── tests/              regression tests, a small sample dataset and reference ("golden") results
+└── docs/               INSTALL.md (setup on every system), USAGE.md (user guide)
+```
+
+## Reproducing the results
+
+1. Install (above). The dataset is included as `data/lbfgs_runs.csv.gz` and is read directly, no unzipping
+   needed ([`data/README.md`](data/README.md) explains how to get the plain CSV if you want it).
+2. `python -m memtune evaluate` recomputes Stage 1 and Stage 2 accuracy and the table above.
+3. `python -m pytest` runs the regression tests: the packaged code must reproduce results computed
+   independently with the original notebook logic ([`tests/README.md`](tests/README.md)).
+
+## Pre-trained models
+
+Eight scikit-learn / XGBoost models in [`models/`](models/README.md). They are pickles: load them only with
+the versions in `requirements-lock.txt` (scikit-learn 1.5.1, **XGBoost 3.2.0**). Other XGBoost versions load
+the files but silently return wrong predictions, so `memtune` refuses to run with a different one.
+Only load pickles from sources you trust.
+
+## License and authors
+
+MIT License, see [`LICENSE`](LICENSE). Authors: Yuchen (Felix) Gao and Nishan Mudalige, University of
+Toronto Mississauga. Data collection uses the Julia [JuliaSmoothOptimizers](https://juliasmoothoptimizers.github.io/)
+ecosystem (`JSOSolvers.jl`, `OptimizationProblems.jl`).

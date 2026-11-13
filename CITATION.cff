@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite the paper below."
+title: "memtune: machine-learning selection of the L-BFGS memory parameter"
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/nishanmudalige/OptimizationParameterTuning"
+authors:
+  - family-names: Gao
+    given-names: Yuchen
+    affiliation: "University of Toronto Mississauga"
+  - family-names: Mudalige
+    given-names: Nishan
+    affiliation: "University of Toronto Mississauga"
+preferred-citation:
+  type: article
+  title: "Leveraging High-Performance Scientific Computing for the Limited-Memory Hyperparameter Tuning of Large-Scale Unconstrained Continuous Optimization Solvers"
+  authors:
+    - family-names: Gao
+      given-names: Yuchen
+  journal: "Journal of Computational and Data Exploration"
+  volume: 2
+  issue: 1
+  year: 2026
+  doi: "10.33137/codex.v2i1.47829"
