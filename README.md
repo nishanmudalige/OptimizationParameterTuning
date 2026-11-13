@@ -57,6 +57,9 @@ python -m pytest
 </td></tr>
 </table>
 
+No Python setup wanted? `docker build -t memtune https://github.com/nishanmudalige/OptimizationParameterTuning.git#main && docker run --rm memtune`
+recomputes the results below in a container (details in the [install guide](docs/INSTALL.md#docker-nothing-to-install-except-docker)).
+
 Recommend `mem` for your own problems (a CSV with one row per problem; columns listed in
 [`docs/USAGE.md`](docs/USAGE.md)):
 

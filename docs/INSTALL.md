@@ -72,6 +72,36 @@ conda env create -f environment.yml
 conda activate memtune
 ```
 
+### Docker (nothing to install except Docker)
+
+The repository has a `Dockerfile` (Python 3.12 on Debian, pinned packages, tests and data included). It is the
+quickest way to get a working, identical environment on any machine that runs Docker (Windows, macOS, Linux).
+
+```bash
+docker build -t memtune https://github.com/nishanmudalige/OptimizationParameterTuning.git#main
+# or, from a clone:  docker build -t memtune .
+
+docker run --rm memtune                          # recompute the paper's results (python -m memtune evaluate)
+docker run --rm memtune python -m pytest         # run the tests
+```
+
+Get the result files out of the container, or recommend `mem` for your own CSV:
+
+```bash
+# Linux / macOS
+docker run --rm -v "$PWD/out:/app/results" memtune
+docker run --rm -v "$PWD/problems.csv:/data/problems.csv:ro" memtune python -m memtune recommend /data/problems.csv
+```
+
+```powershell
+# Windows PowerShell
+docker run --rm -v "${PWD}\out:/app/results" memtune
+docker run --rm -v "${PWD}\problems.csv:/data/problems.csv:ro" memtune python -m memtune recommend /data/problems.csv
+```
+
+Another Python version (3.10 – 3.12): `docker build --build-arg PYTHON_VERSION=3.10 -t memtune .`.
+The first build takes about two minutes (it downloads the packages); later builds reuse the cache.
+
 ### Notebooks (optional)
 
 ```bash
@@ -129,7 +159,7 @@ layout (found from the location of the package, not from your current directory)
 | Symptom | Fix |
 |---|---|
 | `RuntimeError: xgboost==3.2.0 required, found …` | `python -m pip install -r requirements-lock.txt` inside the activated environment |
-| `No matching distribution found for numpy==1.26.4` | You are on Python 3.13+; use 3.10–3.12 (`py -3.12`, `pyenv`, `conda create -n memtune python=3.11`) |
+| `metadata-generation-failed` / `Unknown compiler(s)` while installing numpy | You are on Python 3.13 or newer, which has no numpy 1.26 wheels, so pip tries to compile it. Use Python 3.10–3.12 (`py -3.12`, `pyenv`, `conda create -n memtune python=3.11`) or Docker |
 | `Dataset not found: …` | Check that `data/lbfgs_runs.csv.gz` exists (it is part of the repository) or see step 4 |
 | `ensurepip is not available` (Debian/Ubuntu) | `sudo apt install python3-venv python3-pip` |
 | `XGBoostError … libomp` (macOS) | `brew install libomp` |

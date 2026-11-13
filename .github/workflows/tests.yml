@@ -33,3 +33,15 @@ jobs:
         run: python -m memtune info
       - name: Regression tests (sample and full dataset)
         run: python -m pytest
+
+  docker:
+    name: Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image
+        run: docker build -t memtune .
+      - name: Recompute the results inside the container
+        run: docker run --rm memtune
+      - name: Run the tests inside the container
+        run: docker run --rm memtune python -m pytest
