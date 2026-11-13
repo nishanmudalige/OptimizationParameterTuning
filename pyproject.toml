@@ -9,6 +9,11 @@ description = "Machine-learning selection of the L-BFGS memory parameter for unc
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
+authors = [
+    { name = "Yuchen (Felix) Gao" },
+    { name = "Tangi Migot" },
+    { name = "Nishan Mudalige" },
+]
 # numpy 1.26 (needed by the pinned scikit-learn 1.5.1 / pandas 2.2) has no wheels for Python 3.13.
 requires-python = ">=3.10,<3.13"
 dependencies = [

@@ -129,6 +129,6 @@ Only load pickles from sources you trust.
 
 ## License and authors
 
-MIT License, see [`LICENSE`](LICENSE). Authors: Yuchen (Felix) Gao and Nishan Mudalige, University of
-Toronto Mississauga. Data collection uses the Julia [JuliaSmoothOptimizers](https://juliasmoothoptimizers.github.io/)
+MIT License, see [`LICENSE`](LICENSE). Authors: Yuchen (Felix) Gao, Tangi Migot and Nishan Mudalige (Gao and Mudalige:
+University of Toronto Mississauga). Data collection uses the Julia [JuliaSmoothOptimizers](https://juliasmoothoptimizers.github.io/)
 ecosystem (`JSOSolvers.jl`, `OptimizationProblems.jl`).
