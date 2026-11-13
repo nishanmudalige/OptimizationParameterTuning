@@ -6,13 +6,44 @@ trained models are pickles.
 
 | Requirement | Version | Why |
 |---|---|---|
-| Python | 3.10, 3.11 or 3.12 | numpy 1.26 (needed by scikit-learn 1.5.1) has no wheels for 3.13 |
+| Python | **3.12** recommended; 3.10 and 3.11 also tested | numpy 1.26 (needed by scikit-learn 1.5.1) has no wheels for 3.13 or newer, so 3.13 and 3.14 do **not** work |
 | scikit-learn | 1.5.1 | version the models were saved with |
 | XGBoost | **3.2.0** | other versions load the models but give wrong predictions (checked: 3.0.5 gives R² = −52 instead of 0.86) |
 | numpy / pandas / scipy | 1.26.4 / 2.2.3 / 1.13.1 | tested combination, pinned in `requirements-lock.txt` |
 
 Disk space: about 100 MB for the repository and packages; the dataset is included (1.9 MB compressed,
 98 MB if you unzip it, see [`../data/README.md`](../data/README.md)).
+
+## Fastest way: the setup script
+
+```bash
+# Linux / macOS
+./scripts/setup.sh                 # add --notebooks for JupyterLab
+source .venv/bin/activate
+```
+
+```powershell
+# Windows
+powershell -ExecutionPolicy Bypass -File scripts\setup.ps1          # add -Notebooks for JupyterLab
+.venv\Scripts\Activate.ps1
+```
+
+The script looks for Python 3.12 first (then 3.11, 3.10), creates `.venv` in the repository, installs the pinned
+packages, prints `memtune info` and recomputes the paper's table as a smoke test. It stops with install hints if no
+supported Python is found, for example when only Python 3.13 or newer is installed. It is safe to run again.
+The sections below do the same by hand.
+
+### Which Python do I have?
+
+| System | Check | Install Python 3.12 |
+|---|---|---|
+| Windows | `py -0p` lists every installed version | `winget install Python.Python.3.12`, or python.org (tick "Add python.exe to PATH") |
+| macOS | `python3 --version` | `brew install python@3.12` |
+| Ubuntu / Debian | `python3 --version` (24.04 has 3.12) | `sudo apt install python3 python3-venv python3-pip` |
+| any | – | `conda create -n memtune python=3.12`, or [uv](https://docs.astral.sh/uv/): `uv venv --python 3.12` |
+
+Several Python versions can live side by side; the virtual environment uses exactly the one that created it.
+On Windows `py -3.12 -m venv .venv` picks 3.12 even if your default `python` is a different version.
 
 ## 1. Get the code
 

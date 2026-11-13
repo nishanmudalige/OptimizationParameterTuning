@@ -25,8 +25,9 @@ If you use this code or data, please cite the paper (see [`CITATION.cff`](CITATI
 
 ## Quick start
 
-Requires Python 3.10 – 3.12 (3.13 is not supported by the pinned numpy). Full instructions, including
-Conda and troubleshooting: [`docs/INSTALL.md`](docs/INSTALL.md).
+One command creates a private environment (`.venv`) with the exact package versions, installs `memtune` and
+runs a smoke test. It needs **Python 3.12** (3.10 and 3.11 also work; 3.13 and newer do **not**, because the
+pinned numpy has no build for them). The script finds a suitable Python by itself.
 
 <table>
 <tr><th>Linux / macOS</th><th>Windows (PowerShell)</th></tr>
@@ -35,11 +36,8 @@ Conda and troubleshooting: [`docs/INSTALL.md`](docs/INSTALL.md).
 ```bash
 git clone https://github.com/nishanmudalige/OptimizationParameterTuning.git
 cd OptimizationParameterTuning
-python3 -m venv .venv
+./scripts/setup.sh
 source .venv/bin/activate
-python -m pip install -r requirements-lock.txt
-python -m pip install -e . --no-deps
-python -m pytest
 ```
 
 </td><td>
@@ -47,15 +45,16 @@ python -m pytest
 ```powershell
 git clone https://github.com/nishanmudalige/OptimizationParameterTuning.git
 cd OptimizationParameterTuning
-py -3.12 -m venv .venv
+powershell -ExecutionPolicy Bypass -File scripts\setup.ps1
 .venv\Scripts\Activate.ps1
-python -m pip install -r requirements-lock.txt
-python -m pip install -e . --no-deps
-python -m pytest
 ```
 
 </td></tr>
 </table>
+
+Add `--notebooks` (Linux/macOS) or `-Notebooks` (Windows) to also install JupyterLab. Prefer to do it by hand, use
+Conda, WSL or Docker, or something went wrong? See [`docs/INSTALL.md`](docs/INSTALL.md). Then check everything with
+`python -m pytest`.
 
 No Python setup wanted? `docker build -t memtune https://github.com/nishanmudalige/OptimizationParameterTuning.git#main && docker run --rm memtune`
 recomputes the results below in a container (details in the [install guide](docs/INSTALL.md#docker-nothing-to-install-except-docker)).
