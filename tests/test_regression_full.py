@@ -3,6 +3,7 @@
 Skipped automatically when the full dataset is not available.
 """
 import pytest
+
 from conftest import assert_matches_golden
 
 pytestmark = pytest.mark.full

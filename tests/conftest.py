@@ -1,6 +1,5 @@
 """Shared fixtures. Fast tests use the small committed sample; ``@pytest.mark.full`` tests need the real data."""
 import json
-import os
 from pathlib import Path
 
 import pytest

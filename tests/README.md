@@ -1,8 +1,8 @@
 # Tests
 
 ```bash
-python -m pytest                # everything, about 1.5 min (the full dataset is data/lbfgs_runs.csv.gz)
-python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sample_runs.csv
+python -m pytest                # everything, about 3 min (the full dataset is data/lbfgs_runs.csv.gz)
+python -m pytest -m "not full"  # fast subset, under a minute, uses tests/data/sample_runs.csv
 ```
 
 ## What is checked
@@ -21,6 +21,10 @@ python -m pytest -m "not full"  # fast subset, about 20 s, uses tests/data/sampl
 | `test_dataset_file.py` | the shipped `data/lbfgs_runs.csv.gz` has the documented checksums (archive and unzipped content), shape and `mem` range; `python -m gzip -d` restores the CSV; the code finds the `.gz` with or without a plain CSV |
 | `test_data.py` | complete-instance filter, split by instance, error message for missing columns |
 | `test_demo_site.py` | the interactive demo's data covers all 280 instances, the test problems' recommendations equal the paper's evaluation (and the one-step model's evaluation), `explain` agrees with `recommend_mem`, the page's files and Hugging Face settings exist |
+| `test_cli_tools.py` | `memtune doctor` passes on a correct installation and reports a changed model or a missing dataset; `memtune reproduce` confirms all 32 reference values and notices a changed one; `memtune demo` builds its data, recognises damaged data, serves the page, and moves to the next port when one is taken |
+| `test_installer.py` | `install.sh`: valid syntax, `--help`, the system report of `--detect`, the plan of `--dry-run` (nothing is created), clear errors for wrong options, and an existing environment is never deleted without asking. Nothing is installed by these tests; the real installation runs in continuous integration on Linux, macOS and Windows |
+| `test_robustness.py` | the robustness evaluation (not in the paper): the fixed-`mem` baseline, whole problems held out with every instance tested once, the paper's split protocol with other seeds, the summaries, reproducible refits |
+| `test_demo_browser.py` | the demo page in a real browser: it loads without errors, shows a recommendation and all charts, the *Run* button, the model switch and links work, a narrow screen does not scroll sideways, and missing data gives instructions. Needs Playwright (`python -m pip install playwright==1.52.0`, `python -m playwright install chromium`), otherwise skipped; continuous integration always runs it |
 | `test_notebooks.py` | notebooks 01 – 06 run top to bottom and leave the models unchanged (needs `pip install -r requirements-notebooks.txt`, otherwise skipped) |
 
 ## Where the reference results come from

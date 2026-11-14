@@ -1,6 +1,6 @@
 name: demo site
 
-# Builds the interactive demo (site/) and publishes it on GitHub Pages.
+# Builds the interactive demo (site/), tests it (also in a real browser) and publishes it on GitHub Pages.
 # One-time setup by a repository admin: Settings -> Pages -> Source: "GitHub Actions".
 # Until then the site is still built and tested, and the deploy step is skipped with a notice.
 
@@ -36,9 +36,16 @@ jobs:
           python -m pip install -r requirements-lock.txt
           python -m pip install -e . --no-deps
       - name: Precompute the demo data
-        run: python scripts/export_demo_data.py
+        run: python -m memtune demo --build-only
       - name: Test the demo data
         run: python -m pytest tests/test_demo_site.py
+      - name: Test the page in a real browser
+        env:
+          MEMTUNE_REQUIRE_BROWSER: "1"
+        run: |
+          python -m pip install playwright==1.52.0
+          python -m playwright install --with-deps chromium
+          python -m pytest tests/test_demo_browser.py
       - name: Is GitHub Pages enabled?
         id: pages
         env:

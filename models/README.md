@@ -29,7 +29,7 @@ Feature order for Stage 1 is `memtune.data.FEATURES`; targets are in `log1p` sca
 ## The one-step model (not in the paper)
 
 `one_step/random_forest.pkl` predicts the run time directly from the features, without Stage 1. It exists because
-the framework's Stage 2 favours very small `mem` (see the README, *A one-step model*). It is a scikit-learn random
+the framework's Stage 2 favours very small `mem` (see [`docs/ONE_STEP_MODEL.md`](../docs/ONE_STEP_MODEL.md)). It is a scikit-learn random
 forest (`n_estimators=200, min_samples_leaf=20, max_features=0.5, random_state=0`, settings chosen by grouped
 5-fold cross-validation on the training instances), trained on the paper's 172 training instances by
 `scripts/train_one_step_model.py`. On Windows the script rebuilds this exact file. On Linux and macOS

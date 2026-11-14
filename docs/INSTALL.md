@@ -11,26 +11,85 @@ trained models are pickles.
 | XGBoost | **3.2.0** | other versions load the models but give wrong predictions (checked: 3.0.5 gives R² = −52 instead of 0.86) |
 | numpy / pandas / scipy | 1.26.4 / 2.2.3 / 1.13.1 | tested combination, pinned in `requirements-lock.txt` |
 
-Disk space: about 100 MB for the repository and packages; the dataset is included (1.9 MB compressed,
-98 MB if you unzip it, see [`../data/README.md`](../data/README.md)).
+Disk space: about 600 MB for the environment (1 GB with the notebook tools). The dataset is included (1.9 MB
+compressed, 98 MB if you unzip it, see [`../data/README.md`](../data/README.md)).
 
-## Fastest way: the setup script
+## Fastest way: the installer
 
 ```bash
-# Linux / macOS
-./scripts/setup.sh                 # add --notebooks for JupyterLab
-source .venv/bin/activate
+./install.sh                                              # Linux, macOS, WSL, Git Bash
 ```
 
 ```powershell
-# Windows
-powershell -ExecutionPolicy Bypass -File scripts\setup.ps1          # add -Notebooks for JupyterLab
-.venv\Scripts\Activate.ps1
+powershell -ExecutionPolicy Bypass -File install.ps1      # Windows PowerShell
 ```
 
-The script looks for Python 3.12 first (then 3.11, 3.10), creates `.venv` in the repository, installs the pinned
-packages, prints `memtune info` and recomputes the paper's table as a smoke test. It stops with install hints if no
-supported Python is found, for example when only Python 3.13 or newer is installed. It is safe to run again.
+The installer works in four steps and changes nothing before you confirm the plan.
+
+1. **System report.** It detects the operating system, the processor, the free disk space, every Python on the
+   `PATH` (and, on Windows, the versions known to the `py` launcher) with a note whether memtune supports it,
+   conda, Docker, [uv](https://docs.astral.sh/uv/) and, on macOS, the OpenMP runtime that XGBoost needs.
+2. **Recommendation.** A private virtual environment in `.venv` if a supported Python (or uv) is there, otherwise
+   conda, otherwise Docker. If none of these is possible, it prints the command that installs Python 3.12 on your
+   system and offers to run it.
+3. **Your choices.** Where to install (venv, conda or Docker), which Python if several are supported, and the
+   optional parts:
+
+   | Extra | What it adds | Default |
+   |---|---|---|
+   | `notebooks` | JupyterLab and the tools to run `notebooks/` (about 300 MB) | no |
+   | `demo` | the interactive demo's data, computed from the models (10 seconds, no download) | yes |
+   | `dev` | the linter used by the project (`requirements-dev.txt`) | no |
+   | `tests` | a run of the complete test suite after installing (about 3 minutes) | no |
+
+4. **Plan, installation, check.** It lists the steps, asks to proceed, installs, and finishes with
+   `python -m memtune doctor`, which verifies the package versions, the checksums of the models and the dataset,
+   and that the sample results are reproduced exactly.
+
+Example of the report on Windows:
+
+```text
+System
+  Operating system : Windows (MINGW64_NT, Git Bash)
+  Processor        : x86_64
+  Free disk space  : 336 GB in /c/Users/you/OptimizationParameterTuning
+
+Python (memtune needs 3.10 to 3.12)
+  py -3.12         : 3.12.10  supported      C:\Users\you\AppData\Local\Programs\Python\Python312\python.exe
+  py -3.10         : 3.10.11  supported      C:\Users\you\AppData\Local\Programs\Python\Python310\python.exe
+
+Tools
+  conda            : not found
+  Docker           : found, running
+
+Recommended for this system: a virtual environment (.venv) with Python 3.12.10.
+```
+
+Options for use without questions (scripts, servers, continuous integration):
+
+| Command | Effect |
+|---|---|
+| `./install.sh --detect` | print the report and the recommendation, then stop |
+| `./install.sh --dry-run` | print the plan, change nothing |
+| `./install.sh --yes` | install the recommended setup with the default extras |
+| `./install.sh --yes --with notebooks,dev` | choose extras (`--without demo`, `--full`, `--minimal`) |
+| `./install.sh --env conda` / `--env docker` | use conda or Docker instead of a virtual environment |
+| `./install.sh --python python3.11` | use this Python (on Windows for example `--python "py -3.11"`) |
+| `./install.sh --venv .venv-linux` | another folder for the environment |
+
+The same options work with `install.ps1`. Without a terminal (a pipe, a CI job) the installer behaves as with
+`--yes`.
+
+What the installer will not do: it never deletes an existing environment without asking (with `--yes` it stops and
+explains instead), it never installs Python with a package manager unless you agree (or pass `--install-python`),
+and apart from that it writes only inside the repository folder. It is safe to run again; an existing `.venv` is
+reused and brought up to date.
+
+`install.ps1` runs `install.sh` with the bash of Git for Windows. If Git for Windows is not installed it falls back
+to `scripts\setup.ps1`, a plain PowerShell setup without questions. On machines with WSL, do not start the
+installer with a bare `bash install.sh` from PowerShell: that `bash` is the Linux one and would build a Linux
+environment. `scripts/setup.sh` is kept for older instructions and calls `install.sh --yes --env venv`.
+
 The sections below do the same by hand.
 
 ### Which Python do I have?
@@ -113,6 +172,7 @@ docker build -t memtune https://github.com/nishanmudalige/OptimizationParameterT
 # or, from a clone:  docker build -t memtune .
 
 docker run --rm memtune                          # recompute the paper's results (python -m memtune evaluate)
+docker run --rm memtune python -m memtune reproduce    # ... and compare every value with the reference
 docker run --rm memtune python -m pytest         # run the tests
 ```
 
@@ -128,6 +188,12 @@ docker run --rm -v "$PWD/problems.csv:/data/problems.csv:ro" memtune python -m m
 # Windows PowerShell
 docker run --rm -v "${PWD}\out:/app/results" memtune
 docker run --rm -v "${PWD}\problems.csv:/data/problems.csv:ro" memtune python -m memtune recommend /data/problems.csv
+```
+
+The interactive demo from the container (then open <http://localhost:8000>):
+
+```bash
+docker run --rm -p 8000:8000 memtune python -m memtune demo --host 0.0.0.0 --no-browser
 ```
 
 Another Python version (3.10 – 3.12): `docker build --build-arg PYTHON_VERSION=3.10 -t memtune .`.
@@ -156,13 +222,15 @@ Each notebook takes 10 – 20 seconds. Anything they train is written to `result
 ## 3. Check the installation
 
 ```bash
-python -m memtune info      # shows the resolved paths and whether the library versions are right
-python -m pytest            # about 1.5 min; regression tests on the sample and on the full dataset (notebook tests need requirements-notebooks.txt)
+python -m memtune doctor    # versions, checksums of models and data, and a recomputation of the sample results
+python -m memtune reproduce # the paper's results, each value compared with the reference
+python -m pytest            # the complete test suite, about 3 minutes
 ```
 
-`memtune info` prints `versions : OK` when everything matches. A healthy run of the tests ends with
-`passed`. The six notebook tests are reported as `skipped` until you install `requirements-notebooks.txt`; with it, the
-whole suite (79 tests) takes about two and a half minutes.
+`memtune doctor` prints one line per check (`[ ok ]`, `[warn]` or `[FAIL]`) and ends with `Everything works.` when
+nothing failed. A healthy run of the tests ends with `passed`. Some tests are reported as `skipped` when an optional
+tool is missing: the six notebook tests need `requirements-notebooks.txt`, the browser tests of the demo need
+Playwright ([`../tests/README.md`](../tests/README.md)).
 
 ## 4. The data
 
@@ -199,6 +267,9 @@ layout (found from the location of the package, not from your current directory)
 
 | Symptom | Fix |
 |---|---|
+| Anything unclear | `python -m memtune doctor` names the check that fails and what to run |
+| `The folder .venv exists but cannot be used here` | The environment was made by another system (Windows and WSL share the folder) or its Python was removed. Delete `.venv`, or keep it and run `./install.sh --venv .venv-linux` |
+| The demo page says the data has not been computed, or it was opened as a file | Start it with `python -m memtune demo`; a browser cannot read the data when the page is opened by double-click |
 | `RuntimeError: xgboost==3.2.0 required, found …` | `python -m pip install -r requirements-lock.txt` inside the activated environment |
 | `metadata-generation-failed` / `Unknown compiler(s)` while installing numpy | You are on Python 3.13 or newer, which has no numpy 1.26 wheels, so pip tries to compile it. Use Python 3.10–3.12 (`py -3.12`, `pyenv`, `conda create -n memtune python=3.11`) or Docker |
 | `Dataset not found: …` | Check that `data/lbfgs_runs.csv.gz` exists (it is part of the repository) or see step 4 |

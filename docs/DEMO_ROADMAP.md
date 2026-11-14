@@ -49,14 +49,15 @@ scripts/export_demo_data.py    # dataset + models -> site/data/index.json and si
 site/index.html, app.js, style.css
 site/README.md                 # front matter that makes the folder a Hugging Face static Space
 .github/workflows/pages.yml    # build data, test, deploy to GitHub Pages
+src/memtune/demo.py            # `python -m memtune demo`: build the data when needed, serve, open the browser
 tests/test_demo_site.py        # data equals memtune and the paper's evaluation; page assets exist
+tests/test_demo_browser.py     # the page in a real browser (Playwright): loads, runs, no errors
 ```
 
 **Run it locally**
 
 ```bash
-python scripts/export_demo_data.py          # writes site/data/ (about 10 s)
-python -m http.server --directory site 8000 # open http://localhost:8000
+python -m memtune demo      # computes site/data/ if needed (about 10 s), starts a local server, opens the browser
 ```
 
 **Deploy: GitHub Pages** (automatic once enabled).
@@ -67,7 +68,7 @@ push to `main` rebuilds and publishes the page at
 
 **Deploy: Hugging Face Space** (alternative, any account).
 1. Create a new Space with SDK **Static**.
-2. Run `python scripts/export_demo_data.py`, then upload the contents of `site/`, including `site/data/` and
+2. Run `python -m memtune demo --build-only`, then upload the contents of `site/`, including `site/data/` and
    `site/README.md`. You can use the web upload, or
    `huggingface-cli upload <user>/<space> site . --repo-type space`.
 3. The Space serves `index.html` directly. Nothing else is needed.

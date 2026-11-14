@@ -67,7 +67,7 @@ def main():
     df = df[df["mem_count"] == 100].reset_index(drop=True)
     inst = df[G].drop_duplicates().sample(frac=1, random_state=66).reset_index(drop=True)
     ntr = int(0.8 * len(inst))
-    tr = df.merge(inst.iloc[:ntr], on=["nvar", "name"]).reset_index(drop=True)
+    tr = df.merge(inst.iloc[:ntr], on=["nvar", "name"]).reset_index(drop=True)  # noqa: F841 (kept: mirrors the notebook)
     te = df.merge(inst.iloc[ntr:], on=["nvar", "name"]).reset_index(drop=True)
 
     rf1 = load_model(a.models, "best_rf_model_reg.pkl", "stage1/random_forest.pkl")

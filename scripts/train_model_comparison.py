@@ -10,34 +10,33 @@ Results are saved to CSV after each model family completes.
 =============================================================================
 """
 
-import pandas as pd
-import numpy as np
-import time
 import json
 import os
+import time
 from datetime import datetime
 
-from sklearn.multioutput import MultiOutputRegressor
-from sklearn.metrics import mean_squared_error, r2_score
-
-# --- Linear Models ---
-from sklearn.linear_model import Ridge, Lasso, ElasticNet, BayesianRidge, SGDRegressor
+import numpy as np
+import pandas as pd
 
 # --- Tree-Based ---
 from sklearn.ensemble import (
-    RandomForestRegressor,
-    GradientBoostingRegressor,
-    ExtraTreesRegressor,
     AdaBoostRegressor,
+    ExtraTreesRegressor,
+    GradientBoostingRegressor,
     HistGradientBoostingRegressor,
+    RandomForestRegressor,
 )
-from sklearn.tree import DecisionTreeRegressor
+
+# --- Linear Models ---
+from sklearn.linear_model import BayesianRidge, ElasticNet, Lasso, Ridge, SGDRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.multioutput import MultiOutputRegressor
 
 # --- Neighbors ---
 from sklearn.neighbors import KNeighborsRegressor
 
 # --- SVM ---
-from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
 
 # --- Optional ---
 try:
@@ -52,9 +51,8 @@ try:
 except ImportError:
     HAS_LGBM = False
 
-import pickle
-
 import argparse
+import pickle
 
 from memtune import paths
 

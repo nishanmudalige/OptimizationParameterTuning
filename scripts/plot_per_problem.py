@@ -12,11 +12,11 @@ from datetime import datetime
 import matplotlib
 
 matplotlib.use("Agg")  # no display needed
+import argparse
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
-import argparse
 
 from memtune import paths
 

@@ -3,7 +3,6 @@ import importlib.util
 import sys
 
 import pandas as pd
-import pytest
 
 from conftest import ROOT
 

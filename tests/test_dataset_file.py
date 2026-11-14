@@ -2,10 +2,8 @@
 import gzip
 import hashlib
 import shutil
-from pathlib import Path
 
 import pandas as pd
-import pytest
 
 from conftest import ROOT, SAMPLE_CSV
 from memtune.paths import dataset_path
@@ -33,7 +31,8 @@ def test_unzipped_content_checksum():
 
 
 def test_unzipping_with_the_documented_command_restores_the_csv(tmp_path):
-    import subprocess, sys
+    import subprocess
+    import sys
 
     shutil.copy(GZ, tmp_path / GZ.name)
     subprocess.run([sys.executable, "-m", "gzip", "-d", GZ.name], cwd=tmp_path, check=True)

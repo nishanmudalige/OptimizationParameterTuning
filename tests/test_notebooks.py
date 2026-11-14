@@ -2,8 +2,6 @@
 
 Needs ``pip install -r requirements-notebooks.txt`` (nbclient, ipykernel); otherwise skipped.
 """
-import os
-import shutil
 
 import pytest
 
