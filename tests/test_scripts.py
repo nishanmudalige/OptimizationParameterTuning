@@ -6,8 +6,8 @@ import pytest
 
 from conftest import ROOT
 
-SCRIPTS = ["build_dataset", "export_demo_data", "plot_global_mem", "plot_per_problem", "train_model_comparison",
-           "train_one_step_model"]
+SCRIPTS = ["build_dataset", "export_demo_data", "plot_global_mem", "plot_per_problem", "robustness_check",
+           "train_model_comparison", "train_one_step_model"]
 
 
 def run(script, args, cwd, timeout=600):
