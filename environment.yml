@@ -1,9 +1,12 @@
+# Conda environment for memtune:  conda env create -f environment.yml && conda activate memtune
+# (./install.sh --env conda does the same and checks the result.)
 name: memtune
 channels:
   - conda-forge
+  - nodefaults
 dependencies:
   - python=3.11
   - pip
   - pip:
-      - -r requirements-lock.txt
-      - -e . --no-deps
+      - -r requirements-lock.txt   # the exact versions the results were verified with
+      - -e .

@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
-  One-command setup for Windows (PowerShell).
+  Plain setup for Windows PowerShell, without questions. The guided installer is install.ps1 / install.sh in the
+  repository root; it calls this script when Git for Windows (bash) is not installed.
 
 .DESCRIPTION
   Finds a supported Python (3.10 - 3.12) on its own, creates .venv in the repository, installs the pinned
@@ -59,16 +60,18 @@ if ($LASTEXITCODE -ne 0) { throw "Installing $req failed" }
 if ($LASTEXITCODE -ne 0) { throw "Installing memtune failed" }
 
 Write-Host ""
-& $venvPython -m memtune info
+& $venvPython -m memtune demo --build-only
+if ($LASTEXITCODE -ne 0) { throw "Computing the demo data failed" }
 Write-Host ""
-Write-Host "Smoke test: recomputing the paper's results ..."
-$tmp = Join-Path ([IO.Path]::GetTempPath()) ("memtune_" + [guid]::NewGuid().ToString('N'))
-$result = & $venvPython -m memtune evaluate --out $tmp
-if ($LASTEXITCODE -ne 0) { throw "Smoke test failed" }
-$result | Select-Object -Skip 3 -First 6
+& $venvPython -m memtune doctor
+if ($LASTEXITCODE -ne 0) { throw "The installation check failed" }
 
 Write-Host @"
 
-Setup finished. Next time, activate the environment first:   .venv\Scripts\Activate.ps1
-Then try:   python -m memtune evaluate      python -m pytest      python -m memtune --help
+Installation finished. Activate the environment in every new terminal:   .venv\Scripts\Activate.ps1
+Then try:
+  python -m memtune reproduce        recompute the paper's results and compare them with the reference
+  python -m memtune demo             open the interactive demo
+  python -m memtune recommend FILE   recommend mem for your own problems (docs\USAGE.md)
+  python -m pytest                   run all tests
 "@

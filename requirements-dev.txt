@@ -1,0 +1,5 @@
+# Developer tools (on top of requirements-lock.txt):
+#   python -m pip install -r requirements-dev.txt
+#   python -m ruff check .
+-r requirements-lock.txt
+ruff==0.6.9
