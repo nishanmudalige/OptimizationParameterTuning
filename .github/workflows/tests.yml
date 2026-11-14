@@ -96,10 +96,12 @@ jobs:
         run: |
           powershell -ExecutionPolicy Bypass -File install.ps1 --detect
           if ($LASTEXITCODE -ne 0) { exit 1 }
-      - name: Conda path (Linux)
+      - name: Conda path (Linux, with a fresh Miniforge)
         if: runner.os == 'Linux'
         run: |
-          export PATH="$CONDA/bin:$PATH"
+          curl -fsSL -o "$RUNNER_TEMP/miniforge.sh" https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+          bash "$RUNNER_TEMP/miniforge.sh" -b -p "$RUNNER_TEMP/miniforge3"
+          export PATH="$RUNNER_TEMP/miniforge3/bin:$PATH"
           ./install.sh --yes --env conda --minimal
           conda run -n memtune python -m memtune reproduce
 

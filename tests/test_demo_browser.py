@@ -2,7 +2,7 @@
 
 Needs Playwright, which is not part of the normal installation, so the test is skipped without it:
 
-    python -m pip install playwright==1.52.0
+    python -m pip install playwright==1.65.2
     python -m playwright install chromium        # or set MEMTUNE_BROWSER_CHANNEL=msedge / chrome to use an installed one
     python -m pytest tests/test_demo_browser.py
 
