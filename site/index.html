@@ -16,7 +16,7 @@
       <h1>Choosing the L-BFGS memory parameter</h1>
       <p class="lede">
         L-BFGS keeps the last <code>mem</code> updates; <code>JSOSolvers.jl</code> uses <code>mem = 5</code>.
-        Pick a test problem and a size, then watch the two-stage framework predict the solver's work and run time
+        Pick a problem and a size, then watch the two-stage framework predict the solver's work and run time
         for every <code>mem</code> from 1 to 100 and recommend one. Measured runs are shown next to the predictions,
         and a one-step model (not in the paper) shows how to avoid the framework's bias towards very small <code>mem</code>.
       </p>
@@ -46,7 +46,7 @@
       </fieldset>
       <div class="actions">
         <button id="run" class="primary" type="button">Run</button>
-        <button id="random" type="button" title="Pick a random instance the models never saw in training">Random test problem</button>
+        <button id="random" type="button" title="Pick a random held-out instance: a problem at a size the models never saw">Random test instance</button>
       </div>
     </section>
 
@@ -101,19 +101,21 @@
       <h2>How to read this, and its limits</h2>
       <ul>
         <li><strong>Training data:</strong> 77 scalable unconstrained problems of <code>OptimizationProblems.jl</code> at
-          <span id="range"></span> variables, each solved for <code>mem</code> = 1 … 100 (21,802 runs). Problems marked
-          <em>test</em> were never seen by the models; <em>training</em> problems were.</li>
+          <span id="range"></span> variables, each solved for <code>mem</code> = 1 … 100 (21,802 runs). An <em>instance</em> is
+          a problem at one size. <em>Test</em> instances were held out: the models never saw their runs, but they did see
+          the same problem at other sizes. <em>Training</em> instances were used to fit the models.</li>
         <li><strong>Why the framework often picks a very small <code>mem</code>:</strong> Stage 2 sees only the three
           Stage 1 numbers. Allocated memory grows with <code>mem</code>, and across problems it also grows with problem size,
           so Stage 2 learned that "more memory means slower". Within one problem its predicted run time therefore rises
           with <code>mem</code>, while the measured run time usually falls. The <em>one-step</em> model, which is
           <strong>not in the paper</strong>, predicts the run time directly from the 15 features and does not have this bias.
           Its settings were chosen by cross-validation on the training problems only.</li>
-        <li><strong>Results on the 43 test problems</strong> (ratio to the best measured run; total = sum of the chosen runs' times):
+        <li><strong>Results on the 43 test instances</strong> (ratio to the best measured run; total = sum of the chosen runs' times):
           <div class="table-scroll"><table id="results" class="compare results"></table></div></li>
         <li><strong>Ratio to best:</strong> run time of a choice divided by the fastest measured run for that problem
           (1 = optimal in hindsight).</li>
-        <li><strong>Limits:</strong> results come from one train/test split; the timing features depend on the machine
+        <li><strong>Limits:</strong> results come from one train/test split, and every test instance is a problem that
+          also occurs in the training data at another size, so they say little about entirely new problems; the timing features depend on the machine
           that measured them; a single large fixed value (<code>mem = 87</code>, chosen with
           hindsight on the test problems) is a strong reference that no model here beats. See the paper.</li>
         <li><strong>Not covered:</strong> non-scalable (small, fixed-size) problems and sizes outside the training range;

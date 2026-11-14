@@ -3,6 +3,7 @@
 // memtune demo: reads precomputed data (site/data, made by scripts/export_demo_data.py) and shows the four stages.
 
 const STEP_DELAY_MS = 750;
+const FIRST_EXAMPLE = "sinquad_1000";  // shown when the address names no instance: a held-out instance, about 1 s per run
 const state = { index: null, meta: null, byId: new Map(), cache: new Map(), current: null, model: "rf", running: false };
 const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -18,10 +19,11 @@ const TIME_EXPLAIN = {
   one_step: "The one-step model (not in the paper) predicts the run time directly from the 15 features, " +
     "<code>mem</code> included, and picks the <code>mem</code> with the smallest predicted time.",
 };
+const HOW_TO_START = "In the repository folder, run:  python -m memtune demo";
 const ROLE_TEXT = {
-  test: ["Test problem", "The models never saw this problem during training."],
-  train: ["Training problem", "This problem was part of the training data, so the models have seen its runs."],
-  incomplete: ["Not used for training", "Some of this problem's 100 runs are missing, so it was used neither for training nor for testing."],
+  test: ["Test instance", "This problem at this size was held out: the models never saw these runs. They did see the same problem at other sizes."],
+  train: ["Training instance", "This problem at this size was part of the training data, so the models have seen these runs."],
+  incomplete: ["Not used for training", "Some of the 100 runs of this problem at this size are missing, so it was used neither for training nor for testing."],
 };
 
 // ---------- formatting ----------
@@ -46,8 +48,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, reduceMotion ? 0 : ms));
 
 // ---------- data ----------
 async function loadIndex() {
-  const res = await fetch("data/index.json");
-  if (!res.ok) throw new Error(`data/index.json: HTTP ${res.status}. Run scripts/export_demo_data.py first.`);
+  if (location.protocol === "file:")
+    throw new Error("this page was opened as a file, and browsers do not let a file read its data. " + HOW_TO_START);
+  let res;
+  try {
+    res = await fetch("data/index.json");
+  } catch (err) {
+    throw new Error(`the data could not be fetched (${err.message}). ${HOW_TO_START}`);
+  }
+  if (!res.ok) throw new Error(`the demo data has not been computed yet (data/index.json: HTTP ${res.status}). ${HOW_TO_START}`);
   const data = await res.json();
   state.meta = data.meta;
   state.index = data.instances;
@@ -205,7 +214,7 @@ function renderRecommendation(d) {
   const ratio = (x) => (x === null || best === null || best === 0 ? "–" : `${(x / best).toFixed(2)}×`);
   const rows = [
     ["Default of JSOSolvers.jl", state.meta.default_mem, t.default, ""],
-    ["Fixed value, best on the whole benchmark", state.meta.fixed_mem, t.fixed, ""],
+    ["Fixed value, the best single value on the test instances", state.meta.fixed_mem, t.fixed, ""],
     ...POLICY_ROWS.map(([key, label]) => [label, d.rec[key], t[key], key === state.model ? "chosen" : ""]),
     ["Best measured for this problem (hindsight)", d.best_observed_mem, best, "best"],
   ];
@@ -288,9 +297,11 @@ function rerenderCurrent() {
 // ---------- start ----------
 async function main() {
   try {
+    if (typeof Plotly === "undefined")
+      throw new Error("the chart library (Plotly, loaded from cdn.jsdelivr.net) is not available. Check the internet connection and reload.");
     await loadIndex();
   } catch (err) {
-    $("status").textContent = `Could not load the data: ${err.message}`;
+    $("status").textContent = `The demo cannot start: ${err.message}`;
     $("status").classList.add("error");
     return;
   }
@@ -305,7 +316,7 @@ async function main() {
   if (MODEL_NAME[h.model]) state.model = h.model;
   document.querySelector(`input[name="model"][value="${state.model}"]`).checked = true;
   if (!h.id || !selectInstance(h.id)) {
-    const first = state.index.find((i) => i.role === "test") || state.index[0];
+    const first = state.byId.get(FIRST_EXAMPLE) || state.index.find((i) => i.role === "test") || state.index[0];
     selectInstance(first.id);
   }
   $("status").textContent = "";
