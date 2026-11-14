@@ -43,8 +43,8 @@ Five ways of choosing `mem` are compared on every test set:
 |---|---|
 | Default `mem = 5` | the default of `JSOSolvers.jl` |
 | Fixed `mem` chosen on the training instances | one value for all problems: the `mem` with the smallest mean performance ratio on the *training* instances of that split. Unlike the paper's `mem = 87`, it uses no test data, so it is a fair fixed baseline |
-| Framework, random-forest Stage 2 | the paper's framework |
-| Framework, XGBoost Stage 2 | the paper's framework |
+| Framework | the paper's framework: hybrid Stage 1 and random-forest Stage 2 |
+| Alternative, XGBoost Stage 2 | the same Stage 1 with the XGBoost Stage 2 of the journal article; not part of the framework |
 | One-step model | not in the paper |
 
 ## Output

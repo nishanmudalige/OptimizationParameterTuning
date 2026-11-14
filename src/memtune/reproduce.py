@@ -19,8 +19,8 @@ RTOL = 1e-6
 POLICY_LABELS = {
     "baseline1_mem5": "Default mem = 5 (Baseline 1)",
     "baseline2_mem87": "Fixed mem = 87 (Baseline 2)",
-    "framework_rf": "Framework, random-forest Stage 2",
-    "framework_gb": "Framework, XGBoost Stage 2",
+    "framework_rf": "Framework",
+    "framework_gb": "Alternative, XGBoost Stage 2",
 }
 METRIC_LABELS = {"Q50": "median ratio", "Q75": "75th pct. ratio", "Q90": "90th pct. ratio", "mean": "mean ratio",
                  "total_time": "total time (s)"}

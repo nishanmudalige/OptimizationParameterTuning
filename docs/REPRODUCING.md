@@ -17,7 +17,7 @@ End-to-end performance ratios (43 test instances)
   quantity                                               reference  recomputed
   Default mem = 5 (Baseline 1), median ratio                1.0592      1.0592   ok
   ...
-  Framework, XGBoost Stage 2, 90th pct. ratio               2.0613      2.0613   ok
+  Alternative, XGBoost Stage 2, 90th pct. ratio             2.0613      2.0613   ok
   mem chosen for every test instance                     reference   identical   ok
 
 32 of 32 reference values reproduced (details: results/reproduction.json).
@@ -33,7 +33,7 @@ identical). Add `--figures` to also write the aggregate figures.
 | Size of the benchmark: 215 complete instances, 43 test instances, 4,300 test runs | `python -m memtune reproduce` | terminal, `results/reproduction.json` | 5 s |
 | Stage 1 accuracy on the test set (MSE and R² of the log targets; random forest and XGBoost) | `python -m memtune reproduce` | same | |
 | Stage 2 accuracy on the test set (MSE and R² of the log run time; random forest and XGBoost) | `python -m memtune reproduce` | same | |
-| End-to-end performance ratios (the paper's Table 4): default `mem = 5`, fixed `mem = 87`, framework with either Stage 2; median, 75th and 90th percentile, mean, total time | `python -m memtune reproduce` | same | |
+| End-to-end performance ratios (the paper's Table 4): default `mem = 5`, fixed `mem = 87`, the framework, and the alternative XGBoost Stage 2 of the journal article; median, 75th and 90th percentile, mean, total time | `python -m memtune reproduce` | same | |
 | The same table as files | `python -m memtune evaluate` | `results/table4.csv`, `results/evaluation.json` | 5 s |
 | Aggregate figures: `mem` against run time, evaluations and memory, over all instances | `python scripts/plot_global_mem.py` | `results/global_mem_plots/*.pdf` (6 files) | 5 s |
 | Per-instance figures | `python scripts/plot_per_problem.py [--limit N]` | `results/` (about 3,650 PDF files for all instances) | 13 min for all |

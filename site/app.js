@@ -7,15 +7,15 @@ const FIRST_EXAMPLE = "sinquad_1000";  // shown when the address names no instan
 const state = { index: null, meta: null, byId: new Map(), cache: new Map(), current: null, model: "rf", running: false };
 const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const MODEL_NAME = { rf: "framework, random forest", gb: "framework, XGBoost", one_step: "one-step model" };
+const MODEL_NAME = { rf: "framework", gb: "alternative XGBoost Stage 2", one_step: "one-step model" };
 const POLICY_ROWS = [  // [policy key, label, meta.table4 key]
-  ["rf", "Framework, random-forest Stage 2", "framework_rf"],
-  ["gb", "Framework, XGBoost Stage 2", "framework_gb"],
+  ["rf", "Framework", "framework_rf"],
+  ["gb", 'XGBoost Stage 2 <span class="tag">alternative</span>', "framework_gb"],
   ["one_step", 'One-step model <span class="tag">not in paper</span>', "one_step_rf"],
 ];
 const TIME_EXPLAIN = {
-  framework: "The three Stage 1 predictions go into a second model that predicts the run time. The framework then picks " +
-    "the <code>mem</code> with the smallest predicted time.",
+  framework: "The three Stage 1 predictions go into a second model that predicts the run time. " +
+    "The <code>mem</code> with the smallest predicted time is recommended.",
   one_step: "The one-step model (not in the paper) predicts the run time directly from the 15 features, " +
     "<code>mem</code> included, and picks the <code>mem</code> with the smallest predicted time.",
 };
@@ -214,7 +214,7 @@ function renderRecommendation(d) {
   const ratio = (x) => (x === null || best === null || best === 0 ? "–" : `${(x / best).toFixed(2)}×`);
   const rows = [
     ["Default of JSOSolvers.jl", state.meta.default_mem, t.default, ""],
-    ["Fixed value, the best single value on the test instances", state.meta.fixed_mem, t.fixed, ""],
+    ["Fixed value, the best single value over all complete instances", state.meta.fixed_mem, t.fixed, ""],
     ...POLICY_ROWS.map(([key, label]) => [label, d.rec[key], t[key], key === state.model ? "chosen" : ""]),
     ["Best measured for this problem (hindsight)", d.best_observed_mem, best, "best"],
   ];

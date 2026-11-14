@@ -11,8 +11,8 @@ All models are scikit-learn or XGBoost regressors saved with `joblib`. They were
 | `stage1/random_forest.pkl` | 1 | 15 problem features (incl. `mem`) → log1p(`neval_obj`, `neval_grad`, `timed_bytes`) | hybrid Stage 1: `neval_obj`, `neval_grad` |
 | `stage1/xgboost.pkl` | 1 | same | hybrid Stage 1: `timed_bytes` |
 | `stage1/linear_regression.pkl` | 1 | same | linear baseline |
-| `stage2_hybrid/random_forest.pkl` | 2 | hybrid Stage 1 output (3 values) → log1p(`stats_elapsed_time`) | **framework, random-forest Stage 2** |
-| `stage2_hybrid/xgboost.pkl` | 2 | same | **framework, XGBoost Stage 2** |
+| `stage2_hybrid/random_forest.pkl` | 2 | hybrid Stage 1 output (3 values) → log1p(`stats_elapsed_time`) | **Stage 2 of the framework** |
+| `stage2_hybrid/xgboost.pkl` | 2 | same | alternative Stage 2 (journal article); not part of the framework |
 | `stage2_ground_truth/random_forest.pkl` | 2 | *observed* `neval_obj`, `neval_grad`, `timed_bytes` → log1p time | Stage 2 on ground-truth inputs |
 | `stage2_ground_truth/xgboost.pkl` | 2 | same | same |
 | `stage2_ground_truth/linear_regression.pkl` | 2 | same | same |

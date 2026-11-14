@@ -49,7 +49,7 @@ def test_reproduce_confirms_every_reference_value(full_csv, tmp_path, capsys):
     assert len(rows) == 32 and all(r["agrees"] for r in rows)
     # the numbers printed in the paper
     q90 = {r["quantity"]: r["recomputed"] for r in rows if r["quantity"].endswith("90th pct. ratio")}
-    assert q90["Framework, XGBoost Stage 2, 90th pct. ratio"] == pytest.approx(2.061, abs=5e-4)
+    assert q90["Alternative, XGBoost Stage 2, 90th pct. ratio"] == pytest.approx(2.061, abs=5e-4)
     assert q90["Default mem = 5 (Baseline 1), 90th pct. ratio"] == pytest.approx(2.684, abs=5e-4)
 
 
@@ -61,7 +61,7 @@ def test_reproduce_notices_a_different_value(sample_result, golden_sample):
     changed["table4"]["framework_gb"]["Q90"] *= 1.001
     changed["chosen_mem"]["framework_rf"][next(iter(changed["chosen_mem"]["framework_rf"]))] = 0
     bad = [quantity for _, quantity, _, _, ok in comparison_rows(sample_result, changed) if not ok]
-    assert bad == ["Framework, XGBoost Stage 2, 90th pct. ratio", "mem chosen for every test instance"]
+    assert bad == ["Alternative, XGBoost Stage 2, 90th pct. ratio", "mem chosen for every test instance"]
 
 
 @pytest.fixture(scope="module")

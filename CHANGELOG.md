@@ -17,6 +17,11 @@ Added
 - `docs/REPRODUCING.md`, `docs/ONE_STEP_MODEL.md`, `docs/ROBUSTNESS.md`, `CONTRIBUTING.md`, this file.
 
 Changed
+- "The framework" now means one model, as in the paper: hybrid Stage 1 and random-forest Stage 2. The XGBoost
+  Stage 2 of the journal article is labelled an alternative in the README, the documentation, the demo and the
+  output of `reproduce`. Its model, its numbers and `--stage2 gb` are unchanged.
+- The fixed `mem = 87` is described as the best single value over all 215 complete instances, as in the paper
+  (it was called the best value on the test instances, where the best single value is 86).
 - The README was rewritten; the one-step model's description moved to `docs/ONE_STEP_MODEL.md`.
 - The demo says "instance" for a problem at one size and states that test instances are new sizes of problems seen
   in training. It opens with a fixed example and explains what to do when its data is missing.

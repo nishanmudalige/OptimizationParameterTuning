@@ -5,8 +5,8 @@
 
 ## Why the framework often recommends a very small `mem`
 
-Of the 280 instances in the data, the framework recommends `mem` ≤ 3 for 157 with the random-forest Stage 2 and for
-176 with the XGBoost Stage 2.
+Of the 280 instances in the data, the framework recommends `mem` ≤ 3 for 157. With the alternative XGBoost Stage 2
+of the journal article, which is not part of the framework, it is 176.
 
 The reason is what Stage 2 gets to see: only the three Stage 1 predictions (objective evaluations, gradient
 evaluations, allocated memory). Allocated memory grows with `mem`. Across problems it also grows with the problem
@@ -16,7 +16,7 @@ within one problem its predicted run time *rises* with `mem`. The measured run t
 | Within one instance, correlation of `mem` with … (median over the 43 test instances) | |
 |---|---:|
 | the measured run time | −0.25 |
-| the run time predicted by the framework, XGBoost Stage 2 | +0.56 |
+| the run time predicted with the XGBoost Stage 2 | +0.56 |
 
 On the test instances this costs time. The ratios of the paper's table improve on the default, but the *total* run
 time of the framework's choices is larger than with the default, because some of the small-`mem` choices fall on
@@ -25,9 +25,9 @@ long-running problems:
 | Choice of `mem` (43 test instances) | Median | 75th pct. | 90th pct. | Mean | Total time | `mem` ≤ 3 |
 |---|---:|---:|---:|---:|---:|---:|
 | Default `mem = 5` | 1.059 | 1.628 | 2.684 | 2.262 | 3,309 s | 0 |
-| Fixed `mem = 87`, the best single value on the test instances | 1.000 | 1.056 | 1.280 | 1.093 | 2,474 s | 0 |
-| Framework, random-forest Stage 2 (paper) | 1.000 | 1.577 | 2.195 | 1.637 | 4,977 s | 20 |
-| Framework, XGBoost Stage 2 (paper) | 1.000 | 1.297 | 2.061 | 1.459 | 4,884 s | 25 |
+| Fixed `mem = 87`, the best single value over all 215 instances | 1.000 | 1.056 | 1.280 | 1.093 | 2,474 s | 0 |
+| Framework (paper) | 1.000 | 1.577 | 2.195 | 1.637 | 4,977 s | 20 |
+| Alternative, XGBoost Stage 2 (journal article) | 1.000 | 1.297 | 2.061 | 1.459 | 4,884 s | 25 |
 | **One-step model** | 1.009 | 1.131 | 1.394 | 1.140 | 2,584 s | 0 |
 
 ## The model
@@ -63,13 +63,13 @@ from memtune import recommend_mem
 problems["recommended_mem"] = recommend_mem(problems, stage2="one_step")
 ```
 
-`python -m memtune evaluate` prints its row (`one_step_rf`) under the paper's rows, and the demo offers it as a
-third model.
+`python -m memtune evaluate` prints its row (`one_step_rf`) under the paper's rows, and the demo offers it next
+to the framework.
 
 ## What it does not show
 
-- It does **not** beat the fixed `mem = 87` on the test instances. That value was picked by looking at the test
-  results, so the comparison favours it, but it means that on this benchmark a single large `mem` is hard to improve
+- It does **not** beat the fixed `mem = 87` on the test instances. That value was picked with hindsight, using all
+  215 instances and so the test instances too, which favours it, but it means that on this benchmark a single large `mem` is hard to improve
   on. [`ROBUSTNESS.md`](ROBUSTNESS.md) describes a fairer version of that comparison, with the fixed value chosen on
   the training data.
 - The numbers above come from the same single split as the paper's, with the same limits.

@@ -63,7 +63,8 @@ def recommend_mem(problems: pd.DataFrame, framework=None, stage2: str = "rf", mo
     ``problems`` needs the columns in :data:`PROBLEM_FEATURES` (everything in ``data.FEATURES`` except
     ``mem``). Ties go to the largest ``mem``, as in the paper's evaluation.
 
-    ``stage2`` is ``"rf"`` or ``"gb"`` for the paper's framework, or ``"one_step"`` for the one-step model
+    ``stage2`` is ``"rf"`` for the paper's framework, ``"gb"`` for the alternative XGBoost Stage 2 (reported in the
+    journal article, not part of the framework), or ``"one_step"`` for the one-step model
     (not in the paper; it avoids the framework's bias towards very small ``mem``, see :mod:`memtune.one_step`).
     """
     fw = framework or load_framework(models_dir)

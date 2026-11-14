@@ -23,8 +23,8 @@ hyper-parameter is tuned again. Policies compared on every test set:
 ``default_mem5``    the default of JSOSolvers.jl
 ``fixed_train``     one fixed ``mem`` for all problems, chosen on the *training* instances of that split
                     (smallest mean performance ratio); unlike the paper's ``mem = 87`` it uses no test data
-``framework_rf``    the paper's framework, random-forest Stage 2
-``framework_gb``    the paper's framework, XGBoost Stage 2
+``framework_rf``    the paper's framework: hybrid Stage 1, random-forest Stage 2
+``framework_gb``    the alternative XGBoost Stage 2 on the same Stage 1 (not part of the framework)
 ``one_step_rf``     the one-step model (see :mod:`memtune.one_step`)
 ==================  ====================================================================================
 """
@@ -44,8 +44,8 @@ POLICIES = ("default_mem5", "fixed_train", "framework_rf", "framework_gb", "one_
 POLICY_LABELS = {
     "default_mem5": "Default mem = 5",
     "fixed_train": "Fixed mem chosen on the training instances",
-    "framework_rf": "Framework, random-forest Stage 2 (paper)",
-    "framework_gb": "Framework, XGBoost Stage 2 (paper)",
+    "framework_rf": "Framework (paper)",
+    "framework_gb": "Alternative, XGBoost Stage 2",
     "one_step_rf": "One-step model",
 }
 SUMMARY_COLUMNS = ["Q50", "Q75", "Q90", "mean", "time_ratio", "small_mem"]

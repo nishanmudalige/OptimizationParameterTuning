@@ -18,7 +18,7 @@
         L-BFGS keeps the last <code>mem</code> updates; <code>JSOSolvers.jl</code> uses <code>mem = 5</code>.
         Pick a problem and a size, then watch the two-stage framework predict the solver's work and run time
         for every <code>mem</code> from 1 to 100 and recommend one. Measured runs are shown next to the predictions,
-        and a one-step model (not in the paper) shows how to avoid the framework's bias towards very small <code>mem</code>.
+        and two alternatives can be selected for comparison: an XGBoost Stage 2, and a one-step model (not in the paper) that shows how to avoid the framework's bias towards very small <code>mem</code>.
       </p>
       <nav class="links">
         <a href="https://github.com/nishanmudalige/OptimizationParameterTuning">Code and data</a>
@@ -40,8 +40,8 @@
       </label>
       <fieldset class="field seg" id="model">
         <legend>Model</legend>
-        <label title="The paper's framework with a random-forest Stage 2"><input type="radio" name="model" value="rf" checked> Framework, random forest</label>
-        <label title="The paper's framework with an XGBoost Stage 2"><input type="radio" name="model" value="gb"> Framework, XGBoost</label>
+        <label title="The framework: hybrid Stage 1 and random-forest Stage 2"><input type="radio" name="model" value="rf" checked> Framework</label>
+        <label title="The same Stage 1 with an XGBoost Stage 2; reported in the journal article, not part of the framework"><input type="radio" name="model" value="gb"> XGBoost Stage 2 <span class="tag">alternative</span></label>
         <label title="Predicts run time directly from the features; not in the paper"><input type="radio" name="model" value="one_step"> One-step <span class="tag">not in paper</span></label>
       </fieldset>
       <div class="actions">
@@ -116,8 +116,8 @@
           (1 = optimal in hindsight).</li>
         <li><strong>Limits:</strong> results come from one train/test split, and every test instance is a problem that
           also occurs in the training data at another size, so they say little about entirely new problems; the timing features depend on the machine
-          that measured them; a single large fixed value (<code>mem = 87</code>, chosen with
-          hindsight on the test problems) is a strong reference that no model here beats. See the paper.</li>
+          that measured them; a single large fixed value (<code>mem = 87</code>, the value with the smallest average run time over all 215 complete instances, chosen with
+          hindsight) is a strong reference that no model here beats. See the paper.</li>
         <li><strong>Not covered:</strong> non-scalable (small, fixed-size) problems and sizes outside the training range;
           computing features for new problems live is on the <a href="https://github.com/nishanmudalige/OptimizationParameterTuning/blob/main/docs/DEMO_ROADMAP.md">roadmap</a>.</li>
       </ul>

@@ -102,7 +102,8 @@ def main(argv=None) -> int:
         if name == "recommend":
             s.add_argument("features", help="CSV with one row per problem (see docs/USAGE.md)")
             s.add_argument("--stage2", choices=["rf", "gb", "one_step"], default="rf",
-                           help="rf / gb: the paper's framework; one_step: the one-step model (not in the paper)")
+                           help="rf: the paper's framework (default); gb: the alternative XGBoost Stage 2; "
+                                "one_step: the one-step model (not in the paper)")
             s.add_argument("--output", help="write CSV here instead of stdout")
         elif name == "demo":
             s.add_argument("--port", type=int, default=8000, help="port (default 8000; the next free one is used)")

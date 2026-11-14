@@ -9,7 +9,7 @@ Output:
                              meta.table4: the test-set results of every policy
     instances/<id>.json      features, Stage 1 and Stage 2 curves over mem = 1..100, observed values
 
-Policies: "rf" and "gb" are the paper's framework with either Stage 2; "one_step" is the one-step model
+Policies: "rf" is the paper's framework, "gb" the alternative XGBoost Stage 2; "one_step" is the one-step model
 (NOT in the paper, see memtune/one_step.py). Its curve is stored under stage2.one_step for simplicity.
 
 The static page in site/ reads these files; nothing runs on a server.

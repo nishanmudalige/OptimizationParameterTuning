@@ -51,7 +51,7 @@ Prepare a CSV with one row per problem and these columns (they are the problem f
 
 ```bash
 python -m memtune recommend my_problems.csv --output recommendations.csv
-python -m memtune recommend my_problems.csv --stage2 gb      # XGBoost Stage 2 instead of the random forest
+python -m memtune recommend my_problems.csv --stage2 gb      # alternative: XGBoost Stage 2 (not part of the framework)
 python -m memtune recommend my_problems.csv --stage2 one_step  # the one-step model (not in the paper)
 ```
 
@@ -62,15 +62,16 @@ import pandas as pd
 from memtune import recommend_mem
 
 problems = pd.read_csv("my_problems.csv")
-problems["recommended_mem"] = recommend_mem(problems, stage2="rf")   # or "gb", or "one_step"
+problems["recommended_mem"] = recommend_mem(problems)   # the framework; stage2="gb" or "one_step": the alternatives
 ```
 
 Ties between equally good `mem` values go to the largest one, as in the paper's evaluation.
 The paper's results are for the unconstrained problems of `OptimizationProblems.jl` and L-BFGS from
 `JSOSolvers.jl`; treat recommendations for very different problems with care.
 
-`"rf"` and `"gb"` are the paper's framework. It tends to pick a very small `mem` (Stage 2 links more allocated
-memory to a longer run). `"one_step"` is a random forest that predicts the run time directly from the features; it
+The default, `"rf"`, is the framework: hybrid Stage 1 and random-forest Stage 2. `"gb"` replaces Stage 2 by the
+XGBoost model that the journal article also reports; it is less accurate and not part of the framework. Both tend
+to pick a very small `mem` (Stage 2 links more allocated memory to a longer run). `"one_step"` is a random forest that predicts the run time directly from the features; it
 is not in the paper, avoids that bias and did better on the test instances
 ([`ONE_STEP_MODEL.md`](ONE_STEP_MODEL.md)). Retrain it with `python scripts/train_one_step_model.py` (`--select`
 first reruns the cross-validation that chose its settings, on the training instances only).
@@ -173,7 +174,7 @@ The page (`site/index.html`, `app.js`, `style.css`) is static: it reads the prec
 from the committed models with `memtune.predict.explain`, so it always shows what the package computes (a test checks
 that the recommendations for the test instances equal the paper's evaluation, and another test runs the page in a
 real browser). The URL keeps the selection, e.g. `#id=sinquad_1000&model=gb`, so you can link to an example. The
-model shown first is the paper's framework with the random-forest Stage 2.
+model shown first is the framework; `model=gb` and `model=one_step` show the two alternatives.
 
 Hosting:
 - **GitHub Pages:** `.github/workflows/pages.yml` builds, tests and publishes the page on every push to `main` once a

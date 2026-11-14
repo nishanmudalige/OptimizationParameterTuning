@@ -29,7 +29,8 @@ MODEL_FILES = {
     "one_step_rf": "one_step/random_forest.pkl",
 }
 
-#: Policies that choose ``mem``: the paper's framework with either Stage 2, and the one-step model.
+#: Policies that choose ``mem``: the paper's framework (``rf``), the alternative XGBoost Stage 2 (``gb``), and the
+#: one-step model.
 POLICIES = ("rf", "gb", "one_step")
 
 
@@ -86,7 +87,8 @@ class Framework:
     def log_time(self, X: np.ndarray, which: str = "rf") -> np.ndarray:
         """Predicted log1p run time for rows of ``data.FEATURES``.
 
-        ``which`` is ``"rf"`` / ``"gb"`` (the paper's framework: Stage 1 hybrid, then that Stage 2) or
+        ``which`` is ``"rf"`` (the paper's framework: Stage 1 hybrid, then the random-forest Stage 2), ``"gb"`` (the
+        same Stage 1 with the alternative XGBoost Stage 2) or
         ``"one_step"`` (features -> run time directly; not in the paper).
         """
         if which == "one_step":
